@@ -1,0 +1,5 @@
+name = EFF Piwik
+description = Piwik analytics for EFF
+core = 7.x
+files[] = eff_piwik.module
+package = EFF

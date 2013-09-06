@@ -1,0 +1,42 @@
+<?php
+
+/**
+ * Implements hook_page_alter().
+ */
+function eff_piwik_page_alter(&$page) {
+  if (variable_get('piwik_site_id', 0)) {
+    if (drupal_get_title()) {
+      $head_title = array(
+        'title' => strip_tags(drupal_get_title()),
+        'name' => check_plain(variable_get('site_name', 'Drupal')),
+      );
+    }
+    else {
+      $head_title = array('name' => check_plain(variable_get('site_name', 'Drupal')));
+      if (variable_get('site_slogan', '')) {
+        $head_title['slogan'] = filter_xss_admin(variable_get('site_slogan', ''));
+      }
+    }
+    $variables['head_title'] = implode(' | ', $head_title);
+    $variables['piwik_site_id'] = variable_get('piwik_site_id', 0);
+    $page['page_bottom']['eff_piwik'] = array(
+      '#type' => 'markup',
+      '#markup' => theme('eff_piwik_footer', $variables),
+    );
+  }
+}
+
+/**
+ * Implements hook_theme().
+ */
+function eff_piwik_theme($existing, $type, $theme, $path) {
+  return array(
+    'eff_piwik_footer' => array(
+      'template' => 'eff-piwik-footer',
+      'variables' => array(
+        'head_title' => NULL,
+        'piwik_site_id' => NULL,
+      ),
+    ), 
+  );
+}
