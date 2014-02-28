@@ -3,9 +3,9 @@ description = Controls access to context based upon term depth
 core = 7.x
 dependencies[] = ctools
 package = Chaos tool suite
-; Information added by Drupal.org packaging script on 2014-01-31
-version = "7.x-1.3+33-dev"
+; Information added by Drupal.org packaging script on 2014-02-12
+version = "7.x-1.4"
 core = "7.x"
 project = "ctools"
-datestamp = "1391207935"
+datestamp = "1392220730"
 
