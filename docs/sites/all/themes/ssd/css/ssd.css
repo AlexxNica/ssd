@@ -4860,3 +4860,6 @@ th.hide-for-touch {
 
 .item-list .pager li {
   padding: 0; }
+
+img.logo {
+  max-width: 320px; }
