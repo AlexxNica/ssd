@@ -9,25 +9,25 @@ All code licensed under Affero General Public License version 3+ unless otherwis
 
 ### Mac:
 
-`ruby -e "$(curl -fsSL https://raw.github.com/Homebrew/homebrew/go/install)"`
-`brew install node`
+* `ruby -e "$(curl -fsSL https://raw.github.com/Homebrew/homebrew/go/install)"`
+* `brew install node`
 
 ### Linux:
 
-`apt-get install npm`
+* `apt-get install npm`
 
 ### Install grunt
 
-`npm install -g grunt grunt-cli`
+* `npm install -g grunt grunt-cli`
 
 ### Install theme dependencies
 
-`cd docs/sites/all/themes/ssd`
-`npm install`
+* `cd docs/sites/all/themes/ssd`
+* `npm install`
 
 ### Run grunt
 
-Now type `grunt` and hit enter.
+* `grunt`
 
 If all went well, Grunt is now running and watching your theme for changes.
 
