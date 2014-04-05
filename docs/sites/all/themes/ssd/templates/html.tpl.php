@@ -39,7 +39,6 @@
  * @see template_preprocess()
  * @see template_preprocess_html()
  * @see template_process()
- * @see zurb_foundation_foundation_3col_stacked_panels_layouts()
  */
 ?>
 <!DOCTYPE html>
