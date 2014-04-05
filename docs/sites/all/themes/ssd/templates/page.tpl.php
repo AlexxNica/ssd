@@ -212,7 +212,7 @@
 
     <?php if ($site_name) :?>
       <div class="copyright large-12 columns">
-        &copy; <?php print date('Y') . ' Electronic Frontier Foundation. Some rights reserved.'; ?>
+        &copy; <?php print date('Y') . ' Electronic Frontier Foundation. Some rights reserve'; ?>
       </div>
     <?php endif; ?>
   </footer>

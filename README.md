@@ -14,7 +14,7 @@ All code licensed under Affero General Public License version 3+ unless otherwis
 
 ### Linux:
 
-* `apt-get install npm`
+* `apt-get install npm nodejs-legacy`
 
 ### Install grunt
 
