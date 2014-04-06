@@ -52,6 +52,10 @@
   <title><?php print $head_title; ?></title>
   <?php print $styles; ?>
   <?php print $scripts; ?>
+  <script src="sites/all/themes/ssd/js/vendor/jquery.js"></script>
+  <script src="sites/all/themes/ssd/js/foundation/foundation.js"></script>
+  <script src="sites/all/themes/ssd/js/foundation/foundation.orbit.js"></script>
+  
   <!--[if lt IE 9]>
 		<script src="<?php print check_plain(file_create_url($directory . '/js/vendor/html5.js')); ?>"></script>
 	<![endif]-->
