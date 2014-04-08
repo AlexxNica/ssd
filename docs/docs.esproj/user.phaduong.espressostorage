@@ -10,7 +10,7 @@
 		<array>
 			<dict>
 				<key>DocumentURL</key>
-				<string>file://localhost/Users/phaduong/Documents/Websites/ssd/docs/sites/all/themes/ssd/templates/page.tpl.php</string>
+				<string>file://localhost/Users/phaduong/Documents/Websites/ssd/docs/sites/all/themes/ssd/templates/page--front.tpl.php</string>
 				<key>StateType</key>
 				<string>DefaultTab</string>
 			</dict>
@@ -29,6 +29,12 @@
 			<dict>
 				<key>DocumentURL</key>
 				<string>file://localhost/Users/phaduong/Documents/Websites/ssd/docs/sites/all/themes/ssd/templates/html.tpl.php</string>
+				<key>StateType</key>
+				<string>DefaultTab</string>
+			</dict>
+			<dict>
+				<key>DocumentURL</key>
+				<string>file://localhost/Users/phaduong/Documents/Websites/ssd/docs/sites/all/themes/ssd/templates/page.tpl.php</string>
 				<key>StateType</key>
 				<string>DefaultTab</string>
 			</dict>

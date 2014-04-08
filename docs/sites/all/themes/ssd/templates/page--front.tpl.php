@@ -50,7 +50,7 @@
  
   <div class="row">
     <div class="large-12 columns">
-<!--    <div id="slider">
+    <div id="slider">
 	  <ul class="example-orbit" data-orbit>
 	    <li>
 	      <img src="http://www.placekitten.com/1000/400" alt="slide 1" />
@@ -71,7 +71,7 @@
 	      </div>
 	    </li>
 	  </ul>
-    </div>-->
+    </div>
     
     <hr />
     </div>
