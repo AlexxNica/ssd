@@ -1,3 +1,5 @@
+<!-- I think we don't really need this stuff because it's a subtheme of foundation? -->
+
 <?php
 
 /**

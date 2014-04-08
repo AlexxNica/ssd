@@ -1,20 +1,16 @@
-<div class="black-header">
-  <div class="scratch-user-menu">
-    <?php if ($logged_in): ?>
-      <?php print render($page['user_menu']); ?>
-    <?php else: ?>
-      <ul>
-        <li class="menu"><a href="<?php base_path(); ?>user/login">Log In</a></li>
-      </ul>
-    <?php endif; ?>
-  </div>
-</div>  
-	 
+
+
+  <?php print render($page['header']); ?>	 
+<div id ="wrapper">	 
+	<div id="container" class="clearfix">
+		
+	 <div id="header">
 	 <div class="row">
     <div class="large-3 columns">
  <div id="logo-floater">
  <?php if ($logo || $site_title): ?>
    <?php if ($title): ?>
+	   <!-- Logo is a link. -->
      <div id="branding"><strong><a href="<?php print $front_page ?>">
      <?php if ($logo): ?>
        <img src="<?php print $logo ?>" alt="<?php print $site_name_and_slogan ?>" title="<?php print $site_name_and_slogan ?>" id="logo" />
@@ -32,15 +28,20 @@
  <?php endif; ?>
  </div>
     </div>
+	
     <div class="large-9 columns">
-      <ul class="right button-group">
+        <?php if ($primary_nav): print $primary_nav; endif; ?>
+        <?php if ($secondary_nav): print $secondary_nav; endif; ?>
+      <!-- <ul class="right button-group">
       <li><a href="#" class="button">Link 1</a></li>
       <li><a href="#" class="button">Link 2</a></li>
       <li><a href="#" class="button">Link 3</a></li>
       <li><a href="#" class="button">Link 4</a></li>
-      </ul>
+      </ul> -->
      </div>
    </div>
+   
+</div>
   
 <!-- End Header and Nav -->
  
@@ -53,19 +54,19 @@
 	    <li>
 	      <img src="http://www.placekitten.com/1000/400" alt="slide 1" />
 	      <div class="orbit-caption">
-	        Caption One.
+	        Quickstart One.
 	      </div>
 	    </li>
 	    <li class="active">
 	      <img src="http://www.placekitten.com/1000/400" alt="slide 2" />
 	      <div class="orbit-caption">
-	        Caption Two.
+	        Quickstart Two.
 	      </div>
 	    </li>
 	    <li>
 	      <img src="http://www.placekitten.com/1000/400" alt="slide 3" />
 	      <div class="orbit-caption">
-	        Caption Three.
+	        Quickstart Three.
 	      </div>
 	    </li>
 	  </ul>
@@ -76,6 +77,8 @@
   </div>
   
 <!-- Three-up Content Blocks -->
+  
+  <?php print render($page['content']); ?>
  
   <div class="row">
     <div class="large-4 columns">
@@ -117,6 +120,10 @@
       
     </div>
   </div>
+  
+</div>
+  
+</div>
  
   <!-- Footer -->
   

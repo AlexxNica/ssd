@@ -52,7 +52,8 @@
   <title><?php print $head_title; ?></title>
   <?php print $styles; ?>
   <?php print $scripts; ?>
-  <script src="sites/all/themes/ssd/js/vendor/jquery.js"></script>
+  <script src="../misc/jquery.js"></script>
+  <script src="http://code.jquery.com/jquery-migrate-1.2.1.js"></script>
   <script src="sites/all/themes/ssd/js/foundation/foundation.js"></script>
   <script src="sites/all/themes/ssd/js/foundation/foundation.orbit.js"></script>
   
