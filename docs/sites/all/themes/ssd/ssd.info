@@ -80,6 +80,7 @@ scripts[] = js/foundation.min.js
 ;   <?php print render($page['header']); ?>
 
 regions[header]              = Header
+regions[main_menu] 			 = Main Menu
 regions[help]                = Help
 regions[highlighted]         = Highlighted
 regions[featured]            = Featured
@@ -102,14 +103,14 @@ regions[footer]              = Footer
 ; entry for it below. See the Drupal 7 Theme Guide for more info:
 ; http://drupal.org/node/171205#features
 
-; features[] = logo
-; features[] = name
+ features[] = logo
+ features[] = name
 ; features[] = slogan
 ; features[] = node_user_picture
 ; features[] = comment_user_picture
 ; features[] = favicon
 ; features[] = main_menu
-; features[] = secondary_menu
+ features[] = secondary_menu
 
 ; Panel Layouts
 plugins[panels][layouts] = layouts

@@ -8,21 +8,21 @@
 	 <div class="row">
     <div class="large-3 columns">
  <div id="logo-floater">
- <?php if ($logo || $site_title): ?>
+ <?php if ($logo || $site_name): ?>
    <?php if ($title): ?>
 	   <!-- Logo is a link. -->
      <div id="branding"><strong><a href="<?php print $front_page ?>">
      <?php if ($logo): ?>
-       <img src="<?php print $logo ?>" alt="<?php print $site_name_and_slogan ?>" title="<?php print $site_name_and_slogan ?>" id="logo" />
+       <img src="<?php print $logo ?>" alt="<?php print $site_name ?>" title="<?php print $site_name ?>" id="logo" />
      <?php endif; ?>
-     <?php print $site_html ?>
+     <?php print $front_page ?>
      </a></strong></div>
    <?php else: /* Use h1 when the content title is empty */ ?>
      <h1 id="branding"><a href="<?php print $front_page ?>">
      <?php if ($logo): ?>
-       <img src="<?php print $logo ?>" alt="<?php print $site_name_and_slogan ?>" title="<?php print $site_name_and_slogan ?>" id="logo" />
+       <img src="<?php print $logo ?>" alt="<?php print $site_name ?>" title="<?php print $site_name ?>" id="logo" />
      <?php endif; ?>
-     <?php print $site_html ?>
+     <?php print $front_page ?>
      </a></h1>
  <?php endif; ?>
  <?php endif; ?>
@@ -30,8 +30,10 @@
     </div>
 	
     <div class="large-9 columns">
-        <?php if ($primary_nav): print $primary_nav; endif; ?>
-        <?php if ($secondary_nav): print $secondary_nav; endif; ?>
+		<div class="main nav">
+			<?php print render($page['main_menu']); ?>
+		</div>
+
       <!-- <ul class="right button-group">
       <li><a href="#" class="button">Link 1</a></li>
       <li><a href="#" class="button">Link 2</a></li>
