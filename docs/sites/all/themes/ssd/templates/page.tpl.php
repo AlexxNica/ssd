@@ -30,7 +30,7 @@
     </div>
 	
     <div class="large-9 columns">
-		<div class="main nav">
+		<div id="main-nav">
 			<?php print render($page['main_menu']); ?>
 		</div>
 

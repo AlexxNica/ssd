@@ -218,6 +218,31 @@ fieldset {
   border: 1px solid silver;
   margin: 0 2px;
   padding: 0.35em 0.625em 0.75em; }
+  
+  
+  #main-nav {
+	  float:right;
+  }
+  
+  
+  #main-nav h2 {
+    display:none;
+  }
+  #main-nav ul {
+    list-style-type:none !important;
+    margin:0;
+    padding:0;
+    padding-top:40px;
+    padding-right:30px;
+  }
+  #main-nav li {
+    display:inline;
+  }
+  #main-nav .menu a:link {color:#4d4d4d; text-decoration: none;}
+  #main-nav .menu a:visited {color:#4d4d4d; text-decoration: none;}
+  #main-nav .menu a:hover {color:#4d4d4d; text-decoration: underline;}
+  #main-nav .menu a:active {color:#4d4d4d; text-decoration: none;}
+  
 
 /**
  * 1. Correct `color` not being inherited in IE 8/9.
