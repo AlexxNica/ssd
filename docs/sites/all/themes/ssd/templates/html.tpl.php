@@ -53,6 +53,7 @@
   <?php print $styles; ?>
   <?php print $scripts; ?>
   <script src="../misc/jquery.js"></script>
+  <!--NOTE: Originally this project was using jQuery 1.4. As of 04.08.2014. we're on jQuery 1.11.-->
   <script src="http://code.jquery.com/jquery-migrate-1.2.1.js"></script>
   <script src="sites/all/themes/ssd/js/foundation/foundation.js"></script>
   <script src="sites/all/themes/ssd/js/foundation/foundation.orbit.js"></script>

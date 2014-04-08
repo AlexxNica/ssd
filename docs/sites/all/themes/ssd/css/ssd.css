@@ -227,6 +227,7 @@ fieldset {
   
   #main-nav h2 {
     display:none;
+    padding-left:  20px;
   }
   #main-nav ul {
     list-style-type:none !important;
@@ -237,6 +238,7 @@ fieldset {
   }
   #main-nav li {
     display:inline;
+    padding-left: 20px;
   }
   #main-nav .menu a:link {color:#4d4d4d; text-decoration: none;}
   #main-nav .menu a:visited {color:#4d4d4d; text-decoration: none;}
