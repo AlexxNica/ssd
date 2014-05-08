@@ -16,7 +16,7 @@
     <div class="logo-div">
       <a href="<?php print $front_page; ?>" title="<?php print t('Home'); ?>" rel="home" id="logo">
         <span>A PROJECT OF THE</span>
-        <img src="/<?php print drupal_get_path('theme', 'ssd'); ?>/images/logo.png" alt="<?php print t('Home'); ?>" />
+        <img src="/<?php print drupal_get_path('theme', 'ssd_neo'); ?>/images/logo.png" alt="<?php print t('Home'); ?>" />
       </a>
     </div>
     <div class="main-menu">
@@ -80,13 +80,13 @@
     <li class="eff">EFF thanks</li>
     <li>
       <a href="http://www.digitalrealty.com/" target="_blank">
-        <img class="digital-realty" src="/<?php print drupal_get_path('theme', 'ssd'); ?>/images/digital-realty-logo.png" />
+        <img class="digital-realty" src="/<?php print drupal_get_path('theme', 'ssd_neo'); ?>/images/digital-realty-logo.png" />
       </a>
     </li>
     <li>&amp;</li>
     <li>
       <a href="http://nephoscale.com/" target="_blank">
-        <img class="nepho-scale" src="/<?php print drupal_get_path('theme', 'ssd'); ?>/images/nephoscale_logo.png" />
+        <img class="nepho-scale" src="/<?php print drupal_get_path('theme', 'ssd_neo'); ?>/images/nephoscale_logo.png" />
       </a>
     <li>
   </ul>
