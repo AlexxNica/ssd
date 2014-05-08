@@ -1,0 +1,13 @@
+name = SSD EFF
+description = A custom template from scratch for SSD EFF.
+core = 7.x
+ 
+stylesheets[all][] = CSS/bootstrap.min.css
+stylesheets[all][] = CSS/style.css
+ 
+regions[user_menu] = User Menu
+regions[main_menu] = Main Menu
+regions[content] = Content
+regions[quick_start_region] = Quick Start
+regions[orange_highlight_region] = Orange Highlight
+regions[home_blog_updates] = Home Blog Updates

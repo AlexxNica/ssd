@@ -1,0 +1,246 @@
+/* Font Declarations */
+@import "../webfonts/stylesheet.css";
+
+body {
+  margin: 0;
+  padding: 0;
+}
+
+/*
+ * Typography
+ */
+h2 {
+  font-size: 52px;
+  font-family: "League Gothic","Helvetica Neue","Helvetica","Arial";
+}
+
+/*
+ * Header
+ */
+.block-header {
+  background: rgb(85,98,103);
+  padding: 20px;
+}
+
+/*
+ * User Menu Header
+ */
+.user-menu-header {}
+
+/*
+ * Main Menu Header
+ */
+.main-menu-header {}
+
+.main-menu-header .logo-div {
+  float: left;
+  position: relative;
+}
+
+.main-menu-header .logo-div span {
+  font-size: 38px;
+  margin-right: 10px;
+  float: left;
+  color: rgb(140, 157, 169);
+  font-family: "League Gothic","Helvetica Neue","Helvetica","Arial";
+}
+
+.main-menu-header .logo-div img {
+  width: 100px;
+  height: auto;
+  position: absolute;
+  top: -13px;
+}
+
+/*
+ * Main Menu
+ */
+.main-menu-header .main-menu h2 {
+  display: none;
+}
+
+.main-menu-header .main-menu ul {
+  margin: 0;
+  float: right;
+}
+
+.main-menu-header .main-menu ul li {
+  float: left;
+  list-style: none;
+}
+
+.main-menu-header .main-menu ul li a {
+  text-transform: uppercase;
+  color: white;
+  text-decoration: none;
+  font-size: 38px;
+  font-family: "League Gothic","Helvetica Neue","Helvetica","Arial";
+}
+
+/*
+ * Footer
+ */
+.block-footer {
+  background: rgb(211,220,225);
+  padding: 20px;
+  overflow: hidden;
+}
+
+.block-footer ul.thanks {
+  margin: 0;
+  padding: 0;
+  position: relative;
+  top: 10px;
+}
+
+.block-footer ul.thanks li {
+  float: left;
+  list-style: none;
+  margin-right: 10px;
+  line-height: 36px;
+}
+
+.block-footer ul.links {
+  float: right;
+}
+
+.block-footer ul.links li {
+  float: left;
+  list-style: none;
+  border-right: solid 1px rgb(182,0,0);
+  padding: 0 10px;
+}
+
+.block-footer ul.links li.last {
+  border: none;
+}
+
+.block-footer ul.links a {
+  color: rgb(182,0,0);
+  text-decoration: none;
+}
+
+/*
+ * About SSD Main Banner
+ */
+body.front .node-main-banner {
+  margin: 0 auto 20px;
+  background: rgb(213, 223, 226);
+  position: relative;
+  overflow: hidden;
+  display: block;
+}
+
+body.front .node-main-banner h2 {
+  width: 70%;
+  float: right;
+  background: rgb(151, 169, 181);
+  margin: 0;
+}
+
+body.front .node-main-banner h2 a {
+  display: block;
+  color: black;
+  font-family: "League Gothic","Helvetica Neue","Helvetica","Arial";
+  font-weight: 100;
+  text-decoration: none;
+  font-size: 53px;
+  padding: 15px 20px 15px 15px;
+  border-left: solid 2px rgb(86, 99, 104);
+}
+
+body.front .node-main-banner .field-name-field-main-image {
+  width: 30%;
+  float: left;
+}
+
+body.front .node-main-banner .field-name-field-main-image img {
+  width: 100%;
+  height: auto;
+  position: relative;
+  top: 10px;
+}
+
+body.front .node-main-banner .field-name-body {
+  float: left;
+  width: 70%;
+  background: rgb(179, 195, 201);
+}
+
+body.front .node-main-banner .field-name-body .field-item {
+  padding: 20px;
+  line-height: 1.3;
+  font-size: 24px;
+  border-left: solid 2px rgb(86, 99, 104);
+}
+
+body.front .node-main-banner .submitted { display: none }
+body.front .node-main-banner .links     { display: none }
+
+/*
+ * Quick Start
+ */
+.region-quick-start-region {
+  clear: both;
+  overflow: hidden;
+  float: none;
+  margin-bottom: 40px;
+}
+
+.region-quick-start-region h2 {
+  font-family: "League Gothic","Helvetica Neue","Helvetica","Arial";
+  font-weight: 100;
+  text-align: center;
+}
+
+.region-quick-start-region .views-label-field-image {
+  display: none;
+}
+
+.region-quick-start-region .field-content img {
+  width: 100%;
+  height: 100%;
+}
+
+/*
+ * Orange Hightlight Box
+ */
+.orange_highlight_region {
+  float: right;
+  font-family: "League Gothic","Helvetica Neue","Helvetica","Arial";
+  font-weight: 300;
+}
+
+.orange_highlight_region .block-views {
+  background: rgb(226, 67, 38);
+}
+
+.orange_highlight_region h2 {
+  visibility: hidden;
+}
+
+.orange_highlight_region .content {
+  background: rgb(226, 67, 38);
+}
+
+.orange_highlight_region .content a {
+  color: rgb(244, 173, 52);
+  font-size: 75px;
+  text-decoration: none;
+  padding: 30px;
+  display: block;
+  line-height: 1.0;
+}
+
+/* Home Blog Updates */
+.home_blog_updates {}
+
+.home_blog_updates .views-row {
+  margin-bottom: 20px;
+}
+
+.home_blog_updates .views-row a {
+  color: rgb(186, 0, 0);
+  font-size: 24px;
+  font-weight: 900;
+}
