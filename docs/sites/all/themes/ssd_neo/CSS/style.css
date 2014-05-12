@@ -78,6 +78,30 @@ h2 {
 }
 
 /*
+ * Search Form
+ */
+#block-search-form {
+  float: right;
+}
+
+#block-search-form .form-text {
+  position: relative;
+  top: 10px;
+  font-family: "League Gothic","Helvetica Neue","Helvetica","Arial";
+  font-size: 26px;
+  background: rgb(181, 188, 190);
+  color: rgb(67, 67, 67);
+  border: none;
+  height: 35px;
+  padding: 0 10px;
+  margin-left: 20px;
+}
+
+#block-search-form .form-submit {
+  display: none;
+}
+
+/*
  * Footer
  */
 .block-footer {

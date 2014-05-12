@@ -16,7 +16,7 @@
     <div class="logo-div">
       <a href="<?php print $front_page; ?>" title="<?php print t('Home'); ?>" rel="home" id="logo">
         <span>A PROJECT OF THE</span>
-        <img src="/<?php print drupal_get_path('theme', 'ssd_neo'); ?>/images/logo.png" alt="<?php print t('Home'); ?>" />
+        <img src="/<?php print drupal_get_path('theme', $GLOBALS['theme']); ?>/images/logo.png" alt="<?php print t('Home'); ?>" />
       </a>
     </div>
     <div class="main-menu">
@@ -24,6 +24,13 @@
     </div>
   </div>
 </div>
+
+<!-- Search box placeholder hack -->
+<script type="text/javascript">
+  jQuery(document).ready(function () {
+    jQuery("#block-search-form .form-text").attr('placeholder', '<?php print t('search') ?>')
+  })
+</script>
 
 <div class="container content-container-div clearfix">
   <?php if ($messages): ?>
@@ -80,13 +87,13 @@
     <li class="eff">EFF thanks</li>
     <li>
       <a href="http://www.digitalrealty.com/" target="_blank">
-        <img class="digital-realty" src="/<?php print drupal_get_path('theme', 'ssd_neo'); ?>/images/digital-realty-logo.png" />
+        <img class="digital-realty" src="/<?php print drupal_get_path('theme', $GLOBALS['theme']); ?>/images/digital-realty-logo.png" />
       </a>
     </li>
     <li>&amp;</li>
     <li>
       <a href="http://nephoscale.com/" target="_blank">
-        <img class="nepho-scale" src="/<?php print drupal_get_path('theme', 'ssd_neo'); ?>/images/nephoscale_logo.png" />
+        <img class="nepho-scale" src="/<?php print drupal_get_path('theme', $GLOBALS['theme']); ?>/images/nephoscale_logo.png" />
       </a>
     <li>
   </ul>
