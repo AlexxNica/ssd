@@ -33,6 +33,21 @@ h6 { font-size: 16px; }
  */
 .user-menu-header {}
 
+/* Breadcrumb */
+.breadcrumb {
+  margin: 20px 0 0 0;
+}
+
+/* Article Inline links */
+ul.links.inline {
+  margin: 20px 0 0 0;
+}
+
+ul.links.inline li {
+  margin: 0;
+  padding: 0;
+}
+
 /*
  * Main Menu Header
  */
@@ -273,4 +288,35 @@ body.front .node-main-banner .links     { display: none }
   color: rgb(186, 0, 0);
   font-size: 24px;
   font-weight: 900;
+}
+
+/* Table Of Contents */
+body #simple-table-of-contents { display: none }
+body.page-node #simple-table-of-contents { display: block }
+
+#simple-table-of-contents {
+  position: relative;
+  height: 2000px;
+  background: white;
+  padding: 0;
+}
+
+#simple-table-of-contents h2 {
+  background: #ebebeb;
+  padding: 20px;
+  margin: 0;
+  padding-bottom: 0;
+  position: fixed;
+  height: 100px;
+  width: 100%;
+}
+
+#simple-table-of-contents ul {
+  background: #ebebeb;
+  margin: 0;
+  padding: 20px;
+  list-style: none;
+  position: fixed;
+  margin-top: 100px;
+  width: 100%;
 }
