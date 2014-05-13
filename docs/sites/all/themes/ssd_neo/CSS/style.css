@@ -27,6 +27,21 @@ h2 {
  */
 .user-menu-header {}
 
+/* Breadcrumb */
+.breadcrumb {
+  margin: 20px 0 0 0;
+}
+
+/* Article Inline links */
+ul.links.inline {
+  margin: 20px 0 0 0;
+}
+
+ul.links.inline li {
+  margin: 0;
+  padding: 0;
+}
+
 /*
  * Main Menu Header
  */
@@ -270,6 +285,9 @@ body.front .node-main-banner .links     { display: none }
 }
 
 /* Table Of Contents */
+body #simple-table-of-contents { display: none }
+body.page-node #simple-table-of-contents { display: block }
+
 #simple-table-of-contents {
   position: relative;
   height: 2000px;
