@@ -268,3 +268,31 @@ body.front .node-main-banner .links     { display: none }
   font-size: 24px;
   font-weight: 900;
 }
+
+/* Table Of Contents */
+#simple-table-of-contents {
+  position: relative;
+  height: 2000px;
+  background: white;
+  padding: 0;
+}
+
+#simple-table-of-contents h2 {
+  background: #ebebeb;
+  padding: 20px;
+  margin: 0;
+  padding-bottom: 0;
+  position: fixed;
+  height: 100px;
+  width: 100%;
+}
+
+#simple-table-of-contents ul {
+  background: #ebebeb;
+  margin: 0;
+  padding: 20px;
+  list-style: none;
+  position: fixed;
+  margin-top: 100px;
+  width: 100%;
+}
