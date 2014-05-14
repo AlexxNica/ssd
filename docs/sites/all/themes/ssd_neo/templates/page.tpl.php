@@ -6,9 +6,9 @@
   <div class="user-menu-header">
     <?php if ($logged_in): ?>
     <?php else: ?>
-      <ul>
+      <!-- <ul>
         <li class="menu"><a href="<?php base_path(); ?>user/login">Log In</a></li>
-      </ul>
+      </ul> -->
     <?php endif; ?>
   </div>
 
@@ -43,8 +43,8 @@
   <?php endif; ?>
 
   <?php if ($breadcrumb): ?>
-    <div id="breadcrumb"><?php print $breadcrumb; ?></div>
-  <?php endif; ?>
+<!--     <div id="breadcrumb"><?php print $breadcrumb; ?></div>
+ -->  <?php endif; ?>
 
   <h1><?php print $title; ?></h1>
 
