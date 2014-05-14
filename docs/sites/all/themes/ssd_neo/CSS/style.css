@@ -206,13 +206,13 @@ body.front .node-main-banner .field-name-field-main-image img {
   top: 10px;
 }
 
-body.front .node-main-banner .field-name-body {
+body.front .node-main-banner .field-name-field-summary{
   float: left;
   width: 70%;
   background: rgb(179, 195, 201);
 }
 
-body.front .node-main-banner .field-name-body .field-item {
+body.front .node-main-banner .field-name-field-summary .field-item {
   padding: 20px;
   line-height: 1.3;
   font-size: 24px;
