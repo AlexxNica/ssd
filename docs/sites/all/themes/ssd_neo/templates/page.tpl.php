@@ -1,3 +1,4 @@
+<div class="page-wrap">
 <!-- HEADER -->
 <div class="block-header">
 
@@ -75,6 +76,8 @@
       <?php print render($page['home_blog_updates']); ?>
     </div>
   <?php endif; ?>
+</div>
+
 </div>
 
 <div class="block-footer">
