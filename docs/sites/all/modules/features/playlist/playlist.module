@@ -1,0 +1,40 @@
+<?php
+/**
+ * @file
+ * Code for the Playlist feature.
+ */
+include_once 'playlist.features.inc';
+
+function playlist_init() {
+  // @todo Add flexslider.
+  // @todo Add only to playlist nodes.
+  $flexslider_path = libraries_get_path('flexslider') . '/jquery.flexslider-min.js';
+  $playlist_path = drupal_get_path('module', 'playlist') . '/js/playlist.js';
+  drupal_add_js($flexslider_path);
+  drupal_add_js($playlist_path);
+}
+
+function playlist_node_view($node) {
+  global $language;
+  global $base_url;
+  if ($node->type == 'playlist') {
+    $slides = array();
+    $toc = '';
+    $index = 1;
+    // Get alias for permlink construction.
+    $alias = $base_url . '/' . drupal_get_path_alias('node/' . $node->nid);
+    // Get modules in the playlist's native language.
+    $modules = $node->field_playlist_module[$node->language];
+    foreach ($modules as $row) {
+      if ($row['access'] == TRUE) {
+        $module = node_load($row['nid']);
+        $permlink = '<p><a href="' . $alias . '#' . $index . '">Permlink</a></p>';
+        $slides[] = "<h1>{$module->title}</h1>" . $permlink .  $module->body[$node->language][0]['safe_value'];
+        $toc .= '<li><div class="table-entry-label">Module ' . $index . ':</div> <div class="table-entry-title">' . $module->title . '</li>';
+        $index++;
+      }
+    }
+    $node->content['slides'] = $slides;
+    $node->content['table-of-contents'] = '<div class="playlist-table"><ul>' . $toc . '</ul></div>';
+  }
+}

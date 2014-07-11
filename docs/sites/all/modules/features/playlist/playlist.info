@@ -1,0 +1,16 @@
+name = Playlist
+description = The playlist feature for SSD.
+core = 7.x
+package = Features
+dependencies[] = features
+dependencies[] = node_reference
+dependencies[] = text
+features[features_api][] = api:2
+features[field_base][] = body
+features[field_base][] = field_playlist_module
+features[field_base][] = title_field
+features[field_instance][] = node-playlist-body
+features[field_instance][] = node-playlist-field_playlist_module
+features[field_instance][] = node-playlist-title_field
+features[node][] = playlist
+project path = sites/all/modules/features
