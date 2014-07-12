@@ -45,8 +45,14 @@
   <?php if ($breadcrumb): ?>
 <!--     <div id="breadcrumb"><?php print $breadcrumb; ?></div>
  -->  <?php endif; ?>
-
-  <h1><?php print $title; ?></h1>
+ 
+  <?php if (isset($node)): ?>
+    <?php if ($node->type != 'playlist'): ?>
+       <h1><?php print $title; ?></h1>
+     <?php endif; ?>
+  <?php else: ?>
+     <h1><?php print $title; ?></h1>
+  <?php endif; ?>
 
   <?php print render($page['content']); ?>
 

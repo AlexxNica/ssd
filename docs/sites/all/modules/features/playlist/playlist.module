@@ -5,21 +5,22 @@
  */
 include_once 'playlist.features.inc';
 
-function playlist_init() {
-  // @todo Add flexslider.
-  // @todo Add only to playlist nodes.
-  $flexslider_path = libraries_get_path('flexslider') . '/jquery.flexslider-min.js';
-  $playlist_path = drupal_get_path('module', 'playlist') . '/js/playlist.js';
-  drupal_add_js($flexslider_path);
-  drupal_add_js($playlist_path);
-}
-
 function playlist_node_view($node) {
   global $language;
   global $base_url;
+  
   if ($node->type == 'playlist') {
+    // Add JS for playlist pages
+    $flexslider_path = libraries_get_path('flexslider') . '/jquery.flexslider-min.js';
+    $playlist_path = drupal_get_path('module', 'playlist') . '/js/playlist.js';
+    drupal_add_js($flexslider_path);
+    drupal_add_js($playlist_path);
+
+    // Slide HTML
     $slides = array();
+    // Table of Contents HTML
     $toc = '';
+    // Slide index, for permlink.
     $index = 1;
     // Get alias for permlink construction.
     $alias = $base_url . '/' . drupal_get_path_alias('node/' . $node->nid);
@@ -27,13 +28,24 @@ function playlist_node_view($node) {
     $modules = $node->field_playlist_module[$node->language];
     foreach ($modules as $row) {
       if ($row['access'] == TRUE) {
-        $module = node_load($row['nid']);
+        // Construct a permlink.
         $permlink = '<p><a href="' . $alias . '#' . $index . '">Permlink</a></p>';
-        $slides[] = "<h1>{$module->title}</h1>" . $permlink .  $module->body[$node->language][0]['safe_value'];
+        // Use the global language to get the right translation. If there is no
+        // content for that language, fall back to the playlist node language.
+        $module = node_load($row['nid']);
+        $body = '';
+        if (isset($module->body[$language->language][0]['safe_value'])) {
+          $body = $module->body[$language->language][0]['safe_value'];
+        }
+        else {
+          $body = $module->body[$node->language][0]['safe_value'];
+        }
+        $slides[] = "<h1>{$module->title}</h1>" . $permlink .  $body;
         $toc .= '<li><div class="table-entry-label">Module ' . $index . ':</div> <div class="table-entry-title">' . $module->title . '</li>';
         $index++;
       }
     }
+    // Set slides and table of contents so they can be access in the template.
     $node->content['slides'] = $slides;
     $node->content['table-of-contents'] = '<div class="playlist-table"><ul>' . $toc . '</ul></div>';
   }
