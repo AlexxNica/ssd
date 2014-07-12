@@ -6,6 +6,8 @@
 include_once 'playlist.features.inc';
 
 function playlist_node_view($node) {
+  // Include this for access to pathauto_cleanstring().
+  require_once(drupal_get_path('module', 'pathauto') . '/pathauto.inc');
   global $language;
   global $base_url;
   
@@ -26,13 +28,22 @@ function playlist_node_view($node) {
     $alias = $base_url . '/' . drupal_get_path_alias('node/' . $node->nid);
     // Get modules in the playlist's native language.
     $modules = $node->field_playlist_module[$node->language];
+    
+    $indexes = array();
+    $hashlinks = array(0 => '');
     foreach ($modules as $row) {
       if ($row['access'] == TRUE) {
+        $module = node_load($row['nid']);
+        
+        $module_link = pathauto_cleanstring($module->title);
+        $indexes[$module_link] = $index;
+        $hashlinks[$index] = $module_link;
+
         // Construct a permlink.
-        $permlink = '<p><a href="' . $alias . '#' . $index . '">Permlink</a></p>';
+        $permlink = '<p><a href="' . $alias . '#' . pathauto_cleanstring($module->title) . '">Permlink</a></p>';
+        
         // Use the global language to get the right translation. If there is no
         // content for that language, fall back to the playlist node language.
-        $module = node_load($row['nid']);
         $body = '';
         if (isset($module->body[$language->language][0]['safe_value'])) {
           $body = $module->body[$language->language][0]['safe_value'];
@@ -48,5 +59,12 @@ function playlist_node_view($node) {
     // Set slides and table of contents so they can be access in the template.
     $node->content['slides'] = $slides;
     $node->content['table-of-contents'] = '<div class="playlist-table"><ul>' . $toc . '</ul></div>';
+    
+    $settings = array(
+      'indexes' => $indexes,
+      'hashLinks' => $hashlinks,
+    );
+    // Pass permlink info to JS.
+    drupal_add_js(array('playlist' => $settings), 'setting');
   }
 }
