@@ -87,7 +87,7 @@
 <div class="flexslider">
   <ul class="slides">
     <li>
-      <h1><?php print $title; ?></h1>
+      <h2><?php print $title; ?></h2>
       <div id="node-<?php print $node->nid; ?>" class="<?php print $classes; ?> clearfix"<?php print $attributes; ?>>
         <?php print render($title_prefix); ?>
         <?php if (!$page): ?>
@@ -109,9 +109,9 @@
             print render($content);
           ?>
         </div>
-
       </div>
       <?php echo $content['table-of-contents']; ?>
+      <?php echo render($content['links']); ?>
     </li>
     <?php echo $slides ?>
   </ul>
@@ -121,5 +121,3 @@
   <div class="flexslider-next">Next</div>
 </div>
 
-<?php print render($content['links']); ?>
-<?php print render($content['comments']); ?>
