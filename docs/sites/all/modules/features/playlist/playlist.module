@@ -12,26 +12,10 @@ function playlist_node_view($node) {
   global $base_url;
   
   if ($node->type == 'playlist') {
-    /*
-    $metatag = array(
-      '#type' => 'markup',
-      '#tag' => 'meta',
-      'attributes' => array(
-        'http-equiv' => 'Pragma',
-        'content' => 'no-cache',
-      ),
-      '#weight' => -1000,
-    );
-    $head = drupal_add_html_head($metatag, 'playlist-no-cache');
-    dsm($head);
-    
-    drupal_add_http_header('Pragma', 'no-cache');
-    */
     // Add JS for playlist pages
     $flexslider_path = libraries_get_path('flexslider') . '/jquery.flexslider-min.js';
     $hashchange_path = libraries_get_path('hashchange') . '/jquery.ba-hashchange-min.js';
     $playlist_path = drupal_get_path('module', 'playlist');
-
     drupal_add_js($flexslider_path);
     drupal_add_js($hashchange_path);
     drupal_add_js($playlist_path . '/js/playlist.js');
