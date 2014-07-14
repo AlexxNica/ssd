@@ -19,7 +19,7 @@ Drupal.behaviors.playlist = {
       $('.flexslider').flexslider({
         animation: "slide",
         controlNav: false,
-        directionNav: false,
+        directionNav: true,
         slideshow: false,
         animationSpeed: 0,
         startAt: playlistGetIndex(),
@@ -29,16 +29,6 @@ Drupal.behaviors.playlist = {
         },
       });
       
-      // Flexslider custom controls.
-      $('.flexslider-prev').on('click', function(){
-        $('.flexslider').flexslider('prev');
-        return false;
-      })
-      $('.flexslider-next').on('click', function(){
-        $('.flexslider').flexslider('next')
-          return false;
-      });
-
       // This uses the hashchange plugin to support changing slides when using
       // the back button. Without it, navigation is unsatisfactory.
       $(window).hashchange( function(){

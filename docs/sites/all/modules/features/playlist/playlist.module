@@ -28,7 +28,7 @@ function playlist_node_view($node) {
     // Slide index, for permlink.
     $index = 1;
     // Get alias for permlink construction.
-    $alias = $base_url . '/' . drupal_get_path_alias('node/' . $node->nid);
+    $alias = $base_url . '/' . $language->language . '/' . drupal_get_path_alias('node/' . $node->nid);
     // Get modules in the playlist's native language.
     $modules = $node->field_playlist_module[$node->language];
     
@@ -43,17 +43,15 @@ function playlist_node_view($node) {
         $indexes[$module_link] = $index;
         $hashlinks[$index] = $module_link;
 
-        // Construct a permlink. @bug doesn't use lang context
+        // Construct a permlink.
         $permlink = '<p><a href="' . $alias . '#' . pathauto_cleanstring($module->title) . '">Permlink</a></p>';
-        // Use the global language to get the right translation. If there is no
-        // content for that language, fall back to the playlist node language.
 
+
+        // Render module node for display in playlist.
         $title = $module->title;
         $view = node_view($module, 'full');
-
         $body = drupal_render($view);
-        $slides[] = $body;
-        //$slides[] = "<h1>{$title}</h1>" . $permlink .  $body;
+        $slides[] = $body . $permlink;
         $toc .= '<li><div class="table-entry-label">Module ' . $index . ':</div> <div class="table-entry-title">' . $module->title . '</li>';
         $index++;
       }
