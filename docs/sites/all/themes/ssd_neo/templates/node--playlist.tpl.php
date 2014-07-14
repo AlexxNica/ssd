@@ -116,8 +116,3 @@
     <?php echo $slides ?>
   </ul>
 </div>
-<div class="flexslider-controls">
-  <div class="flexslider-prev">Previous</div>
-  <div class="flexslider-next">Next</div>
-</div>
-
