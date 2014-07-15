@@ -14,7 +14,7 @@ function playlist_node_view($node) {
   if ($node->type == 'playlist') {
     // Add JS for playlist pages
     $flexslider_path = libraries_get_path('flexslider') . '/jquery.flexslider-min.js';
-    $hashchange_path = libraries_get_path('hashchange') . '/jquery.ba-hashchange-min.js';
+    $hashchange_path = libraries_get_path('hashchange') . '/jquery.ba-hashchange.min.js';
     $playlist_path = drupal_get_path('module', 'playlist');
     drupal_add_js($flexslider_path);
     drupal_add_js($hashchange_path);
