@@ -584,6 +584,11 @@ function title_field_attach_form($entity_type, $entity, &$form, &$form_state, $l
         if (isset($form[$legacy_field]['#access'])) {
           $form[$info['field']['field_name']]['#access'] = $form[$legacy_field]['#access'];
         }
+
+        // Add class from legacy field so behaviors can still be applied on
+        // title widget.
+        $form[$info['field']['field_name']]['#attributes']['class'] = array('form-item-' . $legacy_field);
+
         // Restrict access to the legacy field form element and mark it as
         // replaced.
         $form[$legacy_field]['#access'] = FALSE;

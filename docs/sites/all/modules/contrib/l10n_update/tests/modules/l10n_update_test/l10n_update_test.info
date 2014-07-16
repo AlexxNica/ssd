@@ -6,9 +6,9 @@ version = '1.2'
 core = 7.x
 hidden = true
 
-; Information added by Drupal.org packaging script on 2014-03-18
+; Information added by Drupal.org packaging script on 2014-06-15
 version = "7.x-2.x-dev"
 core = "7.x"
 project = "l10n_update"
-datestamp = "1395175756"
+datestamp = "1402819429"
 
