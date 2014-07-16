@@ -110,7 +110,7 @@
           ?>
         </div>
       </div>
-      <?php echo $content['table-of-contents']; ?>
+      <?php //echo $content['table-of-contents']; ?>
       <?php echo render($content['links']); ?>
     </li>
     <?php echo $slides ?>
