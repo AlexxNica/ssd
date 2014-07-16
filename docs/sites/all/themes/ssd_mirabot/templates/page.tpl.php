@@ -71,13 +71,15 @@
  *
  * @ingroup themeable
  */
- // @todo Improve upon this hack.
- $logo = $base_path . 'sites/all/themes/ssd_mirabot/ssd-logo.png';
+
+ $theme_path = $base_path . $directory;
+ $eff_logo = $theme_path . '/img/eff-logo.png';
+ $ssd_logo = $theme_path . '/img/ssd-logo.png';
 ?>
 
   <div id="page-wrapper" class='container'>
     <header id="top-menu">
-      <div id="top-eff-header">A Project of the Electronic Frontier Foundation</div>
+      <div id="top-eff-header"><img src="<?php print $eff_logo; ?>" /> A Project of the Electronic Frontier Foundation</div>
       
       <div id="top-hamburger-menu">
         <?php print theme('links__system_main_menu', array('links' => $main_menu, 'attributes' => array('id' => 'main-menu', 'class' => array('links', 'inline', 'clearfix')), 'heading' => t('Main menu'))); ?>
@@ -85,7 +87,7 @@
       
       <div id="top-logo">
         <a href="<?php print $front_page; ?>" title="<?php print t('Home'); ?>" rel="home">
-          <img src="<?php print $logo; ?>" alt="<?php print t('Home'); ?>" class="img-responsive" />
+          <img src="<?php print $ssd_logo; ?>" alt="<?php print t('Home'); ?>" class="img-responsive" />
         </a>
       </div>
 
