@@ -10,6 +10,7 @@ Drupal.behaviors.playlist = {
       var index = indexes[hash];
       if (index == null) {
         index = 0;
+    
       }
       return index;
     }
@@ -17,9 +18,9 @@ Drupal.behaviors.playlist = {
     (function ($) {
       // Load flexslider with default settings.
       $('.flexslider').flexslider({
-        animation: "slide",
+        animation: "fade",
         controlNav: false,
-        directionNav: true,
+        directionNav: false,
         slideshow: false,
         animationSpeed: 0,
         startAt: playlistGetIndex(),

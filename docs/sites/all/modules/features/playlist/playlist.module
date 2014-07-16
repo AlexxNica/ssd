@@ -33,7 +33,7 @@ function playlist_node_view($node) {
     $modules = $node->field_playlist_module[$node->language];
     
     $indexes = array();
-    $hashlinks = array(0 => '');
+    $hashlinks = array(0 => 'playlist');
     foreach ($modules as $row) {
       if ($row['access'] == TRUE) {
         $module = node_load($row['nid']);
