@@ -85,7 +85,7 @@
       
       <div id="top-logo">
         <a href="<?php print $front_page; ?>" title="<?php print t('Home'); ?>" rel="home">
-          <img src="<?php print $logo; ?>" alt="<?php print t('Home'); ?>" />
+          <img src="<?php print $logo; ?>" alt="<?php print t('Home'); ?>" class="img-responsive" />
         </a>
       </div>
 

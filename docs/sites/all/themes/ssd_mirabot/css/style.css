@@ -1,19 +1,13 @@
-.container {
-
-
-
-}
-
-.flex-viewport {
-  
-}
-
 .flexslider {
   margin-left: -20px;
 }
 
-#top-logo, #top-slogan {
-  text-align: center;
+#top-slogan {
   width: 100%;
+  margin: auto;
+  text-align: center;
+}
+
+#top-logo img {
   margin: auto;
 }
