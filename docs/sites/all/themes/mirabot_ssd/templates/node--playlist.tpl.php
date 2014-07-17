@@ -79,10 +79,7 @@
  *
  * @ingroup themeable
  */
- $slides = '';
- foreach ($content['slides'] as $slide) {
-   $slides .= "<li>$slide</li>";
- }
+
 ?>
 <div class="flexslider">
   <ul class="slides">
@@ -113,6 +110,6 @@
       <?php print $content['table-of-contents']; ?>
       <?php print render($content['links']); ?>
     </li>
-    <?php echo $slides ?>
+    <?php print $playlist_slides ?>
   </ul>
 </div>
