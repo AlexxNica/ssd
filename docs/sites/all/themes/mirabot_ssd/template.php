@@ -22,12 +22,24 @@ function mirabot_ssd_preprocess_html(&$variables) {
   }
 }
 
+function mirabot_ssd_preprocess_node(&$variables) {
+  $node = $variables['node'];
+  if($node->type == 'playlist') {
+    $slide_html = '';
+    foreach ($variables['content']['slides'] as $slide) {
+      $slide_html .= "<li>$slide</li>";
+    }
+    $variables['playlist_slides'] = $slide_html;
+    $variables['playlist_table'] = $variables['content']['playlist_table'];
+  }
+}
+
 function mirabot_ssd_preprocess_page(&$variables) {  
   $variables['theme_path'] = $variables['base_path'] . $variables['directory'];
   $variables['eff_logo_small'] = $variables['theme_path'] . '/img/eff-logo.png';
   
   $variables['is_playlist'] = false;
-  if (isset($variables['node'])) {
+  if (isset($variables['nodenode'])) {
     if ($variables['node']->type == 'playlist') {
       $variables['is_playlist'] = true;
     }

@@ -107,7 +107,7 @@
           ?>
         </div>
       </div>
-      <?php print $content['table-of-contents']; ?>
+      <?php print $playlist_table; ?>
       <?php print render($content['links']); ?>
     </li>
     <?php print $playlist_slides ?>
