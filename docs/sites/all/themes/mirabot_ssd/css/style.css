@@ -6,7 +6,6 @@
         url('../fonts/antonio/antonio-regular-webfont.ttf') format('truetype'),
         url('../fonts/antonio/antonio-regular-webfont.svg#antonioregular') format('svg');
   font-weight: normal;
-  color: #007EFF;
   font-style: normal;
 }
 
@@ -23,6 +22,14 @@
 
 body {
   font-family: montserrat;  
+}
+
+a {
+  color: #a10000;
+}
+
+a:hover {
+  color: #a10000;
 }
 
 .container {
@@ -69,7 +76,7 @@ ul.secondary li.last {
 }
 
 .container-main {
-  background: #a0a0a0;
+  background: #adbbbc;
 }
 
 .slogan {
