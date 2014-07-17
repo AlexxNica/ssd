@@ -39,7 +39,7 @@ function mirabot_ssd_preprocess_page(&$variables) {
   $variables['eff_logo_small'] = $variables['theme_path'] . '/img/eff-logo.png';
   
   $variables['is_playlist'] = false;
-  if (isset($variables['nodenode'])) {
+  if (isset($variables['node'])) {
     if ($variables['node']->type == 'playlist') {
       $variables['is_playlist'] = true;
     }
