@@ -76,7 +76,6 @@
 <header id="navbar" role="banner" class="<?php print $navbar_classes; ?>">
   <div class="container">
     <div class="navbar-header">
-      
       <!-- EFF Header -->
       <span id="top-eff-header">
         <a href="https://eff.org">
@@ -110,7 +109,6 @@
       </div>
     <?php endif; ?>
   </div>
-  
       
   <?php if ($logo): ?>
   <div id ="top-logo">
@@ -121,8 +119,7 @@
   <?php endif; ?>
 </header>
 
-<div class="main-container container">
-
+<div class="container-main container">
   <header role="banner" id="page-header">
     <?php if (!empty($front_page)): ?>
       <p class="lead slogan"><?php print $site_slogan; ?></p>
@@ -171,6 +168,6 @@
 
   </div>
 </div>
-<footer class="footer container">
+<footer class="footer">
   <?php print render($page['footer']); ?>
 </footer>
