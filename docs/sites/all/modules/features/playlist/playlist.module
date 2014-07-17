@@ -46,9 +46,8 @@ function playlist_node_view($node) {
         // Construct a permlink.
         $permlink = '<p><a href="' . $alias . '#' . pathauto_cleanstring($module->title) . '">Permlink</a></p>';
 
-
         // Render module node for display in playlist.
-        $title = $module->title;
+        $module->title = check_plain($module->title);
         $view = node_view($module, 'full');
         $body = drupal_render($view);
         $slides[] = $body . $permlink;
