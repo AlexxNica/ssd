@@ -22,9 +22,18 @@ function mirabot_ssd_preprocess_html(&$variables) {
   }
 }
 
-function mirabot_ssd_preprocess_page(&$variables) {
+function mirabot_ssd_preprocess_page(&$variables) {  
   $variables['theme_path'] = $variables['base_path'] . $variables['directory'];
   $variables['eff_logo_small'] = $variables['theme_path'] . '/img/eff-logo.png';
+  
+  if ($variables['node']->type == 'playlist') {
+    $variables['is_playlist'] = true;
+  }
+  else {
+    $variables['is_playlist'] = false;
+  }
+  
+  // Bootstrap stuff
   
   // Add information about the number of sidebars.
   if (!empty($variables['page']['sidebar_first']) && !empty($variables['page']['sidebar_second'])) {

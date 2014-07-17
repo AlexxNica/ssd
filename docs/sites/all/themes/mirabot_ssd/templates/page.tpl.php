@@ -121,7 +121,7 @@
 
 <div class="container-main container">
   <header role="banner" id="page-header">
-    <?php if (!empty($front_page)): ?>
+    <?php if ($is_front): ?>
       <p class="lead slogan"><?php print $site_slogan; ?></p>
     <?php endif; ?>
 
@@ -140,10 +140,9 @@
       <?php if (!empty($page['highlighted'])): ?>
         <div class="highlighted jumbotron"><?php print render($page['highlighted']); ?></div>
       <?php endif; ?>
-      <?php if (!empty($breadcrumb)): print $breadcrumb; endif;?>
       <a id="main-content"></a>
       <?php print render($title_prefix); ?>
-      <?php if (!empty($title)): ?>
+      <?php if (!empty($title) && !$is_playlist): ?>
         <h1 class="page-header"><?php print $title; ?></h1>
       <?php endif; ?>
       <?php print render($title_suffix); ?>
