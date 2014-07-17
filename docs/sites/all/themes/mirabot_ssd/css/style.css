@@ -53,6 +53,7 @@ ul.secondary li.last {
   border: 0;
 }
 
+/* EFF Header */
 #top-eff-header {
   display: inline-block;
   padding-top: 9px;
@@ -67,8 +68,14 @@ ul.secondary li.last {
   color: #a0a0a0;
 }
 
+/* Site logo display */
 #top-logo {
   text-align: center;
+}
+
+#top-logo-inner {
+  max-width: 640px;
+  margin: auto;
 }
 
 #top-logo img {
@@ -87,6 +94,6 @@ ul.secondary li.last {
 }
 
 .flexslider {
-  margin-left: -20px;
+  /*margin-left: -20px;*/
 }
 

@@ -26,11 +26,11 @@ function mirabot_ssd_preprocess_page(&$variables) {
   $variables['theme_path'] = $variables['base_path'] . $variables['directory'];
   $variables['eff_logo_small'] = $variables['theme_path'] . '/img/eff-logo.png';
   
-  if ($variables['node']->type == 'playlist') {
-    $variables['is_playlist'] = true;
-  }
-  else {
-    $variables['is_playlist'] = false;
+  $variables['is_playlist'] = false;
+  if (isset($variables['node'])) {
+    if ($variables['node']->type == 'playlist') {
+      $variables['is_playlist'] = true;
+    }
   }
   
   // Bootstrap stuff

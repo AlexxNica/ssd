@@ -112,9 +112,11 @@
       
   <?php if ($logo): ?>
   <div id ="top-logo">
-    <a class="logo" href="<?php print $front_page; ?>" title="<?php print t('Home'); ?>">
-      <img src="<?php print $logo; ?>" alt="<?php print t('Home'); ?>" class="img-responsive" />
-    </a>
+    <div id="top-logo-inner">
+      <a class="logo" href="<?php print $front_page; ?>" title="<?php print t('Home'); ?>">
+        <img src="<?php print $logo; ?>" alt="<?php print t('Home'); ?>" class="img-responsive" />
+      </a>
+    </div>
   </div>
   <?php endif; ?>
 </header>
