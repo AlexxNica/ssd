@@ -65,23 +65,41 @@
   font-style: normal;
 }
 
+/* Override Bootstrap's CSS */
+.navbar {
+  border: 0 !important;
+  background-color: #fff !important;
+  border-color: #fff !important;
+}
+
 #top-eff-header {
-  color: #a0a0a0;
-  font-family: antonioregular;
+  display: inline-block;
+  padding-top: 9px;
+  padding-bottom: 2px;
   font-size: 22px;
+  font-family: antonioregular;
   text-transform: uppercase;
 }
 
-.flexslider {
-  margin-left: -20px;
+#top-eff-header a {
+  color: #a0a0a0;
 }
 
-#top-slogan {
-  width: 100%;
-  margin: auto;
+#top-logo {
   text-align: center;
 }
 
 #top-logo img {
   margin: auto;
 }
+
+.slogan {
+  width: 100%;
+  margin: auto;
+  text-align: center;
+}
+
+.flexslider {
+  margin-left: -20px;
+}
+
