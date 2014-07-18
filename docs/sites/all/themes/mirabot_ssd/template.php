@@ -27,7 +27,7 @@ function mirabot_ssd_preprocess_node(&$variables) {
   if($node->type == 'playlist') {
     $slide_html = '';
     foreach ($variables['content']['slides'] as $slide) {
-      $slide_html .= "<li>$slide</li>";
+      $slide_html .= "<li>$slide</li>\n";
     }
     $variables['playlist_slides'] = $slide_html;
     $variables['playlist_table'] = $variables['content']['playlist_table'];
