@@ -96,3 +96,7 @@ ul.secondary li.last {
 .flexslider {
   /*margin-left: -20px;*/
 }
+
+.playlist-button:hover {
+  background: #dddddd;
+}

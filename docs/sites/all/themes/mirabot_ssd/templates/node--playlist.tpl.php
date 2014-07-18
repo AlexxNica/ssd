@@ -112,7 +112,8 @@
     </li>
     <?php print $playlist_slides ?>
   </ul>
-  <div id="playlist-controller">
-    <button>Next</button>
-  </div>
 </div>
+  <div id="playlist-controller">
+    <div id="playlist-next" class="playlist-button">Next</div>
+    <div id="playlist-more" class="playlist-button">More</div>
+  </div>

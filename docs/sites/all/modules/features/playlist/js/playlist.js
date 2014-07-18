@@ -27,13 +27,25 @@ Drupal.behaviors.playlist = {
         after:function(slider){
           // Change the hash to a slide's permlink on after sliding.
           window.location.hash = hashLinks[slider.currentSlide];
-        },
+        }
       });
       
       // This uses the hashchange plugin to support changing slides when using
       // the back button. Without it, navigation is unsatisfactory.
       $(window).hashchange( function(){
         $('.flexslider').flexslider(playlistGetIndex());
+      });
+      
+      // Flexslider custom controls.
+      /*
+      $('#flexslider-prev').on('click', function(){
+        $('.flexslider').flexslider('prev');
+        return false;
+      })
+      */
+      $('#playlist-next').on('click', function(){
+        $('.flexslider').flexslider('next')
+          return false;
       });
 
     })(jQuery);
