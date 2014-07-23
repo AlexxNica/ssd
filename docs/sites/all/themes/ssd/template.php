@@ -6,7 +6,7 @@ drupal_theme_rebuild();
 /**
  * Implements hook_preprocess_html().
  */
-function mirabot_ssd_preprocess_html(&$variables) {
+function ssd_preprocess_html(&$variables) {
   switch (theme_get_setting('bootstrap_navbar_position')) {
     case 'fixed-top':
       $variables['classes_array'][] = 'navbar-is-fixed-top';
@@ -22,7 +22,7 @@ function mirabot_ssd_preprocess_html(&$variables) {
   }
 }
 
-function mirabot_ssd_preprocess_node(&$variables) {
+function ssd_preprocess_node(&$variables) {
   $node = $variables['node'];
   $variables['title'] = check_plain($node->title);
   if($node->type == 'playlist') {
@@ -35,7 +35,7 @@ function mirabot_ssd_preprocess_node(&$variables) {
   }
 }
 
-function mirabot_ssd_preprocess_page(&$variables) {  
+function ssd_preprocess_page(&$variables) {  
   $variables['theme_path'] = $variables['base_path'] . $variables['directory'];
   $variables['eff_logo_small'] = $variables['theme_path'] . '/img/eff-logo.png';
   
@@ -95,14 +95,14 @@ function mirabot_ssd_preprocess_page(&$variables) {
  *
  * @see page.tpl.php
  */
-function mirabot_ssd_process_page(&$variables) {
+function ssd_process_page(&$variables) {
   $variables['navbar_classes'] = implode(' ', $variables['navbar_classes_array']);
 }
 
 /**
  * Implements hook_preprocess_region().
  */
-function mirabot_ssd_preprocess_region(&$variables) {
+function ssd_preprocess_region(&$variables) {
   global $theme;
   static $wells;
   if (!isset($wells)) {
@@ -131,7 +131,7 @@ function mirabot_ssd_preprocess_region(&$variables) {
 /**
  * Overrides theme_menu_link().
  */
-function mirabot_ssd_menu_link(array $variables) {
+function ssd_menu_link(array $variables) {
   $element = $variables['element'];
   $sub_menu = '';
 
@@ -169,7 +169,7 @@ function mirabot_ssd_menu_link(array $variables) {
 /**
  * Overrides theme_menu_local_action().
  */
-function mirabot_ssd_menu_local_action($variables) {
+function ssd_menu_local_action($variables) {
   $link = $variables['element']['#link'];
 
   $options = isset($link['localized_options']) ? $link['localized_options'] : array();
@@ -215,7 +215,7 @@ function mirabot_ssd_menu_local_action($variables) {
 /**
  * Overrides theme_menu_local_task().
  */
-function mirabot_ssd_menu_local_task($variables) {
+function ssd_menu_local_task($variables) {
   $link = $variables['element']['#link'];
   $link_text = $link['title'];
   $classes = array();
@@ -241,7 +241,7 @@ function mirabot_ssd_menu_local_task($variables) {
 /**
  * Overrides theme_menu_local_tasks().
  */
-function mirabot_ssd_menu_local_tasks(&$variables) {
+function ssd_menu_local_tasks(&$variables) {
   $output = '';
 
   if (!empty($variables['primary'])) {
@@ -264,20 +264,20 @@ function mirabot_ssd_menu_local_tasks(&$variables) {
 /**
  * Overrides theme_menu_tree().
  */
-function mirabot_ssd_menu_tree(&$variables) {
+function ssd_menu_tree(&$variables) {
   return '<ul class="menu nav">' . $variables['tree'] . '</ul>';
 }
 
 /**
  * mirabot_ssd theme wrapper function for the primary menu links.
  */
-function mirabot_ssd_menu_tree__primary(&$variables) {
+function ssd_menu_tree__primary(&$variables) {
   return '<ul class="menu nav navbar-nav">' . $variables['tree'] . '</ul>';
 }
 
 /**
  * mirabot_ssd theme wrapper function for the secondary menu links.
  */
-function mirabot_ssd_menu_tree__secondary(&$variables) {
+function ssd_menu_tree__secondary(&$variables) {
   return '<ul class="menu nav navbar-nav secondary">' . $variables['tree'] . '</ul>';
 }

@@ -1,5 +1,5 @@
-name = Mirabot SSD
-description = Mirabot developed SSD theme.
+name = SSD
+description = SSD theme built up from bootstrap.
 core = 7.x
 
 ;;;;;;;;;;;;;;;;;;;;;
