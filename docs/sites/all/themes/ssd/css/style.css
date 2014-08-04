@@ -74,7 +74,7 @@ ul.secondary li.last {
 }
 
 #top-logo-inner {
-  max-width: 640px;
+  max-width: 350px;
   margin: auto;
 }
 
@@ -99,4 +99,17 @@ ul.secondary li.last {
 
 .playlist-button:hover {
   background: #dddddd;
+}
+
+#playlist-controller {
+  position: fixed;
+  bottom: 15px;
+  right: 20px;
+  z-index: 600;
+  background: #5D7272;
+  padding: 20px;
+  border-radius: 20px;
+}
+#playlist-controller #playlist-table {
+
 }

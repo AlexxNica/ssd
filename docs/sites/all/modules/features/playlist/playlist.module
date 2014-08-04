@@ -58,13 +58,13 @@ function playlist_node_view($node) {
         $view = node_view($module, 'playlist');
         $body = drupal_render($view);
         $slides[] = $body . $permlink;
-        $toc .= '<li><div class="table-entry-label">Module ' . $index . ':</div> <div class="table-entry-title">' . $title . '</li>';
+        $toc .= '<li><div class="table-entry-label">Module ' . $index . ':</div> <div class="table-entry-title">' . '<a href="' . $alias . '#' . pathauto_cleanstring($module->title) . '">'. $title . '</a></li>';
         $index++;
       }
     }
     // Set slides and table of contents so they can be access in the template.
     $node->content['slides'] = $slides;
-    $node->content['playlist_table'] = '<div class="playlist-table"><ul>' . $toc . '</ul></div>';
+    $node->content['playlist_table'] = '<div id="playlist-table"><ul>' . $toc . '</ul></div>';
     
     $settings = array(
       'indexes' => $indexes,

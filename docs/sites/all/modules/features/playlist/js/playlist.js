@@ -47,7 +47,11 @@ Drupal.behaviors.playlist = {
         $('.flexslider').flexslider('next')
           return false;
       });
-
+      
+      $("#playlist-controller #playlist-table").hide();
+      $("#playlist-controller #playlist-more").click(function() {
+         $(this).find("#playlist-table").toggle();
+      });
     })(jQuery);
   }
 };
