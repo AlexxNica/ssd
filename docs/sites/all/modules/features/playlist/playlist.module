@@ -12,13 +12,16 @@ function playlist_entity_info_alter(&$entity_info) {
   );
 }
 
-function playlist_node_view($node) {
+function playlist_preprocess_node(&$vars) {
   // Include this for access to pathauto_cleanstring().
   require_once(drupal_get_path('module', 'pathauto') . '/pathauto.inc');
   global $language;
   global $base_url;
-  
-  if ($node->type == 'playlist') {
+  // Shorthand
+  $node = $vars['node'];
+
+  if ($vars['type'] == 'playlist') {
+    
     // Add JS for playlist pages
     $flexslider_path = libraries_get_path('flexslider') . '/jquery.flexslider-min.js';
     $hashchange_path = libraries_get_path('hashchange') . '/jquery.ba-hashchange.min.js';
@@ -44,7 +47,7 @@ function playlist_node_view($node) {
     foreach ($modules as $row) {
       if ($row['access'] == TRUE) {
         $module = node_load($row['nid']);
-        
+
         // @todo Uniquify this - what if same title is used? Blah.
         $module_link = pathauto_cleanstring($module->title);
         $indexes[$module_link] = $index;
@@ -63,9 +66,15 @@ function playlist_node_view($node) {
       }
     }
     // Set slides and table of contents so they can be access in the template.
-    $node->content['slides'] = $slides;
-    $node->content['playlist_table'] = '<div id="playlist-table"><ul>' . $toc . '</ul></div>';
-    
+    $vars['slides'] = $slides;
+    $vars['playlist_table'] = '<div id="playlist-table"><ul>' . $toc . '</ul></div>';
+
+    $slide_html = '';
+    foreach ($vars['slides'] as $slide) {
+      $slide_html .= "<li>$slide</li>\n";
+    }
+    $vars['playlist_slides'] = $slide_html;
+
     $settings = array(
       'indexes' => $indexes,
       'hashLinks' => $hashlinks,

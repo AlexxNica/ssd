@@ -22,17 +22,9 @@ function ssd_preprocess_html(&$variables) {
   }
 }
 
-function ssd_preprocess_node(&$variables) {
-  $node = $variables['node'];
-  $variables['title'] = check_plain($node->title);
-  if($node->type == 'playlist') {
-    $slide_html = '';
-    foreach ($variables['content']['slides'] as $slide) {
-      $slide_html .= "<li>$slide</li>\n";
-    }
-    $variables['playlist_slides'] = $slide_html;
-    $variables['playlist_table'] = $variables['content']['playlist_table'];
-  }
+function ssd_preprocess_node(&$vars) {
+  $node = $vars['node'];
+  $vars['title'] = check_plain($node->title);
 }
 
 function ssd_preprocess_page(&$variables) {  
