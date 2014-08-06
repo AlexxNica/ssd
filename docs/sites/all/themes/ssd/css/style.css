@@ -113,3 +113,19 @@ ul.secondary li.last {
 #playlist-controller #playlist-table {
 
 }
+
+.module-section:nth-child(even) {
+  background-color: #fff;
+}
+
+.container,
+body.page-node .page-header,
+body.page-node .tabs--primary {
+  max-width: 1000px;
+  width: 1170px;
+  margin: 0 auto;
+  padding: 0 15px;
+}
+body.page-node .page-header {
+  border-bottom: none;
+}

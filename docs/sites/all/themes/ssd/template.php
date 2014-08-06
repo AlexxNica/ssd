@@ -1,7 +1,7 @@
 <?php
 
-system_rebuild_theme_data();
-drupal_theme_rebuild();
+//system_rebuild_theme_data();
+//drupal_theme_rebuild();
 
 /**
  * Implements hook_preprocess_html().
@@ -48,7 +48,7 @@ function ssd_preprocess_page(&$variables) {
     $variables['content_column_class'] = ' class="col-sm-9"';
   }
   else {
-    $variables['content_column_class'] = ' class="col-sm-12"';
+    $variables['content_column_class'] = '';
   }
 
   // Primary nav.
@@ -110,7 +110,7 @@ function ssd_preprocess_region(&$variables) {
       break;
 
     case 'help':
-      $variables['content'] = _bootstrap_icon('question-sign') . $variables['content'];
+     // $variables['content'] = _bootstrap_icon('question-sign') . $variables['content'];
       $variables['classes_array'][] = 'alert';
       $variables['classes_array'][] = 'alert-info';
       break;

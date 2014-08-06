@@ -30,3 +30,4 @@ stylesheets[all][] = css/style.css
 ; ;;;;;;;;;;;;;;;;;;;;;
 ; 
 scripts[] = 'bootstrap/js/bootstrap.min.js'
+scripts[] = 'js/ssd.js'

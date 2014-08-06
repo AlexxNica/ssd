@@ -121,16 +121,16 @@
   <?php endif; ?>
 </header>
 
-<div class="container-main ">
-  <header role="banner" id="page-header" class="container">
+<div class="container-main">
+  <header role="banner" id="page-header" class=" <?php if (!isset($node)) { print 'container'; } ?>">
     <?php if ($is_front): ?>
       <p class="lead slogan"><?php print $site_slogan; ?></p>
     <?php endif; ?>
 
     <?php print render($page['header']); ?>
   </header> <!-- /#page-header -->
-
-  <div class="container">
+  
+  <div class="<?php if (!isset($node)) { print 'container'; } ?> ">
 
     <?php if (!empty($page['sidebar_first'])): ?>
       <aside class="col-sm-3" role="complementary">
@@ -138,7 +138,7 @@
       </aside>  <!-- /#sidebar-first -->
     <?php endif; ?>
 
-    <section<?php print $content_column_class; ?>>
+    <section <?php print $content_column_class; ?>>
       <?php if (!empty($page['highlighted'])): ?>
         <div class="highlighted jumbotron"><?php print render($page['highlighted']); ?></div>
       <?php endif; ?>
@@ -166,7 +166,6 @@
         <?php print render($page['sidebar_second']); ?>
       </aside>  <!-- /#sidebar-second -->
     <?php endif; ?>
-
   </div>
 </div>
 <footer class="footer">
