@@ -81,6 +81,8 @@
  */
 
 ?>
+<div id="node-<?php print $node->nid; ?>" class="container <?php print $classes; ?> clearfix"<?php print $attributes; ?>>
+
 <div class="flexslider">
   <ul class="slides">
     <li>
@@ -117,3 +119,5 @@
     <div id="playlist-next" class="playlist-button">Next</div>
     <div id="playlist-more" class="playlist-button">More <?php print $playlist_table; ?></div>
   </div>
+
+</div> <!-- /.node -->
