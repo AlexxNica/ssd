@@ -121,7 +121,9 @@
   <?php endif; ?>
 </header>
 
-<div class="container-main">
+<?php if (isset($node)): ?>
+  <div class="container-main">
+<?php endif; ?>
   <header role="banner" id="page-header" class=" <?php if (!isset($node)) { print 'container'; } ?>">
     <?php if ($is_front): ?>
       <p class="lead slogan"><?php print $site_slogan; ?></p>
@@ -167,7 +169,10 @@
       </aside>  <!-- /#sidebar-second -->
     <?php endif; ?>
   </div>
-</div>
+<?php if (isset($node)): ?>
+  </div> <!-- /.container-main -->
+<?php endif; ?>
+
 <footer class="footer">
   <?php print render($page['footer']); ?>
 </footer>
