@@ -11,17 +11,18 @@
 
 @font-face {
   font-family: 'montserrat';
-  src: url('../fonts/montserrat/montserrat_regular_macroman/Montserrat-Regular-webfont.eot');
-  src: url('../fonts/montserrat/montserrat_regular_macroman/Montserrat-Regular-webfont.eot?#iefix') format('embedded-opentype'),
-        url('../fonts/montserrat/montserrat_regular_macroman/Montserrat-Regular-webfont.woff') format('woff'),
-        url('../fonts/montserrat/montserrat_regular_macroman/Montserrat-Regular-webfont.ttf') format('truetype'),
-        url('../fonts/montserrat/montserrat_regular_macroman/Montserrat-Regular-webfont.svg#montserrat') format('svg');
+  src: url('../fonts/montserrat/montserrat_regular_macroman/Montserrat-Regular.eot');
+  src: url('../fonts/montserrat/montserrat_regular_macroman/Montserrat-Regular.eot?#iefix') format('embedded-opentype'),
+        url('../fonts/montserrat/montserrat_regular_macroman/Montserrat-Regular.woff') format('woff'),
+        url('../fonts/montserrat/montserrat_regular_macroman/Montserrat-Regular.ttf') format('truetype'),
+        url('../fonts/montserrat/montserrat_regular_macroman/Montserrat-Regular.svg#montserrat') format('svg');
   font-weight: normal;
   font-style: normal;
 }
 
 body {
-  font-family: montserrat;  
+  font-family: "montserrat", "Helvetica Neue", Helvetica, Arial, sans-serif;
+  font-size: 14px;
 }
 
 a {
@@ -31,9 +32,20 @@ a {
 a:hover {
   color: #a10000;
 }
-
+section {
+  padding-top: 1px;
+  padding-bottom: 1px;
+}
 .container {
   max-width: 1000px;
+}
+h1,
+h2,
+h3,
+.navbar-default .navbar-nav > li > a {
+  font-family: 'antonioregular';
+  color: #A71010;
+  font-weight: normal;
 }
 
 /* Remove bootstrap's navbar css */
@@ -83,7 +95,7 @@ ul.secondary li.last {
 }
 
 .container-main {
-  background: #adbbbc;
+  background: #d5e0e0;
 }
 
 .slogan {
@@ -91,6 +103,7 @@ ul.secondary li.last {
   margin: auto;
   text-align: center;
   font-family: antonioregular;
+  margin-top: 20px;
 }
 
 .flexslider {
@@ -117,14 +130,17 @@ ul.secondary li.last {
 .module-section:nth-child(even) {
   background-color: #fff;
 }
-
+.page-header {
+  margin-top: 20px;
+}
 .container,
 body.page-node .page-header,
 body.page-node .tabs--primary {
   max-width: 1000px;
   width: 1170px;
-  margin: 0 auto;
-  padding: 0 15px;
+  margin-left: auto;
+  margin-right: auto;
+  padding: 1px 15px;
 }
 body.page-node .page-header {
   border-bottom: none;
