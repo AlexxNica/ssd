@@ -154,8 +154,6 @@ ul.secondary li a {
   .navbar-toggle {
     display: block;
   }
-}
-@media (min-width: 768px) {
   .navbar-collapse.collapse {
     display: none !important;
   }
