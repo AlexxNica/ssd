@@ -1,4 +1,4 @@
-name = Surveillance Self Defence 
+name = Surveillance Self Defence
 core = 7.x
 package = Features
 dependencies[] = views
