@@ -12,9 +12,13 @@ All code licensed under Affero General Public License version 3+ unless otherwis
 * `ruby -e "$(curl -fsSL https://raw.github.com/Homebrew/homebrew/go/install)"`
 * `brew install node`
 
-### Linux:
+### Debian/Ubuntu Linux:
 
 * `apt-get install npm nodejs-legacy`
+
+### Fedora/CentOS Linux:
+
+* `yum install npm nodejs`
 
 ### Install grunt
 
