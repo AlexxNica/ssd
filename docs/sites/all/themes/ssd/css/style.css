@@ -1,23 +1,25 @@
 @font-face {
-  font-family: 'antonioregular';
-  src: url('../fonts/antonio/antonio-regular-webfont.eot');
-  src: url('../fonts/antonio/antonio-regular-webfont.eot?#iefix') format('embedded-opentype'),
-        url('../fonts/antonio/antonio-regular-webfont.woff') format('woff'),
-        url('../fonts/antonio/antonio-regular-webfont.ttf') format('truetype'),
-        url('../fonts/antonio/antonio-regular-webfont.svg#antonioregular') format('svg');
-  font-weight: normal;
-  font-style: normal;
+    font-family: 'montserratbold';
+    src: url('..fonts/montserrat-bold-webfont.eot');
+    src: url('..fonts/montserrat-bold-webfont.eot?#iefix') format('embedded-opentype'),
+         url('..fonts/montserrat-bold-webfont.woff') format('woff'),
+         url('..fonts/montserrat-bold-webfont.ttf') format('truetype'),
+         url('..fonts/montserrat-bold-webfont.svg#montserratbold') format('svg');
+    font-weight: normal;
+    font-style: normal;
+
 }
 
 @font-face {
-  font-family: 'montserrat';
-  src: url('../fonts/montserrat/montserrat_regular_macroman/Montserrat-Regular.eot');
-  src: url('../fonts/montserrat/montserrat_regular_macroman/Montserrat-Regular.eot?#iefix') format('embedded-opentype'),
-        url('../fonts/montserrat/montserrat_regular_macroman/Montserrat-Regular.woff') format('woff'),
-        url('../fonts/montserrat/montserrat_regular_macroman/Montserrat-Regular.ttf') format('truetype'),
-        url('../fonts/montserrat/montserrat_regular_macroman/Montserrat-Regular.svg#montserrat') format('svg');
-  font-weight: normal;
-  font-style: normal;
+    font-family: 'montserratregular';
+    src: url('..fonts/montserrat-regular-webfont.eot');
+    src: url('..fonts/montserrat-regular-webfont.eot?#iefix') format('embedded-opentype'),
+         url('..fonts/montserrat-regular-webfont.woff') format('woff'),
+         url('..fonts/montserrat-regular-webfont.ttf') format('truetype'),
+         url('..fonts/montserrat-regular-webfont.svg#montserratregular') format('svg');
+    font-weight: normal;
+    font-style: normal;
+
 }
 
 body {
@@ -43,7 +45,7 @@ h1,
 h2,
 h3,
 .navbar-default .navbar-nav > li > a {
-  font-family: 'antonioregular';
+  font-family: 'montserratbold';
   color: #A71010;
   font-weight: normal;
 }
@@ -68,7 +70,7 @@ ul.secondary li.last {
 /* EFF Header */
 #top-eff-header {
   font-size: 16px;
-  font-family: antonioregular;
+  font-family: montserratbold;
   text-transform: uppercase;
 }
 #top-eff-header a {
@@ -100,7 +102,7 @@ ul.secondary li.last {
   width: 100%;
   margin: auto;
   text-align: center;
-  font-family: antonioregular;
+  font-family: montserratbold;
   margin-top: 20px;
 }
 
