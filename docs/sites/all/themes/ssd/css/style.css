@@ -74,6 +74,9 @@ ul.secondary li.last {
 #top-eff-header a {
   color: #d5e0e0;
 }
+#top-eff-header img {
+  margin-right: 5px;
+}
 
 /* Site logo display */
 #top-logo {
@@ -128,11 +131,10 @@ ul.secondary li.last {
 .page-header {
   margin-top: 20px;
 }
-.container,
 body.page-node .page-header,
 body.page-node .tabs--primary {
-  /*max-width: 1000px;
-  width: 1170px; */
+  max-width: 1000px;
+  width: 970px;
   margin-left: auto;
   margin-right: auto;
   padding: 1px 15px;
@@ -140,16 +142,32 @@ body.page-node .tabs--primary {
 body.page-node .page-header {
   border-bottom: none;
 }
-ul.secondary,
-ul.secondary li {
+ul.navbar-nav {
+  font-size: 20px;
+  margin-top: 20px;
+}
+ul.navbar-nav > li,
+ul.secondary {
+  margin: 0;
   padding: 0;
-  margin:0;
+  border: none;
+}
+ul.navbar-nav > li > a {
+  padding: 10px 10px 6px;
 }
 ul.secondary li a {
   padding: 8px 10px 5px;
   margin: 0;
+  font-size: 14px;
 }
-
+.navbar-default .navbar-nav > .active > a,
+.navbar-default .navbar-nav > .active > a:hover,
+.navbar-default .navbar-nav > .active > a:focus {
+  background-color: transparent;
+}
+.nav-tabs {
+  border-bottom: 0;
+}
 @media (min-width: 768px) {
   .navbar-toggle {
     display: block;
@@ -159,5 +177,11 @@ ul.secondary li a {
   }
   .navbar-collapse.collapse.in {
     display: block !important;
+  }
+  .navbar-nav > li {
+    float: none;
+  }
+  ul.navbar-nav {
+    float: none;
   }
 }
