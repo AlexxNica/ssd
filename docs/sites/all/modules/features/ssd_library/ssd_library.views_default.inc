@@ -7,7 +7,7 @@
 /**
  * Implements hook_views_default_views().
  */
-function ssd_views_default_views() {
+function ssd_library_views_default_views() {
   $export = array();
 
   $view = new view();

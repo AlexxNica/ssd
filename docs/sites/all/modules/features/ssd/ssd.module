@@ -1,7 +1,0 @@
-<?php
-/**
- * @file
- * Code for the Surveillance Self Defence  feature.
- */
-
-include_once 'ssd.features.inc';
