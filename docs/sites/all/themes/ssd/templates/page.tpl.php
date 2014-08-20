@@ -120,16 +120,21 @@
   <?php endif; ?>
 </header>
 
+<header role="banner" id="page-header" class=" <?php if (!isset($node)) { print 'container'; } ?>">
+  <?php if ($is_front): ?>
+    <p class="lead slogan"><?php print $site_slogan; ?></p>
+  <?php endif; ?>
+
+  <?php print render($page['header']); ?>
+  
+  <?php if (!empty($tabs)): ?>
+    <?php print render($tabs); ?>
+  <?php endif; ?>
+</header> <!-- /#page-header -->
+
 <?php if (isset($node)): ?>
   <div class="container-main">
 <?php endif; ?>
-  <header role="banner" id="page-header" class=" <?php if (!isset($node)) { print 'container'; } ?>">
-    <?php if ($is_front): ?>
-      <p class="lead slogan"><?php print $site_slogan; ?></p>
-    <?php endif; ?>
-
-    <?php print render($page['header']); ?>
-  </header> <!-- /#page-header -->
   
   <div class="<?php if (!isset($node)) { print 'container'; } ?> ">
 
@@ -150,9 +155,6 @@
       <?php endif; ?>
       <?php print render($title_suffix); ?>
       <?php print $messages; ?>
-      <?php if (!empty($tabs)): ?>
-        <?php print render($tabs); ?>
-      <?php endif; ?>
       <?php if (!empty($page['help'])): ?>
         <?php print render($page['help']); ?>
       <?php endif; ?>
