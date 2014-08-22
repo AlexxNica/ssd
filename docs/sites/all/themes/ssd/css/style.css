@@ -1,4 +1,15 @@
 @font-face {
+  font-family: 'antonioregular';
+  src: url('../fonts/antonio/antonio-regular-webfont.eot');
+  src: url('../fonts/antonio/antonio-regular-webfont.eot?#iefix') format('embedded-opentype'),
+        url('../fonts/antonio/antonio-regular-webfont.woff') format('woff'),
+        url('../fonts/antonio/antonio-regular-webfont.ttf') format('truetype'),
+        url('../fonts/antonio/antonio-regular-webfont.svg#antonioregular') format('svg');
+  font-weight: normal;
+  font-style: normal;
+}
+
+@font-face {
     font-family: 'montserratbold';
     src: url('../fonts/montserrat-bold-webfont.eot');
     src: url('../fonts/montserrat-bold-webfont.eot?#iefix') format('embedded-opentype'),
@@ -59,18 +70,21 @@ h3,
 
 ul.secondary {
   border-bottom: 0;
-  background-color: #f8f8f8;
+  background-color: transparent;
   border-radius: 4px;
 }
-
+#navbar ul.secondary li {
+  margin-left: 10px;
+  display: block;
+}
 ul.secondary li.last {
   border: 0;
 }
 
 /* EFF Header */
 #top-eff-header {
-  font-size: 16px;
-  font-family: montserratbold;
+  font-size: 14px;
+  font-family: antonioregular;
   text-transform: uppercase;
 }
 #top-eff-header a {
@@ -78,6 +92,10 @@ ul.secondary li.last {
 }
 #top-eff-header img {
   margin-right: 5px;
+}
+#top-eff-header img {
+  width: 30px;
+  height: auto;
 }
 
 /* Site logo display */
@@ -95,7 +113,7 @@ ul.secondary li.last {
 }
 
 .container-main {
-  background: #d5e0e0;
+  background: #fff;
 }
 
 .slogan {
@@ -128,10 +146,11 @@ ul.secondary li.last {
 }
 
 .module-section:nth-child(even) {
-  background-color: #fff;
+  background-color: #d5e0e0;
 }
 .page-header {
   margin-top: 20px;
+  text-align: center;
 }
 body.page-node .page-header,
 body.page-node .tabs--primary {
