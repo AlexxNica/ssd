@@ -1,4 +1,3 @@
-@import url(stylesheets/bootstrap-custom.css);
 @font-face {
   font-family: 'antonioregular';
   src: url("../fonts/antonio/antonio-regular-webfont.eot");
@@ -23,34 +22,34 @@
   font-style: normal;
 }
 
-/* line 39, ../sass/style.scss */
+/* line 36, ../sass/style.scss */
 body {
   font-family: "montserratregular", "Helvetica Neue", Helvetica, Arial, sans-serif;
   font-size: 14px;
 }
 
-/* line 44, ../sass/style.scss */
+/* line 41, ../sass/style.scss */
 a {
   color: #a10000;
 }
 
-/* line 48, ../sass/style.scss */
+/* line 45, ../sass/style.scss */
 a:hover {
   color: #a10000;
 }
 
-/* line 51, ../sass/style.scss */
+/* line 48, ../sass/style.scss */
 section {
   padding-top: 1px;
   padding-bottom: 1px;
 }
 
-/* line 55, ../sass/style.scss */
+/* line 52, ../sass/style.scss */
 .container {
   max-width: 1000px;
 }
 
-/* line 61, ../sass/style.scss */
+/* line 58, ../sass/style.scss */
 h1,
 h2,
 h3,
@@ -61,33 +60,33 @@ h3,
 }
 
 /* Remove bootstrap's navbar css */
-/* line 68, ../sass/style.scss */
+/* line 65, ../sass/style.scss */
 .navbar {
   border: 0;
   background-color: #fff;
   border-color: #fff;
 }
 
-/* line 74, ../sass/style.scss */
+/* line 71, ../sass/style.scss */
 ul.secondary {
   border-bottom: 0;
   background-color: transparent;
   border-radius: 4px;
 }
 
-/* line 79, ../sass/style.scss */
+/* line 76, ../sass/style.scss */
 #navbar ul.secondary li {
   margin-left: 10px;
   display: block;
 }
 
-/* line 83, ../sass/style.scss */
+/* line 80, ../sass/style.scss */
 ul.secondary li.last {
   border: 0;
 }
 
 /* EFF Header */
-/* line 88, ../sass/style.scss */
+/* line 85, ../sass/style.scss */
 #top-eff-header {
   font-size: 12px;
   font-family: antonioregular;
@@ -97,45 +96,45 @@ ul.secondary li.last {
   float: left;
 }
 
-/* line 96, ../sass/style.scss */
+/* line 93, ../sass/style.scss */
 #top-eff-header a {
   color: #d5e0e0;
 }
 
-/* line 99, ../sass/style.scss */
+/* line 96, ../sass/style.scss */
 #top-eff-header img {
   margin-right: 5px;
 }
 
-/* line 102, ../sass/style.scss */
+/* line 99, ../sass/style.scss */
 #top-eff-header img {
   width: 30px;
   height: auto;
 }
 
 /* Site logo display */
-/* line 108, ../sass/style.scss */
+/* line 105, ../sass/style.scss */
 #top-logo {
   text-align: center;
 }
 
-/* line 112, ../sass/style.scss */
+/* line 109, ../sass/style.scss */
 #top-logo-inner {
   max-width: 350px;
   margin: auto;
 }
 
-/* line 117, ../sass/style.scss */
+/* line 114, ../sass/style.scss */
 #top-logo img {
   margin: auto;
 }
 
-/* line 121, ../sass/style.scss */
+/* line 118, ../sass/style.scss */
 .container-main {
   background: #fff;
 }
 
-/* line 125, ../sass/style.scss */
+/* line 122, ../sass/style.scss */
 .slogan {
   width: 100%;
   margin: auto;
@@ -144,17 +143,17 @@ ul.secondary li.last {
   margin-top: 20px;
 }
 
-/* line 133, ../sass/style.scss */
+/* line 130, ../sass/style.scss */
 .flexslider {
   /*margin-left: -20px;*/
 }
 
-/* line 137, ../sass/style.scss */
+/* line 134, ../sass/style.scss */
 .playlist-button:hover {
   background: #dddddd;
 }
 
-/* line 141, ../sass/style.scss */
+/* line 138, ../sass/style.scss */
 #playlist-controller {
   position: fixed;
   bottom: 15px;
@@ -165,18 +164,18 @@ ul.secondary li.last {
   border-radius: 20px;
 }
 
-/* line 154, ../sass/style.scss */
+/* line 151, ../sass/style.scss */
 .module-section:nth-child(even) {
   background-color: #d5e0e0;
 }
 
-/* line 157, ../sass/style.scss */
+/* line 154, ../sass/style.scss */
 .page-header {
   margin-top: 20px;
   text-align: center;
 }
 
-/* line 162, ../sass/style.scss */
+/* line 159, ../sass/style.scss */
 body.page-node .page-header,
 body.page-node .tabs--primary {
   max-width: 1000px;
@@ -186,18 +185,18 @@ body.page-node .tabs--primary {
   padding: 1px 15px;
 }
 
-/* line 169, ../sass/style.scss */
+/* line 166, ../sass/style.scss */
 body.page-node .page-header {
   border-bottom: none;
 }
 
-/* line 172, ../sass/style.scss */
+/* line 169, ../sass/style.scss */
 ul.navbar-nav {
   font-size: 20px;
   margin-top: 20px;
 }
 
-/* line 177, ../sass/style.scss */
+/* line 174, ../sass/style.scss */
 ul.navbar-nav > li,
 ul.secondary {
   margin: 0;
@@ -205,52 +204,52 @@ ul.secondary {
   border: none;
 }
 
-/* line 182, ../sass/style.scss */
+/* line 179, ../sass/style.scss */
 ul.navbar-nav > li > a {
   padding: 10px 10px 6px;
 }
 
-/* line 185, ../sass/style.scss */
+/* line 182, ../sass/style.scss */
 ul.secondary li a {
   padding: 8px 10px 5px;
   margin: 0;
   font-size: 14px;
 }
 
-/* line 192, ../sass/style.scss */
+/* line 189, ../sass/style.scss */
 .navbar-default .navbar-nav > .active > a,
 .navbar-default .navbar-nav > .active > a:hover,
 .navbar-default .navbar-nav > .active > a:focus {
   background-color: transparent;
 }
 
-/* line 195, ../sass/style.scss */
+/* line 192, ../sass/style.scss */
 .nav-tabs {
   border-bottom: 0;
 }
 
 @media (min-width: 768px) {
-  /* line 199, ../sass/style.scss */
+  /* line 196, ../sass/style.scss */
   .navbar-toggle {
     display: block;
   }
 
-  /* line 202, ../sass/style.scss */
+  /* line 199, ../sass/style.scss */
   .navbar-collapse.collapse {
     display: none !important;
   }
 
-  /* line 205, ../sass/style.scss */
+  /* line 202, ../sass/style.scss */
   .navbar-collapse.collapse.in {
     display: block !important;
   }
 
-  /* line 208, ../sass/style.scss */
+  /* line 205, ../sass/style.scss */
   .navbar-nav > li {
     float: none;
   }
 
-  /* line 211, ../sass/style.scss */
+  /* line 208, ../sass/style.scss */
   ul.navbar-nav {
     float: none;
   }

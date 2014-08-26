@@ -11,7 +11,7 @@ The theme uses Compass, SASS and the Bootstrap 3 CSS framework.
 
 ## Run Compass
 
-If you already have compass installed all you need to do is:
+If you already have Compass installed all you need to do is:
 
 * `cd docs/sites/all/themes/ssd`
-* 'compass watch'
+* `compass watch`
