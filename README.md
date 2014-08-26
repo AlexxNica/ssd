@@ -7,32 +7,11 @@ All code licensed under Affero General Public License version 3+ unless otherwis
 
 ## Theme Development
 
-### Mac:
+The theme uses Compass, SASS and the Bootstrap 3 CSS framework.
 
-* `ruby -e "$(curl -fsSL https://raw.github.com/Homebrew/homebrew/go/install)"`
-* `brew install node`
+## Run Compass
 
-### Debian/Ubuntu Linux:
-
-* `apt-get install npm nodejs-legacy`
-
-### Fedora/CentOS Linux:
-
-* `yum install npm nodejs`
-
-### Install grunt
-
-* `npm install -g grunt grunt-cli`
-
-### Install theme dependencies
+If you already have compass installed all you need to do is:
 
 * `cd docs/sites/all/themes/ssd`
-* `npm install`
-
-### Run grunt
-
-* `grunt`
-
-If all went well, Grunt is now running and watching your theme for changes.
-
-You can test it by making a simple edit to the theme SASS files in docs/sites/all/themes/ssd/scss and saving.
+* 'compass watch'
