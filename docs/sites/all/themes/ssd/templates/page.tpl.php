@@ -75,8 +75,9 @@
 ?>
 <header id="navbar" role="banner" class="<?php print $navbar_classes; ?>">
   <div class="container">
+    <div class="row">
       <!-- EFF Header -->
-      <span id="top-eff-header">
+      <span id="top-eff-header" class="col-sm-6 col-md-6">
         <a href="https://eff.org">
           <img src="<?php print $eff_logo_small; ?>" />
           A Project of the Electronic Frontier Foundation
@@ -91,33 +92,35 @@
         <span class="icon-bar"></span>
         <span class="icon-bar"></span>
       </button>
-
-    <?php if (!empty($primary_nav) || !empty($secondary_nav) || !empty($page['navigation'])): ?>
-      <div class="navbar-collapse collapse">
-        <nav role="navigation">
-          <?php if (!empty($primary_nav)): ?>
-            <?php print render($primary_nav); ?>
-          <?php endif; ?>
-          <?php if (!empty($secondary_nav)): ?>
-            <?php print render($secondary_nav); ?>
-          <?php endif; ?>
-          <?php if (!empty($page['navigation'])): ?>
-            <?php print render($page['navigation']); ?>
-          <?php endif; ?>
-        </nav>
-      </div>
-    <?php endif; ?>
-  </div>
-      
-  <?php if ($logo): ?>
-  <div id ="top-logo">
-    <div id="top-logo-inner">
-      <a class="logo" href="<?php print $front_page; ?>" title="<?php print t('Home'); ?>">
-        <img src="<?php print $logo; ?>" alt="<?php print t('Home'); ?>" class="img-responsive" />
-      </a>
     </div>
-  </div>
-  <?php endif; ?>
+    <div class="row">
+      <?php if (!empty($primary_nav) || !empty($secondary_nav) || !empty($page['navigation'])): ?>
+        <div class="navbar-collapse collapse">
+          <nav role="navigation">
+            <?php if (!empty($primary_nav)): ?>
+              <?php print render($primary_nav); ?>
+            <?php endif; ?>
+            <?php if (!empty($secondary_nav)): ?>
+              <?php print render($secondary_nav); ?>
+            <?php endif; ?>
+            <?php if (!empty($page['navigation'])): ?>
+              <?php print render($page['navigation']); ?>
+            <?php endif; ?>
+          </nav>
+        </div>
+      <?php endif; ?>
+      
+      <?php if ($logo): ?>
+        <div id ="top-logo">
+          <div id="top-logo-inner">
+            <a class="logo" href="<?php print $front_page; ?>" title="<?php print t('Home'); ?>">
+              <img src="<?php print $logo; ?>" alt="<?php print t('Home'); ?>" class="img-responsive" />
+            </a>
+          </div>
+        </div>
+      <?php endif; ?>
+    </div>
+  </div> 
 </header>
 
 <header role="banner" id="page-header" class="container">

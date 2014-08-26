@@ -7606,8 +7606,6 @@ ul.secondary li.last {
   font-family: antonioregular;
   text-transform: uppercase;
   margin-top: 10px;
-  display: block;
-  float: left;
 }
 
 /* line 95, ../sass/style.scss */
