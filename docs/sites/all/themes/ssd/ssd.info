@@ -28,5 +28,5 @@ stylesheets[all][] = css/style.css
 ; ;; Scripts
 ; ;;;;;;;;;;;;;;;;;;;;;
 ; 
-scripts[] = 'bootstrap/js/bootstrap.min.js'
+scripts[] = 'js/bootstrap.min.js'
 scripts[] = 'js/ssd.js'
