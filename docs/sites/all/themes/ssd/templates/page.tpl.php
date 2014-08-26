@@ -120,13 +120,13 @@
   <?php endif; ?>
 </header>
 
-<header role="banner" id="page-header" class=" <?php if (!isset($node)) { print 'container'; } ?>">
+<header role="banner" id="page-header" class="container">
   <?php if ($is_front): ?>
     <p class="lead slogan"><?php print $site_slogan; ?></p>
   <?php endif; ?>
 
   <?php print render($page['header']); ?>
-  
+
   <?php if (!empty($tabs)): ?>
     <?php print render($tabs); ?>
   <?php endif; ?>

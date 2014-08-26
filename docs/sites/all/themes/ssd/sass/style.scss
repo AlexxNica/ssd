@@ -1,3 +1,5 @@
+@import "bootstrap-custom";
+
 @font-face {
   font-family: 'antonioregular';
   src: url('../fonts/antonio/antonio-regular-webfont.eot');
@@ -107,10 +109,9 @@ ul.secondary li.last {
 }
 
 #top-logo-inner {
-  max-width: 350px;
+  max-width: 419px;
   margin: auto;
 }
-
 #top-logo img {
   margin: auto;
 }
