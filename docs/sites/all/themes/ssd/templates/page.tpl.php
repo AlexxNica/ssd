@@ -78,7 +78,7 @@
   <div class="container">
     <div class="row">
       <!-- EFF Header -->
-      <span id="top-eff-header" class="col-sm-6 col-md-6">
+      <span id="top-eff-header" class="col-sm-7 col-md-7">
         <a href="https://eff.org">
           <img src="<?php print $eff_logo_small; ?>" />
           A Project of the Electronic Frontier Foundation
@@ -89,8 +89,11 @@
       <button type="button" class="navbar-toggle menu-hamburger col-sm-1 col-md-1" data-toggle="collapse" data-target=".navbar-collapse">
         More
       </button>
+      
+      <div class="col-sm-4 col-md-4">
+        <?php print $search_form; ?>
+      </div>
 
-       <?php print $search_form; ?>
     </div>
     <div class="row">
       <?php if (!empty($primary_nav) || !empty($secondary_nav) || !empty($page['navigation'])): ?>
@@ -108,7 +111,7 @@
           </nav>
         </div>
       <?php endif; ?>
-      
+
       <?php if ($logo): ?>
         <div id ="top-logo">
           <div id="top-logo-inner">
