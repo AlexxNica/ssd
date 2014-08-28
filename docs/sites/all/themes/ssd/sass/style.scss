@@ -82,18 +82,45 @@ ul.secondary {
 ul.secondary li.last {
   border: 0;
 }
-
+#navbar #search-form {
+  @extend .col-sm-5;
+  @extend .col-md-5;
+}
+#navbar #search-form label {
+  display: none;
+}
+#navbar #search-form #edit-keys {
+  width: 150px;
+}
+#navbar #search-form .form-submit {
+  @extend .btn;
+  text-indent: -9999px;
+  background: url(../img/search.png) no-repeat;
+  width: 40px;
+  height: 30px;
+}
+.menu-hamburger {
+  background: url(../img/hamburger.png) no-repeat 40px 5px;
+  border: none;
+  margin: 0;
+  padding: 5px 25px 5px 5px;
+  color: #7A9091;
+  text-transform: uppercase;
+}
 /* EFF Header */
-#top-eff-header {
+#top-eff-header,
+.menu-hamburger {
   font-size: 12px;
   font-family: antonioregular;
   text-transform: uppercase;
+}
+#top-eff-header {
   margin-top: 10px;
   display: block;
   float: left;
 }
 #top-eff-header a {
-  color: #d5e0e0;
+  color: #7A9091;
 }
 #top-eff-header img {
   margin-right: 5px;

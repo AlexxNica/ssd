@@ -89,6 +89,8 @@ function ssd_preprocess_page(&$variables) {
  */
 function ssd_process_page(&$variables) {
   $variables['navbar_classes'] = implode(' ', $variables['navbar_classes_array']);
+  $search_form = drupal_get_form('search_form');
+  $variables['search_form'] = drupal_render($search_form);
 }
 
 /**

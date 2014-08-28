@@ -72,6 +72,7 @@
  *
  * @ingroup themeable
  */
+
 ?>
 <header id="navbar" role="banner" class="<?php print $navbar_classes; ?>">
   <div class="container">
@@ -85,13 +86,11 @@
       </span>
 
       <!-- .btn-navbar is used as the toggle for collapsed navbar content -->
-      <span class="sr-only">More </span>
-      <button type="button" class="navbar-toggle" data-toggle="collapse" data-target=".navbar-collapse">
-        <span class="sr-only">Toggle navigation</span>
-        <span class="icon-bar"></span>
-        <span class="icon-bar"></span>
-        <span class="icon-bar"></span>
+      <button type="button" class="navbar-toggle menu-hamburger col-sm-1 col-md-1" data-toggle="collapse" data-target=".navbar-collapse">
+        More
       </button>
+
+       <?php print $search_form; ?>
     </div>
     <div class="row">
       <?php if (!empty($primary_nav) || !empty($secondary_nav) || !empty($page['navigation'])): ?>
