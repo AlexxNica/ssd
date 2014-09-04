@@ -72,7 +72,6 @@
  *
  * @ingroup themeable
  */
-
 ?>
 <header id="navbar" role="banner" class="<?php print $navbar_classes; ?>">
   <div class="container">
@@ -126,6 +125,16 @@
 </header>
 
 <header role="banner" id="page-header" class="container">
+  <?php if ($custom_language_switcher): ?>
+    <div id="language-switcher">
+      <?php print render($custom_language_switcher); ?>
+    </div>
+  <?php else: ?>
+    <div id="language-switcher">
+      <?php print render($page['language_switcher']); ?>
+    </div>
+  <?php endif; ?>
+
   <?php if ($is_front): ?>
     <p class="lead slogan"><?php print $site_slogan; ?></p>
   <?php endif; ?>
@@ -135,6 +144,7 @@
   <?php if (!empty($tabs)): ?>
     <?php print render($tabs); ?>
   <?php endif; ?>
+
 </header> <!-- /#page-header -->
 
 <?php if (isset($node)): ?>

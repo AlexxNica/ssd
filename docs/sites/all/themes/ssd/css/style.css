@@ -7937,25 +7937,28 @@ ul.secondary li.last {
   border-radius: 20px;
 }
 
-/* line 190, ../sass/style.scss */
+/* line 189, ../sass/style.scss */
+.language-switcher-locale-url {
+  text-align: center;
+}
+
+/* line 192, ../sass/style.scss */
+.language-switcher-locale-url li {
+  list-style-type: none;
+  display: inline;
+  padding: 0 10px;
+}
+
+/* line 197, ../sass/style.scss */
 .module-section:nth-child(even) {
   background-color: #d5e0e0;
 }
 
-/* line 193, ../sass/style.scss */
+/* line 201, ../sass/style.scss */
+h1,
 .page-header {
   margin-top: 20px;
   text-align: center;
-}
-
-/* line 198, ../sass/style.scss */
-body.page-node .page-header,
-body.page-node .tabs--primary {
-  max-width: 1000px;
-  width: 970px;
-  margin-left: auto;
-  margin-right: auto;
-  padding: 1px 15px;
 }
 
 /* line 205, ../sass/style.scss */
@@ -7964,12 +7967,17 @@ body.page-node .page-header {
 }
 
 /* line 208, ../sass/style.scss */
+#language-switcher {
+  text-align: center;
+}
+
+/* line 211, ../sass/style.scss */
 ul.navbar-nav {
   font-size: 20px;
   margin-top: 20px;
 }
 
-/* line 213, ../sass/style.scss */
+/* line 216, ../sass/style.scss */
 ul.navbar-nav > li,
 ul.secondary {
   margin: 0;
@@ -7977,52 +7985,52 @@ ul.secondary {
   border: none;
 }
 
-/* line 218, ../sass/style.scss */
+/* line 221, ../sass/style.scss */
 ul.navbar-nav > li > a {
   padding: 10px 10px 6px;
 }
 
-/* line 221, ../sass/style.scss */
+/* line 224, ../sass/style.scss */
 ul.secondary li a {
   padding: 8px 10px 5px;
   margin: 0;
   font-size: 14px;
 }
 
-/* line 228, ../sass/style.scss */
+/* line 231, ../sass/style.scss */
 .navbar-default .navbar-nav > .active > a,
 .navbar-default .navbar-nav > .active > a:hover,
 .navbar-default .navbar-nav > .active > a:focus {
   background-color: transparent;
 }
 
-/* line 231, ../sass/style.scss */
+/* line 234, ../sass/style.scss */
 .nav-tabs {
   border-bottom: 0;
 }
 
 @media (min-width: 768px) {
-  /* line 235, ../sass/style.scss */
+  /* line 238, ../sass/style.scss */
   .navbar-toggle {
     display: block;
   }
 
-  /* line 238, ../sass/style.scss */
+  /* line 241, ../sass/style.scss */
   .navbar-collapse.collapse {
     display: none !important;
   }
 
-  /* line 241, ../sass/style.scss */
+  /* line 244, ../sass/style.scss */
   .navbar-collapse.collapse.in {
     display: block !important;
   }
 
-  /* line 244, ../sass/style.scss */
+  /* line 247, ../sass/style.scss */
   .navbar-nav > li {
     float: none;
   }
 
-  /* line 247, ../sass/style.scss */
+  /* line 250, ../sass/style.scss */
   ul.navbar-nav {
     float: none;
   }

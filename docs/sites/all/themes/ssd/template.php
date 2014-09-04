@@ -80,6 +80,18 @@ function ssd_preprocess_page(&$variables) {
   else {
     $variables['navbar_classes_array'][] = 'navbar-default';
   }
+
+
+  $search_form = drupal_get_form('search_form');
+  $variables['search_form'] = drupal_render($search_form);
+ 
+  // Show links to translations if on a node.
+  $node_view = '';
+  $variables['custom_language_switcher'] = '';
+  if (isset($variables['node'])) {
+    $node_view = node_view($variables['node'], $view_mode = 'full', $langcode = NULL);
+    $variables['custom_language_switcher'] = $node_view['links']['translation'];    
+  }
 }
 
 /**
@@ -89,8 +101,10 @@ function ssd_preprocess_page(&$variables) {
  */
 function ssd_process_page(&$variables) {
   $variables['navbar_classes'] = implode(' ', $variables['navbar_classes_array']);
-  $search_form = drupal_get_form('search_form');
-  $variables['search_form'] = drupal_render($search_form);
+}
+
+function ssd_block_list_alter(&$blocks) {
+ // dpm($blocks);
 }
 
 /**

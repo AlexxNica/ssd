@@ -186,24 +186,27 @@ ul.secondary li.last {
 #playlist-controller #playlist-table {
 
 }
-
+.language-switcher-locale-url {
+  text-align: center;
+}
+.language-switcher-locale-url li {
+  list-style-type: none;
+  display: inline;
+  padding: 0 10px;
+}
 .module-section:nth-child(even) {
   background-color: #d5e0e0;
 }
+h1,
 .page-header {
   margin-top: 20px;
   text-align: center;
 }
-body.page-node .page-header,
-body.page-node .tabs--primary {
-  max-width: 1000px;
-  width: 970px;
-  margin-left: auto;
-  margin-right: auto;
-  padding: 1px 15px;
-}
 body.page-node .page-header {
   border-bottom: none;
+}
+#language-switcher {
+  text-align: center;
 }
 ul.navbar-nav {
   font-size: 20px;
