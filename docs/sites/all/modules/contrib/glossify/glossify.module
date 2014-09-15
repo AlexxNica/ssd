@@ -195,7 +195,7 @@ function _glossify_taxonomy_process($text, $filter, $format, $langcode, $cache, 
   if (!$vocabs) return $text;
 
   //get terms
-  $result = db_query("SELECT tid AS id, name, LOWER(name) AS name_norm, description AS tip FROM {taxonomy_term_data} WHERE vid IN (:vids)", array(':vids' => $vocabs));
+  $result = db_query("SELECT tid AS id, name, LOWER(name) AS name_norm, description AS tip, format FROM {taxonomy_term_data} WHERE vid IN (:vids)", array(':vids' => $vocabs));
   $terms = $result->fetchAllAssoc('name_norm');
 
   //process text
@@ -221,7 +221,7 @@ function _glossify_content_process($text, $filter, $format, $langcode, $cache, $
   }
   else {
     $field_name = $filter->settings['glossify_content_tooltip_field'];
-    $result = db_query("SELECT n.nid AS id, n.title AS name, LOWER(title) AS name_norm, f." . $field_name . "_value AS tip  FROM {node n} LEFT OUTER JOIN {field_data_" . $field_name . " f} ON n.vid = f.revision_id WHERE n.status = 1 AND n.type IN (:types) AND (f.delta = 0 OR f.delta IS NULL)", array(':types' => $types));
+    $result = db_query("SELECT n.nid AS id, n.title AS name, LOWER(title) AS name_norm, f." . $field_name . "_value AS tip, f." . $field_name . "_format AS format FROM {node n} LEFT OUTER JOIN {field_data_" . $field_name . " f} ON n.vid = f.revision_id WHERE n.status = 1 AND n.type IN (:types) AND (f.delta = 0 OR f.delta IS NULL)", array(':types' => $types));
   }
   $terms = $result->fetchAllAssoc('name_norm');
 
@@ -258,7 +258,7 @@ function _glossify_to_links($text, $terms, $type, $case_sensitivity, $first_only
 
   //transform terms into normalized search pattern
   foreach ($terms as $term) {
-    $term_norm = preg_replace('/\s+/', ' ', preg_quote(trim($term->name_norm)));
+    $term_norm = preg_replace('/\s+/', ' ', preg_quote(trim($term->name)));
     $term_norm = preg_replace('#/#', '\/',$term_norm);
     $pattern[] = preg_replace('/ /', '\\s+', $term_norm);
   }
@@ -296,8 +296,8 @@ function _glossify_to_links($text, $terms, $type, $case_sensitivity, $first_only
           $link->appendXML($term_txt);
         }
         else {
-          $tip = $tooltips ? $terms[strtolower($term_txt)]->tip : '';
-          $link->appendXML(theme('glossify_links', array('type' => $type, 'id' => $terms[strtolower($term_txt)]->id, 'text' => $term_txt, 'tip' => $tip)));
+          $tip = $tooltips ? check_markup($terms[strtolower($term_norm)]->tip, $terms[strtolower($term_norm)]->format) : '';
+          $link->appendXML(theme('glossify_links', array('type' => $type, 'id' => $terms[strtolower($term_norm)]->id, 'text' => $term_txt, 'tip' => $tip)));
           $matched[] = ($case_sensitivity ? $match[0] : strtolower($match[0]));
         }
         $parent->insertBefore($link, $refnode);
@@ -346,9 +346,9 @@ function theme_glossify_links($vars) {
   }
 
   if ($vars['tip']) {
-    return l($vars['text'], $path, array('attributes' => array('class' => array('glossify-link'), 'title' => $vars['tip']))) . '<img src = "/' . drupal_get_path('module', 'glossify') . '/info.png" />';
+    return l(check_plain($vars['text']) . '<img src = "/' . drupal_get_path('module', 'glossify') . '/info.png" />', $path, array('html' => true, 'attributes' => array('class' => array('glossify-link'), 'title' => $vars['tip'])));
   }
   else {
-    return l($vars['text'], $path, array('attributes' => array ('class' => array('glossify-link')))) . '<img src = "/' . drupal_get_path('module', 'glossify') . '/info.png" />';
+    return l(check_plain($vars['text']) . '<img src = "/' . drupal_get_path('module', 'glossify') . '/info.png" />', $path, array('html' => true, 'attributes' => array ('class' => array('glossify-link'))));
   }
 }
