@@ -83,16 +83,12 @@
           A Project of the Electronic Frontier Foundation
         </a>
       </div>
-      
-      <?php if (!empty($page['language_switcher'])): ?>
-        <div id="language-switcher" class="">
-          <div class="language-switcher-label"><?php print t('Language'); ?></div>
+
+      <div class="search-form-header"><?php print $search_form; ?></div><?php if (!empty($page['language_switcher'])): ?><div id="language-switcher" class=""><div class="language-switcher-label"><?php print t('Language'); ?></div>
           <?php print render($page['language_switcher']); ?>
         </div>
       <?php endif; ?>     
-      <div class="search-form-header">
-        <?php print $search_form; ?>
-      </div>
+
       <!-- .btn-navbar is used as the toggle for collapsed navbar content -->
       <button type="button" class="menu-hamburger" data-toggle="collapse" data-target=".navbar-collapse">
         Menu

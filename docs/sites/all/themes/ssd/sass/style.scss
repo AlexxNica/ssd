@@ -66,7 +66,6 @@ h3 {
 #navbar {
   background-color: #ADBBBC;
   min-height: 0;
-  padding-bottom: 5px;
   margin-bottom: 0;
 }
 .navbar {
@@ -141,11 +140,11 @@ ul.secondary li.last {
 }
 #navbar #search-form #edit-basic .form-item-keys,
 #navbar #search-form--2 #edit-basic .form-item-keys {
-  margin: 0 0 0 62px;
+  margin: 0;
 }
 #navbar #search-form--2 #edit-keys--2,
 #navbar #search-form #edit-keys {
-  width: 138px;
+  width: 136px;
   border: none;
   background-color: #fff;
   padding: 0px 6px;
@@ -167,10 +166,18 @@ ul.secondary li.last {
   text-transform: uppercase;
   background-color: transparent;
   border: none;
-  position: absolute;
-  top: 5px;
-  left: 0;
   color: #fff;
+  display: inline;
+}
+.search-form-header,
+#language-switcher {
+  border-right: 2px solid #fff;
+  padding-top: 3px;
+  padding-bottom: 5px;
+}
+#language-switcher {
+  padding-top: 10px;
+  padding-bottom: 8px;  
 }
 .menu-hamburger {
   background: url(../img/hamburger.png) no-repeat right center;
@@ -213,7 +220,7 @@ ul.secondary li.last {
 #language-switcher .region-language-switcher {
   display: none;
   position: absolute;
-  top: 16px;
+  top: 30px;
   left: 0px;
   background-color: #ADBBBC;
   width: 150px;
@@ -227,7 +234,7 @@ ul.secondary li.last {
 .language-switcher-locale-url {
   text-align: center;
   margin-bottom: 0;
-  padding: 5px 5px 10px;
+  padding: 5px 5px 5px;
 }
 .language-switcher-locale-url li {
   list-style-type: none;
