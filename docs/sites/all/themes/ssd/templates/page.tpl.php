@@ -73,27 +73,36 @@
  * @ingroup themeable
  */
 ?>
-<header id="navbar" role="banner" class="<?php print $navbar_classes; ?>">
+<header id="navbar" role="banner" class"navbar">
   <div class="container">
     <div class="row">
       <!-- EFF Header -->
-      <span id="top-eff-header" class="col-sm-7 col-md-7">
+      <div id="top-eff-header" class="visible-md-block visible-lg-block">
         <a href="https://eff.org">
           <img src="<?php print $eff_logo_small; ?>" />
           A Project of the Electronic Frontier Foundation
         </a>
-      </span>
-
-      <!-- .btn-navbar is used as the toggle for collapsed navbar content -->
-      <button type="button" class="navbar-toggle menu-hamburger col-sm-1 col-md-1" data-toggle="collapse" data-target=".navbar-collapse">
-        More
-      </button>
+      </div>
       
-      <div class="col-sm-4 col-md-4">
+      <?php if (!empty($page['language_switcher'])): ?>
+        <div id="language-switcher" class="">
+          <div class="language-switcher-label"><?php print t('Language'); ?></div>
+          <?php print render($page['language_switcher']); ?>
+        </div>
+      <?php endif; ?>     
+      <div class="search-form-header">
         <?php print $search_form; ?>
       </div>
+      <!-- .btn-navbar is used as the toggle for collapsed navbar content -->
+      <button type="button" class="menu-hamburger" data-toggle="collapse" data-target=".navbar-collapse">
+        Menu
+      </button>
 
     </div>
+  </div> 
+</header>
+<header id="nav-expanded">
+  <div class="container">
     <div class="row">
       <?php if (!empty($primary_nav) || !empty($secondary_nav) || !empty($page['navigation'])): ?>
         <div class="navbar-collapse collapse">
@@ -110,21 +119,21 @@
           </nav>
         </div>
       <?php endif; ?>
-
-      <?php if ($logo): ?>
-        <div id ="top-logo">
-          <div id="top-logo-inner">
-            <a class="logo" href="<?php print $front_page; ?>" title="<?php print t('Home'); ?>">
-              <img src="<?php print $logo; ?>" alt="<?php print t('Home'); ?>" class="img-responsive" />
-            </a>
-          </div>
-        </div>
-      <?php endif; ?>
     </div>
-  </div> 
+   </div>
 </header>
-
 <header role="banner" id="page-header" class="container">
+
+  <?php if ($logo): ?>
+    <div id ="top-logo">
+      <div id="top-logo-inner">
+        <a class="logo" href="<?php print $front_page; ?>" title="<?php print t('Home'); ?>">
+          <img src="<?php print $logo; ?>" alt="<?php print t('Home'); ?>" class="img-responsive" />
+        </a>
+      </div>
+    </div>
+  <?php endif; ?>
+
   <?php if ($custom_language_switcher): ?>
     <div id="language-switcher">
       <?php print render($custom_language_switcher); ?>
