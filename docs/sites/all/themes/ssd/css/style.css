@@ -7688,23 +7688,22 @@ ul.secondary li.last {
   border: none;
   background-color: #fff;
   padding: 0px 6px;
-  color: #ddd;
+  color: #7a9091;
   font-size: 11px;
-  color: #fff;
   height: 15px;
   position: relative;
   top: -1px;
 }
 
-/* line 160, ../sass/style.scss */
+/* line 159, ../sass/style.scss */
 #navbar #search-form--2 #edit-keys--2:focus,
 #navbar #search-form #edit-keys:focus {
   background-color: #fff;
   border: #7A9091 solid 1px;
-  color: #fff;
+  color: #7a9091;
 }
 
-/* line 166, ../sass/style.scss */
+/* line 165, ../sass/style.scss */
 #navbar #search-form--2 .form-submit,
 #navbar #search-form .form-submit {
   font-size: 11px;
@@ -7717,7 +7716,7 @@ ul.secondary li.last {
   color: #fff;
 }
 
-/* line 176, ../sass/style.scss */
+/* line 175, ../sass/style.scss */
 .menu-hamburger {
   background: url(../img/hamburger.png) no-repeat right center;
   border: none;
@@ -7730,32 +7729,32 @@ ul.secondary li.last {
   color: #fff;
 }
 
-/* line 187, ../sass/style.scss */
+/* line 186, ../sass/style.scss */
 #navbar .menu-hamburger:hover {
   background-color: transparent;
 }
 
-/* line 190, ../sass/style.scss */
+/* line 189, ../sass/style.scss */
 #top-eff-header {
   padding-left: 10px;
   padding-right: 10px;
 }
 
-/* line 194, ../sass/style.scss */
+/* line 193, ../sass/style.scss */
 #top-eff-header a {
   font-size: 11px;
   text-transform: uppercase;
   color: #7a9091;
 }
 
-/* line 199, ../sass/style.scss */
+/* line 198, ../sass/style.scss */
 #top-eff-header img {
   margin-right: 5px;
   width: 30px;
   height: auto;
 }
 
-/* line 204, ../sass/style.scss */
+/* line 203, ../sass/style.scss */
 #language-switcher {
   text-transform: uppercase;
   font-size: 11px;
@@ -7764,12 +7763,12 @@ ul.secondary li.last {
   padding-right: 10px;
 }
 
-/* line 211, ../sass/style.scss */
+/* line 210, ../sass/style.scss */
 #language-switcher .language-switcher-label {
   color: #fff;
 }
 
-/* line 214, ../sass/style.scss */
+/* line 213, ../sass/style.scss */
 #language-switcher .region-language-switcher {
   display: none;
   position: absolute;
@@ -7779,24 +7778,24 @@ ul.secondary li.last {
   width: 150px;
 }
 
-/* line 222, ../sass/style.scss */
+/* line 221, ../sass/style.scss */
 #language-switcher .language-switcher-locale-url {
   width: 150px;
 }
 
-/* line 225, ../sass/style.scss */
+/* line 224, ../sass/style.scss */
 #language-switcher:hover .region-language-switcher {
   display: block;
 }
 
-/* line 228, ../sass/style.scss */
+/* line 227, ../sass/style.scss */
 .language-switcher-locale-url {
   text-align: center;
   margin-bottom: 0;
   padding: 5px 5px 10px;
 }
 
-/* line 233, ../sass/style.scss */
+/* line 232, ../sass/style.scss */
 .language-switcher-locale-url li {
   list-style-type: none;
   display: block;
@@ -7805,47 +7804,47 @@ ul.secondary li.last {
   margin: 0;
 }
 
-/* line 240, ../sass/style.scss */
+/* line 239, ../sass/style.scss */
 #navbar .language-switcher-locale-url li a {
   display: block;
   padding: 2px 6px;
 }
 
-/* line 245, ../sass/style.scss */
+/* line 244, ../sass/style.scss */
 #navbar .language-switcher-locale-url li a:hover,
 #navbar .language-switcher-locale-url li.active a {
   background-color: #7a9091;
 }
 
-/* line 248, ../sass/style.scss */
+/* line 247, ../sass/style.scss */
 header .search-form {
   width: 170px;
 }
 
 /* Site logo display */
-/* line 252, ../sass/style.scss */
+/* line 251, ../sass/style.scss */
 #top-logo {
   text-align: center;
   margin: 20px 0;
 }
 
-/* line 257, ../sass/style.scss */
+/* line 256, ../sass/style.scss */
 #top-logo-inner {
   max-width: 419px;
   margin: auto;
 }
 
-/* line 261, ../sass/style.scss */
+/* line 260, ../sass/style.scss */
 #top-logo img {
   margin: auto;
 }
 
-/* line 265, ../sass/style.scss */
+/* line 264, ../sass/style.scss */
 .container-main {
   background: #fff;
 }
 
-/* line 269, ../sass/style.scss */
+/* line 268, ../sass/style.scss */
 .slogan {
   width: 100%;
   margin: auto;
@@ -7854,17 +7853,17 @@ header .search-form {
   margin-top: 20px;
 }
 
-/* line 277, ../sass/style.scss */
+/* line 276, ../sass/style.scss */
 .flexslider {
   /*margin-left: -20px;*/
 }
 
-/* line 281, ../sass/style.scss */
+/* line 280, ../sass/style.scss */
 .playlist-button:hover {
   background: #dddddd;
 }
 
-/* line 285, ../sass/style.scss */
+/* line 284, ../sass/style.scss */
 #playlist-controller {
   position: fixed;
   bottom: 15px;
@@ -7875,30 +7874,30 @@ header .search-form {
   border-radius: 20px;
 }
 
-/* line 297, ../sass/style.scss */
+/* line 296, ../sass/style.scss */
 .module-section:nth-child(even) {
   background-color: #d5e0e0;
 }
 
-/* line 301, ../sass/style.scss */
+/* line 300, ../sass/style.scss */
 h1,
 .page-header {
   margin-top: 20px;
   text-align: center;
 }
 
-/* line 305, ../sass/style.scss */
+/* line 304, ../sass/style.scss */
 body.page-node .page-header {
   border-bottom: none;
 }
 
-/* line 308, ../sass/style.scss */
+/* line 307, ../sass/style.scss */
 ul.navbar-nav {
   margin-top: 20px;
   text-align: right;
 }
 
-/* line 313, ../sass/style.scss */
+/* line 312, ../sass/style.scss */
 ul.navbar-nav > li,
 ul.secondary {
   margin: 0;
@@ -7906,52 +7905,52 @@ ul.secondary {
   border: none;
 }
 
-/* line 318, ../sass/style.scss */
+/* line 317, ../sass/style.scss */
 ul.navbar-nav > li > a {
   padding: 10px 10px 6px;
 }
 
-/* line 321, ../sass/style.scss */
+/* line 320, ../sass/style.scss */
 ul.secondary li a {
   padding: 8px 10px 5px;
   margin: 0;
   font-size: 14px;
 }
 
-/* line 328, ../sass/style.scss */
+/* line 327, ../sass/style.scss */
 .navbar-default .navbar-nav > .active > a,
 .navbar-default .navbar-nav > .active > a:hover,
 .navbar-default .navbar-nav > .active > a:focus {
   background-color: transparent;
 }
 
-/* line 331, ../sass/style.scss */
+/* line 330, ../sass/style.scss */
 .nav-tabs {
   border-bottom: 0;
 }
 
 @media (min-width: 768px) {
-  /* line 335, ../sass/style.scss */
+  /* line 334, ../sass/style.scss */
   .navbar-toggle {
     display: block;
   }
 
-  /* line 338, ../sass/style.scss */
+  /* line 337, ../sass/style.scss */
   .navbar-collapse.collapse {
     display: none !important;
   }
 
-  /* line 341, ../sass/style.scss */
+  /* line 340, ../sass/style.scss */
   .navbar-collapse.collapse.in {
     display: block !important;
   }
 
-  /* line 344, ../sass/style.scss */
+  /* line 343, ../sass/style.scss */
   .navbar-nav > li {
     float: none;
   }
 
-  /* line 347, ../sass/style.scss */
+  /* line 346, ../sass/style.scss */
   ul.navbar-nav {
     float: none;
   }
