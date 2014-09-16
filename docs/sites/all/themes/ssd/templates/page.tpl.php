@@ -77,7 +77,7 @@
   <div class="container">
     <div class="row">
       <!-- EFF Header -->
-      <div id="top-eff-header" class="visible-md-block visible-lg-block">
+      <div id="top-eff-header">
         <a href="https://eff.org">
           <img src="<?php print $eff_logo_small; ?>" />
           A Project of the Electronic Frontier Foundation

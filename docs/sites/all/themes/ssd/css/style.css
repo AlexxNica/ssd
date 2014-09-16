@@ -7719,15 +7719,16 @@ ul.secondary li.last {
   border-right: 2px solid #fff;
   padding-top: 3px;
   padding-bottom: 5px;
+  padding-left: 10px;
 }
 
-/* line 178, ../sass/style.scss */
+/* line 179, ../sass/style.scss */
 #language-switcher {
   padding-top: 10px;
   padding-bottom: 8px;
 }
 
-/* line 182, ../sass/style.scss */
+/* line 183, ../sass/style.scss */
 .menu-hamburger {
   background: url(../img/hamburger.png) no-repeat right center;
   border: none;
@@ -7740,14 +7741,13 @@ ul.secondary li.last {
   color: #fff;
 }
 
-/* line 193, ../sass/style.scss */
+/* line 194, ../sass/style.scss */
 #navbar .menu-hamburger:hover {
   background-color: transparent;
 }
 
-/* line 196, ../sass/style.scss */
+/* line 197, ../sass/style.scss */
 #top-eff-header {
-  padding-left: 10px;
   padding-right: 10px;
 }
 
@@ -7964,5 +7964,17 @@ ul.secondary li a {
   /* line 353, ../sass/style.scss */
   ul.navbar-nav {
     float: none;
+  }
+}
+@media (max-width: 767px) {
+  /* line 359, ../sass/style.scss */
+  #top-eff-header {
+    display: none !important;
+  }
+
+  /* line 362, ../sass/style.scss */
+  #navbar {
+    text-align: right;
+    padding-right: 10px;
   }
 }
