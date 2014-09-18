@@ -88,9 +88,9 @@ function ssd_preprocess_page(&$variables) {
   // Show links to translations if on a node.
   $node_view = '';
   $variables['custom_language_switcher'] = '';
-  if (isset($variables['node'])) {
+  if (isset($node_view['links']['translation'])) {
     $node_view = node_view($variables['node'], $view_mode = 'full', $langcode = NULL);
-    $variables['custom_language_switcher'] = $node_view['links']['translation'];    
+    $variables['custom_language_switcher'] = $node_view['links']['translation'];
   }
 }
 
