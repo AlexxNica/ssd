@@ -1,7 +1,7 @@
 <?php
 /**
  * @file
- * ssd.features.inc
+ * ssd_library.features.inc
  */
 
 /**
