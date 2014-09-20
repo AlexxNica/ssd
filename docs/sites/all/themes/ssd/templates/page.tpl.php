@@ -156,7 +156,7 @@
   <div class="container-main">
 <?php endif; ?>
   
-  <div class="<?php if (!isset($node)) { print 'container'; } ?> ">
+  <div class="<?php print $global_container; ?> ">
 
     <?php if (!empty($page['sidebar_first'])): ?>
       <aside class="col-sm-3" role="complementary">
@@ -164,7 +164,7 @@
       </aside>  <!-- /#sidebar-first -->
     <?php endif; ?>
 
-    <section <?php print $content_column_class; ?>>
+    <section class="<?php print $content_column_class; ?>">
       <?php if (!empty($page['highlighted'])): ?>
         <div class="highlighted jumbotron"><?php print render($page['highlighted']); ?></div>
       <?php endif; ?>

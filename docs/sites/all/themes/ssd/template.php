@@ -27,7 +27,11 @@ function ssd_preprocess_node(&$vars) {
   $vars['title'] = check_plain($node->title);
 }
 
-function ssd_preprocess_page(&$variables) {  
+function ssd_preprocess_page(&$variables) {
+
+  if (!isset($vars['node'])) {
+    $variables['global_container'] = ' container';
+  }
   $variables['theme_path'] = $variables['base_path'] . $variables['directory'];
   $variables['eff_logo_small'] = $variables['theme_path'] . '/img/eff-logo.png';
   
@@ -38,14 +42,16 @@ function ssd_preprocess_page(&$variables) {
     }
   }
   
-  // Bootstrap stuff
-  
   // Add information about the number of sidebars.
   if (!empty($variables['page']['sidebar_first']) && !empty($variables['page']['sidebar_second'])) {
     $variables['content_column_class'] = ' class="col-sm-6"';
   }
   elseif (!empty($variables['page']['sidebar_first']) || !empty($variables['page']['sidebar_second'])) {
     $variables['content_column_class'] = ' class="col-sm-9"';
+  }
+  elseif (arg(0) == 'site-map') {
+    $variables['content_column_class'] = ' container-full-width';
+    $variables['global_container'] = ' ';
   }
   else {
     $variables['content_column_class'] = '';
@@ -80,7 +86,6 @@ function ssd_preprocess_page(&$variables) {
   else {
     $variables['navbar_classes_array'][] = 'navbar-default';
   }
-
 
   $search_form = drupal_get_form('search_form');
   $variables['search_form'] = drupal_render($search_form);

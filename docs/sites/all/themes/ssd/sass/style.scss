@@ -272,7 +272,13 @@ header .search-form {
 .container-main {
   background: #fff;
 }
-
+.container-full-width {
+  width: 100%;
+}
+.container-full-width .region-content {
+  background-color: #ADBBBC;
+  padding: 1px 0;
+}
 .slogan {
   width: 100%;
   margin: auto;
@@ -280,7 +286,32 @@ header .search-form {
   font-family: montserratbold;
   margin-top: 20px;
 }
-
+.page-site-map h1.page-header {
+  color: #ADBBBC;
+  text-transform: uppercase;
+  font-size: 55px;
+  margin-bottom: 0;
+}
+.view-site-map h3,
+#block-views-site-map-block-1 h2 {
+  color: #231F20;
+  text-transform: uppercase;
+  font-size: 34px;
+  font-weight: bold;
+}
+.view-site-map h3.field-content,
+#block-views-site-map-block-1 h3.field-content {
+  font-size: 18px;
+  text-transform: none;
+  font-weight: normal;
+}
+.view-site-map,
+#block-views-site-map-block-1 {
+  text-align: center;
+}
+.view-site-map h3.field-content a {
+  color: #637C7C;
+}
 .flexslider {
   /*margin-left: -20px;*/
 }
@@ -308,6 +339,7 @@ h1,
 .page-header {
   margin-top: 20px;
   text-align: center;
+  border-bottom: none;
 }
 body.page-node .page-header {
   border-bottom: none;
