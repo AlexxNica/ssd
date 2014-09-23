@@ -29,7 +29,7 @@ function ssd_preprocess_node(&$vars) {
 
 function ssd_preprocess_page(&$variables) {
 
-  if (!isset($vars['node'])) {
+  if (!isset($variables['node'])) {
     $variables['global_container'] = ' container';
   }
   $variables['theme_path'] = $variables['base_path'] . $variables['directory'];
