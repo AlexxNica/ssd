@@ -301,6 +301,9 @@ header .search-form {
   font-size: 55px;
   margin-bottom: 0;
 }
+.field-name-body p img {
+  text-align: center;
+}
 .view-site-map h3,
 #block-views-site-map-block-1 h2 {
   color: #231F20;
@@ -403,6 +406,9 @@ header .search-form {
 .module-section:nth-child(even) {
   background-color: #d5e0e0;
 }
+.module-section h2 {
+  text-align: center;
+}
 h1,
 .page-header {
   margin-top: 20px;
@@ -438,6 +444,14 @@ ul.secondary li a {
 .nav-tabs {
   border-bottom: 0;
 }
+.field-metadata {
+  background-color: #fff;
+  padding: 10px;
+  border-radius: 10px;
+  max-width: 80%;
+  margin: 0 auto;
+}
+
 @media (min-width: 768px) {
   .navbar-toggle {
     display: block;
