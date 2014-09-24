@@ -7856,26 +7856,168 @@ header .search-form {
   background: #fff;
 }
 
-/* line 276, ../sass/style.scss */
+/* line 275, ../sass/style.scss */
+.container-full-width {
+  width: 100%;
+}
+
+/* line 278, ../sass/style.scss */
+.container-full-width .region-content {
+  background-color: #ADBBBC;
+  padding: 1px 0;
+}
+
+/* line 282, ../sass/style.scss */
+.front .container-full-width {
+  padding-top: 130px;
+}
+
+/* line 285, ../sass/style.scss */
+.front .container-full-width .flexslider {
+  position: relative;
+  top: -130px;
+}
+
+/* line 289, ../sass/style.scss */
 .slogan {
   width: 100%;
   margin: auto;
   text-align: center;
-  font-family: montserratbold;
-  margin-top: 20px;
+  font-family: montserratregular;
+  margin-bottom: 15px;
+  font-size: 18px;
+  /* color: #adbbbc; */
 }
 
-/* line 284, ../sass/style.scss */
-.flexslider {
-  /*margin-left: -20px;*/
+/* line 298, ../sass/style.scss */
+.page-site-map h1.page-header {
+  color: #ADBBBC;
+  text-transform: uppercase;
+  font-size: 55px;
+  margin-bottom: 0;
 }
 
-/* line 288, ../sass/style.scss */
+/* line 305, ../sass/style.scss */
+.view-site-map h3,
+#block-views-site-map-block-1 h2 {
+  color: #231F20;
+  text-transform: uppercase;
+  font-size: 34px;
+  font-weight: bold;
+}
+
+/* line 312, ../sass/style.scss */
+.view-site-map h3.field-content,
+#block-views-site-map-block-1 h3.field-content {
+  font-size: 18px;
+  text-transform: none;
+  font-weight: normal;
+}
+
+/* line 318, ../sass/style.scss */
+.view-site-map,
+#block-views-site-map-block-1 {
+  text-align: center;
+}
+
+/* line 321, ../sass/style.scss */
+.view-site-map h3.field-content a {
+  color: #637C7C;
+}
+
+/* line 324, ../sass/style.scss */
+.front .flexslider {
+  border: none;
+  min-height: 272px;
+}
+
+/* line 329, ../sass/style.scss */
+.front .flexslider h1,
+.front .flexslider h2 {
+  position: relative;
+  z-index: 700;
+  width: 100%;
+  text-align: center;
+  padding: 0 60px;
+}
+
+/* line 337, ../sass/style.scss */
+.front .flexslider h1 a,
+.front .flexslider h2 a {
+  color: #FDBF0F;
+}
+
+/* line 340, ../sass/style.scss */
+.front .flexslider h1 {
+  font-size: 55px;
+  margin-bottom: 0px;
+  padding-top: 20px;
+}
+
+/* line 345, ../sass/style.scss */
+.front .flexslider h2 {
+  font-size: 22px;
+  font-family: montserratregular;
+  font-weight: normal;
+  margin-top: 0;
+}
+
+/* line 351, ../sass/style.scss */
+.front .flexslider .views-field-field-playlist-banner-bg img {
+  position: absolute;
+  top: 0;
+  left: 0;
+}
+
+/* line 356, ../sass/style.scss */
+.front .flex-direction-nav {
+  position: absolute;
+  top: 40%;
+  width: 100%;
+}
+
+/* line 362, ../sass/style.scss */
+.flex-direction-nav a.flex-prev,
+.flex-direction-nav a.flex-next {
+  background-image: url(../img/slideshow-arrows.png);
+  background-repeat: no-repeat;
+  width: 60px;
+  height: 100px;
+  text-indent: -9999px;
+  text-align: left;
+  position: absolute;
+  top: 10%;
+}
+
+/* line 373, ../sass/style.scss */
+.front .flex-direction-nav a:before,
+.front .flex-direction-nav a.flex-next:before {
+  content: '';
+}
+
+/* line 376, ../sass/style.scss */
+.front .flex-direction-nav .flex-prev {
+  background-position: left top;
+  left: -40px;
+}
+
+/* line 380, ../sass/style.scss */
+.front .flex-direction-nav .flex-next {
+  background-position: right top;
+  right: -40px;
+}
+
+/* line 384, ../sass/style.scss */
+.front .flex-control-paging {
+  display: none;
+}
+
+/* line 387, ../sass/style.scss */
 .playlist-button:hover {
   background: #dddddd;
 }
 
-/* line 292, ../sass/style.scss */
+/* line 391, ../sass/style.scss */
 #playlist-controller {
   position: fixed;
   bottom: 15px;
@@ -7886,30 +8028,31 @@ header .search-form {
   border-radius: 20px;
 }
 
-/* line 304, ../sass/style.scss */
+/* line 403, ../sass/style.scss */
 .module-section:nth-child(even) {
   background-color: #d5e0e0;
 }
 
-/* line 308, ../sass/style.scss */
+/* line 407, ../sass/style.scss */
 h1,
 .page-header {
   margin-top: 20px;
   text-align: center;
+  border-bottom: none;
 }
 
-/* line 312, ../sass/style.scss */
+/* line 412, ../sass/style.scss */
 body.page-node .page-header {
   border-bottom: none;
 }
 
-/* line 315, ../sass/style.scss */
+/* line 415, ../sass/style.scss */
 ul.navbar-nav {
   margin-top: 20px;
   text-align: right;
 }
 
-/* line 320, ../sass/style.scss */
+/* line 420, ../sass/style.scss */
 ul.navbar-nav > li,
 ul.secondary {
   margin: 0;
@@ -7917,63 +8060,63 @@ ul.secondary {
   border: none;
 }
 
-/* line 325, ../sass/style.scss */
+/* line 425, ../sass/style.scss */
 ul.navbar-nav > li > a {
   padding: 10px 10px 6px;
 }
 
-/* line 328, ../sass/style.scss */
+/* line 428, ../sass/style.scss */
 ul.secondary li a {
   padding: 8px 10px 5px;
   margin: 0;
   font-size: 14px;
 }
 
-/* line 335, ../sass/style.scss */
+/* line 435, ../sass/style.scss */
 .navbar-default .navbar-nav > .active > a,
 .navbar-default .navbar-nav > .active > a:hover,
 .navbar-default .navbar-nav > .active > a:focus {
   background-color: transparent;
 }
 
-/* line 338, ../sass/style.scss */
+/* line 438, ../sass/style.scss */
 .nav-tabs {
   border-bottom: 0;
 }
 
 @media (min-width: 768px) {
-  /* line 342, ../sass/style.scss */
+  /* line 442, ../sass/style.scss */
   .navbar-toggle {
     display: block;
   }
 
-  /* line 345, ../sass/style.scss */
+  /* line 445, ../sass/style.scss */
   .navbar-collapse.collapse {
     display: none !important;
   }
 
-  /* line 348, ../sass/style.scss */
+  /* line 448, ../sass/style.scss */
   .navbar-collapse.collapse.in {
     display: block !important;
   }
 
-  /* line 351, ../sass/style.scss */
+  /* line 451, ../sass/style.scss */
   .navbar-nav > li {
     float: none;
   }
 
-  /* line 354, ../sass/style.scss */
+  /* line 454, ../sass/style.scss */
   ul.navbar-nav {
     float: none;
   }
 }
 @media (max-width: 767px) {
-  /* line 360, ../sass/style.scss */
+  /* line 460, ../sass/style.scss */
   #top-eff-header {
     display: none !important;
   }
 
-  /* line 363, ../sass/style.scss */
+  /* line 463, ../sass/style.scss */
   #navbar {
     text-align: right;
     padding-right: 10px;

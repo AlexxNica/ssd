@@ -272,19 +272,118 @@ header .search-form {
 .container-main {
   background: #fff;
 }
-
+.container-full-width {
+  width: 100%;
+}
+.container-full-width .region-content {
+  background-color: #ADBBBC;
+  padding: 1px 0;
+}
+.front .container-full-width {
+  padding-top: 130px;
+}
+.front .container-full-width .flexslider {
+  position: relative;
+  top: -130px;
+}
 .slogan {
   width: 100%;
   margin: auto;
   text-align: center;
-  font-family: montserratbold;
-  margin-top: 20px;
+  font-family: montserratregular;
+  margin-bottom: 15px;
+  font-size: 18px;
+ /* color: #adbbbc; */
 }
-
-.flexslider {
-  /*margin-left: -20px;*/
+.page-site-map h1.page-header {
+  color: #ADBBBC;
+  text-transform: uppercase;
+  font-size: 55px;
+  margin-bottom: 0;
 }
-
+.view-site-map h3,
+#block-views-site-map-block-1 h2 {
+  color: #231F20;
+  text-transform: uppercase;
+  font-size: 34px;
+  font-weight: bold;
+}
+.view-site-map h3.field-content,
+#block-views-site-map-block-1 h3.field-content {
+  font-size: 18px;
+  text-transform: none;
+  font-weight: normal;
+}
+.view-site-map,
+#block-views-site-map-block-1 {
+  text-align: center;
+}
+.view-site-map h3.field-content a {
+  color: #637C7C;
+}
+.front .flexslider {
+  border: none;
+  min-height: 272px;
+}
+.front .flexslider h1,
+.front .flexslider h2 {
+  position: relative;
+  z-index: 700;
+  width: 100%;
+  text-align: center;
+  padding: 0 60px;
+}
+.front .flexslider h1 a,
+.front .flexslider h2 a {
+  color: #FDBF0F;
+}
+.front .flexslider h1 {
+  font-size: 55px;
+  margin-bottom: 0px;
+  padding-top: 20px;
+}
+.front .flexslider h2 {
+  font-size: 22px;
+  font-family: montserratregular;
+  font-weight: normal;
+  margin-top: 0;
+}
+.front .flexslider .views-field-field-playlist-banner-bg img {
+  position: absolute;
+  top: 0;
+  left: 0;
+}
+.front .flex-direction-nav {
+  position: absolute;
+  top: 40%;
+  width: 100%;
+}
+.flex-direction-nav a.flex-prev,
+.flex-direction-nav a.flex-next {
+  background-image: url(../img/slideshow-arrows.png);
+  background-repeat: no-repeat;
+  width: 60px;
+  height: 100px;
+  text-indent: -9999px;
+  text-align: left;
+  position: absolute;
+  top: 10%;
+}
+.front .flex-direction-nav a:before,
+.front .flex-direction-nav a.flex-next:before {
+  content: '';
+}
+.front .flex-direction-nav .flex-prev {
+  background-position: left top;
+  left: -40px;
+}
+.front .flex-direction-nav .flex-next {
+  background-position: right top;
+  right: -40px;
+}
+.front .flex-control-paging {
+  display: none;
+}
 .playlist-button:hover {
   background: #dddddd;
 }
@@ -308,6 +407,7 @@ h1,
 .page-header {
   margin-top: 20px;
   text-align: center;
+  border-bottom: none;
 }
 body.page-node .page-header {
   border-bottom: none;
