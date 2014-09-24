@@ -130,19 +130,7 @@
     </div>
   <?php endif; ?>
 
-  <?php if ($custom_language_switcher): ?>
-    <div id="language-switcher">
-      <?php print render($custom_language_switcher); ?>
-    </div>
-  <?php else: ?>
-    <div id="language-switcher">
-      <?php print render($page['language_switcher']); ?>
-    </div>
-  <?php endif; ?>
-
-  <?php if ($is_front): ?>
-    <p class="lead slogan"><?php print $site_slogan; ?></p>
-  <?php endif; ?>
+  <p class="lead slogan"><?php print $site_slogan; ?></p>
 
   <?php print render($page['header']); ?>
 

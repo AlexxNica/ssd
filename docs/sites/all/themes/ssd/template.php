@@ -50,7 +50,7 @@ function ssd_preprocess_page(&$variables) {
   elseif (!empty($variables['page']['sidebar_first']) || !empty($variables['page']['sidebar_second'])) {
     $variables['content_column_class'] = ' class="col-sm-9"';
   }
-  elseif (arg(0) == 'site-map') {
+  elseif (arg(0) == 'site-map' || $variables['is_front'] == TRUE) {
     $variables['content_column_class'] = ' container-full-width';
     $variables['global_container'] = ' ';
   }
