@@ -8038,7 +8038,12 @@ header .search-form {
   background-color: #d5e0e0;
 }
 
-/* line 410, ../sass/style.scss */
+/* line 409, ../sass/style.scss */
+.module-section h2 {
+  text-align: center;
+}
+
+/* line 413, ../sass/style.scss */
 h1,
 .page-header {
   margin-top: 20px;
@@ -8046,18 +8051,18 @@ h1,
   border-bottom: none;
 }
 
-/* line 415, ../sass/style.scss */
+/* line 418, ../sass/style.scss */
 body.page-node .page-header {
   border-bottom: none;
 }
 
-/* line 418, ../sass/style.scss */
+/* line 421, ../sass/style.scss */
 ul.navbar-nav {
   margin-top: 20px;
   text-align: right;
 }
 
-/* line 423, ../sass/style.scss */
+/* line 426, ../sass/style.scss */
 ul.navbar-nav > li,
 ul.secondary {
   margin: 0;
@@ -8065,31 +8070,31 @@ ul.secondary {
   border: none;
 }
 
-/* line 428, ../sass/style.scss */
+/* line 431, ../sass/style.scss */
 ul.navbar-nav > li > a {
   padding: 10px 10px 6px;
 }
 
-/* line 431, ../sass/style.scss */
+/* line 434, ../sass/style.scss */
 ul.secondary li a {
   padding: 8px 10px 5px;
   margin: 0;
   font-size: 14px;
 }
 
-/* line 438, ../sass/style.scss */
+/* line 441, ../sass/style.scss */
 .navbar-default .navbar-nav > .active > a,
 .navbar-default .navbar-nav > .active > a:hover,
 .navbar-default .navbar-nav > .active > a:focus {
   background-color: transparent;
 }
 
-/* line 441, ../sass/style.scss */
+/* line 444, ../sass/style.scss */
 .nav-tabs {
   border-bottom: 0;
 }
 
-/* line 444, ../sass/style.scss */
+/* line 447, ../sass/style.scss */
 .field-metadata {
   background-color: #fff;
   padding: 10px;
@@ -8099,38 +8104,38 @@ ul.secondary li a {
 }
 
 @media (min-width: 768px) {
-  /* line 453, ../sass/style.scss */
+  /* line 456, ../sass/style.scss */
   .navbar-toggle {
     display: block;
   }
 
-  /* line 456, ../sass/style.scss */
+  /* line 459, ../sass/style.scss */
   .navbar-collapse.collapse {
     display: none !important;
   }
 
-  /* line 459, ../sass/style.scss */
+  /* line 462, ../sass/style.scss */
   .navbar-collapse.collapse.in {
     display: block !important;
   }
 
-  /* line 462, ../sass/style.scss */
+  /* line 465, ../sass/style.scss */
   .navbar-nav > li {
     float: none;
   }
 
-  /* line 465, ../sass/style.scss */
+  /* line 468, ../sass/style.scss */
   ul.navbar-nav {
     float: none;
   }
 }
 @media (max-width: 767px) {
-  /* line 471, ../sass/style.scss */
+  /* line 474, ../sass/style.scss */
   #top-eff-header {
     display: none !important;
   }
 
-  /* line 474, ../sass/style.scss */
+  /* line 477, ../sass/style.scss */
   #navbar {
     text-align: right;
     padding-right: 10px;
