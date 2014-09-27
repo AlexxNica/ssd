@@ -73,27 +73,32 @@
  * @ingroup themeable
  */
 ?>
-<header id="navbar" role="banner" class="<?php print $navbar_classes; ?>">
+<header id="navbar" role="banner" class"navbar">
   <div class="container">
     <div class="row">
       <!-- EFF Header -->
-      <span id="top-eff-header" class="col-sm-7 col-md-7">
+      <div id="top-eff-header">
         <a href="https://eff.org">
           <img src="<?php print $eff_logo_small; ?>" />
           A Project of the Electronic Frontier Foundation
         </a>
-      </span>
-
-      <!-- .btn-navbar is used as the toggle for collapsed navbar content -->
-      <button type="button" class="navbar-toggle menu-hamburger col-sm-1 col-md-1" data-toggle="collapse" data-target=".navbar-collapse">
-        More
-      </button>
-      
-      <div class="col-sm-4 col-md-4">
-        <?php print $search_form; ?>
       </div>
 
+      <div class="search-form-header"><?php print $search_form; ?></div><?php if (!empty($page['language_switcher'])): ?><div id="language-switcher" class=""><div class="language-switcher-label"><?php print t('Language'); ?></div>
+          <?php print render($page['language_switcher']); ?>
+        </div>
+      <?php endif; ?>     
+
+      <!-- .btn-navbar is used as the toggle for collapsed navbar content -->
+      <button type="button" class="menu-hamburger" data-toggle="collapse" data-target=".navbar-collapse">
+        Menu
+      </button>
+
     </div>
+  </div> 
+</header>
+<header id="nav-expanded">
+  <div class="container">
     <div class="row">
       <?php if (!empty($primary_nav) || !empty($secondary_nav) || !empty($page['navigation'])): ?>
         <div class="navbar-collapse collapse">
@@ -110,34 +115,22 @@
           </nav>
         </div>
       <?php endif; ?>
-
-      <?php if ($logo): ?>
-        <div id ="top-logo">
-          <div id="top-logo-inner">
-            <a class="logo" href="<?php print $front_page; ?>" title="<?php print t('Home'); ?>">
-              <img src="<?php print $logo; ?>" alt="<?php print t('Home'); ?>" class="img-responsive" />
-            </a>
-          </div>
-        </div>
-      <?php endif; ?>
     </div>
-  </div> 
+   </div>
 </header>
-
 <header role="banner" id="page-header" class="container">
-  <?php if ($custom_language_switcher): ?>
-    <div id="language-switcher">
-      <?php print render($custom_language_switcher); ?>
-    </div>
-  <?php else: ?>
-    <div id="language-switcher">
-      <?php print render($page['language_switcher']); ?>
+
+  <?php if ($logo): ?>
+    <div id ="top-logo">
+      <div id="top-logo-inner">
+        <a class="logo" href="<?php print $front_page; ?>" title="<?php print t('Home'); ?>">
+          <img src="<?php print $logo; ?>" alt="<?php print t('Home'); ?>" class="img-responsive" />
+        </a>
+      </div>
     </div>
   <?php endif; ?>
 
-  <?php if ($is_front): ?>
-    <p class="lead slogan"><?php print $site_slogan; ?></p>
-  <?php endif; ?>
+  <p class="lead slogan"><?php print $site_slogan; ?></p>
 
   <?php print render($page['header']); ?>
 
@@ -151,7 +144,7 @@
   <div class="container-main">
 <?php endif; ?>
   
-  <div class="<?php if (!isset($node)) { print 'container'; } ?> ">
+  <div class="<?php print $global_container; ?> ">
 
     <?php if (!empty($page['sidebar_first'])): ?>
       <aside class="col-sm-3" role="complementary">
@@ -159,14 +152,24 @@
       </aside>  <!-- /#sidebar-first -->
     <?php endif; ?>
 
-    <section <?php print $content_column_class; ?>>
+    <section class="<?php print $content_column_class; ?>">
       <?php if (!empty($page['highlighted'])): ?>
         <div class="highlighted jumbotron"><?php print render($page['highlighted']); ?></div>
       <?php endif; ?>
       <a id="main-content"></a>
       <?php print render($title_prefix); ?>
       <?php if (!empty($title) && !$is_playlist): ?>
+
+        <?php if (!$global_container): ?>
+          <div class="container">
+        <?php endif; ?>
+
         <h1 class="page-header"><?php print $title; ?></h1>
+
+        <?php if (!$global_container): ?>
+          </div>
+        <?php endif; ?>
+
       <?php endif; ?>
       <?php print render($title_suffix); ?>
       <?php print $messages; ?>

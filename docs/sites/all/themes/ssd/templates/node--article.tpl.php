@@ -99,6 +99,16 @@
   <?php endif; ?>
 
   <div class="content"<?php print $content_attributes; ?>>
+    <div class="container">
+      <?php print $variables['body'][0]['summary']; ?>
+      
+      <?php if (!empty($variables['field_metadata'])) : ?>
+        <div class="field-metadata">
+          <?php print $variables['field_metadata'][$variables['language']][0]['safe_value']; ?>
+        </div>
+      <?php endif; ?>
+    </div>
+
     <?php
       // We hide the comments and links now so that we can render them later.
       hide($content['comments']);

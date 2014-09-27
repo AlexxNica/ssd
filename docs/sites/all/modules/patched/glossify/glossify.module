@@ -198,6 +198,13 @@ function _glossify_taxonomy_process($text, $filter, $format, $langcode, $cache, 
   $result = db_query("SELECT tid AS id, name, LOWER(name) AS name_norm, description AS tip, format FROM {taxonomy_term_data} WHERE vid IN (:vids)", array(':vids' => $vocabs));
   $terms = $result->fetchAllAssoc('name_norm');
 
+  // Allow other modules to alter the glossary terms.
+  $context = array(
+    'langcode' => $langcode,
+    'filter' => $filter,
+  );
+  drupal_alter('glossify_terms', $terms, $context);
+
   //process text
   if (count($terms) > 0) {
     return _glossify_to_links($text, $terms, 'taxonomy', $filter->settings['glossify_taxonomy_case_sensitivity'], $filter->settings['glossify_taxonomy_first_only'], $filter->settings['glossify_taxonomy_tooltips']);
@@ -224,6 +231,13 @@ function _glossify_content_process($text, $filter, $format, $langcode, $cache, $
     $result = db_query("SELECT n.nid AS id, n.title AS name, LOWER(title) AS name_norm, f." . $field_name . "_value AS tip, f." . $field_name . "_format AS format FROM {node n} LEFT OUTER JOIN {field_data_" . $field_name . " f} ON n.vid = f.revision_id WHERE n.status = 1 AND n.type IN (:types) AND (f.delta = 0 OR f.delta IS NULL)", array(':types' => $types));
   }
   $terms = $result->fetchAllAssoc('name_norm');
+
+  // Allow other modules to alter the glossary terms.
+  $context = array(
+    'langcode' => $langcode,
+    'filter' => $filter,
+  );
+  drupal_alter('glossify_terms', $terms, $context);
 
   //process text
   if (count($terms) > 0) {
