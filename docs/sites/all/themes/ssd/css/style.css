@@ -7912,8 +7912,8 @@ header .search-form {
 }
 
 /* line 315, ../sass/style.scss */
-.view-site-map h3.field-content,
-#block-views-site-map-block-1 h3.field-content {
+.view-site-map .views-field-title-field h3,
+#block-views-site-map-block-1 h3 {
   font-size: 18px;
   text-transform: none;
   font-weight: normal;
@@ -7926,7 +7926,7 @@ header .search-form {
 }
 
 /* line 324, ../sass/style.scss */
-.view-site-map h3.field-content a {
+.view-site-map .views-field-title-field h3 a {
   color: #637C7C;
 }
 

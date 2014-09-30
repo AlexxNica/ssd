@@ -311,8 +311,8 @@ header .search-form {
   font-size: 34px;
   font-weight: bold;
 }
-.view-site-map h3.field-content,
-#block-views-site-map-block-1 h3.field-content {
+.view-site-map .views-field-title-field h3,
+#block-views-site-map-block-1 h3 {
   font-size: 18px;
   text-transform: none;
   font-weight: normal;
@@ -321,7 +321,7 @@ header .search-form {
 #block-views-site-map-block-1 {
   text-align: center;
 }
-.view-site-map h3.field-content a {
+.view-site-map .views-field-title-field h3 a {
   color: #637C7C;
 }
 .front .flexslider {
