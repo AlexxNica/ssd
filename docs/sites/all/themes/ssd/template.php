@@ -98,6 +98,7 @@ function ssd_preprocess_page(&$variables) {
     $node_view = node_view($variables['node'], $view_mode = 'full', $langcode = NULL);
     $variables['custom_language_switcher'] = $node_view['links']['translation'];
   }
+  $variables['tagline'] = t('Tips, Tools and How-tos For Safer Online Communications.');
 }
 
 /**

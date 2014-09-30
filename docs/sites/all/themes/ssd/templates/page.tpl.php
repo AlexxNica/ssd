@@ -130,7 +130,7 @@
     </div>
   <?php endif; ?>
 
-  <p class="lead slogan"><?php print $site_slogan; ?></p>
+  <p class="lead slogan"><?php print $tagline; ?></p>
 
   <?php print render($page['header']); ?>
 
