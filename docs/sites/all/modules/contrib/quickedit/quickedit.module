@@ -784,6 +784,9 @@ function quickedit_libraries_info() {
         'minified' => array(
           'file' => 'underscore-min.js',
           'pattern' => '#VERSION *\W *[\'\"]{1}(.*?)[\'\"]{1}#',
+          // In the minified Underscore.js 1.7.0, the version is defined at
+          // column 612.
+          'cols' => 1000,
         ),
       ),
     ),
