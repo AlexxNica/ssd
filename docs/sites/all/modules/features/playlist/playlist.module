@@ -39,8 +39,8 @@ function playlist_preprocess_node(&$vars) {
     $index = 1;
     // Get alias for permlink construction.
     $alias = $base_url . '/' . $language->language . '/' . drupal_get_path_alias('node/' . $node->nid);
-    // Get modules in the playlist's native language.
-    $modules = $node->field_playlist_module[$node->language];
+    // The list of modules cannot be translated so use language none.
+    $modules = $node->field_playlist_module[LANGUAGE_NONE];
     
     $indexes = array();
     $hashlinks = array(0 => 'playlist');
