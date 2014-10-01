@@ -100,11 +100,11 @@
 
   <div class="content"<?php print $content_attributes; ?>>
     <div class="container">
-      <?php print $variables['body'][0]['summary']; ?>
+      <?php print render($summary); ?>
       
-      <?php if (!empty($variables['field_metadata'])) : ?>
+      <?php if (!empty($metadata)) : ?>
         <div class="field-metadata">
-          <?php print $variables['field_metadata'][$variables['language']][0]['safe_value']; ?>
+          <?php print render($metadata); ?>
         </div>
       <?php endif; ?>
     </div>
