@@ -68,6 +68,7 @@ function glossify_filter_info() {
       'glossify_taxonomy_first_only' => TRUE,
       'glossify_taxonomy_tooltips' => FALSE,
     ),
+    'type' => FILTER_TYPE_TRANSFORM_REVERSIBLE,
   );
   $filters['glossify_content'] = array(
     'title' => t('Glossify with content'),
@@ -81,6 +82,7 @@ function glossify_filter_info() {
       'glossify_content_tooltips' => FALSE,
       'glossify_content_tooltip_field' => 'body',
     ),
+    'type' => FILTER_TYPE_TRANSFORM_REVERSIBLE,
   );
   return $filters;
 }
