@@ -108,13 +108,14 @@
         </div>
       <?php endif; ?>
     </div>
-
-    <?php
-      // We hide the comments and links now so that we can render them later.
-      hide($content['comments']);
-      hide($content['links']);
-      print render($content);
-    ?>
+    <div class="wrap-module-sections">
+      <?php
+        // We hide the comments and links now so that we can render them later.
+        hide($content['comments']);
+        hide($content['links']);
+        print render($content);
+      ?>
+    </div>
   </div>
 
   <?php print render($content['links']); ?>

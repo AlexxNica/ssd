@@ -22,12 +22,12 @@ function ssd_preprocess_html(&$variables) {
   }
 }
 
-function ssd_preprocess_node(&$vars) {
-  $node = $vars['node'];
-  $vars['title'] = check_plain($node->title);
+function ssd_preprocess_node(&$variables) {
+  $node = $variables['node'];
+  $variables['title'] = check_plain($node->title);
   
   if ($node->type == 'article') {
-    $variables['summary'] = field_view_field('node', $node, 'body', 'summary');
+    $variables['summary'] = field_view_field('node', $node, 'body', 'teaser');
     $variables['metadata'] = field_view_field('node', $node, 'field_metadata', 'default');    
   }
 }
