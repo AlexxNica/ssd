@@ -8,6 +8,7 @@ core = 7.x
 
 regions[navigation]     = 'Navigation'
 regions[header]         = 'Top Bar'
+regions[language_switcher] = 'Language switcher'
 regions[highlighted]    = 'Highlighted'
 regions[help]           = 'Help'
 regions[content]        = 'Content'
