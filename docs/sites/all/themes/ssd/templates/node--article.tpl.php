@@ -100,8 +100,10 @@
 
   <div class="content"<?php print $content_attributes; ?>>
     <div class="container">
-      <?php print render($summary); ?>
-      
+      <?php if (!empty($variables['body'][0]['summary'])): ?>
+        <?php print render($summary); ?>
+      <?php endif; ?>
+
       <?php if (!empty($metadata)) : ?>
         <div class="field-metadata">
           <?php print render($metadata); ?>
