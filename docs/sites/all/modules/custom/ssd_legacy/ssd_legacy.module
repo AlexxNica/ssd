@@ -97,7 +97,7 @@ function ssd_legacy_page_build(&$page) {
     return;
   }
   $link = 'https://web.archive.org/web/*/https://ssd.eff.org/' . $destination['destination'];
-  drupal_set_message(t("Hi, you're looking for the page %title on our previous Surveillance Self-Defense project, which is now out of date. You can see the original page at !link or an up-to-date relevant section of our new guide below.", array('%title' => $legacy_paths[$destination['destination']], '!link' => l($link, $link))));
+  drupal_set_message(t("Hi, you're looking for the page %title on our previous Surveillance Self-Defense project, which is now out of date. You can see the original page at !link or an up-to-date relevant section of our new guide below.", array('%title' => $legacy_paths[$destination['destination']], '!link' => l(t("Internet Archive's Wayback Machine"), $link))));
   unset($_GET['destination']);
   drupal_goto('site-map', array(), 301);
 }
