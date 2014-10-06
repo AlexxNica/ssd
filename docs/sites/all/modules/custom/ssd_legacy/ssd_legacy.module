@@ -1,0 +1,19 @@
+<?php
+
+/**
+ * Implements hook_page_build().
+ */
+function ssd_legacy_page_build(&$page) {
+  // Add a Wayback Machine link to 404 pages.
+  if (drupal_get_http_header('Status') != '404 Not Found') {
+    return;
+  }
+  $destination = drupal_get_destination();
+  if (!preg_match('/^(3rdparties|foreign|home|risk|tech|wire|your-computer).*/', $destination['destination'])) {
+    return;
+  }
+  $link = 'https://web.archive.org/web/*/' . $destination['destination'];
+  drupal_set_message(t("Hi, you're looking for our previous Surveillance Self-Defense project, which is now out of date. You can see the original page at !link or an up-to-date relevant section of our new guide below.", array('!link' => l($link, $link))));
+  drupal_goto('sitemap', array(), 301);
+}
+
