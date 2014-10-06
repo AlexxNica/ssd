@@ -1,7 +1,7 @@
 name = Playlist
 description = The playlist feature for SSD.
 core = 7.x
-package = Features
+package = EFF
 dependencies[] = features
 dependencies[] = image
 dependencies[] = libraries
