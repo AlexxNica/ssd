@@ -25,7 +25,7 @@ Drupal.behaviors.feedbackForm = {
 
 /**
  * Re-collapse the feedback form after every successful form submission.
- */
+ * This behavior is super buggy...
 Drupal.behaviors.feedbackFormSubmit = {
   attach: function (context) {
     var $context = $(context);
@@ -42,6 +42,7 @@ Drupal.behaviors.feedbackFormSubmit = {
     }, 3000);
   }
 };
+ */
 
 /**
  * Collapse or uncollapse the feedback form block.
