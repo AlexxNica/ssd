@@ -36,7 +36,7 @@ function ssd_preprocess_page(&$variables) {
   
   $variables['global_container'] = '';
   if (!isset($variables['node'])) {
-    $variables['global_container'] = ' container';
+    $variables['global_container'] = ' ';
   }
   $variables['theme_path'] = $variables['base_path'] . $variables['directory'];
   $variables['eff_logo_small'] = $variables['theme_path'] . '/img/eff-logo.png';

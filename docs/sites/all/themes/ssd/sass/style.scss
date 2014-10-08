@@ -92,9 +92,12 @@ h3 {
   text-transform: uppercase;
   font-size: 14px;
   padding: 3px 10px;
+  float: right;
+  clear: both;
 }
 #nav-expanded a:hover,
-#nav-expanded a:active {
+#nav-expanded a:active,
+#nav-expanded a:focus {
   background-color: transparent;
 } 
 ul.secondary {
@@ -221,7 +224,7 @@ ul.secondary li.last {
   display: none;
   position: absolute;
   top: 30px;
-  left: 0px;
+  right: 0px;
   background-color: #ADBBBC;
   width: 150px;
   z-index: 300;
@@ -235,7 +238,7 @@ ul.secondary li.last {
 .language-switcher-locale-url {
   text-align: center;
   margin-bottom: 0;
-  padding: 5px 5px 5px;
+  padding: 0;
 }
 .language-switcher-locale-url li {
   list-style-type: none;
@@ -243,6 +246,9 @@ ul.secondary li.last {
   padding: 0;
   text-align: left;
   margin: 0;
+}
+#navbar .container {
+  padding: 0;
 }
 #navbar .language-switcher-locale-url li a {
   display: block;
@@ -276,8 +282,10 @@ header .search-form {
   width: 100%;
 }
 .container-full-width .region-content {
-  background-color: #ADBBBC;
+  background-color: #d5e0e0;
   padding: 1px 0;
+  float: left;
+  width: 100%;
 }
 .front .container-full-width {
   padding-top: 130px;
@@ -303,6 +311,12 @@ header .search-form {
 }
 .field-name-body p img {
   text-align: center;
+}
+.field-name-body img,
+.field-name-body p img {
+  max-width: 650px;
+  margin: 20px auto;
+  display: block;
 }
 .view-site-map h3,
 #block-views-site-map-block-1 h2 {
@@ -404,11 +418,27 @@ header .search-form {
 #playlist-controller #playlist-table {
 
 }
-.module-section:nth-child(even) {
-  background-color: #d5e0e0;
+.module-section {
+  padding: 20px 0;
+}
+.module-section h2 {
+  padding-top: 0;
+  margin-top: 0;
+}
+.module-section:nth-child(odd) {
+  background-color: #fff;
 }
 .module-section h2 {
   text-align: center;
+}
+.module-section .module-section,
+.module-section .module-section .container {
+  display: inline;
+  background-color: transparent;
+  float: none;
+  position: static;
+  padding: 0;
+  margin: 0;
 }
 h1,
 .page-header {
@@ -447,10 +477,12 @@ ul.secondary li a {
 }
 .field-metadata {
   background-color: #fff;
-  padding: 10px;
+  padding: 15px 20px 10px;
   border-radius: 10px;
   max-width: 80%;
-  margin: 0 auto;
+  margin: 30px auto;
+  font-size: 80%;
+  color: #38605F;
 }
 
 @media (min-width: 768px) {
