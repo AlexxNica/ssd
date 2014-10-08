@@ -81,34 +81,18 @@
  */
 
 ?>
-<div id="node-<?php print $node->nid; ?>" class="container <?php print $classes; ?> clearfix"<?php print $attributes; ?>>
 
 <div class="flexslider">
   <ul class="slides">
     <li>
       <h2><?php print $title; ?></h2>
-      <div id="playlist-<?php print $node->nid; ?>" class="<?php print $classes; ?> clearfix"<?php print $attributes; ?>>
-        <?php print render($title_prefix); ?>
-        <?php if (!$page): ?>
-          <h2<?php print $title_attributes; ?>><a href="<?php print $node_url; ?>"><?php print $title; ?></a></h2>
-        <?php endif; ?>
-        <?php print render($title_suffix); ?>
 
-        <?php if ($display_submitted): ?>
-        <div class="submitted">
-          <?php print $submitted; ?>
-        </div>
-        <?php endif; ?>
-
-        <div class="content"<?php print $content_attributes; ?>>
           <?php
             // We hide the comments and links now so that we can render them later.
             hide($content['comments']);
             hide($content['links']);
             print render($content);
           ?>
-        </div>
-      </div>
       <?php print $playlist_table; ?>
       <?php print render($content['links']); ?>
     </li>
@@ -119,5 +103,3 @@
     <div id="playlist-next" class="playlist-button">Next</div>
     <div id="playlist-more" class="playlist-button">More <?php print $playlist_table; ?></div>
   </div>
-
-</div> <!-- /.node -->
