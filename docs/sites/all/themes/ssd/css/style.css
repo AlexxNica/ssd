@@ -8141,44 +8141,52 @@ ul.secondary li a {
   padding: 15px 20px 10px;
   border-radius: 10px;
   max-width: 80%;
-  margin: 30px auto 30px;
+  margin: 30px auto;
   font-size: 80%;
   color: #38605F;
 }
 
+/* line 487, ../sass/style.scss */
+.glossify-link img {
+  margin: 0;
+  padding: 0;
+  display: inline;
+  max-width: none;
+}
+
 @media (min-width: 768px) {
-  /* line 489, ../sass/style.scss */
+  /* line 495, ../sass/style.scss */
   .navbar-toggle {
     display: block;
   }
 
-  /* line 492, ../sass/style.scss */
+  /* line 498, ../sass/style.scss */
   .navbar-collapse.collapse {
     display: none !important;
   }
 
-  /* line 495, ../sass/style.scss */
+  /* line 501, ../sass/style.scss */
   .navbar-collapse.collapse.in {
     display: block !important;
   }
 
-  /* line 498, ../sass/style.scss */
+  /* line 504, ../sass/style.scss */
   .navbar-nav > li {
     float: none;
   }
 
-  /* line 501, ../sass/style.scss */
+  /* line 507, ../sass/style.scss */
   ul.navbar-nav {
     float: none;
   }
 }
 @media (max-width: 767px) {
-  /* line 507, ../sass/style.scss */
+  /* line 513, ../sass/style.scss */
   #top-eff-header {
     display: none !important;
   }
 
-  /* line 510, ../sass/style.scss */
+  /* line 516, ../sass/style.scss */
   #navbar {
     text-align: right;
     padding-right: 10px;

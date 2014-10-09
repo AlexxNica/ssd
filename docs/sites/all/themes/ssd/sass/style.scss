@@ -484,6 +484,12 @@ ul.secondary li a {
   font-size: 80%;
   color: #38605F;
 }
+.glossify-link img {
+  margin: 0;
+  padding: 0;
+  display: inline;
+  max-width: none;
+}
 
 @media (min-width: 768px) {
   .navbar-toggle {
