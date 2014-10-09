@@ -7690,7 +7690,7 @@ ul.secondary li.last {
   background-color: #fff;
   padding: 0px 6px;
   color: #7a9091;
-  font-size: 11px;
+  font-size: 12px;
   height: 15px;
   position: relative;
   top: -1px;
@@ -7707,7 +7707,7 @@ ul.secondary li.last {
 /* line 166, ../sass/style.scss */
 #navbar #search-form--2 .form-submit,
 #navbar #search-form .form-submit {
-  font-size: 11px;
+  font-size: 12px;
   text-transform: uppercase;
   background-color: transparent;
   border: none;
@@ -7738,7 +7738,7 @@ ul.secondary li.last {
   padding: 0 25px 0 5px;
   color: #7A9091;
   text-transform: uppercase;
-  font-size: 11px;
+  font-size: 12px;
   text-transform: uppercase;
   color: #fff;
 }
@@ -7755,9 +7755,9 @@ ul.secondary li.last {
 
 /* line 202, ../sass/style.scss */
 #top-eff-header a {
-  font-size: 11px;
+  font-size: 12px;
   text-transform: uppercase;
-  color: #7a9091;
+  color: #627a7b;
 }
 
 /* line 207, ../sass/style.scss */
@@ -7770,7 +7770,7 @@ ul.secondary li.last {
 /* line 212, ../sass/style.scss */
 #language-switcher {
   text-transform: uppercase;
-  font-size: 11px;
+  font-size: 12px;
   position: relative;
   padding-left: 10px;
   padding-right: 10px;
