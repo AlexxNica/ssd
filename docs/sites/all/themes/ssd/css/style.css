@@ -6821,13 +6821,13 @@ ul.secondary li a {
   padding: 15px 20px 10px;
   border-radius: 10px;
   max-width: 80%;
-  margin: 30px auto;
+  margin: 35px auto;
   font-size: 80%;
   color: #38605F;
 }
 
 .field-summary {
-  padding-top: 1em;
+  margin-top: 35em;
 }
 
 .glossify-link img {
