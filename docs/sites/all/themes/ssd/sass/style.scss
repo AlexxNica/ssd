@@ -317,6 +317,11 @@ header .search-form {
   margin: 20px auto;
   display: block;
 }
+.field-name-body .glossify-link img,
+.field-name-body p .glossify-link img {
+  margin: 0;
+  display: inline;
+}
 .view-site-map h3,
 #block-views-site-map-block-1 h2 {
   color: #231F20;
