@@ -6774,7 +6774,7 @@ header .search-form {
   margin-top: 0;
 }
 
-.module-section:nth-child(odd) {
+.module-section:nth-child(even) {
   background-color: #d5e0e0;
 }
 
