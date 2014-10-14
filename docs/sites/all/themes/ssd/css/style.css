@@ -6868,3 +6868,7 @@ ul.secondary li a {
     padding-right: 10px;
   }
 }
+ul.slides {
+  padding-left: 0;
+  padding-right: 0;
+}
