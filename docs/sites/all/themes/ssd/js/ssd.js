@@ -7,8 +7,10 @@ Drupal.behaviors.ssd_modules = {
         var $set = $(this).nextUntil("h2").addBack();
         $set.wrapAll('<section class="module-section"><div class="container"> </div></section>');
       });
-      $("div.node-article div.field-name-body div.field-item p:first").nextUntil("section.module-section").addBack().wrapAll('<section class="module-section"><div class="container"> </div></section>');
-
+      $("div.node-article div.wrap-module-sections div.field-name-body").each(function(){
+        $(this).find("div.field-item p:first").nextUntil("section.module-section").addBack().wrapAll('<section class="module-section"><div class="container"> </div></section>');
+       });
+        
     })(jQuery);
   }
 }
