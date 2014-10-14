@@ -12,3 +12,10 @@ include_once 'ssd_library.features.inc';
 function ssd_library_ctools_plugin_directory($module, $plugin) {
   return 'plugins/' . $plugin;
 }
+
+/**
+ * Implements hook_taxonomy_term_view_alter().
+ */
+function ssd_library_taxonomy_term_view_alter(&$build) {
+  unset($build['no_content']);
+}

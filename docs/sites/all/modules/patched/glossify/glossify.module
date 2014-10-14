@@ -267,6 +267,11 @@ function _glossify_content_process($text, $filter, $format, $langcode, $cache, $
  *   The original HTML with the term string replaced by links.
  */
 function _glossify_to_links($text, $terms, $type, $case_sensitivity, $first_only, $tooltips) {
+  static $glossifying;
+  if ($glossifying) {
+    return $text;
+  }
+  $glossifying = TRUE;
 
   //create dom document
   $html_dom = filter_dom_load($text);
@@ -331,6 +336,7 @@ function _glossify_to_links($text, $terms, $type, $case_sensitivity, $first_only
     }
   }
 
+  $glossifying = FALSE;
   return filter_dom_serialize($html_dom);
 }
 

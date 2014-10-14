@@ -317,6 +317,11 @@ header .search-form {
   margin: 20px auto;
   display: block;
 }
+.field-name-body .glossify-link img,
+.field-name-body p .glossify-link img {
+  margin: 0;
+  display: inline;
+}
 .view-site-map h3,
 #block-views-site-map-block-1 h2 {
   color: #231F20;
@@ -418,7 +423,7 @@ header .search-form {
 
 }
 .module-section {
-  padding: 20px 0;
+  padding: 35px 0;
 }
 .module-section h2 {
   padding-top: 0;
@@ -479,9 +484,12 @@ ul.secondary li a {
   padding: 15px 20px 10px;
   border-radius: 10px;
   max-width: 80%;
-  margin: 30px auto;
+  margin: 35px auto;
   font-size: 80%;
   color: #38605F;
+}
+.field-summary {
+  margin: 35px 0;
 }
 .glossify-link img {
   margin: 0;
@@ -516,4 +524,9 @@ ul.secondary li a {
     text-align: right;
     padding-right: 10px;
   }
+}
+
+ul.slides {
+  padding-left: 0;
+  padding-right: 0;
 }
