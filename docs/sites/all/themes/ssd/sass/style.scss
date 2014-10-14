@@ -61,6 +61,10 @@ h3 {
   color: #A71010;
   font-weight: normal;
 }
+h1,
+h2 {
+  text-align: center;
+}
 
 #navbar {
   background-color: #ADBBBC;
@@ -281,11 +285,16 @@ header .search-form {
   width: 100%;
 }
 .container-full-width .region-content {
-  background-color: #d5e0e0;
   padding: 1px 0;
   float: left;
   width: 100%;
 }
+/* Add light grey full width background to specific pages */
+.front .container-full-width .region-content,
+.page-site-map .container-full-width .region-content {
+  background-color: #d5e0e0;
+}
+/* Push background div to appear under/in the middle of front slideshow. */
 .front .container-full-width {
   padding-top: 130px;
 }
@@ -430,7 +439,7 @@ header .search-form {
   margin-top: 0;
 }
 .module-section:nth-child(odd) {
-  background-color: #fff;
+  background-color: #d5e0e0;
 }
 .module-section h2 {
   text-align: center;
@@ -480,7 +489,7 @@ ul.secondary li a {
   border-bottom: 0;
 }
 .field-metadata {
-  background-color: #fff;
+  background-color: #d5e0e0;
   padding: 15px 20px 10px;
   border-radius: 10px;
   max-width: 80%;

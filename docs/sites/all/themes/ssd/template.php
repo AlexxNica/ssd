@@ -36,7 +36,7 @@ function ssd_preprocess_page(&$variables) {
   
   $variables['global_container'] = '';
   if (!isset($variables['node'])) {
-    $variables['global_container'] = ' ';
+    $variables['global_container'] = ' container';
   }
   $variables['theme_path'] = $variables['base_path'] . $variables['directory'];
   $variables['eff_logo_small'] = $variables['theme_path'] . '/img/eff-logo.png';
@@ -55,6 +55,7 @@ function ssd_preprocess_page(&$variables) {
   elseif (!empty($variables['page']['sidebar_first']) || !empty($variables['page']['sidebar_second'])) {
     $variables['content_column_class'] = ' class="col-sm-9"';
   }
+  // For pages that need full width backgrounds. */
   elseif (arg(0) == 'site-map' || $variables['is_front'] == TRUE) {
     $variables['content_column_class'] = ' container-full-width';
     $variables['global_container'] = ' ';
