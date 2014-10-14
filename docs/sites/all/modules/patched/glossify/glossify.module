@@ -269,7 +269,7 @@ function _glossify_content_process($text, $filter, $format, $langcode, $cache, $
 function _glossify_to_links($text, $terms, $type, $case_sensitivity, $first_only, $tooltips) {
   static $glossifying;
   if ($glossifying) {
-    return;
+    return $text;
   }
   $glossifying = TRUE;
 
