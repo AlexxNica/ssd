@@ -85,6 +85,7 @@
 <div class="flexslider">
   <ul class="slides">
     <li>
+      <div class="container">
       <h2><?php print $title; ?></h2>
 
           <?php
@@ -97,6 +98,7 @@
       <?php print render($content['links']); ?>
     </li>
     <?php print $playlist_slides ?>
+    </div>
   </ul>
 </div>
   <div id="playlist-controller">
