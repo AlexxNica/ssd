@@ -55,22 +55,88 @@ function _ssd_import_glossary($arg_path = '') {
     // English
     $term->name = $row[0];
     $term->description = $row[3];
-    $term->name_field['en'][0]['value'] = $row[0];
+    
+    $term->name_field['en'][0]['value'] = $row[9];
     $term->field_synonym['en'][0]['value'] = $row[1];
     $term->description_field['en'][0]['value'] = $row[3];
-    
-    // Arabic
-    $term->name_field['ar'][0]['value'] = $row[8];
-    $term->description_field['ar'][0]['value'] = $row[6];
-    $term->field_synonym['ar'][0]['value'] = $row[7];
-    
-    // Spanish
+    /*
     $term->name_field['es'][0]['value'] = $row[9];
-    $term->description_field['es'][0]['value'] = $row[10];
     $term->field_synonym['es'][0]['value'] = $row[11];
+    $term->description_field['es'][0]['value'] = $row[10];
     
-    // Save Term
+    $term->name_field['ar'][0]['value'] = $row[8];
+    $term->field_synonym['ar'][0]['value'] = $row[7];
+    $term->description_field['ar'][0]['value'] = $row[6];
+    */
+    $es_trans = array(
+      'translate' => 0,
+      'status' => 1,
+      'language' => 'es',
+      'source' => 'en',
+    );
+    $es_vals = array(
+      'name_field' => array (
+        'es' => array(
+          '0' => array(
+            'value' => $row[9],
+           ),
+         ),
+       ),
+      'description_field' => array (
+        'es' => array(
+          '0' => array(
+            'value' => $row[10],
+           ),
+         ),
+       ),
+      'field_synonym' => array (
+        'es' => array(
+          '0' => array(
+            'value' => $row[11],
+           ),
+         ),
+       ),
+    );
+    
+    $ar_trans = array(
+      'translate' => 0,
+      'status' => 1,
+      'language' => 'ar',
+      'source' => 'en',
+    );
+    $ar_vals = array(
+      'name_field' => array (
+        'ar' => array(
+          '0' => array(
+            'value' => $row[8],
+           ),
+         ),
+       ),
+      'description_field' => array (
+        'ar' => array(
+          '0' => array(
+            'value' => $row[6],
+           ),
+         ),
+       ),
+      'field_synonym' => array (
+        'ar' => array(
+          '0' => array(
+            'value' => $row[7],
+           ),
+         ),
+       ),
+    );
+        
+    // Set Translations
+    $handler = entity_translation_get_handler('taxonomy_term', $term);
+    $handler->setTranslation($es_trans, $es_vals);
+    $handler->setTranslation($ar_trans, $ar_vals);
+    // Save
     taxonomy_term_save($term);
+
+    // is this needed:
+    //pathauto_taxonomy_term_update_alias($term, 'update', $values = array ( 
     drush_print('Saved ' . $row[0] . ' as tid: ' . $term->tid . ' Row count: ' . count($row));
     $term_count++;
   }
