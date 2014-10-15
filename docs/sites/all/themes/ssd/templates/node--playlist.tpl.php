@@ -82,7 +82,7 @@
 
 ?>
 
-<div class="flexslider">
+<div id="flexslider" class="flexslider">
   <ul class="slides">
     <li>
       <div class="container">

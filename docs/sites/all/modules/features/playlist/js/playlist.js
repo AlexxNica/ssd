@@ -16,6 +16,14 @@ Drupal.behaviors.playlist = {
     }
     
     (function ($) {
+    
+      // Scroll To Top
+      function scrollToTop() {
+        //alert('doit');
+        $("html, body").animate({ scrollTop: $('#navbar').offset().top }, 200);
+        return false;
+      }
+      
       // Load flexslider with default settings.
       $('.flexslider').flexslider({
         animation: "fade",
@@ -33,6 +41,7 @@ Drupal.behaviors.playlist = {
       // This uses the hashchange plugin to support changing slides when using
       // the back button. Without it, navigation is unsatisfactory.
       $(window).hashchange( function(){
+        scrollToTop();
         $('.flexslider').flexslider(playlistGetIndex());
       });
       
