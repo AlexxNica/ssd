@@ -6757,6 +6757,7 @@ header .search-form {
 
 .playlist-button:hover {
   background: #dddddd;
+  cursor: pointer;
 }
 
 #playlist-controller {
@@ -6767,6 +6768,11 @@ header .search-form {
   background: #5D7272;
   padding: 20px;
   border-radius: 20px;
+}
+
+#playlist-table {
+  cursor: default;
+  background: #dddddd;
 }
 
 .module-section {

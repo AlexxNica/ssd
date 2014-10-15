@@ -103,5 +103,6 @@
 </div>
   <div id="playlist-controller">
     <div id="playlist-next" class="playlist-button">Next</div>
-    <div id="playlist-more" class="playlist-button">More <?php print $playlist_table; ?></div>
+    <div id="playlist-more" class="playlist-button">More</div>
+    <?php print $playlist_table; ?>
   </div>

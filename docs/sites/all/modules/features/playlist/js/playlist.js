@@ -57,9 +57,25 @@ Drupal.behaviors.playlist = {
           return false;
       });
       
+      // Hide "more" by default.
       $("#playlist-controller #playlist-table").hide();
+      // Toggle on click
       $("#playlist-controller #playlist-more").click(function() {
-         $(this).find("#playlist-table").toggle();
+        $("#playlist-controller #playlist-table").toggle();
+      });
+      
+      // Hide Controller Table on click outside of controller
+      $(document).mouseup(function (e) {
+        var container = $("#playlist-controller");
+        if (!container.is(e.target) && container.has(e.target).length === 0) {
+          $("#playlist-controller #playlist-table").hide();
+        }
+      });
+      // Hide Controller on esc keypress
+      $(document).keyup(function(e) {
+        if (e.keyCode == 27) {
+          $("#playlist-controller #playlist-table").hide();
+        }
       });
     })(jQuery);
   }
