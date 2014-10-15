@@ -20,6 +20,14 @@ function ssd_import_drush_command() {
     'description' => 'View the glossary as a set of PHP arrays.',
     'aliases' => array('ssdvg'),
   );
+  $items['ssd_import_csv_headers'] = array(
+    'callback' => '_ssd_import_csv_headers',
+    'description' => 'View a CSV\'s headers.',
+    'arguments' => array(
+      'csv_path' => 'The CSV data file',
+    ),
+    'aliases' => array('ssdch'),
+  );
   return $items;
 }
 
@@ -38,12 +46,7 @@ function _ssd_import_glossary($arg_path = '') {
 
   // Loop through terms and save.
   foreach ($csv as $row) {    
-  
-    // Ignore blank or malformed CSV rows.
-    if (count($row) != 12) {
-      drush_print('Skipped "' . $row[0] . '" - blank or malformed.');
-      break;
-    }
+
     // Set non-dynamic vars.
     $term = new stdClass();
     $term->vid = 2;
@@ -62,10 +65,11 @@ function _ssd_import_glossary($arg_path = '') {
     $term->field_synonym['ar'][0]['value'] = $row[7];
     
     // Spanish
-    $term->name_field['es'][0]['value'] = $row[11];
-    $term->description_field['es'][0]['value'] = $row[9];
-    $term->field_synonym['es'][0]['value'] = $row[10];
+    $term->name_field['es'][0]['value'] = $row[9];
+    $term->description_field['es'][0]['value'] = $row[10];
+    $term->field_synonym['es'][0]['value'] = $row[11];
     
+    // Save Term
     taxonomy_term_save($term);
     drush_print('Saved ' . $row[0] . ' as tid: ' . $term->tid . ' Row count: ' . count($row));
     $term_count++;
@@ -90,6 +94,16 @@ function _ssd_view_glossary() {
     $term = taxonomy_term_load($row->tid);
     drush_print_r($term);
   }
+}
+
+function _ssd_import_csv_headers($arg_path = '') {
+  $csv_path = _resolve_path($arg_path);
+  if (is_null($csv_path)) {
+    drush_print("Please provide the path to a valid CSV for import/translation.");  
+    return;
+  }
+  $csv = _ssd_get_csv($csv_path);
+  drush_print_r($csv[0]);
 }
 
 function _ssd_get_csv($filepath) {
