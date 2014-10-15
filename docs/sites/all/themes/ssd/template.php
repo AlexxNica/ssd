@@ -56,7 +56,7 @@ function ssd_preprocess_page(&$variables) {
     $variables['content_column_class'] = ' class="col-sm-9"';
   }
   // For pages that need full width backgrounds. */
-  elseif (arg(0) == 'site-map' || $variables['is_front'] == TRUE) {
+  elseif (arg(0) == 'index' || $variables['is_front'] == TRUE) {
     $variables['content_column_class'] = ' container-full-width';
     $variables['global_container'] = ' ';
   }

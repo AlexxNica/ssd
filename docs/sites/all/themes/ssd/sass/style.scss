@@ -291,7 +291,7 @@ header .search-form {
 }
 /* Add light grey full width background to specific pages */
 .front .container-full-width .region-content,
-.page-site-map .container-full-width .region-content {
+.page-index .container-full-width .region-content {
   background-color: #d5e0e0;
 }
 /* Push background div to appear under/in the middle of front slideshow. */
@@ -311,7 +311,7 @@ header .search-form {
   font-size: 18px;
   color: #627a7b;
 }
-.page-site-map h1.page-header {
+.page-index h1.page-header {
   color: #ADBBBC;
   text-transform: uppercase;
   font-size: 55px;
