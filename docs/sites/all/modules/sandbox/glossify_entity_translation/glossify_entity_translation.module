@@ -1,0 +1,31 @@
+<?php
+function glossify_entity_translation_glossify_terms_alter(&$terms, $context) {
+  foreach($terms as $index => $term) {
+    $name_rs = db_query("
+      SELECT field_data_name_field.name_field_value as name, field_data_description_field.description_field_value as tip
+      FROM field_data_name_field 
+      INNER JOIN field_data_description_field 
+      WHERE field_data_name_field.entity_type = 'taxonomy_term' 
+      AND field_data_description_field.entity_type = 'taxonomy_term'
+      AND field_data_name_field.entity_id = :term_id 
+      AND field_data_name_field.language = :lang
+      AND field_data_description_field.language = :lang
+      AND field_data_name_field.entity_id = field_data_description_field.entity_id", 
+    array(':term_id' => $term->id, ':lang' => $context['langcode']));
+    
+    foreach($name_rs as $row) {
+      // Get the translations.
+      $name = $row->name;
+      $name_norm = strtolower($name);
+      $tip = $row->tip;
+      
+      // Add another term to the array w/ the translation info.
+      $terms[$name_norm] = new stdClass();
+      $terms[$name_norm]->name = $name;
+      $terms[$name_norm]->name_norm = $name_norm;
+      $terms[$name_norm]->id = $term->id;
+      $terms[$name_norm]->tip = $tip;
+      $terms[$name_norm]->format = $term->format;
+    }
+  }
+}
