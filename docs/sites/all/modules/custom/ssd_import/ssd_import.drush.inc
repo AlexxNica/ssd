@@ -135,8 +135,10 @@ function _ssd_import_glossary($arg_path = '') {
     // Save
     taxonomy_term_save($term);
 
-    // is this needed:
-    //pathauto_taxonomy_term_update_alias($term, 'update', $values = array ( 
+    // Update Aliases
+    pathauto_taxonomy_term_update_alias($term, 'update', $values = array ('language' => 'es'));
+    pathauto_taxonomy_term_update_alias($term, 'update', $values = array ('language' => 'ar'));
+    
     drush_print('Saved ' . $row[0] . ' as tid: ' . $term->tid . ' Row count: ' . count($row));
     $term_count++;
   }
