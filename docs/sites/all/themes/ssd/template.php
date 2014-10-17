@@ -257,3 +257,23 @@ function ssd_menu_tree__primary(&$variables) {
 function ssd_menu_tree__secondary(&$variables) {
   return '<ul class="menu nav navbar-nav secondary">' . $variables['tree'] . '</ul>';
 }
+
+
+function ssd_glossify_links($vars) {
+  global $base_url;
+  drupal_add_css(drupal_get_path('module', 'glossify') . '/glossify.css');
+
+  if ($vars['type'] == 'taxonomy') {
+    $path = 'taxonomy/term/' . $vars['id'];
+  }
+  else {
+    $path = 'node/' . $vars['id'];
+  }
+
+  if ($vars['tip']) {
+    return l(check_plain($vars['text']) . '<img src = "' . $base_url . '/' . drupal_get_path('theme', 'ssd') . '/img/info.png" />', $path, array('html' => true, 'attributes' => array('class' => array('glossify-link'), 'title' => $vars['tip'])));
+  }
+  else {
+    return l(check_plain($vars['text']) . '<img src = "' . $base_url . '/' . drupal_get_path('theme', 'ssd') . '/img/info.png" />', $path, array('html' => true, 'attributes' => array ('class' => array('glossify-link'))));
+  }
+}
