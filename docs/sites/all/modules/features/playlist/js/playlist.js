@@ -7,10 +7,9 @@ Drupal.behaviors.playlist = {
     // Figure out which slide to load based on hash.
     function playlistGetIndex() {
       var hash = document.URL.split('#')[1];
-      var index = indexes[hash];
+      var index = decodeURIComponent(indexes[hash]);
       if (index == null) {
         index = 0;
-    
       }
       return index;
     }
