@@ -15,10 +15,12 @@ if(typeof(CKEDITOR) !== 'undefined') {
             // These styles are already available in the "Format" drop-down list, so they are
             // not needed here by default. You may enable them to avoid placing the
             // "Format" drop-down list in the toolbar, maintaining the same features.
-            { name : 'Paragraph'		, element : 'p' },
+            { name : 'Normal'		, element : 'p' },
+            { name : 'Normal (DIV)'		, element : 'div' },
+            { name : 'Preformatted', element : 'pre' },
             { name : 'Tip'			, element : 'p'		, attributes: { class: 'tip' } },
             { name : 'Warning'			, element : 'p'		, attributes: { class: 'warning' } },
-            { name : 'Preformatted Text', element : 'pre' },
+            { name : 'Heading 1'		, element : 'h1' },
             { name : 'Heading 2'		, element : 'h2' },
             { name : 'Heading 3'		, element : 'h3' },
             { name : 'Heading 4'		, element : 'h4' },
