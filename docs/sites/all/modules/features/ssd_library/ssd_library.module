@@ -19,3 +19,17 @@ function ssd_library_ctools_plugin_directory($module, $plugin) {
 function ssd_library_taxonomy_term_view_alter(&$build) {
   unset($build['no_content']);
 }
+
+function ssd_library_glossify_terms_alter(&$terms, $context) {
+  uksort($terms, '_sort_by_length');
+}
+
+function _sort_by_length($a, $b) {
+  if (strlen($a) == strlen($b)) {
+    return 0;
+  }
+  if (strlen($a) < strlen($b)) {
+    return 1;
+  }
+  return -1;
+}
