@@ -31,6 +31,19 @@ function ssd_import_drush_command() {
   return $items;
 }
 
+function _ssd_import_synonyms($synonyms) {
+  $vals = array();
+  $synonyms = explode(',', $synonyms);
+  foreach ($synonyms as $synonym) {
+    $synonym = trim($synonym);
+    if (!is_null($synonym) && ($synonym != '')) {
+      $vals[]['value'] = $synonym;
+      drush_print('synonym: ' . $synonym);
+    }
+  }
+  return $vals;
+}
+
 function _ssd_import_glossary($arg_path = '') {
   $csv_path = _resolve_path($arg_path);
   if (is_null($csv_path)) {
@@ -57,17 +70,12 @@ function _ssd_import_glossary($arg_path = '') {
     $term->description = $row[3];
     
     $term->name_field['en'][0]['value'] = $row[9];
-    $term->field_synonym['en'][0]['value'] = $row[1];
     $term->description_field['en'][0]['value'] = $row[3];
-    /*
-    $term->name_field['es'][0]['value'] = $row[9];
-    $term->field_synonym['es'][0]['value'] = $row[11];
-    $term->description_field['es'][0]['value'] = $row[10];
-    
-    $term->name_field['ar'][0]['value'] = $row[8];
-    $term->field_synonym['ar'][0]['value'] = $row[7];
-    $term->description_field['ar'][0]['value'] = $row[6];
-    */
+    $en_synonyms = _ssd_import_synonyms($row[1]);
+    if (!is_null($en_synonyms)) {
+      $term->field_synonym['en'] = $en_synonyms;
+    }
+
     $es_trans = array(
       'translate' => 0,
       'status' => 1,
@@ -89,14 +97,11 @@ function _ssd_import_glossary($arg_path = '') {
            ),
          ),
        ),
-      'field_synonym' => array (
-        'es' => array(
-          '0' => array(
-            'value' => $row[11],
-           ),
-         ),
-       ),
     );
+    $es_synonyms = _ssd_import_synonyms($row[11]);
+    if (!is_null($es_synonyms)) {
+      $es_vals['field_synonym']['es'] = $es_synonyms;
+    }
     
     $ar_trans = array(
       'translate' => 0,
@@ -118,29 +123,29 @@ function _ssd_import_glossary($arg_path = '') {
             'value' => $row[6],
            ),
          ),
-       ),
-      'field_synonym' => array (
-        'ar' => array(
-          '0' => array(
-            'value' => $row[7],
-           ),
-         ),
-       ),
+      ),
     );
-        
-    // Set Translations
-    $handler = entity_translation_get_handler('taxonomy_term', $term);
-    $handler->setTranslation($es_trans, $es_vals);
-    $handler->setTranslation($ar_trans, $ar_vals);
-    // Save
-    taxonomy_term_save($term);
-
-    // Update Aliases
-    pathauto_taxonomy_term_update_alias($term, 'update', $values = array ('language' => 'es'));
-    pathauto_taxonomy_term_update_alias($term, 'update', $values = array ('language' => 'ar'));
+    $ar_synonyms = _ssd_import_synonyms($row[7]);
+    if (!is_null($ar_synonyms)) {
+      $ar_vals['field_synonym']['ar'] = $ar_synonyms;
+    }
     
-    drush_print('Saved ' . $row[0] . ' as tid: ' . $term->tid . ' Row count: ' . count($row));
-    $term_count++;
+    // Do a sanity check to not let bunk terms into the system.
+    if ((!is_null($term->name)) && (trim($term->name) != '')) {
+      // Set Translations
+      $handler = entity_translation_get_handler('taxonomy_term', $term);
+      $handler->setTranslation($es_trans, $es_vals);
+      $handler->setTranslation($ar_trans, $ar_vals);
+      // Save
+      taxonomy_term_save($term);
+
+      // Update Aliases
+      pathauto_taxonomy_term_update_alias($term, 'update', $values = array ('language' => 'es'));
+      pathauto_taxonomy_term_update_alias($term, 'update', $values = array ('language' => 'ar'));
+    
+      drush_print('Saved ' . $row[0] . ' as tid: ' . $term->tid . ' Row count: ' . count($row));
+      $term_count++;
+    }
   }
   drush_print('Imported a total of ' . $term_count . ' glossary terms.');
 }
