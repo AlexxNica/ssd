@@ -2708,6 +2708,10 @@ select[multiple].input-lg,
   text-align: center;
 }
 
+#block-feedback-form {
+  bottom: 120px;
+}
+
 .input-lg + .form-control-feedback, .form-horizontal .form-group-lg .form-control + .form-control-feedback, .input-group-lg > .form-control + .form-control-feedback,
 .input-group-lg > .input-group-addon + .form-control-feedback,
 .input-group-lg > .input-group-btn > .btn + .form-control-feedback {
@@ -6747,6 +6751,7 @@ header .search-form {
 
 .playlist-button:hover {
   background: #dddddd;
+  cursor: pointer
 }
 
 #playlist-controller {
@@ -6757,6 +6762,11 @@ header .search-form {
   background: #5D7272;
   padding: 20px;
   border-radius: 20px;
+}
+
+#playlist-table {
+  cursor: default;
+  background: #dddddd;
 }
 
 .module-section {
