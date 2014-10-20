@@ -269,11 +269,11 @@ function ssd_glossify_links($vars) {
   else {
     $path = 'node/' . $vars['id'];
   }
-
+  
   if ($vars['tip']) {
-    return l(check_plain($vars['text']) . '<img src = "' . $base_url . '/' . drupal_get_path('theme', 'ssd') . '/img/info.png" />', $path, array('html' => true, 'attributes' => array('class' => array('glossify-link'), 'title' => $vars['tip'])));
+    return l(check_plain($vars['text']) . '<img src = "' . $base_url . '/' . drupal_get_path('theme', 'ssd') . '/img/info.png" />', $path, array('language' => $vars['language'], 'html' => true, 'attributes' => array('class' => array('glossify-link'), 'title' => $vars['tip'])));
   }
   else {
-    return l(check_plain($vars['text']) . '<img src = "' . $base_url . '/' . drupal_get_path('theme', 'ssd') . '/img/info.png" />', $path, array('html' => true, 'attributes' => array ('class' => array('glossify-link'))));
+    return l(check_plain($vars['text']) . '<img src = "' . $base_url . '/' . drupal_get_path('theme', 'ssd') . '/img/info.png" />', $path, array('language' => $vars['language'], 'html' => true, 'attributes' => array ('class' => array('glossify-link'))));
   }
 }
