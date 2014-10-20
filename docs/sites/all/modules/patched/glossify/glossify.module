@@ -208,10 +208,7 @@ function _glossify_taxonomy_process($text, $filter, $format, $langcode, $cache, 
     'filter' => $filter,
   );
   drupal_alter('glossify_terms', $terms, $context);
-  //dsm('cache_id: ' . $cache_id);
-  //dsm($text);
-  //dsm($terms);
-  //process text
+
   if (count($terms) > 0) {
     return _glossify_to_links($text, $terms, 'taxonomy', $filter->settings['glossify_taxonomy_case_sensitivity'], $filter->settings['glossify_taxonomy_first_only'], $filter->settings['glossify_taxonomy_tooltips']);
   }
