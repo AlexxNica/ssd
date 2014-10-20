@@ -272,9 +272,14 @@ function _glossify_to_links($text, $terms, $type, $case_sensitivity, $first_only
   }
   $glossifying = TRUE;
   
-  $languages = language_list();
-  $language = $languages[$langcode];
-
+  if (trim(empty($langcode))) {
+    $language = language_default();
+  }
+  else {
+    $languages = language_list();
+    $language = $languages[$langcode];
+  }
+  
   //create dom document
   $html_dom = filter_dom_load($text);
   $xpath = new DOMXPath($html_dom);
@@ -321,7 +326,7 @@ function _glossify_to_links($text, $terms, $type, $case_sensitivity, $first_only
           $link->appendXML($term_txt);
         }
         else {
-          $tip = $tooltips ? check_markup($terms[strtolower($term_norm)]->tip, $terms[strtolower($term_norm)]->format) : '';
+          $tip = $tooltips ? $terms[strtolower($term_norm)]->tip : '';
           $link->appendXML(theme('glossify_links', array('type' => $type, 'id' => $terms[strtolower($term_norm)]->id, 'text' => $term_txt, 'tip' => $tip, 'language' => $language)));
           $matched[] = ($case_sensitivity ? $match[0] : strtolower($match[0]));
         }
