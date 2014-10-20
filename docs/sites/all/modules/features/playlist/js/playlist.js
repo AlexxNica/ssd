@@ -15,16 +15,15 @@ Drupal.behaviors.playlist = {
     }
     
     (function ($) {
-    
       // Scroll To Top
       function scrollToTop() {
-        //alert('doit');
         $("html, body").animate({ scrollTop: $('#navbar').offset().top }, 200);
         return false;
       }
       
       // Load flexslider with default settings.
       $('.flexslider').flexslider({
+        smoothHeight: true,
         animation: "fade",
         controlNav: false,
         directionNav: false,
@@ -34,6 +33,9 @@ Drupal.behaviors.playlist = {
         after:function(slider){
           // Change the hash to a slide's permlink on after sliding.
           window.location.hash = hashLinks[slider.currentSlide];
+          // Hide inactive slides to diminish page whitespace on slide change.
+          $('.slides').children('li').css('display', 'none');
+          $('.slides .flex-active-slide').css('display', 'block');
         }
       });
       
@@ -44,18 +46,15 @@ Drupal.behaviors.playlist = {
         $('.flexslider').flexslider(playlistGetIndex());
       });
       
-      // Flexslider custom controls.
-      /*
-      $('#flexslider-prev').on('click', function(){
-        $('.flexslider').flexslider('prev');
-        return false;
-      })
-      */
       $('#playlist-next').on('click', function(){
         $('.flexslider').flexslider('next')
           return false;
       });
       
+      // Hide inactive slides to diminish page whitespace on page load.
+      $('.slides').children('li').css('display', 'none');
+      $('.slides .flex-active-slide').css('display', 'block');
+
       // Hide "more" by default.
       $("#playlist-controller #playlist-table").hide();
       // Toggle on click
