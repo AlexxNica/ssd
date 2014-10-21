@@ -129,8 +129,10 @@
       </div>
     </div>
   <?php endif; ?>
-
-  <p class="lead slogan"><?php print $tagline; ?></p>
+  
+  <?php if ($is_front): ?>
+    <p class="lead slogan"><?php print $tagline; ?></p>
+  <?php endif; ?>
 
   <?php print render($page['header']); ?>
 
