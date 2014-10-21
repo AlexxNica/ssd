@@ -80,7 +80,7 @@
       <div id="top-eff-header">
         <a href="https://eff.org">
           <img src="<?php print $eff_logo_small; ?>" />
-          A Project of the Electronic Frontier Foundation
+          <?php print t("A Project of the Electronic Frontier Foundation"); ?>
         </a>
       </div>
 
