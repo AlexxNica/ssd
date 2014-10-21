@@ -314,7 +314,7 @@ function _glossify_to_links($text, $terms, $type, $case_sensitivity, $first_only
       foreach ($matches[0] as $i => $match) {
         $term_txt = $match[0];
         $term_pos = $match[1];
-        $term_norm = preg_replace('/\s+/', ' ', $term_txt);
+        $term_norm = preg_replace('/\s+/u', ' ', $term_txt);
 
         // insert any text before the term instance
         $prefix = substr($text, $offset, $term_pos - $offset);
