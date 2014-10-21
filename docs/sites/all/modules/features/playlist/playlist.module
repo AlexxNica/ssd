@@ -60,7 +60,7 @@ function playlist_preprocess_node(&$vars) {
         $title = check_plain($module->title);
         $view = node_view($module, 'playlist');
         $body = drupal_render($view);
-        $slides[] = $body . $permlink;
+        $slides[] = $body;
         $toc .= '<li class="module-toc module-' . $index . '"> <div class="table-entry-title">' . '<a href="' . $alias . '#' . pathauto_cleanstring($module->title) . '">'. $title . '</a></li>';
         $index++;
       }

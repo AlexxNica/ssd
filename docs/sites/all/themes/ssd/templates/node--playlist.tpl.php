@@ -95,7 +95,6 @@
             print render($content);
           ?>
       <?php print $playlist_table; ?>
-      <?php print render($content['links']); ?>
     </li>
     <?php print $playlist_slides ?>
     </div>
