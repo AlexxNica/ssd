@@ -17,7 +17,18 @@ function ssd_library_ctools_plugin_directory($module, $plugin) {
  * Implements hook_taxonomy_term_view_alter().
  */
 function ssd_library_taxonomy_term_view_alter(&$build) {
-  unset($build['no_content']);
+  if (isset($build['field_synonym'])) {
+    if ($build['description_field']['#language'] != $build['field_synonym']['#language']) {
+      $build['field_synonym']['#access'] = FALSE;
+    }
+  }
+}
+
+/**
+ * Implements hook_taxonomy_term_view_alter().
+ */
+function ssd_library_page_alter(&$page) {
+  $page['content']['system_main']['no_content']['#access'] = FALSE;
 }
 
 function ssd_library_glossify_terms_alter(&$terms, $context) {
