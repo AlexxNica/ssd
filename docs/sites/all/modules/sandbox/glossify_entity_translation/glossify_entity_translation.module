@@ -16,7 +16,7 @@ function glossify_entity_translation_glossify_terms_alter(&$terms, $context) {
     
     foreach($name_rs as $row) {
       // Get the translations.
-      $name = $row->name;
+      $name = trim($row->name);
       $name_norm = strtolower($name);
       $tip = $row->tip;
       
