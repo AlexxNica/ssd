@@ -18,3 +18,12 @@
   padding-right: 0px;
   padding-left: 10px;
 }
+
+#playlist-controller #playlist-table {
+  text-align: right;
+}
+
+#playlist-controller {
+  left: 0;
+  right: auto;
+}
