@@ -8,13 +8,19 @@ Drupal.behaviors.playlist = {
     function playlistGetIndex() {
       var hash = document.URL.split('#')[1];
       var index = decodeURIComponent(indexes[hash]);
-      if (index == null) {
+      if ((index == null) || (index == "undefined")) {
         index = 0;
       }
       return index;
     }
     
     (function ($) {
+      // Set Active Module
+      function setActiveModule() {
+        $('.module-toc').removeClass('module-active');
+        $('.module-' + playlistGetIndex()).addClass('module-active');
+      }
+
       // Scroll To Top
       function scrollToTop() {
         $("html, body").animate({ scrollTop: $('#navbar').offset().top }, 200);
@@ -36,9 +42,13 @@ Drupal.behaviors.playlist = {
           // Hide inactive slides to diminish page whitespace on slide change.
           $('.slides').children('li').css('display', 'none');
           $('.slides .flex-active-slide').css('display', 'block');
+          // Set active module in toc
+          setActiveModule();
         }
       });
       
+      setActiveModule();
+
       // This uses the hashchange plugin to support changing slides when using
       // the back button. Without it, navigation is unsatisfactory.
       $(window).hashchange( function(){
@@ -64,8 +74,9 @@ Drupal.behaviors.playlist = {
       
       // Hide Controller Table on click outside of controller
       $(document).mouseup(function (e) {
-        var container = $("#playlist-controller");
-        if (!container.is(e.target) && container.has(e.target).length === 0) {
+        if (e.which != 1) return false;
+        var controller = $("#playlist-controller");
+        if (!controller.is(e.target) && controller.has(e.target).length === 0) {
           $("#playlist-controller #playlist-table").hide();
         }
       });
