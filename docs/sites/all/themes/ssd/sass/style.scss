@@ -426,10 +426,54 @@ header .search-form {
   z-index: 600;
   background: #5D7272;
   padding: 20px;
-  border-radius: 20px;
+  border-radius: 28px;
+  -webkit-border-radius: 28px;
+  -moz-border-radius: 28px;
+  text-align: center;
+  width: 220px;
 }
 #playlist-controller #playlist-table {
-
+  text-align: left;
+  color: #000;
+  margin-top: 10px;
+}
+#playlist-controller #playlist-table a {
+  color: #000;
+  font-size: 14px;
+}
+#playlist-controller #playlist-table ol.playlist-table-of-contents {
+  padding-left: 25px;
+}
+#playlist-controller #playlist-table .module-active {
+  color: #d5e0e0;
+}
+#playlist-controller #playlist-table .module-active a {
+  font-weight: bold;
+  font-size: 15px;
+  color: #d5e0e0;
+}
+#playlist-controller #playlist-next {
+  display: inline-block;
+  width: 40px;
+  height: 30px;
+  margin-right: 5px;
+  text-indent: -9999px;
+  background: url(../img/module-playlist-buttons.png) no-repeat left -36px;
+  background-size: 180%;
+}
+#playlist-controller #playlist-more {
+  display: inline-block;
+  width: 40px;
+  height: 30px;
+  text-indent: -9999px;
+  background: url(../img/module-playlist-buttons.png) no-repeat -33px -36px;
+  background-size: 180%;
+}
+#playlist-controller #playlist-next:hover {
+  background-position: left top;
+}
+#playlist-controller #playlist-more:hover {
+  background-position: -33px top;
 }
 .module-section {
   padding: 35px 0;
@@ -532,6 +576,16 @@ ul.secondary li a {
   #navbar {
     text-align: right;
     padding-right: 10px;
+  }
+  #playlist-controller {
+    width: 100%;
+    position: fixed;
+    bottom: 0;
+    left: 0;
+    border-radius: 0;
+    -webkit-border-radius: 0;
+    -moz-border-radius: 0;
+    text-align: center;
   }
 }
 

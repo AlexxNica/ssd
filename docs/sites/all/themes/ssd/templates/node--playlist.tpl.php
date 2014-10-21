@@ -102,7 +102,7 @@
   </ul>
 </div>
   <div id="playlist-controller">
-    <div id="playlist-next" class="playlist-button">Next</div>
-    <div id="playlist-more" class="playlist-button">More</div>
+    <span id="playlist-next" class="playlist-button">Next</span>
+    <span id="playlist-more" class="playlist-button">More</span>
     <?php print $playlist_table; ?>
   </div>

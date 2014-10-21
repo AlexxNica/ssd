@@ -61,13 +61,13 @@ function playlist_preprocess_node(&$vars) {
         $view = node_view($module, 'playlist');
         $body = drupal_render($view);
         $slides[] = $body . $permlink;
-        $toc .= '<li class="module-toc module-' . $index . '"><div class="table-entry-label">Module ' . $index . ':</div> <div class="table-entry-title">' . '<a href="' . $alias . '#' . pathauto_cleanstring($module->title) . '">'. $title . '</a></li>';
+        $toc .= '<li class="module-toc module-' . $index . '"> <div class="table-entry-title">' . '<a href="' . $alias . '#' . pathauto_cleanstring($module->title) . '">'. $title . '</a></li>';
         $index++;
       }
     }
     // Set slides and table of contents so they can be access in the template.
     $vars['slides'] = $slides;
-    $vars['playlist_table'] = '<div id="playlist-table"><ul class="playlist-table-of-contents">' . $toc . '</ul></div>';
+    $vars['playlist_table'] = '<div id="playlist-table"><ol class="playlist-table-of-contents">' . $toc . '</ol></div>';
 
     $slide_html = '';
     foreach ($vars['slides'] as $slide) {
