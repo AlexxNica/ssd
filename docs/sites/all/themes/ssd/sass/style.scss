@@ -417,8 +417,14 @@ header .search-form {
 .front .flex-control-paging {
   display: none;
 }
+#block-feedback-form {
+  bottom: 20px;
+  left: 0;
+}
+
 .playlist-button:hover {
   background: #dddddd;
+  cursor: pointer;
 }
 
 #playlist-controller {
@@ -433,6 +439,7 @@ header .search-form {
   -moz-border-radius: 28px;
   text-align: center;
   width: 220px;
+  display: none;
 }
 #playlist-controller #playlist-table {
   text-align: left;
@@ -462,6 +469,7 @@ header .search-form {
   text-indent: -9999px;
   background: url(../img/module-playlist-buttons.png) no-repeat left -36px;
   background-size: 180%;
+  cursor: pointer;
 }
 #playlist-controller #playlist-more {
   display: inline-block;
@@ -470,6 +478,7 @@ header .search-form {
   text-indent: -9999px;
   background: url(../img/module-playlist-buttons.png) no-repeat -33px -36px;
   background-size: 180%;
+  cursor: pointer;
 }
 #playlist-controller #playlist-next:hover {
   background-position: left top;

@@ -6745,8 +6745,14 @@ header .search-form {
   display: none;
 }
 
+#block-feedback-form {
+  bottom: 20px;
+  left: 0;
+}
+
 .playlist-button:hover {
   background: #dddddd;
+  cursor: pointer;
 }
 
 #playlist-controller {
@@ -6761,6 +6767,7 @@ header .search-form {
   -moz-border-radius: 28px;
   text-align: center;
   width: 220px;
+  display: none;
 }
 
 #playlist-controller #playlist-table {
@@ -6796,6 +6803,7 @@ header .search-form {
   text-indent: -9999px;
   background: url(../img/module-playlist-buttons.png) no-repeat left -36px;
   background-size: 180%;
+  cursor: pointer;
 }
 
 #playlist-controller #playlist-more {
@@ -6805,6 +6813,7 @@ header .search-form {
   text-indent: -9999px;
   background: url(../img/module-playlist-buttons.png) no-repeat -33px -36px;
   background-size: 180%;
+  cursor: pointer;
 }
 
 #playlist-controller #playlist-next:hover {
