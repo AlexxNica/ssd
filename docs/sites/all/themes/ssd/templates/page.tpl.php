@@ -143,7 +143,7 @@
 </header> <!-- /#page-header -->
 
 <?php if (isset($node)): ?>
-  <div class="container-main">
+  <div class="container-main clearfix">
 <?php endif; ?>
   
   <div class="<?php print $global_container; ?> ">
@@ -194,6 +194,17 @@
   </div> <!-- /.container-main -->
 <?php endif; ?>
 
-<footer class="footer">
-  <?php print render($page['footer']); ?>
+<footer class="footer clearfix">
+  <div class="container">
+    <div id="top-eff-header">
+      <a href="https://eff.org">
+        <img src="<?php print $eff_logo_small; ?>" />
+        <?php print t("A Project of the Electronic Frontier Foundation"); ?>
+      </a>
+    </div>
+  
+    <?php print render($page['footer']); ?>
+  
+    <img src="<?php print $base_path . $directory; ?>/img/cc-by-logo.png" alt="Creative Commons" width="60px" />
+  </div>
 </footer>

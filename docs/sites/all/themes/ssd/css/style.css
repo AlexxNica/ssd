@@ -6754,7 +6754,7 @@ header .search-form {
 }
 
 #block-feedback-form {
-  bottom: 10px;
+  bottom: 70px;
   left: 20px;
   right: auto;
 }
@@ -6775,7 +6775,7 @@ header .search-form {
   -webkit-border-radius: 28px;
   -moz-border-radius: 28px;
   text-align: center;
-  width: 220px;
+  width: 190px;
   display: none;
 }
 
@@ -6800,7 +6800,6 @@ header .search-form {
 
 #playlist-controller #playlist-table .module-active a {
   font-weight: bold;
-  font-size: 15px;
   color: #d5e0e0;
 }
 
@@ -6831,6 +6830,20 @@ header .search-form {
 
 #playlist-controller #playlist-more:hover {
   background-position: -33px top;
+}
+
+#playlist-table .playlist-table-of-contents li {
+  margin: 10px 0;
+  line-height: 1.1;
+}
+
+ul.slides {
+  padding-left: 0;
+  padding-right: 0;
+}
+
+ul.slides #playlist-table {
+  padding-bottom: 50px;
 }
 
 .module-section {
@@ -6948,6 +6961,38 @@ ul.secondary li a {
   min-height: 90px;
 }
 
+footer.footer {
+  background-color: #adbbbc;
+  clear: both;
+  padding: 10px;
+}
+
+.region-footer {
+  margin-left: 50px;
+}
+
+.region-footer,
+.region-footer #block-menu-menu-footer-links,
+.region-footer .content,
+.region-footer .content *,
+.region-footer .content .nav:after,
+.region-footer .content .nav:before {
+  display: inline !important;
+  clear: none;
+}
+
+.region-footer .content .nav a {
+  padding: 0;
+  background-color: transparent;
+  color: #627a7b;
+  font-size: 12px;
+  text-transform: uppercase;
+}
+
+.region-footer .content .nav a:hover {
+  background-color: transparent;
+}
+
 @media (min-width: 768px) {
   .navbar-toggle {
     display: block;
@@ -6993,8 +7038,4 @@ ul.secondary li a {
   #block-feedback-form {
     bottom: 80px;
   }
-}
-ul.slides {
-  padding-left: 0;
-  padding-right: 0;
 }
