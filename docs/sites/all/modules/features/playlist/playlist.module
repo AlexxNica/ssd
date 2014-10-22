@@ -67,7 +67,7 @@ function playlist_preprocess_node(&$vars) {
     }
     // Set slides and table of contents so they can be access in the template.
     $vars['slides'] = $slides;
-    $vars['playlist_table'] = '<div id="playlist-table"><ol class="playlist-table-of-contents">' . $toc . '</ol></div>';
+    $vars['playlist_table'] = '<div class="playlist-table"><ol class="playlist-table-of-contents">' . $toc . '</ol></div>';
 
     $slide_html = '';
     foreach ($vars['slides'] as $slide) {

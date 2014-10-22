@@ -19,7 +19,7 @@
   padding-left: 10px;
 }
 
-#playlist-controller #playlist-table {
+#playlist-controller .playlist-table {
   text-align: right;
 }
 
