@@ -6643,12 +6643,15 @@ header .search-form {
   padding: 1px 0;
   float: left;
   width: 100%;
+  margin-bottom: 50px;
 }
 
 /* Add light grey full width background to specific pages */
 .front .container-full-width .region-content,
 .page-index .container-full-width .region-content {
   background-color: #d5e0e0;
+  margin-bottom: 0;
+  padding-bottom: 50px;
 }
 
 /* Push background div to appear under/in the middle of front slideshow. */
