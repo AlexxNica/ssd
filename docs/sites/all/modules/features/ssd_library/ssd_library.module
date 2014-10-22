@@ -18,7 +18,7 @@ function ssd_library_ctools_plugin_directory($module, $plugin) {
  */
 function ssd_library_taxonomy_term_view_alter(&$build) {
   if (isset($build['field_synonym'])) {
-    if ($build['description_field']['#language'] != $build['field_synonym']['#language']) {
+    if ($build['field_synonym']['#language'] != 'en' && $build['field_synonym']['#language'] != $build['description_field']['#language']) {
       $build['field_synonym']['#access'] = FALSE;
     }
   }
