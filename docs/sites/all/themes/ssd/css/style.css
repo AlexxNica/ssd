@@ -7050,3 +7050,19 @@ footer.footer {
 .view-glossary-list .views-field-description-field {
   margin-bottom: 1.2em;
 }
+
+body.not-logged-in .node ul.links {
+  display: none;
+}
+
+body.logged-in .node ul.links.inline {
+  display: block;
+  border: 1px dashed gray;
+  border-radius: 0.25em;
+  padding: 0.25em;
+  margin: 1em;
+}
+
+body.logged-in .node ul.links.inline:before {
+  content: 'Admin links';
+}
