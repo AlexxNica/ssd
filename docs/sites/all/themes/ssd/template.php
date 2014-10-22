@@ -262,6 +262,9 @@ function ssd_menu_tree__secondary(&$variables) {
 function ssd_glossify_links($vars) {
   global $base_url;
   drupal_add_css(drupal_get_path('module', 'glossify') . '/glossify.css');
+  
+  $vars['tip'] = htmlspecialchars_decode(strip_tags($vars['tip']));
+  dsm($vars['tip']);
 
   if ($vars['type'] == 'taxonomy') {
     $path = 'taxonomy/term/' . $vars['id'];
