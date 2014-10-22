@@ -7072,6 +7072,6 @@ body.logged-in .node ul.links.inline:before {
   border-top: none;
 }
 
-.container.node-page {
+.container.node-page, .term-listing-heading {
   padding-bottom: 2em;
 }
