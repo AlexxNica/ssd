@@ -688,9 +688,9 @@ body.logged-in .node ul.links.inline {
   display: block;
   border: 1px dashed gray;
   border-radius: 0.25em;
-  padding: 0.25em;
+  padding: 0.25em 0.5em;
   margin: 1em;
 }
 body.logged-in .node ul.links.inline:before {
-  content: 'Admin links';
+  content: 'Admin links: ';
 }
