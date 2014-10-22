@@ -676,9 +676,10 @@ footer.footer {
 
 .view-glossary-list .views-field-name-field {
   font-weight: bold;
+  font-size: 21px;
 }
 .view-glossary-list .views-field-description-field {
-  margin-bottom: 1.2em;
+  margin-bottom: 2em;
 }
 
 body.not-logged-in .node ul.links {
@@ -696,4 +697,8 @@ body.logged-in .node ul.links.inline:before {
 }
 #node-69 tbody {
   border-top: none;
+}
+
+.container.node-page {
+  padding-bottom: 2em;
 }
