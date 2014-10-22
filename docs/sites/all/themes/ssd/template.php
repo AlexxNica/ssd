@@ -279,3 +279,12 @@ function ssd_glossify_links($vars) {
     return l(check_plain($vars['text']) . '<img src = "' . $base_url . '/' . drupal_get_path('theme', 'ssd') . '/img/info.png" />', $path, array('language' => $vars['language'], 'html' => true, 'attributes' => array ('class' => array('glossify-link'))));
   }
 }
+
+/**
+* Process variables for search-result.tpl.php.
+*/
+function ssd_preprocess_search_result(&$variables) {
+  // Remove user name from search results.
+  unset($variables['info_split']['user']);
+  $variables['info'] = implode(' - ', $variables['info_split']);
+}
