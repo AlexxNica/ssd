@@ -94,7 +94,9 @@
             hide($content['links']);
             print render($content);
           ?>
+      <div id="playlist-table-slide">
       <?php print $playlist_table; ?>
+      </div>
     </li>
     <?php print $playlist_slides ?>
     </div>
