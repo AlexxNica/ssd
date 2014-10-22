@@ -73,6 +73,7 @@
  * @ingroup themeable
  */
 ?>
+<div class="page-wrapper">
 <header id="navbar" role="banner" class"navbar">
   <div class="container">
     <div class="row">
@@ -193,6 +194,8 @@
 <?php if (isset($node)): ?>
   </div> <!-- /.container-main -->
 <?php endif; ?>
+
+</div>
 
 <footer class="footer clearfix">
   <div class="container">

@@ -6312,9 +6312,15 @@ body {
   height: 100%;
 }
 
+.page-wrapper {
+  height: 100%;
+}
+
 body {
   font-family: "montserratregular", "Helvetica Neue", Helvetica, Arial, sans-serif;
   font-size: 18px;
+  min-height: 100%;
+  background-color: #fff;
 }
 
 a {
@@ -7003,9 +7009,10 @@ footer.footer {
   background-color: #adbbbc;
   clear: both;
   padding: 10px;
-  position: fixed;
-  width: 100%;
-  bottom: 0;
+}
+
+.page-wrapper {
+  padding-bottom: 50px;
 }
 
 .region-footer {
