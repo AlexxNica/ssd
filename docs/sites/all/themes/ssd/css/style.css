@@ -6817,26 +6817,26 @@ header .search-form {
   display: none;
 }
 
-#playlist-controller #playlist-table {
+#playlist-controller .playlist-table {
   text-align: left;
   color: #000;
   margin-top: 10px;
 }
 
-#playlist-controller #playlist-table a {
+#playlist-controller .playlist-table a {
   color: #000;
   font-size: 14px;
 }
 
-#playlist-controller #playlist-table ol.playlist-table-of-contents {
+#playlist-controller .playlist-table ol.playlist-table-of-contents {
   padding-left: 25px;
 }
 
-#playlist-controller #playlist-table .module-active {
+#playlist-controller .playlist-table .module-active {
   color: #d5e0e0;
 }
 
-#playlist-controller #playlist-table .module-active a {
+#playlist-controller .playlist-table .module-active a {
   font-weight: bold;
   color: #d5e0e0;
 }
@@ -6870,7 +6870,7 @@ header .search-form {
   background-position: -33px top;
 }
 
-#playlist-table .playlist-table-of-contents li {
+.playlist-table .playlist-table-of-contents li {
   margin: 10px 0;
   line-height: 1.1;
 }
@@ -6880,7 +6880,7 @@ ul.slides {
   padding-right: 0;
 }
 
-ul.slides #playlist-table {
+ul.slides .playlist-table {
   padding-bottom: 50px;
 }
 
@@ -7081,19 +7081,20 @@ footer.footer {
   }
 }
 #block-views-front-page-block .content .content {
-  max-width: 650px;
+  max-width: 630px;
   margin: auto;
-  font-size: 21px;
+  font-size: 18px;
   color: #68797a;
   padding-bottom: 2em;
 }
 
 .view-glossary-list .views-field-name-field {
   font-weight: bold;
+  font-size: 21px;
 }
 
 .view-glossary-list .views-field-description-field {
-  margin-bottom: 1.2em;
+  margin-bottom: 2em;
 }
 
 body.not-logged-in .node ul.links {
@@ -7101,7 +7102,7 @@ body.not-logged-in .node ul.links {
 }
 
 body.logged-in .node ul.links.inline {
-  display: block;
+  display: inline-block;
   border: 1px dashed gray;
   border-radius: 0.25em;
   padding: 0.25em 0.5em;
@@ -7114,4 +7115,8 @@ body.logged-in .node ul.links.inline:before {
 
 #node-69 tbody {
   border-top: none;
+}
+
+.container.node-page, .term-listing-heading {
+  padding-bottom: 2em;
 }
