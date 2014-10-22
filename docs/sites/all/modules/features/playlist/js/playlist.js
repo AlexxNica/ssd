@@ -70,10 +70,10 @@ Drupal.behaviors.playlist = {
       $('.slides .flex-active-slide').css('display', 'block');
 
       // Hide "more" by default.
-      $("#playlist-controller #playlist-table").hide();
+      $("#playlist-controller .playlist-table").hide();
       // Toggle on click
       $("#playlist-controller #playlist-more").click(function() {
-        $("#playlist-controller #playlist-table").toggle();
+        $("#playlist-controller .playlist-table").toggle();
       });
       
       // Hide Controller Table on click outside of controller
@@ -81,13 +81,13 @@ Drupal.behaviors.playlist = {
         if (e.which != 1) return false;
         var controller = $("#playlist-controller");
         if (!controller.is(e.target) && controller.has(e.target).length === 0) {
-          $("#playlist-controller #playlist-table").hide();
+          $("#playlist-controller .playlist-table").hide();
         }
       });
       // Hide Controller on esc keypress
       $(document).keyup(function(e) {
         if (e.keyCode == 27) {
-          $("#playlist-controller #playlist-table").hide();
+          $("#playlist-controller .playlist-table").hide();
         }
       });
     })(jQuery);
