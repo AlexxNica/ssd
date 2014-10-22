@@ -7056,7 +7056,7 @@ body.not-logged-in .node ul.links {
 }
 
 body.logged-in .node ul.links.inline {
-  display: block;
+  display: inline-block;
   border: 1px dashed gray;
   border-radius: 0.25em;
   padding: 0.25em 0.5em;
