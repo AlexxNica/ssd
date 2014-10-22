@@ -86,7 +86,7 @@ function ssd_library_views_default_views() {
   $view->description = '';
   $view->tag = 'default';
   $view->base_table = 'node';
-  $view->human_name = 'Index';
+  $view->human_name = 'Site map';
   $view->core = 7;
   $view->api_version = '3.0';
   $view->disabled = FALSE; /* Edit this to true to make a default view disabled initially */
@@ -105,9 +105,9 @@ function ssd_library_views_default_views() {
   $handler->display->display_options['style_plugin'] = 'default';
   $handler->display->display_options['style_options']['grouping'] = array(
     0 => array(
-      'field' => 'field_module_category',
+      'field' => 'field_module_graphic_1',
       'rendered' => 1,
-      'rendered_strip' => 1,
+      'rendered_strip' => 0,
     ),
   );
   $handler->display->display_options['row_plugin'] = 'fields';
@@ -116,6 +116,10 @@ function ssd_library_views_default_views() {
   $handler->display->display_options['header']['area']['table'] = 'views';
   $handler->display->display_options['header']['area']['field'] = 'area';
   $handler->display->display_options['header']['area']['format'] = 'full_html';
+  /* Relationship: Content: Module category (field_module_category) */
+  $handler->display->display_options['relationships']['field_module_category_tid']['id'] = 'field_module_category_tid';
+  $handler->display->display_options['relationships']['field_module_category_tid']['table'] = 'field_data_field_module_category';
+  $handler->display->display_options['relationships']['field_module_category_tid']['field'] = 'field_module_category_tid';
   /* Field: Content: Title */
   $handler->display->display_options['fields']['title']['id'] = 'title';
   $handler->display->display_options['fields']['title']['table'] = 'node';
@@ -161,10 +165,11 @@ function ssd_library_views_default_views() {
   $handler->display->display_options['fields']['title_field']['table'] = 'field_data_title_field';
   $handler->display->display_options['fields']['title_field']['field'] = 'title_field';
   $handler->display->display_options['fields']['title_field']['label'] = '';
+  $handler->display->display_options['fields']['title_field']['element_type'] = 'p';
   $handler->display->display_options['fields']['title_field']['element_label_colon'] = FALSE;
   $handler->display->display_options['fields']['title_field']['type'] = 'title_linked';
   $handler->display->display_options['fields']['title_field']['settings'] = array(
-    'title_style' => 'h3',
+    'title_style' => '_none',
     'title_link' => 'content',
     'title_class' => '',
   );
@@ -177,6 +182,24 @@ function ssd_library_views_default_views() {
   $handler->display->display_options['fields']['field_module_category']['exclude'] = TRUE;
   $handler->display->display_options['fields']['field_module_category']['element_label_colon'] = FALSE;
   $handler->display->display_options['fields']['field_module_category']['type'] = 'taxonomy_term_reference_plain';
+  /* Field: Taxonomy term: Graphic */
+  $handler->display->display_options['fields']['field_module_graphic_1']['id'] = 'field_module_graphic_1';
+  $handler->display->display_options['fields']['field_module_graphic_1']['table'] = 'field_data_field_module_graphic';
+  $handler->display->display_options['fields']['field_module_graphic_1']['field'] = 'field_module_graphic';
+  $handler->display->display_options['fields']['field_module_graphic_1']['relationship'] = 'field_module_category_tid';
+  $handler->display->display_options['fields']['field_module_graphic_1']['label'] = '';
+  $handler->display->display_options['fields']['field_module_graphic_1']['exclude'] = TRUE;
+  $handler->display->display_options['fields']['field_module_graphic_1']['alter']['alter_text'] = TRUE;
+  $handler->display->display_options['fields']['field_module_graphic_1']['alter']['text'] = '[field_module_graphic_1] <br /> 
+[field_module_category]
+
+';
+  $handler->display->display_options['fields']['field_module_graphic_1']['element_label_colon'] = FALSE;
+  $handler->display->display_options['fields']['field_module_graphic_1']['click_sort_column'] = 'fid';
+  $handler->display->display_options['fields']['field_module_graphic_1']['settings'] = array(
+    'image_style' => 'index-graphic',
+    'image_link' => '',
+  );
   $handler->display->display_options['defaults']['filter_groups'] = FALSE;
   $handler->display->display_options['defaults']['filters'] = FALSE;
   /* Filter criterion: Content: Published */
@@ -221,10 +244,11 @@ function ssd_library_views_default_views() {
   $handler->display->display_options['fields']['title_field']['table'] = 'field_data_title_field';
   $handler->display->display_options['fields']['title_field']['field'] = 'title_field';
   $handler->display->display_options['fields']['title_field']['label'] = '';
+  $handler->display->display_options['fields']['title_field']['element_type'] = 'p';
   $handler->display->display_options['fields']['title_field']['element_label_colon'] = FALSE;
   $handler->display->display_options['fields']['title_field']['type'] = 'title_linked';
   $handler->display->display_options['fields']['title_field']['settings'] = array(
-    'title_style' => 'h3',
+    'title_style' => '_none',
     'title_link' => 'content',
     'title_class' => '',
   );
@@ -241,15 +265,20 @@ function ssd_library_views_default_views() {
   $handler->display->display_options['sorts']['created']['order'] = 'DESC';
   $translatables['site_map'] = array(
     t('Master'),
-    t('Site Map'),
+    t('Index'),
     t('more'),
     t('Apply'),
     t('Reset'),
     t('Sort by'),
     t('Asc'),
     t('Desc'),
+    t('term from field_module_category'),
     t('Module category'),
     t('Modules'),
+    t('[field_module_graphic_1] <br /> 
+[field_module_category]
+
+'),
     t('Playlists'),
     t('Node Queue'),
   );
