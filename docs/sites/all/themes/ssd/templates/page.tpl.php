@@ -74,7 +74,7 @@
  */
 ?>
 <div class="page-wrapper">
-<header id="navbar" role="banner" class"navbar">
+<header id="navbar" role="banner" class="navbar">
   <div class="container">
     <div class="row">
       <!-- EFF Header -->
