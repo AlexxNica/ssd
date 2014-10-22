@@ -27,3 +27,7 @@
   left: 0;
   right: auto;
 }
+
+.module-section h2 {
+  text-align: right;
+}
