@@ -6670,6 +6670,10 @@ header .search-form {
   color: #637C7C;
 }
 
+.front .flex-nav-container {
+  max-height: 130px;
+}
+
 .front .flexslider {
   border: none;
   min-height: 272px;
