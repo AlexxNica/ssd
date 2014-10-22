@@ -78,8 +78,8 @@
     <div class="row">
       <!-- EFF Header -->
       <div id="top-eff-header">
-        <a href="https://eff.org">
-          <img src="<?php print $eff_logo_small; ?>" />
+        <a href="https://www.eff.org/">
+          <img src="<?php print $eff_logo_small; ?>" alt="EFF" />
           <?php print t("A Project of the Electronic Frontier Foundation"); ?>
         </a>
       </div>
@@ -197,14 +197,14 @@
 <footer class="footer clearfix">
   <div class="container">
     <div id="top-eff-header">
-      <a href="https://eff.org">
-        <img src="<?php print $eff_logo_small; ?>" />
+      <a href="https://www.eff.org/">
+        <img src="<?php print $eff_logo_small; ?>" alt="EFF" />
         <?php print t("A Project of the Electronic Frontier Foundation"); ?>
       </a>
     </div>
   
     <?php print render($page['footer']); ?>
   
-    <img src="<?php print $base_path . $directory; ?>/img/cc-by-logo.png" alt="Creative Commons" width="60px" />
+    <a href="https://www.eff.org/copyright"><img src="<?php print $base_path . $directory; ?>/img/cc-by-logo.png" alt="Creative Commons" width="60px" /></a>
   </div>
 </footer>
