@@ -199,7 +199,7 @@
 
 <footer class="footer clearfix">
   <div class="container">
-    <div id="top-eff-header">
+    <div id="eff-footer">
       <a href="https://www.eff.org/">
         <img src="<?php print $eff_logo_small; ?>" alt="EFF" />
         <?php print t("A Project of the Electronic Frontier Foundation"); ?>

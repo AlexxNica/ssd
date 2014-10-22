@@ -1,0 +1,43 @@
+/* For desktop or large screens */
+@media (min-width: 768px) {
+  .navbar-toggle {
+    display: block;
+  }
+  .navbar-collapse.collapse {
+    display: none !important;
+  }
+  .navbar-collapse.collapse.in {
+    display: block !important;
+  }
+  .navbar-nav > li {
+    float: none;
+  }
+  ul.navbar-nav {
+    float: none;
+  }
+}
+/* Media query for small screens */
+@media (max-width: 767px) {
+  #top-eff-header,
+  #eff-footer {
+    display: none !important;
+  }
+  #navbar {
+    text-align: right;
+    padding-right: 10px;
+  }
+  #playlist-controller {
+    width: 100%;
+    position: fixed;
+    bottom: 0;
+    left: 0;
+    border-radius: 0;
+    -webkit-border-radius: 0;
+    -moz-border-radius: 0;
+    text-align: center;
+  }
+  #block-feedback-form {
+    bottom: 80px;
+  }
+}
+

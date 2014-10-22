@@ -233,15 +233,18 @@ ul.secondary li.last {
 #navbar .menu-hamburger:hover {
   background-color: transparent;
 }
-#top-eff-header {
+#top-eff-header,
+#eff-footer {
   padding-right: 10px;
 }
-#top-eff-header a {
+#top-eff-header a,
+#eff-footer a{
   font-size: 11px;
   text-transform: uppercase;
   color: #627a7b;
 }
-#top-eff-header img {
+#top-eff-header img,
+#eff-footer img {
   margin-right: 5px;
   width: 30px;
   height: auto;
@@ -659,47 +662,6 @@ footer.footer {
 }
 .region-footer .content .nav a:hover {
   background-color: transparent;
-}
-
-@media (min-width: 768px) {
-  .navbar-toggle {
-    display: block;
-  }
-  .navbar-collapse.collapse {
-    display: none !important;
-  }
-  .navbar-collapse.collapse.in {
-    display: block !important;
-  }
-  .navbar-nav > li {
-    float: none;
-  }
-  ul.navbar-nav {
-    float: none;
-  }
-}
-
-@media (max-width: 767px) {
-  #top-eff-header {
-    display: none !important;
-  }
-  #navbar {
-    text-align: right;
-    padding-right: 10px;
-  }
-  #playlist-controller {
-    width: 100%;
-    position: fixed;
-    bottom: 0;
-    left: 0;
-    border-radius: 0;
-    -webkit-border-radius: 0;
-    -moz-border-radius: 0;
-    text-align: center;
-  }
-  #block-feedback-form {
-    bottom: 80px;
-  }
 }
 
 #block-views-front-page-block .content .content {
