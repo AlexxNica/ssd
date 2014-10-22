@@ -466,6 +466,18 @@ header .search-form {
   cursor: pointer;
 }
 
+#playlist-table-slide .playlist-table ol {
+  list-style-position: inside;
+}
+
+#playlist-table-slide .playlist-table ol li {
+  position: relative;
+}
+#playlist-table-slide .playlist-table ol li a{
+  position: absolute;
+  left: 20px;
+}
+
 #playlist-controller {
   position: fixed;
   bottom: 15px;
