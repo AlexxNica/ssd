@@ -248,7 +248,7 @@ function ssd_menu_tree(&$variables) {
  * mirabot_ssd theme wrapper function for the primary menu links.
  */
 function ssd_menu_tree__primary(&$variables) {
-  return '<ul class="menu nav navbar-nav">' . $variables['tree'] . '</ul>';
+  return '<ul class="menu nav navbar-nav nav-primary">' . $variables['tree'] . '</ul>';
 }
 
 /**

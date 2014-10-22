@@ -34,10 +34,20 @@
     font-style: normal;
 
 }
-
+html,
+body{
+  margin:0;
+  padding:0;
+  height:100%;
+}
+.page-wrapper {
+  height: 100%;
+}
 body {
   font-family: "montserratregular", "Helvetica Neue", Helvetica, Arial, sans-serif;
   font-size: 18px;
+  min-height: 100%;
+  background-color: #fff;
 }
 
 a {
@@ -93,7 +103,6 @@ h2 {
 #nav-expanded a {
   color: #fff;
   text-transform: uppercase;
-  font-size: 14px;
   padding: 3px 10px;
   float: right;
   clear: both;
@@ -174,6 +183,30 @@ ul.secondary li.last {
   border: none;
   color: #fff;
   display: inline;
+}
+#nav-expanded .container {
+  padding-right: 0px;
+}
+#nav-expanded ul.nav-primary {
+  width: 85px;
+  float: right;
+  text-align: left;
+}
+#nav-expanded ul.nav-primary a {
+  font-size: 12px;
+  float: none;
+  clear: none;
+}
+
+#nav-expanded ul.secondary {
+  clear: both;
+}
+#nav-expanded ul.secondary li,
+#nav-expanded ul.secondary li a {
+  width: auto;
+  display: inline;
+  float: none;
+  clear: none;
 }
 .search-form-header,
 #language-switcher {
@@ -601,6 +634,9 @@ footer.footer {
   background-color: #adbbbc;
   clear: both;
   padding: 10px;
+}
+.page-wrapper {
+  padding-bottom: 50px;
 }
 .region-footer {
   margin-left: 50px;
