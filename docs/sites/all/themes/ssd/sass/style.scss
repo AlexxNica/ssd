@@ -331,9 +331,18 @@ header .search-form {
 .front .container-full-width .region-content,
 .page-index .container-full-width .region-content {
   background-color: #d5e0e0;
+}
+/* switch bottom spacing on these pages to padding (for green full width pages) */
+.front .container-full-width .region-content,
+.page-index .container-full-width .region-content {
   margin-bottom: 0;
   padding-bottom: 50px;
 }
+/* On module pages, allow sections to set bottom padding */
+body.node-type-article .container-full-width .region-content {
+  margin-bottom: 0;
+}
+
 /* Push background div to appear under/in the middle of front slideshow. */
 .front .container-full-width {
   padding-top: 130px;
