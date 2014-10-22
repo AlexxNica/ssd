@@ -6660,7 +6660,8 @@ header .search-form {
 }
 
 /* On module pages, allow sections to set bottom padding */
-body.node-type-article .container-full-width .region-content {
+body.node-type-article .container-full-width .region-content,
+body.node-type-playlist .container-full-width .region-content {
   margin-bottom: 0;
 }
 
