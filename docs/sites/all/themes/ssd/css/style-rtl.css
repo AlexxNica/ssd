@@ -28,6 +28,11 @@
   right: auto;
 }
 
+#playlist-controller #playlist-next {
+  margin-right: 0;
+  margin-left: 5px;
+}
+
 .module-section h2 {
   text-align: right;
 }
