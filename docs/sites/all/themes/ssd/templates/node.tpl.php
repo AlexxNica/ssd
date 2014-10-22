@@ -82,13 +82,9 @@
 ?>
 <div id="node-<?php print $node->nid; ?>" class="container <?php print $classes; ?> clearfix"<?php print $attributes; ?>>
 
-  <?php print $user_picture; ?>
-
   <?php print render($title_prefix); ?>
-  <?php if (!$page && $view_mode == 'playlist'): ?>
+  <?php if (!$page): ?>
     <h2<?php print $title_attributes; ?>><?php print $title; ?></h2>
-  <?php else: ?>
-    
   <?php endif; ?>
   <?php print render($title_suffix); ?>
 
