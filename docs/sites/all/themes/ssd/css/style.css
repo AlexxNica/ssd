@@ -7066,3 +7066,7 @@ body.logged-in .node ul.links.inline {
 body.logged-in .node ul.links.inline:before {
   content: 'Admin links: ';
 }
+
+#node-69 tbody {
+  border-top: none;
+}
