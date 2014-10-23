@@ -293,3 +293,9 @@ function ssd_preprocess_search_result(&$variables) {
   unset($variables['info_split']['user']);
   $variables['info'] = implode(' - ', $variables['info_split']);
 }
+
+function ssd_username_alter(&$name, $account) {
+  if ($account->uid && ($user = user_load($account->uid)) && !empty($user->field_full_name[LANGUAGE_NONE][0]['value'])) {
+    $name = $user->field_full_name[LANGUAGE_NONE][0]['value'];
+  }
+}
