@@ -74,6 +74,7 @@ Drupal.behaviors.playlist = {
       // Toggle on click
       $("#playlist-controller #playlist-more").click(function() {
         $("#playlist-controller .playlist-table").toggle();
+        $("#playlist-controller).toggleClass('expanded');
       });
       
       // Hide Controller Table on click outside of controller

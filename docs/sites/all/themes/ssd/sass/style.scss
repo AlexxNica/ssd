@@ -518,6 +518,9 @@ body.node-type-playlist .container-full-width .region-content {
   width: 150px;
   display: none;
 }
+#playlist-controller.expanded {
+  width: 190px;
+}
 #playlist-controller .playlist-table {
   text-align: left;
   color: #000;
