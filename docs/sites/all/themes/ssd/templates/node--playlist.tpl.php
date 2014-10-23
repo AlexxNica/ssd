@@ -81,7 +81,6 @@
  */
 
 ?>
-
 <div id="flexslider" class="flexslider">
   <ul class="slides">
     <li>
