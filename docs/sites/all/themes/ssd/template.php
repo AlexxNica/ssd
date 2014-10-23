@@ -35,7 +35,6 @@ function ssd_preprocess_node(&$variables) {
 function ssd_form_search_form_alter(&$form, &$form_state, $form_id) {
   $form['#action'] = url('searchapi');
   $form['#method'] = 'GET';
-  $form['basic']['keys']['#name'] = 'search_api_views_fulltext';
   $form['form_build_id']['#access'] = FALSE;
   $form['form_token']['#access'] = FALSE;
   $form['form_id']['#access'] = FALSE;
