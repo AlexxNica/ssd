@@ -36,3 +36,8 @@
 .module-section h2, .view-search h2 {
   text-align: right;
 }
+
+.region-footer {
+  margin-left: 0;
+  margin-right: 50px;
+}
