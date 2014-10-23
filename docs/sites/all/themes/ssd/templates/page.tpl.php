@@ -92,7 +92,7 @@
 
       <!-- .btn-navbar is used as the toggle for collapsed navbar content -->
       <button type="button" class="menu-hamburger" data-toggle="collapse" data-target=".navbar-collapse">
-        Menu
+        <?php print t('Menu'); ?>
       </button>
 
     </div>
