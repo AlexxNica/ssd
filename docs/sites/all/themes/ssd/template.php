@@ -32,6 +32,22 @@ function ssd_preprocess_node(&$variables) {
   }
 }
 
+function ssd_form_search_form_alter(&$form, &$form_state, $form_id) {
+  $form['#action'] = url('searchapi');
+  $form['#method'] = 'GET';
+  $form['basic']['keys']['#name'] = 'search_api_views_fulltext';
+  $form['form_build_id']['#access'] = FALSE;
+  $form['form_token']['#access'] = FALSE;
+  $form['form_id']['#access'] = FALSE;
+  $form['basic']['submit']['#name'] = '';
+}
+
+function ssd_form_views_exposed_form_alter(&$form, &$form_state, $form_id) {
+  if ($form['#id'] == 'views-exposed-form-search-page') {
+    $form['submit']['#value'] = t('Search');
+  }
+}
+
 function ssd_preprocess_page(&$variables) {
   
   $variables['global_container'] = '';
