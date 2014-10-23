@@ -64,8 +64,8 @@ function ssd_library_image_default_styles() {
         'module' => 'image',
         'name' => 'image_scale_and_crop',
         'data' => array(
-          'width' => 145,
-          'height' => 145,
+          'width' => 100,
+          'height' => 100,
         ),
         'weight' => 1,
       ),
