@@ -86,7 +86,7 @@ function ssd_library_views_default_views() {
   $view->description = '';
   $view->tag = 'default';
   $view->base_table = 'node';
-  $view->human_name = 'Site map';
+  $view->human_name = 'Index';
   $view->core = 7;
   $view->api_version = '3.0';
   $view->disabled = FALSE; /* Edit this to true to make a default view disabled initially */
@@ -263,6 +263,27 @@ function ssd_library_views_default_views() {
   $handler->display->display_options['sorts']['created']['table'] = 'node';
   $handler->display->display_options['sorts']['created']['field'] = 'created';
   $handler->display->display_options['sorts']['created']['order'] = 'DESC';
+
+  /* Display: Playlist page */
+  $handler = $view->new_display('page', 'Playlist page', 'page_1');
+  $handler->display->display_options['defaults']['title'] = FALSE;
+  $handler->display->display_options['title'] = 'Playlists';
+  $handler->display->display_options['defaults']['fields'] = FALSE;
+  /* Field: Content: Title */
+  $handler->display->display_options['fields']['title_field']['id'] = 'title_field';
+  $handler->display->display_options['fields']['title_field']['table'] = 'field_data_title_field';
+  $handler->display->display_options['fields']['title_field']['field'] = 'title_field';
+  $handler->display->display_options['fields']['title_field']['label'] = '';
+  $handler->display->display_options['fields']['title_field']['element_type'] = 'h2';
+  $handler->display->display_options['fields']['title_field']['element_label_colon'] = FALSE;
+  $handler->display->display_options['fields']['title_field']['link_to_entity'] = 1;
+  /* Field: Content: Front banner subtitle */
+  $handler->display->display_options['fields']['field_playlist_banner_subtitle']['id'] = 'field_playlist_banner_subtitle';
+  $handler->display->display_options['fields']['field_playlist_banner_subtitle']['table'] = 'field_data_field_playlist_banner_subtitle';
+  $handler->display->display_options['fields']['field_playlist_banner_subtitle']['field'] = 'field_playlist_banner_subtitle';
+  $handler->display->display_options['fields']['field_playlist_banner_subtitle']['label'] = '';
+  $handler->display->display_options['fields']['field_playlist_banner_subtitle']['element_label_colon'] = FALSE;
+  $handler->display->display_options['path'] = 'playlist';
   $translatables['site_map'] = array(
     t('Master'),
     t('Index'),
@@ -281,6 +302,7 @@ function ssd_library_views_default_views() {
 '),
     t('Playlists'),
     t('Node Queue'),
+    t('Playlist page'),
   );
   $export['site_map'] = $view;
 
