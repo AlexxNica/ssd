@@ -353,8 +353,7 @@ body.node-type-playlist .container-full-width .region-content {
   padding-top: 130px;
 }
 .front .container-full-width .flexslider {
-  position: relative;
-  top: -130px;
+  margin-top: -130px;
 }
 .slogan {
   width: 100%;
@@ -412,9 +411,6 @@ body.node-type-playlist .container-full-width .region-content {
   font-size: 34px;
   font-weight: bold;
   margin-top: 30px;
-}
-.front .flex-nav-container {
-  max-height: 130px;
 }
 .front .flexslider {
   min-height: 272px;
