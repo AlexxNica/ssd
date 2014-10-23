@@ -33,6 +33,6 @@
   margin-left: 5px;
 }
 
-.module-section h2 {
+.module-section h2, .view-search h2 {
   text-align: right;
 }
