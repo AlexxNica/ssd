@@ -70,4 +70,8 @@
   .front .flexslider .slides > li {
     margin: 0;
   }
+
+  #playlist-controller.expanded {
+    width: 100%;
+  }
 }
