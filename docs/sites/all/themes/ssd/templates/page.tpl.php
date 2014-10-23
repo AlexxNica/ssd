@@ -76,26 +76,23 @@
 <div class="page-wrapper">
 <header id="navbar" role="banner" class="navbar">
   <div class="container">
-    <div class="row">
-      <!-- EFF Header -->
-      <div id="top-eff-header">
-        <a href="https://www.eff.org/">
-          <img src="<?php print $eff_logo_small; ?>" alt="EFF" />
-          <?php print t("A Project of the Electronic Frontier Foundation"); ?>
-        </a>
-      </div>
-
-      <div class="search-form-header"><?php print $search_form; ?></div><?php if (!empty($page['language_switcher'])): ?><div id="language-switcher" class=""><div class="language-switcher-label"><?php print t('Language'); ?></div>
-          <?php print render($page['language_switcher']); ?>
-        </div>
-      <?php endif; ?>     
-
-      <!-- .btn-navbar is used as the toggle for collapsed navbar content -->
-      <button type="button" class="menu-hamburger" data-toggle="collapse" data-target=".navbar-collapse">
-        <?php print t('Menu'); ?>
-      </button>
-
+    <!-- EFF Header -->
+    <div id="top-eff-header">
+      <a href="https://www.eff.org/">
+        <img src="<?php print $eff_logo_small; ?>" alt="EFF" />
+        <?php print t("A Project of the Electronic Frontier Foundation"); ?>
+      </a>
     </div>
+
+    <div class="search-form-header"><?php print $search_form; ?></div><?php if (!empty($page['language_switcher'])): ?><div id="language-switcher" class=""><div class="language-switcher-label"><?php print t('Language'); ?></div>
+        <?php print render($page['language_switcher']); ?>
+      </div>
+    <?php endif; ?>
+
+    <!-- .btn-navbar is used as the toggle for collapsed navbar content -->
+    <button type="button" class="menu-hamburger" data-toggle="collapse" data-target=".navbar-collapse">
+      <?php print t('Menu'); ?>
+    </button>
   </div> 
 </header>
 <header id="nav-expanded">
