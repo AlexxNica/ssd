@@ -39,5 +39,24 @@
   #block-feedback-form {
     bottom: 80px;
   }
+  .front .flexslider {
+    min-height: 0;
+  }
+  .front .flexslider h1 {
+    font-size: 40px;
+  }
+  .front .flex-direction-nav .flex-next {
+    right: 5px; 
+  }
+  .front .flex-direction-nav .flex-prev {
+    left: 5px; 
+  }
+  #block-system-main .view-front-page-playlists {
+    padding: 0;
+  }
+  .front .flexslider .slides > li {
+    margin: 0;
+  }
+
 }
 
