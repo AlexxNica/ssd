@@ -8,7 +8,7 @@
 global $base_path;
 ?>
 <h3>
-  <img src="<?php print $base_path . $directory; ?>/img/play-b.png" /> <br />
+  <img src="<?php print $base_path . $directory; ?>/img/play-b-index.png" /> <br />
   <?php print t("Playlists"); ?>
 </h3>
 <?php foreach ($rows as $id => $row): ?>
