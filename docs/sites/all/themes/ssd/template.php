@@ -286,8 +286,6 @@ function ssd_menu_tree__secondary(&$variables) {
 function ssd_glossify_links($vars) {
   global $base_url;
   drupal_add_css(drupal_get_path('module', 'glossify') . '/glossify.css');
-  
-  $vars['tip'] = decode_entities(strip_tags($vars['tip']));
 
   if ($vars['type'] == 'taxonomy') {
     $path = 'taxonomy/term/' . $vars['id'];
@@ -295,12 +293,33 @@ function ssd_glossify_links($vars) {
   else {
     $path = 'node/' . $vars['id'];
   }
+
+  $tip = decode_entities(strip_tags($vars['tip']));
+  $text = check_plain($vars['text']);
+  $img_tag = '<img src = "' . $base_url . '/' . drupal_get_path('theme', 'ssd') . '/img/info.png" />';
+  $opts = array(
+    'language' => $vars['language'],
+    'html' => true,
+    'attributes' => array(
+      'class' => array(
+        'glossify-link',
+      ),
+      'data-title' => $text,
+      'title' => $tip,
+      'data-placement' => 'top',
+      'data-trigger' => 'hover',
+      'data-html' => 'true',
+      'data-toggle' => 'popover',
+      'data-container' => 'body',
+      'data-content' => $tip,
+    ),
+  );
   
-  if ($vars['tip']) {
-    return l(check_plain($vars['text']) . '<img src = "' . $base_url . '/' . drupal_get_path('theme', 'ssd') . '/img/info.png" />', $path, array('language' => $vars['language'], 'html' => true, 'attributes' => array('class' => array('glossify-link'), 'title' => $vars['tip'])));
+  if($vars['tip']) {
+    return l($text . $img_tag, $path, $opts);
   }
   else {
-    return l(check_plain($vars['text']) . '<img src = "' . $base_url . '/' . drupal_get_path('theme', 'ssd') . '/img/info.png" />', $path, array('language' => $vars['language'], 'html' => true, 'attributes' => array ('class' => array('glossify-link'))));
+    return l($text . $img_tag, $path, array('language' => $vars['language'], 'html' => true, 'attributes' => array ('class' => array('glossify-link'))));
   }
 }
 

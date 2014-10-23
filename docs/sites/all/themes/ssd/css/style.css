@@ -6708,6 +6708,10 @@ body.node-type-playlist .container-full-width .region-content {
   padding-left: 1px;
 }
 
+.popover-content {
+  font-size: 14px;
+}
+
 .view-site-map h3 img {
   margin-bottom: 20px;
 }
