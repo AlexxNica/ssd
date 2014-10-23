@@ -71,6 +71,7 @@ Drupal.behaviors.playlist = {
 
       // Hide "more" by default.
       $("#playlist-controller .playlist-table").hide();
+      $('#playlist-controller').removeClass('expanded');
       // Toggle on click
       $("#playlist-controller #playlist-more").click(function() {
         $("#playlist-controller .playlist-table").toggle();
@@ -83,12 +84,14 @@ Drupal.behaviors.playlist = {
         var controller = $("#playlist-controller");
         if (!controller.is(e.target) && controller.has(e.target).length === 0) {
           $("#playlist-controller .playlist-table").hide();
+          $('#playlist-controller').removeClass('expanded');
         }
       });
       // Hide Controller on esc keypress
       $(document).keyup(function(e) {
         if (e.keyCode == 27) {
           $("#playlist-controller .playlist-table").hide();
+          $('#playlist-controller').removeClass('expanded');
         }
       });
     })(jQuery);
