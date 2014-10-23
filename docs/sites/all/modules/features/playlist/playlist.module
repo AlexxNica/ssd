@@ -28,6 +28,7 @@ function playlist_preprocess_node(&$vars) {
     $playlist_path = drupal_get_path('module', 'playlist');
     drupal_add_js($flexslider_path);
     drupal_add_js($hashchange_path);
+    drupal_add_library('system', 'effects');
     drupal_add_js($playlist_path . '/js/playlist.js');
     drupal_add_css($playlist_path . '/css/playlist-styles.css');
 

@@ -71,11 +71,11 @@ Drupal.behaviors.playlist = {
 
       // Hide "more" by default.
       $("#playlist-controller .playlist-table").hide();
-      $('#playlist-controller').removeClass('expanded');
       // Toggle on click
       $("#playlist-controller #playlist-more").click(function() {
-        $("#playlist-controller .playlist-table").toggle();
-        $('#playlist-controller').toggleClass('expanded');
+        $("#playlist-controller .playlist-table").toggle(100);
+        $('#playlist-controller').toggleClass('expanded', 100);
+        $('#playlist-controller .playlist-table').css('overflow', 'visible');
       });
       
       // Hide Controller Table on click outside of controller
@@ -83,15 +83,15 @@ Drupal.behaviors.playlist = {
         if (e.which != 1) return false;
         var controller = $("#playlist-controller");
         if (!controller.is(e.target) && controller.has(e.target).length === 0) {
-          $("#playlist-controller .playlist-table").hide();
-          $('#playlist-controller').removeClass('expanded');
+          $("#playlist-controller .playlist-table").hide(100);
+          $('#playlist-controller').removeClass('expanded', 100);
         }
       });
       // Hide Controller on esc keypress
       $(document).keyup(function(e) {
         if (e.keyCode == 27) {
-          $("#playlist-controller .playlist-table").hide();
-          $('#playlist-controller').removeClass('expanded');
+          $("#playlist-controller .playlist-table").hide(100);
+          $('#playlist-controller').removeClass('expanded', 100);
         }
       });
     })(jQuery);
