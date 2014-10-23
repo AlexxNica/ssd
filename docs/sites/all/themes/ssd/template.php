@@ -57,12 +57,20 @@ function ssd_preprocess_page(&$variables) {
   $variables['eff_logo_small'] = $variables['theme_path'] . '/img/eff-logo.png';
   
   $variables['is_playlist'] = false;
+  $variables['show_playlist_graphic'] = FALSE;
+  // Is the current page a playlist node?
   if (isset($variables['node'])) {
     if ($variables['node']->type == 'playlist') {
       $variables['is_playlist'] = true;
+      // Show playlist graphic.
+      $variables['show_playlist_graphic'] = TRUE;
     }
   }
-  
+  // Show playlist graphic while on the /playlist page.
+  if (arg(0) == 'playlist') {
+    $variables['show_playlist_graphic'] = TRUE;
+  }
+
   // Add information about the number of sidebars.
   if (!empty($variables['page']['sidebar_first']) && !empty($variables['page']['sidebar_second'])) {
     $variables['content_column_class'] = ' class="col-sm-6"';
@@ -122,13 +130,14 @@ function ssd_preprocess_page(&$variables) {
   $variables['tagline'] = t('Tips, Tools and How-tos For Safer Online Communications');
 
   // Add module category graphic to page header for module nodes.
+  $variables['module_header_graphic'] = '';
   if (isset($variables['node']->field_module_category)) {
     $module_category = field_view_field('node', $variables['node'], 'field_module_category');
     if (isset($module_category[0]['#options']['entity']->tid)) {
       $term = taxonomy_term_load($module_category[0]['#options']['entity']->tid);
       $module_graphic = field_view_field('taxonomy_term', $term, 'field_module_graphic', $display = array('label' => 'hidden'));
       $variables['module_header_graphic'] = $module_graphic;
-    }    
+    }
   }
 }
 
@@ -286,8 +295,6 @@ function ssd_menu_tree__secondary(&$variables) {
 function ssd_glossify_links($vars) {
   global $base_url;
   drupal_add_css(drupal_get_path('module', 'glossify') . '/glossify.css');
-  
-  $vars['tip'] = decode_entities(strip_tags($vars['tip']));
 
   if ($vars['type'] == 'taxonomy') {
     $path = 'taxonomy/term/' . $vars['id'];
@@ -295,12 +302,33 @@ function ssd_glossify_links($vars) {
   else {
     $path = 'node/' . $vars['id'];
   }
+
+  $tip = decode_entities(strip_tags($vars['tip']));
+  $text = check_plain($vars['text']);
+  $img_tag = '<img src = "' . $base_url . '/' . drupal_get_path('theme', 'ssd') . '/img/info.png" />';
+  $opts = array(
+    'language' => $vars['language'],
+    'html' => true,
+    'attributes' => array(
+      'class' => array(
+        'glossify-link',
+      ),
+      'data-title' => $text,
+      'title' => $tip,
+      'data-placement' => 'top',
+      'data-trigger' => 'hover',
+      'data-html' => 'true',
+      'data-toggle' => 'popover',
+      'data-container' => 'body',
+      'data-content' => $tip,
+    ),
+  );
   
-  if ($vars['tip']) {
-    return l(check_plain($vars['text']) . '<img src = "' . $base_url . '/' . drupal_get_path('theme', 'ssd') . '/img/info.png" />', $path, array('language' => $vars['language'], 'html' => true, 'attributes' => array('class' => array('glossify-link'), 'title' => $vars['tip'])));
+  if($vars['tip']) {
+    return l($text . $img_tag, $path, $opts);
   }
   else {
-    return l(check_plain($vars['text']) . '<img src = "' . $base_url . '/' . drupal_get_path('theme', 'ssd') . '/img/info.png" />', $path, array('language' => $vars['language'], 'html' => true, 'attributes' => array ('class' => array('glossify-link'))));
+    return l($text . $img_tag, $path, array('language' => $vars['language'], 'html' => true, 'attributes' => array ('class' => array('glossify-link'))));
   }
 }
 

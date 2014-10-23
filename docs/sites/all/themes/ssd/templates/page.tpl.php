@@ -160,14 +160,16 @@
         <div class="highlighted jumbotron"><?php print render($page['highlighted']); ?></div>
       <?php endif; ?>
       <a id="main-content"></a>
-      <?php if ($is_playlist): ?>
+      <?php if ($show_playlist_graphic): ?>
         <div class="playlist-header-graphic container">
           <img src="<?php print $base_path . $directory; ?>/img/play-b.png" alt="Playlist graphic" />
         </div>
       <?php else: ?>
-        <div class="module-header-graphic container">
-          <?php print render($module_header_graphic); ?>
-        </div>
+        <?php if ($module_header_graphic): ?>
+          <div class="module-header-graphic container">
+            <?php print render($module_header_graphic); ?>
+          </div>
+        <?php endif; ?>
       <?php endif; ?>
       <?php print render($title_prefix); ?>
       <?php if (!empty($title) && !$is_playlist): ?>
