@@ -106,6 +106,13 @@ function ssd_preprocess_page(&$variables) {
   }
   $variables['tagline'] = t('Tips, Tools and How-tos For Safer Online Communications');
 
+  // Add module category graphic to module nodes.
+  if (isset($variables['node'])) {
+    $module_category = field_view_field('node', $variables['node'], 'field_module_category');
+    $term = taxonomy_term_load($module_category[0]['#options']['entity']->tid);
+    $module_graphic = field_view_field('taxonomy_term', $term, 'field_module_graphic', $display = array('label' => 'hidden'));
+    $variables['module_header_graphic'] = $module_graphic;
+  }
 }
 
 /**
