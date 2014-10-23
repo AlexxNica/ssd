@@ -272,7 +272,7 @@ function _glossify_to_links($text, $terms, $type, $case_sensitivity, $first_only
   }
   $glossifying = TRUE;
   
-  if (trim(empty($langcode))) {
+  if (trim(empty($langcode)) || $langcode == 'und') {
     $language = language_default();
   }
   else {

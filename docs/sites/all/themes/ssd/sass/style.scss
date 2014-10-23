@@ -393,6 +393,10 @@ body.node-type-playlist .container-full-width .region-content {
   text-transform: uppercase;
   font-size: 34px;
   font-weight: bold;
+  margin-top: 30px;
+}
+.view-site-map h3 img {
+  margin-bottom: 20px;
 }
 .view-site-map .views-field-title-field h3,
 #block-views-site-map-block-1 h3 {
@@ -405,7 +409,7 @@ body.node-type-playlist .container-full-width .region-content {
   text-align: center;
 }
 .view-site-map .views-field-title-field h3 a,
-.view-site-map .views-field-title-field h3 a {
+.view-site-map .views-field-title-field p a {
   color: #637C7C;
 }
 .front .flex-nav-container {
