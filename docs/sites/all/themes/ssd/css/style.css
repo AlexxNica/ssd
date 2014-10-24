@@ -6925,6 +6925,22 @@ header .search-form {
   cursor: pointer;
 }
 
+#playlist-controller #playlist-close {
+  position: absolute;
+  top: 5px;
+  right: 5px;
+  display: none;
+  width: 30px;
+  height: 30px;
+  background: transparent url(../img/close-icon.png) no-repeat center center;
+  cursor: pointer;
+  text-indent: -9999px;
+}
+
+#playlist-controller.expanded #playlist-close {
+  display: inline-block;
+}
+
 #playlist-controller #playlist-next:hover {
   background-position: left top;
 }

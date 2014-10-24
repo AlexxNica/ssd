@@ -72,12 +72,11 @@ Drupal.behaviors.playlist = {
       // Hide "more" by default.
       $("#playlist-controller .playlist-table").hide();
       // Toggle on click
-      $("#playlist-controller #playlist-more").click(function() {
+      $("#playlist-controller #playlist-more, #playlist-controller #playlist-close").click(function() {
         $("#playlist-controller .playlist-table").toggle(100);
         $('#playlist-controller').toggleClass('expanded', 100);
         $('#playlist-controller .playlist-table').css('overflow', 'visible');
       });
-      
       // Hide Controller Table on click outside of controller
       $(document).mouseup(function (e) {
         if (e.which != 1) return false;

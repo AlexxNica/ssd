@@ -570,12 +570,27 @@ header .search-form {
   background-size: 180%;
   cursor: pointer;
 }
+#playlist-controller #playlist-close {
+  position: absolute;
+  top: 5px;
+  right: 5px;
+  display: none;
+  width: 30px;
+  height: 30px;
+  background: transparent url(../img/close-icon.png) no-repeat center center;
+  cursor: pointer;
+  text-indent: -9999px;
+}
+#playlist-controller.expanded #playlist-close {
+  display: inline-block;
+}
 #playlist-controller #playlist-next:hover {
   background-position: left top;
 }
 #playlist-controller #playlist-more:hover {
   background-position: -33px top;
 }
+
 .playlist-table .playlist-table-of-contents li {
   margin: 10px 0;
   line-height: 1.1;
