@@ -64,12 +64,12 @@ function ssd_preprocess_page(&$variables) {
     if ($variables['node']->type == 'playlist') {
       $variables['is_playlist'] = true;
       // Show playlist graphic.
-      $variables['playlist_graphic'] = '<img src="'. $base_path . $variables['directory'] . '/img/play-b-header.png' .'" alt="'. t('Playlist') .'" />';
+      $variables['playlist_graphic'] = '<img src="'. $base_path . $variables['directory'] . '/img/play-c-header.png' .'" alt="'. t('Playlist') .'" />';
     }
   }
   // Show playlist graphic while on the /playlist page.
   if (arg(0) == 'playlist') {
-    $variables['playlist_graphic'] = '<img src="'. $base_path . $variables['directory'] . '/img/play-b-header.png' .'" alt="'. t('Playlist') .'" />';
+    $variables['playlist_graphic'] = '<img src="'. $base_path . $variables['directory'] . '/img/play-c-header.png' .'" alt="'. t('Playlist') .'" />';
   }
 
   // Add information about the number of sidebars.
