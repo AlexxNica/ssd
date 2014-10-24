@@ -29,7 +29,6 @@
 
   #navbar {
     text-align: right;
-    padding-right: 10px;
   }
 
   #playlist-controller {
@@ -69,5 +68,9 @@
 
   .front .flexslider .slides > li {
     margin: 0;
+  }
+
+  #playlist-controller.expanded {
+    width: 100%;
   }
 }

@@ -48,7 +48,8 @@ function ssd_form_views_exposed_form_alter(&$form, &$form_state, $form_id) {
 }
 
 function ssd_preprocess_page(&$variables) {
-  
+  global $base_path;
+
   $variables['global_container'] = '';
   if (!isset($variables['node'])) {
     $variables['global_container'] = ' container';
@@ -57,18 +58,18 @@ function ssd_preprocess_page(&$variables) {
   $variables['eff_logo_small'] = $variables['theme_path'] . '/img/eff-logo.png';
   
   $variables['is_playlist'] = false;
-  $variables['show_playlist_graphic'] = FALSE;
+  $variables['playlist_graphic'] = '';
   // Is the current page a playlist node?
   if (isset($variables['node'])) {
     if ($variables['node']->type == 'playlist') {
       $variables['is_playlist'] = true;
       // Show playlist graphic.
-      $variables['show_playlist_graphic'] = TRUE;
+      $variables['playlist_graphic'] = '<img src="'. $base_path . $variables['directory'] . '/img/play-c-header.png' .'" alt="'. t('Playlist') .'" />';
     }
   }
   // Show playlist graphic while on the /playlist page.
   if (arg(0) == 'playlist') {
-    $variables['show_playlist_graphic'] = TRUE;
+    $variables['playlist_graphic'] = '<img src="'. $base_path . $variables['directory'] . '/img/play-c-header.png' .'" alt="'. t('Playlist') .'" />';
   }
 
   // Add information about the number of sidebars.
@@ -135,7 +136,8 @@ function ssd_preprocess_page(&$variables) {
     $module_category = field_view_field('node', $variables['node'], 'field_module_category');
     if (isset($module_category[0]['#options']['entity']->tid)) {
       $term = taxonomy_term_load($module_category[0]['#options']['entity']->tid);
-      $module_graphic = field_view_field('taxonomy_term', $term, 'field_module_graphic', $display = array('label' => 'hidden'));
+      $module_graphic = field_view_field('taxonomy_term', $term, 'field_module_graphic', 'default');
+
       $variables['module_header_graphic'] = $module_graphic;
     }
   }
