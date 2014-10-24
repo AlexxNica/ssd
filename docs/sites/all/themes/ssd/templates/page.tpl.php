@@ -158,12 +158,12 @@
       <?php endif; ?>
       <a id="main-content"></a>
       <?php if ($playlist_graphic): ?>
-        <div class="playlist-header-graphic">
+        <div class="header-graphic">
           <?php print $playlist_graphic; ?>
         </div>
       <?php else: ?>
         <?php if ($module_header_graphic): ?>
-          <div class="module-header-graphic">
+          <div class="header-graphic">
             <?php print render($module_header_graphic); ?>
           </div>
         <?php endif; ?>

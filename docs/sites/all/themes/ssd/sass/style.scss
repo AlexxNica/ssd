@@ -324,6 +324,7 @@ header .search-form {
 }
 .container-full-width {
   width: 100%;
+  float: left;
 }
 .container-full-width .region-content {
   padding: 1px 0;
@@ -343,9 +344,19 @@ header .search-form {
   padding-bottom: 50px;
 }
 /* On module pages, allow sections to set bottom padding */
-body.node-type-article .container-full-width .region-content,
-body.node-type-playlist .container-full-width .region-content {
+.node-type-article .container-full-width .region-content,
+.node-type-playlist .container-full-width .region-content {
   margin-bottom: 0;
+}
+/* Add full background width to playlist and module pages where circle icon needs to overlap with the green background. */
+.node-type-article .container-full-width,
+.node-type-playlist .container-full-width  {
+  background-color: #d5e0e0;
+  margin-top: 71px;
+}
+.node-type-article .container-full-width .header-graphic,
+.node-type-playlist .container-full-width .header-graphic {
+  margin-top: -71px;
 }
 
 /* Push background div to appear under/in the middle of front slideshow. */
@@ -569,8 +580,7 @@ body.node-type-playlist .container-full-width .region-content {
   margin: 10px 0;
   line-height: 1.1;
 }
-.module-header-graphic,
-.playlist-header-graphic {
+.header-graphic {
   text-align: center;
 }
 ul.slides {
@@ -588,7 +598,7 @@ ul.slides .playlist-table {
   margin-top: 30px;
 }
 .module-section:nth-child(even) {
-  background-color: #d5e0e0;
+  background-color: #fff;
 }
 .module-section h2, .view-search h2 {
   text-align: left;
@@ -638,7 +648,7 @@ ul.secondary li a {
   border-bottom: 0;
 }
 .field-metadata {
-  background-color: #d5e0e0;
+  background-color: #fff;
   padding: 15px 20px 10px;
   border-radius: 10px;
   max-width: 80%;
