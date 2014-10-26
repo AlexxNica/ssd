@@ -1,0 +1,23 @@
+<?php
+
+/**
+ * Implements hook_language_switch_links_alter().
+ */
+function hreflang_language_switch_links_alter(array &$links, $type, $path) {
+  static $run_once;
+  if ($run_once) {
+    return;
+  }
+  foreach ($links as $langcode => &$link) {
+    $link['attributes']['hreflang'] = $langcode;
+    $attributes = array(
+      'href' => url($link['href'], array('language' => $link['language'], 'absolute' => TRUE)),
+      'rel' => 'alternate',
+      'hreflang' => $langcode,
+    );
+    drupal_add_html_head_link($attributes);
+  }
+  $run_once = TRUE;
+}
+
+
