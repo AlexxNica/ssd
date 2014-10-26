@@ -11,7 +11,7 @@ function hreflang_language_switch_links_alter(array &$links, $type, $path) {
   foreach ($links as $langcode => &$link) {
     $link['attributes']['hreflang'] = $langcode;
     $attributes = array(
-      'href' => url($link['href'], array('language' => $link['language'], 'absolute' => TRUE)),
+      'href' => url($link['href'], array('absolute' => TRUE, 'language' => $link['language'], 'query' => drupal_get_query_parameters())),
       'rel' => 'alternate',
       'hreflang' => $langcode,
     );
