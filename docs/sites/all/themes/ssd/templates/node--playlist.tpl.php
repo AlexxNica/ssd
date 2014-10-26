@@ -84,26 +84,26 @@
 <div id="flexslider" class="flexslider">
   <ul class="slides">
     <li>
-      <div class="container">
-      <h2><?php print $title; ?></h2>
-
-          <?php
-            // We hide the comments and links now so that we can render them later.
-            hide($content['comments']);
-            hide($content['links']);
-            print render($content);
-          ?>
-      <div id="playlist-table-slide">
-      <?php print $playlist_table; ?>
+      <div id="node-<?php print $node->nid; ?>" class="container <?php print $classes; ?> clearfix"<?php print $attributes; ?>>
+        <?php print render($title_prefix); ?>
+        <h2<?php print $title_attributes; ?>><?php print $title; ?></h2>
+        <?php print render($title_suffix); ?>
+        <div class="content"<?php print $content_attributes; ?>>
+          <?php hide($content['comments']); ?>
+          <?php hide($content['links']); ?>
+          <?php print render($content); ?>
+        </div>
+        <div id="playlist-table-slide">
+          <?php print $playlist_table; ?>
+        </div>
       </div>
     </li>
     <?php print $playlist_slides ?>
-    </div>
   </ul>
 </div>
-  <div id="playlist-controller">
-    <span id="playlist-next" class="playlist-button">Next</span>
-    <span id="playlist-more" class="playlist-button">More</span>
-    <span id="playlist-close" class="playlist-button">Close</span>
-    <?php print $playlist_table; ?>
-  </div>
+<div id="playlist-controller">
+  <span id="playlist-next" class="playlist-button">Next</span>
+  <span id="playlist-more" class="playlist-button">More</span>
+  <span id="playlist-close" class="playlist-button">Close</span>
+  <?php print $playlist_table; ?>
+</div>
