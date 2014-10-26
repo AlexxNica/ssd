@@ -44,3 +44,7 @@
 .region-footer ul.menu.nav {
   padding-right: 0;
 }
+
+.flex-direction-nav a.flex-prev, .flex-direction-nav a.flex-next {
+  text-align: right;
+}
