@@ -7154,6 +7154,11 @@ body.logged-in .node ul.links.inline:before {
   border-top: none;
 }
 
+#node-69 td {
+  width: 50%;
+  vertical-align: top;
+}
+
 div.messages {
   max-width: 720px;
   margin: 6px auto;
