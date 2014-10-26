@@ -50,19 +50,19 @@ function playlist_preprocess_node(&$vars) {
         $module = node_load($row['nid']);
 
         // @todo Uniquify this - what if same title is used? Blah.
-        $module_link = pathauto_cleanstring($module->title);
+        $module_link = rawurlencode(pathauto_cleanstring($module->title));
         $indexes[$module_link] = $index;
         $hashlinks[$index] = $module_link;
 
         // Construct a permlink.
-        $permlink = '<p><a href="' . $alias . '#' . pathauto_cleanstring($module->title) . '">Permlink</a></p>';
+        $permlink = '<p><a href="' . $alias . '#' . rawurlencode(pathauto_cleanstring($module->title)) . '">Permlink</a></p>';
 
         // Render module node for display in playlist.
         $title = check_plain($module->title);
         $view = node_view($module, 'playlist');
         $body = drupal_render($view);
         $slides[] = $body;
-        $toc .= '<li class="module-toc module-' . $index . '">' . '<a href="' . $alias . '#' . pathauto_cleanstring($module->title) . '">'. $title . '</a></li>';
+        $toc .= '<li class="module-toc module-' . $index . '">' . '<a href="' . $alias . '#' . rawurlencode(pathauto_cleanstring($module->title)) . '">'. $title . '</a></li>';
         $index++;
       }
     }
