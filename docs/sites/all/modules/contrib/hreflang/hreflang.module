@@ -4,7 +4,16 @@
  * Implements hook_page_build().
  */
 function hreflang_page_build(&$page) {
-  $path = drupal_is_front_page() ? '<front>' : $_GET['q'];
+  // Return early if site is monolingual.
+  if (!drupal_multilingual()) {
+    return;
+  }
+  // No need to add hreflang tags for 404/403 pages.
+  $headers = drupal_get_http_header();
+  if (isset($headers['status']) && ($headers['status'] == '404 Not Found' || $headers['status'] == '403 Forbidden')) {
+    return;
+  }
+  $path = drupal_is_front_page() ? '' : $_GET['q'];
   $links = language_negotiation_get_switch_links(LANGUAGE_TYPE_INTERFACE, $path);
   if (empty($links->links)) {
     return;
