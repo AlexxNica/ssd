@@ -74,3 +74,16 @@
     width: 100%;
   }
 }
+/* Shrink navbar search input as screen gets smaller */
+@media (max-width: 380px) {
+  #navbar #search-form--2 #edit-keys--2,
+  #navbar #search-form #edit-keys {
+    width: 80px;
+  }
+}
+@media (max-width: 320px) {
+  #navbar #search-form--2 #edit-keys--2,
+  #navbar #search-form #edit-keys {
+    width: 50px;
+  }
+}
