@@ -19,6 +19,7 @@ Drupal.behaviors.ssd_modules = {
       $(".glossify-link").popover();
       // Show the feedback form.
       $(".feedback-link").mouseup(function (e) {
+        if (e.which != 1) return false;
         $("#feedback-form").slideToggle();
       });
       // Hide Controller Table on click outside of controller

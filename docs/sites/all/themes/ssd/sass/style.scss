@@ -515,6 +515,23 @@ header .search-form {
   right: auto;
   z-index: 1000;
 }
+#block-feedback-form #feedback-form .form-item-message label{
+  display: none;
+}
+#block-feedback-form #feedback-form .form-item-message {
+  margin: 0px;
+}
+#block-feedback-form #feedback-form .form-actions {
+  margin: 0px;
+}
+#block-feedback-form #feedback-form #feedback-submit {
+  margin: 5px 0px 0px 0px;
+  font-size: 14px;
+}
+#block-feedback-form .error {
+  margin-top: 0px;
+  font-size: 14px;
+}
 #block-feedback-form h2 {
   margin-top: 0px;
   margin-bottom: 10px;
