@@ -88,7 +88,8 @@ code {
 .navbar {
   border: 0;
 }
-#navbar a {
+#navbar a,
+#navbar span {
   color: #fff;
   font-weight: normal;
   text-transform: uppercase;
@@ -104,7 +105,8 @@ code {
 }
 #nav-expanded .container {
 }
-#nav-expanded a {
+#nav-expanded a,
+#nav-expanded span {
   color: #fff;
   text-transform: uppercase;
   padding: 3px 10px;
@@ -197,7 +199,8 @@ ul.secondary li.last {
   float: right;
   text-align: left;
 }
-#nav-expanded ul.nav-primary a {
+#nav-expanded ul.nav-primary a,
+#nav-expanded ul.nav-primary span {
   font-size: 12px;
   float: none;
   clear: none;
@@ -207,12 +210,14 @@ ul.secondary li.last {
   clear: both;
 }
 #nav-expanded ul.secondary li,
-#nav-expanded ul.secondary li a {
+#nav-expanded ul.secondary li a,
+#nav-expanded ul.secondary li span {
   width: auto;
   display: inline;
   float: none;
   clear: none;
 }
+
 .search-form-header,
 #language-switcher {
   border-right: 2px solid #fff;
@@ -505,10 +510,20 @@ header .search-form {
   display: none;
 }
 #block-feedback-form {
-  bottom: 70px;
+  bottom: 20px;
   left: 20px;
   right: auto;
+  z-index: 1000;
 }
+#block-feedback-form h2 {
+  margin-top: 0px;
+  margin-bottom: 10px;
+  text-align: left;
+}
+#block-feedback-form form {
+  opacity: 1;
+}
+
 .playlist-button:hover {
   background: #dddddd;
   cursor: pointer;
@@ -525,7 +540,7 @@ header .search-form {
   -webkit-border-radius: 28px;
   -moz-border-radius: 28px;
   text-align: center;
-  width: 150px;
+  width: 180px;
   display: none;
 }
 #playlist-controller.expanded {
@@ -551,11 +566,21 @@ header .search-form {
   font-weight: bold;
   color: #d5e0e0;
 }
+#playlist-controller #playlist-feedback {
+  display: inline-block;
+  width: 40px;
+  height: 30px;
+  margin-right: 6px;
+  text-indent: -9999px;
+  background: url(../img/feedback-icon.png) no-repeat;
+  background-size: 80%;
+  cursor: pointer;
+}
 #playlist-controller #playlist-next {
   display: inline-block;
   width: 40px;
   height: 30px;
-  margin-right: 5px;
+  margin-right: -12px;
   text-indent: -9999px;
   background: url(../img/module-playlist-buttons.png) no-repeat left -36px;
   background-size: 180%;
@@ -565,6 +590,7 @@ header .search-form {
   display: inline-block;
   width: 40px;
   height: 30px;
+  margin-right: 8px;
   text-indent: -9999px;
   background: url(../img/module-playlist-buttons.png) no-repeat -33px -36px;
   background-size: 180%;
