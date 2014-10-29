@@ -77,22 +77,6 @@ Drupal.behaviors.playlist = {
         $('#playlist-controller').toggleClass('expanded', 100);
         $('#playlist-controller .playlist-table').css('overflow', 'visible');
       });
-      // Hide Controller Table on click outside of controller
-      $(document).mouseup(function (e) {
-        if (e.which != 1) return false;
-        var controller = $("#playlist-controller");
-        if (!controller.is(e.target) && controller.has(e.target).length === 0) {
-          $("#playlist-controller .playlist-table").hide(100);
-          $('#playlist-controller').removeClass('expanded', 100);
-        }
-      });
-      // Hide Controller on esc keypress
-      $(document).keyup(function(e) {
-        if (e.keyCode == 27) {
-          $("#playlist-controller .playlist-table").hide(100);
-          $('#playlist-controller').removeClass('expanded', 100);
-        }
-      });
     })(jQuery);
   }
 };

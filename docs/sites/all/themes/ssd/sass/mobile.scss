@@ -36,7 +36,7 @@
     text-align: center;
   }
   #block-feedback-form {
-    bottom: 80px;
+    /* bottom: 80px; */
   }
   .front .flexslider {
     min-height: 0;
@@ -58,6 +58,12 @@
   }
   #playlist-controller.expanded {
     width: 100%;
+  }
+  .node-type-playlist footer.footer {
+    margin-bottom: 68px;
+  }
+  .region-footer {
+    margin: 0;
   }
 }
 
