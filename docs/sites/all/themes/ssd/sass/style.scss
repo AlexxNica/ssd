@@ -510,7 +510,7 @@ header .search-form {
   display: none;
 }
 #block-feedback-form {
-  bottom: 20px;
+  bottom: 90px;
   left: 20px;
   right: auto;
   z-index: 1000;
@@ -545,7 +545,9 @@ header .search-form {
   background: #dddddd;
   cursor: pointer;
 }
-
+.module-playlist-controller {
+  display: none;
+}
 #playlist-controller {
   position: fixed;
   bottom: 15px;
@@ -557,8 +559,7 @@ header .search-form {
   -webkit-border-radius: 28px;
   -moz-border-radius: 28px;
   text-align: center;
-  width: 180px;
-  display: none;
+  width: 190px;
 }
 #playlist-controller.expanded {
   width: 190px;
@@ -583,21 +584,11 @@ header .search-form {
   font-weight: bold;
   color: #d5e0e0;
 }
-#playlist-controller #playlist-feedback {
-  display: inline-block;
-  width: 40px;
-  height: 30px;
-  margin-right: 6px;
-  text-indent: -9999px;
-  background: url(../img/feedback-icon.png) no-repeat;
-  background-size: 80%;
-  cursor: pointer;
-}
 #playlist-controller #playlist-next {
   display: inline-block;
   width: 40px;
   height: 30px;
-  margin-right: -12px;
+  margin-right: 5px;
   text-indent: -9999px;
   background: url(../img/module-playlist-buttons.png) no-repeat left -36px;
   background-size: 180%;
@@ -607,7 +598,7 @@ header .search-form {
   display: inline-block;
   width: 40px;
   height: 30px;
-  margin-right: 8px;
+  margin-right: 0px;
   text-indent: -9999px;
   background: url(../img/module-playlist-buttons.png) no-repeat -33px -36px;
   background-size: 180%;
@@ -633,11 +624,45 @@ header .search-form {
 #playlist-controller #playlist-more:hover {
   background-position: -33px top;
 }
-
 .playlist-table .playlist-table-of-contents li {
   margin: 10px 0;
   line-height: 1.1;
 }
+/* Feedback Controller */
+#feedback-controller {
+  position: fixed;
+  bottom: 15px;
+  left: 20px;
+  z-index: 600;
+  background: #5D7272;
+  padding: 20px;
+  border-radius: 28px;
+  -webkit-border-radius: 28px;
+  -moz-border-radius: 28px;
+  text-align: center;
+  width: 190px;
+}
+#feedback-controller #feedback-button {
+  display: inline-block;
+  width: 40px;
+  height: 30px;
+  margin-right: 6px;
+  text-indent: -9999px;
+  background: url(../img/feedback-icon.png) no-repeat;
+  background-size: 80%;
+  cursor: pointer;
+}
+#playlist-controller #playlist-feedback {
+  width: 40px;
+  height: 30px;
+  margin-right: 6px;
+  text-indent: -9999px;
+  background: url(../img/feedback-icon.png) no-repeat;
+  background-size: 80%;
+  cursor: pointer;
+  display: none;
+}
+
 .header-graphic {
   text-align: center;
 }

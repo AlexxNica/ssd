@@ -101,6 +101,9 @@
     <?php print $playlist_slides ?>
   </ul>
 </div>
+<div id="feedback-controller">
+  <span id="feedback-button" class="playlist-button feedback-link">Feedback</span>
+</div>
 <div id="playlist-controller">
   <span id="playlist-feedback" class="playlist-button feedback-link">Feedback</span>
   <span id="playlist-next" class="playlist-button">Next</span>

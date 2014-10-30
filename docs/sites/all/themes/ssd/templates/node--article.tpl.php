@@ -123,7 +123,10 @@
   </div>
 </div> <!-- /.node -->
 <?php if ($view_mode != 'playlist'): ?>
-<div id="playlist-controller">
+<div id="feedback-controller">
+  <span id="feedback-button" class="playlist-button feedback-link">Feedback</span>
+</div>
+<div id="playlist-controller" class="module-playlist-controller">
   <span id="playlist-feedback" class="playlist-button feedback-link">Feedback</span>
 </div>
 <?php endif; ?>

@@ -1,8 +1,6 @@
 Drupal.behaviors.ssd_modules = {
-  attach: function (context, settings) {    
+  attach: function (context, settings) {
     (function ($) {
-      // Show playlist controller
-      $('#playlist-controller').css('display', 'block');
       // Used this example: http://stackoverflow.com/questions/7968303/wrapping-a-series-of-elements-between-two-h2-tags-with-jquery
       $("div.node-article div.wrap-module-sections h2").each(function(){
         var $set = $(this).nextUntil("h2").addBack();
@@ -20,17 +18,23 @@ Drupal.behaviors.ssd_modules = {
       // Show the feedback form.
       $(".feedback-link").mouseup(function (e) {
         if (e.which != 1) return false;
-        $("#feedback-form").slideToggle();
+        $("#feedback-form", context).slideToggle();
       });
       // Hide Controller Table on click outside of controller
       $(document).mouseup(function (e) {
         if (e.which != 1) return false;
-        var controller = $("#playlist-controller");
-        var feedback = $("#block-feedback-form");
-        if ((!controller.is(e.target) && controller.has(e.target).length === 0) && (!feedback.is(e.target) && feedback.has(e.target).length === 0)) {
-          $("#feedback-form").slideUp();
-          $("#playlist-controller .playlist-table").hide(100);
-          $('#playlist-controller').removeClass('expanded', 100);
+        // Make sure a click wasn't within one of these containers.
+        var playlistController = $("#playlist-controller");
+        var feedBackController = $("#feedback-controller");
+        var feedbackForm = $("#block-feedback-form");
+        if (!playlistController.is(e.target) && playlistController.has(e.target).length === 0) {
+          if (!feedBackController.is(e.target) && feedBackController.has(e.target).length === 0) {
+            if (!feedbackForm.is(e.target) && feedbackForm.has(e.target).length === 0) {
+              $("#feedback-form", context).slideUp();
+              $("#playlist-controller .playlist-table", context).hide(100);
+              $('#playlist-controller', context).removeClass('expanded', 100);
+            }
+          }
         }
       });
       // Hide Controller on esc keypress

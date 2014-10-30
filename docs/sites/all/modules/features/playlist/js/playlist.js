@@ -50,9 +50,6 @@ Drupal.behaviors.playlist = {
       // Add module-active class to list item.
       setActiveModule();
       
-      // Show playlist controller
-      $('#playlist-controller').css('display', 'block');
-
       // This uses the hashchange plugin to support changing slides when using
       // the back button. Without it, navigation is unsatisfactory.
       $(window).hashchange( function(){
