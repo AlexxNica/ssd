@@ -353,3 +353,10 @@ function ssd_username_alter(&$name, $account) {
     $name = $user->field_full_name[LANGUAGE_NONE][0]['value'];
   }
 }
+
+/**
+ * Preprocess variables for librejs-inline-license.tpl.php
+ */
+function ssd_preprocess_librejs_inline_license(&$variables) {
+  $variables['author'] = t('Electronic Frontier Foundation');
+}
