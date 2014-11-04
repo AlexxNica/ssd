@@ -67,7 +67,7 @@ Drupal.behaviors.playlist = {
       $('.slides .flex-active-slide').css('display', 'block');
 
       // Hide "more" by default.
-      $("#playlist-controller .playlist-table").hide();
+      $("#playlist-controller .playlist-table", context).hide();
       // Toggle on click
       $("#playlist-controller #playlist-more, #playlist-controller #playlist-close", context).click(function() {
         $("#playlist-controller .playlist-table", context).toggle(100);
