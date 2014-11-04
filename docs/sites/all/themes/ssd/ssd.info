@@ -33,3 +33,4 @@ stylesheets[print][] = css/print.css
 ; 
 scripts[] = 'js/bootstrap.min.js'
 scripts[] = 'js/ssd.js'
+scripts[] = 'js/ssd-mobile.js'

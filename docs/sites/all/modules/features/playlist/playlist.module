@@ -62,7 +62,7 @@ function playlist_preprocess_node(&$vars) {
         $view = node_view($module, 'playlist');
         $body = drupal_render($view);
         $slides[] = $body;
-        $toc .= '<li class="module-toc module-' . $index . '">' . '<a href="' . $alias . '#' . rawurlencode(pathauto_cleanstring($module->title)) . '">'. $title . '</a></li>';
+        $toc .= '<li class="module-toc module-' . $index . '">' . '<a href="' . $alias . '#' . rawurlencode(pathauto_cleanstring($module->title)) . '" class="playlist-toc-link">'. $title . '</a></li>';
         $index++;
       }
     }

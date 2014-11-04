@@ -20,7 +20,12 @@
     float: none;
   }
 }
-/* Media query for small screens */
+/** 
+* Media query for small screens
+* IMPORTANT:
+* If this is changed, the breakpoint in ssd-mobile.js must be changed
+* to match.
+*/
 @media (max-width: 767px) {
   #top-eff-header,
   #eff-footer {
