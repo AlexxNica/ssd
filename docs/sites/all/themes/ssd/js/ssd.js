@@ -21,12 +21,12 @@ Drupal.behaviors.ssd_modules = {
         $("#feedback-form", context).slideToggle();
       });
       // Hide Controller Table on click outside of controller
-      $(document).mouseup(function (e) {
+      $(document, context).mouseup(function (e) {
         if (e.which != 1) return false;
         // Make sure a click wasn't within one of these containers.
-        var playlistController = $("#playlist-controller");
-        var feedBackController = $("#feedback-controller");
-        var feedbackForm = $("#block-feedback-form");
+        var playlistController = $("#playlist-controller", context);
+        var feedBackController = $("#feedback-controller", context);
+        var feedbackForm = $("#block-feedback-form", context);
         if (!playlistController.is(e.target) && playlistController.has(e.target).length === 0) {
           if (!feedBackController.is(e.target) && feedBackController.has(e.target).length === 0) {
             if (!feedbackForm.is(e.target) && feedbackForm.has(e.target).length === 0) {
@@ -40,9 +40,9 @@ Drupal.behaviors.ssd_modules = {
       // Hide Controller on esc keypress
       $(document).keyup(function(e) {
         if (e.keyCode == 27) {
-          $("#feedback-form").slideUp();
-          $("#playlist-controller .playlist-table").hide(100);
-          $('#playlist-controller').removeClass('expanded', 100);
+          $("#feedback-form", context).slideUp();
+          $("#playlist-controller .playlist-table", context).hide(100);
+          $('#playlist-controller', context).removeClass('expanded', 100);
         }
       });
     })(jQuery);

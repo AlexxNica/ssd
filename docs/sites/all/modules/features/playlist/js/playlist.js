@@ -69,10 +69,10 @@ Drupal.behaviors.playlist = {
       // Hide "more" by default.
       $("#playlist-controller .playlist-table").hide();
       // Toggle on click
-      $("#playlist-controller #playlist-more, #playlist-controller #playlist-close").click(function() {
-        $("#playlist-controller .playlist-table").toggle(100);
-        $('#playlist-controller').toggleClass('expanded', 100);
-        $('#playlist-controller .playlist-table').css('overflow', 'visible');
+      $("#playlist-controller #playlist-more, #playlist-controller #playlist-close", context).click(function() {
+        $("#playlist-controller .playlist-table", context).toggle(100);
+        $('#playlist-controller', context).toggleClass('expanded', 100);
+        $('#playlist-controller .playlist-table', context).css('overflow', 'visible');
       });
     })(jQuery);
   }
