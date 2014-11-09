@@ -4,9 +4,9 @@ description = Adds hreflang link elements to the header of each page.
 package = Multilingual
 files[] = hreflang.test
 
-; Information added by Drupal.org packaging script on 2014-11-01
-version = "7.x-1.x-dev"
+; Information added by Drupal.org packaging script on 2014-11-09
+version = "7.x-1.1"
 core = "7.x"
 project = "hreflang"
-datestamp = "1414868930"
+datestamp = "1415534881"
 
