@@ -44,3 +44,13 @@ function _sort_by_length($a, $b) {
   }
   return -1;
 }
+
+/**
+ * Implements hook_feedback_presave().
+ */
+function ssd_library_feedback_presave($entry) {
+  // Tag IE6 feedback as processed - it's mostly spam!
+  if (strpos($_SERVER['HTTP_USER_AGENT'], 'MSIE 6.0')) {
+    $entry->status = FEEDBACK_PROCESSED;
+  }
+}
