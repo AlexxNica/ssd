@@ -54,13 +54,3 @@ function ssd_library_feedback_presave($entry) {
     $entry->status = FEEDBACK_PROCESSED;
   }
 }
-
-/**
- * Implements hook_feedback_insert().
- */
-function ssd_library_feedback_insert($entry) {
-  // Trigger rule if Rules is enabled
-  if ($entry->status == FEEDBACK_OPEN && module_exists('rules')) {
-    rules_invoke_event('ssd_library_feedback_insert_filtered', $entry);
-  }
-}
