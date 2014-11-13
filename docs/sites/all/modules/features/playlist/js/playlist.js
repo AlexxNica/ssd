@@ -29,6 +29,7 @@ Drupal.behaviors.playlist = {
       
       // Load flexslider with default settings.
       $('.flexslider').flexslider({
+        touch: false,
         smoothHeight: true,
         animation: "fade",
         controlNav: false,
