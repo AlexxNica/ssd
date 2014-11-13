@@ -51,10 +51,6 @@
     display: block;
   }
 
-  #block-feedback-form {
-    /* bottom: 80px; */
-  }
-
   .front .flexslider {
     min-height: 0;
   }

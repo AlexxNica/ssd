@@ -25,10 +25,10 @@ Drupal.behaviors.ssd_modules = {
         if (e.which != 1) return false;
         // Make sure a click wasn't within one of these containers.
         var playlistController = $("#playlist-controller", context);
-        var feedBackController = $("#feedback-controller", context);
+        var feedbackButton = $("#feedback-button", context);
         var feedbackForm = $("#block-feedback-form", context);
         if (!playlistController.is(e.target) && playlistController.has(e.target).length === 0) {
-          if (!feedBackController.is(e.target) && feedBackController.has(e.target).length === 0) {
+          if (!feedbackButton.is(e.target) && feedbackButton.has(e.target).length === 0) {
             if (!feedbackForm.is(e.target) && feedbackForm.has(e.target).length === 0) {
               $("#feedback-form", context).slideUp();
               $("#playlist-controller .playlist-table", context).hide(100);

@@ -213,9 +213,8 @@
         <?php print t("A Project of the Electronic Frontier Foundation"); ?>
       </a>
     </div>
-  
     <?php print render($page['footer']); ?>
-  
+    <span id="feedback-button" class="feedback-link">Feedback</span>
     <a href="https://www.eff.org/copyright"><img src="<?php print $base_path . $directory; ?>/img/cc-by-logo.png" alt="Creative Commons" width="60px" /></a>
   </div>
 </footer>

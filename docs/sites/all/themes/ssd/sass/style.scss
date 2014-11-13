@@ -252,8 +252,7 @@ ul.secondary li.last {
 #navbar .menu-hamburger:hover {
   background-color: transparent;
 }
-#top-eff-header,
-#eff-footer {
+#top-eff-header {
   padding-right: 10px;
 }
 #top-eff-header a,
@@ -519,7 +518,7 @@ header .search-form {
   display: none;
 }
 #block-feedback-form {
-  bottom: 90px;
+  bottom: 15px;
   left: 20px;
   right: auto;
   z-index: 1000;
@@ -568,7 +567,7 @@ header .search-form {
 }
 #playlist-controller {
   position: fixed;
-  bottom: 15px;
+  bottom: 55px;
   right: 20px;
   z-index: 600;
   background: #5D7272;
@@ -646,42 +645,22 @@ header .search-form {
   margin: 10px 0;
   line-height: 1.1;
 }
-/* Feedback Controller 
-#feedback-controller {
-  position: fixed;
-  bottom: 15px;
-  left: 20px;
-  z-index: 600;
-  background: #5D7272;
-  padding: 20px;
-  border-radius: 28px;
-  -webkit-border-radius: 28px;
-  -moz-border-radius: 28px;
-  text-align: center;
-  width: 190px;
-}
-#feedback-controller #feedback-button {
-  display: inline-block;
-  width: 40px;
-  height: 30px;
-  margin-right: 6px;
-  text-indent: -9999px;
+#feedback-button {
   background: url(../img/feedback-icon.png) no-repeat;
-  background-size: 80%;
+  background-size: 18%;
   cursor: pointer;
+  background-color: transparent;
+  color: #627a7b;
+  font-size: 12px;
+  padding: 2px 15px 0px 23px;
+  margin: 0 0 0 8px;
+  text-transform: uppercase;
 }
 
-#playlist-controller #playlist-feedback {
-  width: 40px;
-  height: 30px;
-  margin-right: 6px;
-  text-indent: -9999px;
-  background: url(../img/feedback-icon.png) no-repeat;
-  background-size: 80%;
-  cursor: pointer;
-  display: none;
+footer .container {
+  width: inherit;
+  text-align: center;
 }
-*/
 .header-graphic {
   text-align: center;
 }
@@ -796,9 +775,6 @@ footer.footer {
 }
 .page-wrapper {
   padding-bottom: 50px;
-}
-.region-footer {
-  margin-left: 12px;
 }
 .region-footer,
 .region-footer #block-menu-menu-footer-links,
