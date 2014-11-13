@@ -18,8 +18,17 @@ class TMGMTPluginsTestCase extends TMGMTBaseTestCase {
     );
   }
 
+  /**
+   * Creates a translation job.
+   *
+   * @param string $source
+   * @param string $target
+   * @param int $uid
+   *
+   * @return TMGMTJob
+   */
   function createJob($source = 'en', $target = 'de', $uid = 1) {
-    $job = parent::createJob();
+    $job = parent::createJob($source, $target, $uid);
 
     for ($i = 1; $i < 3; $i++) {
       if ($i == 3) {
@@ -226,5 +235,37 @@ class TMGMTPluginsTestCase extends TMGMTBaseTestCase {
       // Assert that the string is the same as the original when unescaped.
       $this->assertEqual($controller->unescapeText($escaped), $test['item']['#text']);
     }
+  }
+
+  /**
+   * Tests support for existing translations.
+   */
+  public function testExistingTranslations() {
+    variable_set('tmgmt_test_load_existing_translation', TRUE);
+
+    // Test default getExistingTranslationData() implementation.
+    $job = $this->createJob();
+    foreach ($job->getItems() as $job_item) {
+      $data = $job_item->getData();
+      $translated_data = $job_item->getSourceController()->getExistingTranslationData($job_item);
+      $this->assertEqual($data['dummy']['deep_nesting']['#translation']['#text'], $translated_data['dummy']['deep_nesting']['#text']);
+    }
+
+    // Test that job items data is reinitialized when the job target language is
+    // changed.
+    $job = $this->createJob();
+    $existing_translations = array();
+    foreach ($job->getItems() as $job_item) {
+      $existing_translations[$job_item->identifier()] = $job_item->getSourceController()->getExistingTranslationData($job_item);
+    }
+    $job->target_language = 'es';
+    $job->save();
+    $job = tmgmt_job_load($job->tjid);
+    foreach ($job->getItems() as $job_item) {
+      $existing_translation = $job_item->getSourceController()->getExistingTranslationData($job_item);
+      $this->assertNotEqual($existing_translations[$job_item->identifier()], $existing_translation);
+    }
+
+    variable_del('tmgmt_test_load_existing_translation');
   }
 }

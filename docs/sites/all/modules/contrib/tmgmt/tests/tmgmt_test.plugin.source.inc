@@ -57,6 +57,11 @@ class TMGMTTestSourcePluginController extends TMGMTDefaultSourcePluginController
       '@id' => $job_item->item_id,
     );
 
+    if (variable_get('tmgmt_test_load_existing_translation') && $job_item->getJob()->target_language) {
+      $source['dummy']['deep_nesting']['#translation']['#text'] = 'Existing translation for job item with type @type and id @id for target language @target_language.';
+      $variables['@target_language'] = $job_item->getJob()->target_language ?: '<none>';
+    }
+
     $this->replacePlaceholders($source, $variables);
 
     return $source;
@@ -74,6 +79,9 @@ class TMGMTTestSourcePluginController extends TMGMTDefaultSourcePluginController
     foreach (element_children($data) as $key) {
       if (isset($data[$key]['#text'])) {
         $data[$key]['#text'] = format_string($data[$key]['#text'], $variables);
+        if (isset($data[$key]['#translation']['#text'])) {
+          $data[$key]['#translation']['#text'] = format_string($data[$key]['#translation']['#text'], $variables);
+        }
       }
       else {
         $this->replacePlaceholders($data[$key], $variables);

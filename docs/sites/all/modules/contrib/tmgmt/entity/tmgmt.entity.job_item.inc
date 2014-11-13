@@ -338,6 +338,18 @@ class TMGMTJobItem extends Entity {
   }
 
   /**
+   * Returns data array with already existing (outdated) translations.
+   *
+   * @return array
+   */
+  public function getSourceExistingTranslationData() {
+    if ($controller = $this->getSourceController()) {
+      return $controller->getExistingTranslationData($this);
+    }
+    return array();
+  }
+
+  /**
    * Returns the plugin controller of the configured plugin.
    *
    * @return TMGMTSourcePluginControllerInterface

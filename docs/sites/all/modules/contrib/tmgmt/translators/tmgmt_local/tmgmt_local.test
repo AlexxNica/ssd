@@ -284,6 +284,11 @@ class TMGMTLocalTestCase extends TMGMTBaseTestCase {
     $this->assertText($job_comment);
     $this->assertText('test_source:test:1');
 
+    // Check that there is no existing translation loaded.
+    $elements = $this->xpath('//textarea[@name=:name]', array(':name' => 'dummy|deep_nesting[translation]'));
+    $textarea_value = (string) $elements[0];
+    $this->assertTrue(empty($textarea_value));
+
     // Try to complete a translation when translations are missing.
     $this->drupalPost(NULL, array(), t('Save as completed'));
     $this->assertText(t('Missing translation.'));
@@ -439,6 +444,33 @@ class TMGMTLocalTestCase extends TMGMTBaseTestCase {
     $job->delete();
     $this->assertFalse(tmgmt_local_task_item_load($task->tltid));
     $this->assertFalse($task->getItems());
+
+    // Create job for the same source items and check that existing translations
+    // are loaded.
+    variable_set('tmgmt_test_load_existing_translation', TRUE);
+    $job = $this->createJob();
+    $job->translator = $translator->name;
+    $job->addItem('test_source', 'test', '1');
+    $job->addItem('test_source', 'test', '2');
+    $job->save();
+    $job->requestTranslation();
+    list($item1, $item2) = array_values($job->getItems());
+    $this->drupalGet('translate');
+    $this->clickLink(t('assign'));
+    $this->clickLink(t('view'));
+    $go_back_url = $this->getUrl();
+    // Check the first item.
+    $this->clickLink(t('translate'), 0);
+    $elements = $this->xpath('//textarea[@name=:name]', array(':name' => 'dummy|deep_nesting[translation]'));
+    $textarea_value = (string) $elements[0];
+    $this->assertEqual($textarea_value, $item1->data['dummy']['deep_nesting']['#translation']['#text']);
+    // Check the second item.
+    $this->drupalGet($go_back_url);
+    $this->clickLink(t('translate'), 1);
+    $elements = $this->xpath('//textarea[@name=:name]', array(':name' => 'dummy|deep_nesting[translation]'));
+    $textarea_value = (string) $elements[0];
+    $this->assertEqual($textarea_value, $item2->data['dummy']['deep_nesting']['#translation']['#text']);
+    variable_del('tmgmt_test_load_existing_translation');
   }
 
   /**
