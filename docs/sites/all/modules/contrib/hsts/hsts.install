@@ -19,7 +19,7 @@ function hsts_install() {
   
   // Notify the user that extra configuraiton is required.
   drupal_set_message(t('HSTS module enabled.'));
-  drupal_set_message(t('HSTS headers are not enabled by default. To do so please use the <a href="/?q=admin/settings/hsts">HSTS Configuration</a> page.'), 'info');
+  drupal_set_message(t('HSTS headers are not enabled by default. To do so please use the !link page.', array('!link' => l(t('HSTS Configuration'), 'admin/config/security/hsts'))), 'info');
 }
 
 /**
