@@ -549,6 +549,15 @@ header .search-form {
 #block-feedback-form form {
   opacity: 1;
 }
+#feedback-status-message {
+  border-radius: 5px;
+  opacity: 1;
+  background: #ddd;
+  border: 4px solid #5D7272;
+  padding: 6px;
+  width: 300px;
+  text-align: center;
+}
 
 .playlist-button:hover {
   background: #dddddd;

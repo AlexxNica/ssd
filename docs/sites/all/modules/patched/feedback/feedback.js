@@ -1,5 +1,4 @@
 (function ($) {
-
 /**
  * Attach collapse behavior to the feedback form block.
  */
@@ -26,23 +25,24 @@ Drupal.behaviors.feedbackForm = {
 /**
  * Re-collapse the feedback form after every successful form submission.
  * This behavior is super buggy...
+ */
 Drupal.behaviors.feedbackFormSubmit = {
   attach: function (context) {
-    var $context = $(context);
+    var $context = $(context[0]);
     if (!$context.is('#feedback-status-message')) {
       return;
     }
     // Collapse the form.
     $('#block-feedback-form .feedback-link').click();
     // Blend out and remove status message.
+    $("#feedback-form").slideUp();
     window.setTimeout(function () {
       $context.fadeOut('slow', function () {
-        $context.remove();
+        $context.hide();
       });
     }, 3000);
   }
 };
- */
 
 /**
  * Collapse or uncollapse the feedback form block.
