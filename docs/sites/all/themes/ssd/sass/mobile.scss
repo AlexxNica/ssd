@@ -70,6 +70,16 @@
   .region-footer {
     margin: 0;
   }
+  #views-exposed-form-search-page #edit-keys-wrapper {
+    width: 210px;
+  }
+  #views-exposed-form-search-page .form-item input {
+    border: #ddd solid 1px;
+    width: 190px;
+  }
+  #views-exposed-form-search-page .views-submit-button {
+    margin-top: 26px;
+  }
 }
 
 /* Shrink navbar search input as screen gets smaller */
@@ -78,10 +88,22 @@
   #navbar #search-form #edit-keys {
     width: 80px;
   }
+  #views-exposed-form-search-page #edit-keys-wrapper {
+    width: 160px;
+  }
+  #views-exposed-form-search-page .form-item input {
+    width: 140px;
+  }
 }
 @media (max-width: 320px) {
   #navbar #search-form--2 #edit-keys--2,
   #navbar #search-form #edit-keys {
     width: 50px;
+  }
+  #views-exposed-form-search-page #edit-keys-wrapper {
+    width: 130px;
+  }
+  #views-exposed-form-search-page .form-item input {
+    width: 110px;
   }
 }
