@@ -7013,7 +7013,7 @@ header .search-form {
   line-height: 1.1;
 }
 
-/* Feedback Controller */
+/* Feedback Controller 
 #feedback-controller {
   position: fixed;
   bottom: 15px;
@@ -7027,7 +7027,6 @@ header .search-form {
   text-align: center;
   width: 190px;
 }
-
 #feedback-controller #feedback-button {
   display: inline-block;
   width: 40px;
@@ -7049,7 +7048,7 @@ header .search-form {
   cursor: pointer;
   display: none;
 }
-
+*/
 .header-graphic {
   text-align: center;
 }
