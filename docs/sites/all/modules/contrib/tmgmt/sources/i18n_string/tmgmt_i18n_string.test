@@ -46,6 +46,9 @@ class TMGMTI18nStringSourceTestCase extends TMGMTBaseTestCase {
 
     foreach ($job->getItems() as $item) {
       /* @var $item TMGMTJobItem */
+      // Check that there is no existing translation yet.
+      $existing_translation_data = $item->getSourceExistingTranslationData();
+      $this->assertTrue(empty($existing_translation_data));
       $item->acceptTranslation();
     }
 
@@ -53,7 +56,17 @@ class TMGMTI18nStringSourceTestCase extends TMGMTBaseTestCase {
     $this->assertEqual($item1->item_id, $string_object_name, 'i18n Strings object correctly saved');
 
     // Check string translation.
-    $this->assertEqual(i18n_string_translate('taxonomy:vocabulary:' . $vocabulary->vid . ':name', $source_text, array('langcode' => $job->target_language)), $job->target_language . '_' . $source_text);
+    $translated_name = i18n_string_translate('taxonomy:vocabulary:' . $vocabulary->vid . ':name', $source_text, array('langcode' => $job->target_language));
+    $this->assertEqual($translated_name, $job->target_language . '_' . $source_text);
+
+    // Create new job/job_item for the same data, and check that existing
+    // translation is loaded and correct.
+    $job = $this->createJob();
+    $job->addItem('i18n_string', 'taxonomy_vocabulary', $string_object_name);
+    foreach ($job->getItems() as $item) {
+      $existing_translation_data = $item->getSourceExistingTranslationData();
+      $this->assertEqual($existing_translation_data['taxonomy:vocabulary:' . $vocabulary->vid . ':name']['#text'], $translated_name);
+    }
 
     // Test translation of a taxonomy term.
     /////////////////////////////////////
@@ -80,6 +93,9 @@ class TMGMTI18nStringSourceTestCase extends TMGMTBaseTestCase {
 
     /* @var $item TMGMTJobItem */
     foreach ($job->getItems() as $item) {
+      // Check that there is no existing translation yet.
+      $existing_translation_data = $item->getSourceExistingTranslationData();
+      $this->assertTrue(empty($existing_translation_data));
       // The source is available only in en.
       $this->assertJobItemLangCodes($item, 'en', array('en'));
       $item->acceptTranslation();
@@ -91,11 +107,20 @@ class TMGMTI18nStringSourceTestCase extends TMGMTBaseTestCase {
     $this->assertEqual($item1->item_id, $string_object_name);
 
     // Check string translation.
-    $this->assertEqual(i18n_string_translate('taxonomy:term:' . $term->tid . ':name', $source_text_name,
-      array('langcode' => $job->target_language)), $job->target_language . '_' . $source_text_name);
-    $this->assertEqual(i18n_string_translate('taxonomy:term:' . $term->tid . ':description', $source_text_description,
-      array('langcode' => $job->target_language)), $job->target_language . '_' . $source_text_description);
+    $translated_name = i18n_string_translate('taxonomy:term:' . $term->tid . ':name', $source_text_name, array('langcode' => $job->target_language));
+    $this->assertEqual($translated_name, $job->target_language . '_' . $source_text_name);
+    $translated_description = i18n_string_translate('taxonomy:term:' . $term->tid . ':description', $source_text_description, array('langcode' => $job->target_language));
+    $this->assertEqual($translated_description, $job->target_language . '_' . $source_text_description);
 
+    // Create new job/job_item for the same data, and check that existing
+    // translation is loaded and correct.
+    $job = $this->createJob();
+    $job->addItem('i18n_string', 'taxonomy_term', $string_object_name);
+    foreach ($job->getItems() as $item) {
+      $existing_translation_data = $item->getSourceExistingTranslationData();
+      $this->assertEqual($existing_translation_data['taxonomy:term:' . $term->tid . ':name']['#text'], $translated_name);
+      $this->assertEqual($existing_translation_data['taxonomy:term:' . $term->tid . ':description']['#text'], $translated_description);
+    }
   }
 
   function testI18nStringSourceMenu() {
@@ -129,6 +154,9 @@ class TMGMTI18nStringSourceTestCase extends TMGMTBaseTestCase {
     $job->requestTranslation();
     /* @var $item TMGMTJobItem */
     foreach ($job->getItems() as $item) {
+      // Check that there is no existing translation yet.
+      $existing_translation_data = $item->getSourceExistingTranslationData();
+      $this->assertTrue(empty($existing_translation_data));
       $this->assertJobItemLangCodes($item, 'en', array('en'));
       $item->acceptTranslation();
       $this->assertJobItemLangCodes($item, 'en', array('de', 'en'));
@@ -142,7 +170,17 @@ class TMGMTI18nStringSourceTestCase extends TMGMTBaseTestCase {
     $this->assertEqual($item1->item_id, $string_name, 'String is correctly saved');
 
     // Check string translation.
-    $this->assertEqual(i18n_string_translate($string_name . ':title', $source_text, array('langcode' => $job->target_language)), $job->target_language . '_' . $source_text);
+    $translated_title = i18n_string_translate($string_name . ':title', $source_text, array('langcode' => $job->target_language));
+    $this->assertEqual($translated_title, $job->target_language . '_' . $source_text);
+
+    // Create new job/job_item for the same data, and check that existing
+    // translation is loaded and correct.
+    $job = $this->createJob();
+    $job->addItem('i18n_string', 'menu', $string_name);
+    foreach ($job->getItems() as $item) {
+      $existing_translation_data = $item->getSourceExistingTranslationData();
+      $this->assertEqual($existing_translation_data[$string_name . ':title']['#text'], $translated_title);
+    }
 
     // Test translation of a menu item.
     /////////////////////////////////////
@@ -168,6 +206,9 @@ class TMGMTI18nStringSourceTestCase extends TMGMTBaseTestCase {
     $job->requestTranslation();
     /* @var $item TMGMTJobItem */
     foreach ($job->getItems() as $item) {
+      // Check that there is no existing translation yet.
+      $existing_translation_data = $item->getSourceExistingTranslationData();
+      $this->assertTrue(empty($existing_translation_data));
       $this->assertJobItemLangCodes($item, 'en', array('en'));
       $item->acceptTranslation();
       $this->assertJobItemLangCodes($item, 'en', array('de', 'en'));
@@ -180,8 +221,17 @@ class TMGMTI18nStringSourceTestCase extends TMGMTBaseTestCase {
     $this->assertEqual($item1->item_id, $string_name);
 
     // Check string translation.
-    $this->assertEqual(i18n_string_translate($string_name . ':title', $source_text, array('langcode' => $job->target_language)), $job->target_language . '_' . $source_text);
+    $translated_title = i18n_string_translate($string_name . ':title', $source_text, array('langcode' => $job->target_language));
+    $this->assertEqual($translated_title, $job->target_language . '_' . $source_text);
 
+    // Create new job/job_item for the same data, and check that existing
+    // translation is loaded and correct.
+    $job = $this->createJob();
+    $job->addItem('i18n_string', 'menu_link', $string_name);
+    foreach ($job->getItems() as $item) {
+      $existing_translation_data = $item->getSourceExistingTranslationData();
+      $this->assertEqual($existing_translation_data[$string_name . ':title']['#text'], $translated_title);
+    }
   }
 
   function testI18nStringSourceLangCodes() {

@@ -122,6 +122,21 @@ class TMGMTLocaleSourcePluginController extends TMGMTDefaultSourcePluginControll
       $locale_object->origin = 'target';
     }
 
+    // This is necessary as the method is also used in the getLabel() callback
+    // and for that case the job is not available in the cart.
+    if (!empty($job_item->tjid)) {
+      // Load translated string.
+      if ($target_language = $job_item->getJob()->target_language) {
+        $query = db_select('locales_target', 'lt');
+        $query->join('locales_source', 'ls', 'ls.lid = lt.lid');
+        $query
+          ->fields('lt', array('translation'))
+          ->condition('lt.lid', $locale_lid)
+          ->condition('lt.language', $target_language);
+        $locale_object->existing_translation = $query->execute()->fetchField();
+      }
+    }
+
     return $locale_object;
   }
 
@@ -176,6 +191,9 @@ class TMGMTLocaleSourcePluginController extends TMGMTDefaultSourcePluginControll
         '#translate' => TRUE,
         '#escape' => $escape,
       );
+      if (isset($locale_object->existing_translation) && $locale_object->existing_translation !== FALSE) {
+        $structure['singular']['#translation']['#text'] = $locale_object->existing_translation;
+      }
       return $structure;
     }
   }

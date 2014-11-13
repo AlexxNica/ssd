@@ -51,6 +51,9 @@ class TMGMTLocaleSourceTestCase extends TMGMTBaseTestCase {
 
     foreach ($job->getItems() as $item) {
       /* @var $item TMGMTJobItem */
+      // Check that existing translation is loaded and correct.
+      $existing_translation_data = $item->getSourceExistingTranslationData();
+      $this->assertEqual($existing_translation_data['singular']['#text'], 'Hallo Welt');
       $item->acceptTranslation();
       $this->assertTrue($item->isAccepted());
       // The source is now available in en and de.
@@ -75,6 +78,10 @@ class TMGMTLocaleSourceTestCase extends TMGMTBaseTestCase {
 
     foreach ($job->getItems() as $item) {
       /* @var $item TMGMTJobItem */
+      // Check that there is no existing translation data for the Spanish
+      // direction.
+      $existing_translation_data = $item->getSourceExistingTranslationData();
+      $this->assertTrue(empty($existing_translation_data));
       $item->acceptTranslation();
       $this->assertTrue($item->isAccepted());
 
