@@ -54,3 +54,14 @@ function ssd_library_feedback_presave($entry) {
     $entry->status = FEEDBACK_PROCESSED;
   }
 }
+
+/**
+ * Implements hook_help().
+ */
+function ssd_library_help($path, $arg) {
+  switch ($path) {
+    case 'admin/help#ssd_library':
+      // This is here so the site name becomes translatable.
+      return t('Surveillance Self-Defense');
+  }
+}
