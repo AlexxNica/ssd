@@ -65,3 +65,24 @@ function ssd_library_help($path, $arg) {
       return t('Surveillance Self-Defense');
   }
 }
+
+/**
+ * Implements hook_entity_presave().
+ */
+function ssd_library_entity_presave($entity, $type) {
+  // Remove all carriage return (CR) characters.
+  foreach (field_info_fields() as $field) {
+    if ($field['type'] == 'text_long' || $field['type'] == 'text_with_summary') {
+      if (isset($entity->{$field['field_name']})) {
+        foreach ($entity->{$field['field_name']} as $langcode => $items) {
+          foreach ($items as $delta => $item) {
+            $entity->{$field['field_name']}[$langcode][$delta]['value'] = str_replace("\r", '', $entity->{$field['field_name']}[$langcode][$delta]['value']); 
+            if ($field['type'] == 'text_with_summary') {
+              $entity->{$field['field_name']}[$langcode][$delta]['summary'] = str_replace("\r", '', $entity->{$field['field_name']}[$langcode][$delta]['summary']); 
+            }
+          }
+        }
+      }
+    }
+  }
+}
