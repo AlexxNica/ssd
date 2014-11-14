@@ -6456,7 +6456,7 @@ ul.secondary li.last {
   margin: 0;
 }
 
-#navbar #search-form--2 #edit-keys--2,
+#navbar #search-form #edit-keys--2,
 #navbar #search-form #edit-keys {
   width: 136px;
   border: none;
