@@ -86,3 +86,13 @@ function ssd_library_entity_presave($entity, $type) {
     }
   }
 }
+
+/**
+ * Implements hook_custom_theme().
+ */
+function ssd_library_custom_theme() {
+  // Use admin theme for translate job pages.
+  if (arg(0) == 'translate') {
+    return variable_get('admin_theme', 'seven');
+  }
+}
