@@ -852,7 +852,7 @@ div.messages a {
 }
 #views-exposed-form-search-page .form-item input {
   border: #ddd solid 1px;
-  width: 580px;
+  width: 100%;
 }
 #views-exposed-form-search-page .views-submit-button {
   padding-top: 11px;
@@ -860,7 +860,20 @@ div.messages a {
 }
 #views-exposed-form-search-page .views-submit-button input {
   color: #fff;
-  border: 1px solid #000;
+  border: 1px solid #788A8D;
+  background-color: #788A8D;
+  padding: 1px 4px 0px 4px;
+}
+#contact-site-form {
+  background: #D7DFE0;
+  padding: 10px 30px 10px 30px;
+}
+#contact-site-form .form-type-textfield input {
+  width: 100%;
+}
+#contact-site-form #edit-submit {
+  color: #fff;
+  border: 1px solid #788A8D;
   background-color: #788A8D;
   padding: 1px 4px 0px 4px;
 }
