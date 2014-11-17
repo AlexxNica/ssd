@@ -1,7 +1,7 @@
 <?php
 
-//system_rebuild_theme_data();
-//drupal_theme_rebuild();
+system_rebuild_theme_data();
+drupal_theme_rebuild();
 
 /**
  * Implements hook_preprocess_html().
@@ -28,7 +28,7 @@ function ssd_preprocess_node(&$variables) {
   
   if ($node->type == 'article') {
     $variables['summary'] = field_view_field('node', $node, 'body', 'teaser');
-    $variables['metadata'] = field_view_field('node', $node, 'field_metadata', 'default');    
+    $variables['metadata'] = field_view_field('node', $node, 'field_metadata', 'default');
   }
 }
 
@@ -226,6 +226,17 @@ function ssd_menu_link(array $variables) {
   }
   $output = l($element['#title'], $element['#href'], $element['#localized_options']);
   return '<li' . drupal_attributes($element['#attributes']) . '>' . $output . $sub_menu . "</li>\n";
+}
+
+/**
+ * Implements hook_preprocess_field()
+ */
+ 
+function ssd_preprocess_field(&$variables) {
+  $element = $variables['element'];
+  if ($element['#field_name'] == 'field_updated') {
+    $variables['classes_array'][] = 'container';
+  }
 }
 
 /**
