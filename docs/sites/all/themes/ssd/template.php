@@ -1,7 +1,7 @@
 <?php
 
-system_rebuild_theme_data();
-drupal_theme_rebuild();
+//system_rebuild_theme_data();
+//drupal_theme_rebuild();
 
 /**
  * Implements hook_preprocess_html().
