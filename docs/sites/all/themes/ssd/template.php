@@ -146,6 +146,7 @@ function ssd_preprocess_page(&$variables) {
       $variables['module_header_graphic'] = $module_graphic;
     }
   }
+  $variables['feedback'] = t('Feedback');
 }
 
 /**
