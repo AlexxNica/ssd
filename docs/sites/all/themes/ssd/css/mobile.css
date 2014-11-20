@@ -52,7 +52,7 @@
   }
 
   .front .flexslider {
-    min-height: 0;
+    min-height: 0px;
   }
 
   .front .flexslider h1 {
@@ -73,6 +73,7 @@
 
   .front .flexslider .slides > li {
     margin: 0;
+    min-height: 270px;
   }
 
   #playlist-controller.expanded {
@@ -99,6 +100,21 @@
   #views-exposed-form-search-page .views-submit-button {
     margin-top: 26px;
   }
+
+  .view-front-index-block .views-row .views-row-inner {
+    min-height: 0px;
+    padding: 8px;
+  }
+
+  .view-front-index-block .views-row {
+    padding: 0px;
+    margin: 0px;
+  }
+
+  .view-front-index-block .views-row .views-field-name .field-content,
+  .view-front-index-block .views-row .views-field-description-field .field-content {
+    display: none;
+  }
 }
 /* Shrink navbar search input as screen gets smaller */
 @media (max-width: 380px) {
@@ -114,6 +130,10 @@
   #views-exposed-form-search-page .form-item input {
     width: 140px;
   }
+
+  .front .flexslider .slides > li {
+    min-height: 370px;
+  }
 }
 @media (max-width: 320px) {
   #navbar #search-form--2 #edit-keys--2,
@@ -127,5 +147,9 @@
 
   #views-exposed-form-search-page .form-item input {
     width: 110px;
+  }
+
+  .front .flexslider .slides > li {
+    min-height: 400px;
   }
 }

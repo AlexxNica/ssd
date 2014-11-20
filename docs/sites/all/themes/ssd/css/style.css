@@ -6694,6 +6694,7 @@ header .search-form {
 
 .front .container-full-width .flexslider {
   margin-top: -130px;
+  margin-bottom: 20px;
 }
 
 .slogan {
@@ -7283,4 +7284,96 @@ div.messages a {
   border: 1px solid #788A8D;
   background-color: #788A8D;
   padding: 1px 4px 0px 4px;
+}
+
+/* Frontpage Index Block */
+.view-front-index-block .views-row .views-row-inner {
+  text-align: center;
+  background: #789090;
+  width: 100%;
+  padding: 15px 15px 0px 15px;
+  min-height: 270px;
+}
+
+.view-front-index-block .views-row .views-field-field-module-graphic img {
+  height: 80px;
+  width: 80px;
+  border-radius: 100px;
+  opacity: .5;
+}
+
+.view-front-index-block .views-row .views-field-name .field-content {
+  color: #fff;
+  font-size: 26px;
+  text-transform: uppercase;
+  font-weight: bold;
+  opacity: .5;
+}
+
+.view-front-index-block .views-row .views-field-description-field .field-content {
+  font-size: 16px;
+  text-align: center;
+  opacity: .5;
+}
+
+.view-front-index-block .views-row {
+  padding-left: 7px;
+  padding-right: 7px;
+}
+
+.view-front-index-block .views-row-first {
+  padding-left: 0px;
+  padding-right: 15px;
+}
+
+.view-front-index-block .views-row-last {
+  padding-left: 15px;
+  padding-right: 0px;
+}
+
+.connect-bar {
+  position: relative;
+  left: 42%;
+  background: #ddd;
+  width: 20px;
+}
+
+/* Frontpage Module List */
+.view-front-index-modules-block .view-content {
+  font-size: 16px;
+  color: #fff;
+  background: #789090;
+  padding: 15px 15px 5px 15px;
+}
+
+.view-front-index-modules-block .view-content .view-grouping-header {
+  font-size: 24px;
+}
+
+.view-front-index-modules-block .view-content .view-grouping {
+  padding-bottom: 10px;
+}
+
+.view-front-index-modules-block .view-content a {
+  color: #fff;
+  /* @todo This doesn't push down other links - why? */
+  padding-bottom: 5px;
+}
+
+/* Frontpage UX */
+.view-front-index-block .views-row .views-row-inner:hover .views-field-field-module-graphic img,
+.view-front-index-block .views-row .views-row-inner:active .views-field-field-module-graphic img {
+  background: #fff;
+  opacity: 1;
+}
+
+.view-front-index-block .views-row .views-row-inner:hover .views-field-description-field .field-content,
+.view-front-index-block .views-row .views-row-inner:active .views-field-description-field .field-content {
+  color: #fff;
+  opacity: 1;
+}
+
+.view-front-index-block .views-row .views-row-inner:hover .views-field-name .field-content,
+.view-front-index-block .views-row .views-row-inner:active .views-field-name .field-content {
+  opacity: 1;
 }
