@@ -7034,6 +7034,11 @@ footer .container {
   text-align: center;
 }
 
+.header-graphic img {
+  background: #fff;
+  border-radius: 100px;
+}
+
 ul.slides {
   padding-left: 0;
   padding-right: 0;
