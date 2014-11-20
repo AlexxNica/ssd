@@ -263,6 +263,7 @@ function ssd_library_views_default_views() {
   $handler->display->display_options['sorts']['created']['table'] = 'node';
   $handler->display->display_options['sorts']['created']['field'] = 'created';
   $handler->display->display_options['sorts']['created']['order'] = 'DESC';
+  $handler->display->display_options['block_caching'] = '4';
 
   /* Display: Playlist page */
   $handler = $view->new_display('page', 'Playlist page', 'page_1');

@@ -134,6 +134,24 @@ function playlist_views_default_views() {
   $handler->display->display_options['defaults']['row_plugin'] = FALSE;
   $handler->display->display_options['row_plugin'] = 'fields';
   $handler->display->display_options['defaults']['row_options'] = FALSE;
+  $handler->display->display_options['block_caching'] = '4';
+
+  /* Display: Feed */
+  $handler = $view->new_display('feed', 'Feed', 'feed_1');
+  $handler->display->display_options['pager']['type'] = 'some';
+  $handler->display->display_options['pager']['options']['items_per_page'] = '0';
+  $handler->display->display_options['pager']['options']['offset'] = '0';
+  $handler->display->display_options['style_plugin'] = 'rss';
+  $handler->display->display_options['style_options']['description'] = 'Tips, Tools and How-tos for Safer Online Communications';
+  $handler->display->display_options['row_plugin'] = 'node_rss';
+  $handler->display->display_options['row_options']['item_length'] = 'rss';
+  $handler->display->display_options['path'] = 'playlist.xml';
+  $handler->display->display_options['displays'] = array(
+    'page' => 'page',
+    'block' => 'block',
+    'default' => 0,
+  );
+  $handler->display->display_options['sitename_title'] = 1;
   $translatables['front_page_playlists'] = array(
     t('Master'),
     t('more'),
@@ -144,6 +162,7 @@ function playlist_views_default_views() {
     t('Desc'),
     t('Page'),
     t('Block'),
+    t('Feed'),
   );
   $export['front_page_playlists'] = $view;
 
