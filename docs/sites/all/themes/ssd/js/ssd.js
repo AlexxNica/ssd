@@ -73,7 +73,7 @@ Drupal.behaviors.ssd_modules = {
         $("#category-parent-" + index + " .views-field-field-module-graphic img").css("background", "#fff");
         $("#category-parent-" + index + " .views-field-description-field .field-content").css("color", "#fff");
         $("#category-parent-" + index + " .connect-bar").css("background", "#789090");
-        $("#category-parent-" + index + " views-field-field-module-graphic img").css("opacity", "1");
+        $("#category-parent-" + index + " .views-field-field-module-graphic img").css("opacity", "1");
         $("#category-parent-" + index + " .views-field-description-field .field-content").css("opacity", "1");
         $("#category-parent-" + index + " .views-field-name .field-content").css("opacity", "1");
         $(".view-front-index-modules-block").show();
@@ -102,14 +102,7 @@ Drupal.behaviors.ssd_modules = {
       if (mql.matches) {
         // @bug Doesn't run in Android/Firefox mobile - why?
         // On mobile front page, pre-select first icon.
-        $("#category-parent-0 .views-field-field-module-graphic img").css("background", "#fff");
-        $("#category-parent-0 .views-field-description-field .field-content").css("color", "#fff");
-        $("#category-parent-0 .connect-bar").css("background", "#789090");
-        $("#category-parent-0 views-field-field-module-graphic img").css("opacity", "1");
-        $("#category-parent-0 .views-field-description-field .field-content").css("opacity", "1");
-        $("#category-parent-0 .views-field-name .field-content").css("opacity", "1");
-        $(".view-front-index-modules-block").show();
-        $("#category-child-0").show();
+        showCategoryChild("0");
       }
       // Runs constantly.
       mql.addListener(mediaqueryresponse);
