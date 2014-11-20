@@ -122,8 +122,3 @@
     </div>
   </div>
 </div> <!-- /.node -->
-<?php if ($view_mode != 'playlist'): ?>
-<div id="playlist-controller" class="module-playlist-controller">
-  <span id="playlist-feedback" class="playlist-button feedback-link">Feedback</span>
-</div>
-<?php endif; ?>
