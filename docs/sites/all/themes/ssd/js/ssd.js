@@ -62,6 +62,12 @@ Drupal.behaviors.ssd_modules = {
         $("#category-child-1").hide();
         $("#category-child-2").hide();
         $(".view-front-index-block .views-row .views-field-field-module-graphic img").css("background", "#789090");
+        
+        $(".view-front-index-block .views-row .views-field-field-module-graphic img").css("height", "48px");
+        $(".view-front-index-block .views-row .views-field-field-module-graphic img").css("width", "48px");
+        $(".view-front-index-block .views-row .views-field-field-module-graphic").css("padding-top", "20px");
+        $(".view-front-index-block .views-row .views-field-field-module-graphic").css("padding-bottom", "20px");
+        
         $(".view-front-index-block .views-row .views-field-description-field .field-content").css("color", "#000");
         $(".view-front-index-block .views-row .views-field-field-module-graphic img").css("opacity", ".5");
         $(".view-front-index-block .views-row .views-field-description-field .field-content").css("opacity", ".5");
@@ -71,6 +77,12 @@ Drupal.behaviors.ssd_modules = {
       function showCategoryChild(index) {
         hideAllCategoryChildren();
         $("#category-parent-" + index + " .views-field-field-module-graphic img").css("background", "#fff");
+        
+        $("#category-parent-" + index + " .views-field-field-module-graphic img").css("height", "80px");
+        $("#category-parent-" + index + " .views-field-field-module-graphic img").css("width", "80px");
+        $("#category-parent-" + index + " .views-field-field-module-graphic").css("padding-top", "0px");
+        $("#category-parent-" + index + " .views-field-field-module-graphic").css("padding-bottom", "8px");
+        
         $("#category-parent-" + index + " .views-field-description-field .field-content").css("color", "#fff");
         $("#category-parent-" + index + " .connect-bar").css("background", "#789090");
         $("#category-parent-" + index + " .views-field-field-module-graphic img").css("opacity", "1");
