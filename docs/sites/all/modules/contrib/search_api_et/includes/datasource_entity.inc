@@ -302,6 +302,14 @@ class SearchApiEtDatasourceController extends SearchApiEntityDataSourceControlle
    * {@inheritdoc}
    */
   public function trackItemChange($item_ids, array $indexes, $dequeue = FALSE) {
+    // If this method was called from _search_api_index_reindex(), $item_ids
+    // will be set to FALSE, which means we need to reindex all items, so no
+    // need for any other processing below.
+    if ($item_ids === FALSE) {
+      parent::trackItemChange($item_ids, $indexes, $dequeue);
+      return;
+    }
+
     // We assume here that we got entity ids in $item_ids, not proper item ids,
     // so first let's try to convert them to real multilingual item ids.
     $multilingual_item_ids = array();
@@ -316,8 +324,8 @@ class SearchApiEtDatasourceController extends SearchApiEntityDataSourceControlle
     // But then again, if they already exist in the database, we must delete
     // them first before being able to re-insert them, otherwise we'll end up
     // with Integrity constraint violation  PDOException.
-    parent::trackItemDelete($item_ids, $indexes);
-    parent::trackItemInsert($item_ids, $indexes);
+    parent::trackItemDelete($multilingual_item_ids, $indexes);
+    parent::trackItemInsert($multilingual_item_ids, $indexes);
 
     // Finally, we can mark those items for an update.
     parent::trackItemChange($multilingual_item_ids, $indexes, $dequeue);
