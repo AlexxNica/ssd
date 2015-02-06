@@ -102,13 +102,8 @@
   }
 
   .view-front-index-block .views-row .views-row-inner {
-    min-height: 100px;
+    min-height: 0px;
     padding: 8px;
-  }
-
-  .view-front-index-block .views-row .views-field-field-module-graphic {
-    padding-top: 20px;
-    padding-bottom: 0px;
   }
 
   .view-front-index-block .views-row {
