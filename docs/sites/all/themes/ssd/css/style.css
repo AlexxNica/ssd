@@ -7297,14 +7297,19 @@ div.messages a {
   background: #789090;
   width: 100%;
   padding: 15px 15px 0px 15px;
-  min-height: 270px;
+  min-height: 240px;
 }
 
 .view-front-index-block .views-row .views-field-field-module-graphic img {
-  height: 80px;
-  width: 80px;
+  height: 48px;
+  width: 48px;
   border-radius: 100px;
   opacity: .5;
+}
+
+.view-front-index-block .views-row .views-field-field-module-graphic {
+  padding-top: 20px;
+  padding-bottom: 20px;
 }
 
 .view-front-index-block .views-row .views-field-name .field-content {
@@ -7368,8 +7373,16 @@ div.messages a {
 /* Frontpage UX */
 .view-front-index-block .views-row .views-row-inner:hover .views-field-field-module-graphic img,
 .view-front-index-block .views-row .views-row-inner:active .views-field-field-module-graphic img {
+  height: 80px;
+  width: 80px;
   background: #fff;
   opacity: 1;
+}
+
+.view-front-index-block .views-row .views-row-inner:hover .views-field-field-module-graphic,
+.view-front-index-block .views-row .views-row-inner:active .views-field-field-module-graphic {
+  padding-top: 0px;
+  padding-bottom: 8px;
 }
 
 .view-front-index-block .views-row .views-row-inner:hover .views-field-description-field .field-content,
