@@ -891,7 +891,7 @@ div.messages a {
   background: #789090;
   width: 100%;
   padding: 15px 15px 0px 15px;
-  min-height: 270px;
+  height: 270px;
 }
 .view-front-index-block .views-row .views-field-field-module-graphic img {
   height: 80px;
@@ -928,6 +928,7 @@ div.messages a {
   left: 42%;
   background: #ddd;
   width: 20px;
+  top: 0px;
 }
 /* Frontpage Module List */
 .view-front-index-modules-block {
