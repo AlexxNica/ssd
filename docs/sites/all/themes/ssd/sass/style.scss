@@ -900,7 +900,7 @@ div.messages a {
   opacity: .5;
 }
 .view-front-index-block .views-row .views-field-name .field-content {
-  color: #fff;
+  color: #000;
   font-size: 26px;
   text-transform: uppercase;
   font-weight: bold;
@@ -962,8 +962,10 @@ div.messages a {
   color: #fff;
   opacity: 1;
 }
-
 .view-front-index-block .views-row .views-row-inner:hover .views-field-name .field-content,
 .view-front-index-block .views-row .views-row-inner:active .views-field-name .field-content {
   opacity: 1;
+  color: #fff;
 }
+
+
