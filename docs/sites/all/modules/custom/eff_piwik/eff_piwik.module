@@ -19,6 +19,8 @@ function eff_piwik_page_alter(&$page) {
     }
     $variables['head_title'] = implode(' | ', $head_title);
     $variables['piwik_site_id'] = variable_get('piwik_site_id', 0);
+    // Pass along the URL in case we have enabled a no-referrer policy.
+    $variables['url'] = url(drupal_is_front_page() ? '' : $_GET['q'], array('absolute' => TRUE, 'external' => FALSE, 'query' => drupal_get_query_parameters()));
     $page['page_bottom']['eff_piwik'] = array(
       '#type' => 'markup',
       '#markup' => theme('eff_piwik_footer', $variables),
@@ -36,6 +38,7 @@ function eff_piwik_theme($existing, $type, $theme, $path) {
       'variables' => array(
         'head_title' => NULL,
         'piwik_site_id' => NULL,
+        'url' => NULL,
       ),
     ), 
   );
