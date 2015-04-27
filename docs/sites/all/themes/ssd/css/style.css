@@ -6701,7 +6701,7 @@ header .search-form {
   width: 100%;
   margin: auto;
   text-align: center;
-  font-family: montserratregular;
+  font-family: "montserratregular", "Helvetica Neue", Helvetica, Arial, sans-serif;
   margin-bottom: 15px;
   font-size: 18px;
   color: #627a7b;
@@ -6808,7 +6808,7 @@ header .search-form {
 
 .front .flexslider h2 {
   font-size: 22px;
-  font-family: montserratregular;
+  font-family: "montserratregular", "Helvetica Neue", Helvetica, Arial, sans-serif;
   font-weight: normal;
   margin-top: 0;
 }
