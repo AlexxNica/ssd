@@ -6343,7 +6343,7 @@ section {
 h1,
 h2,
 h3 {
-  font-family: 'montserratbold';
+  font-family: 'montserratbold', "Helvetica Neue", Helvetica, Arial, sans-serif;
   color: #A71010;
   font-weight: normal;
 }
