@@ -904,7 +904,7 @@ div.messages a {
   border-radius: 100px;
   opacity: .5;
 }
-.view-front-index-block .views-row .views-field-name .field-content {
+.view-front-index-block .views-row .views-field-name-field-et .field-content {
   color: #000;
   font-size: 26px;
   text-transform: uppercase;
@@ -967,10 +967,8 @@ div.messages a {
   color: #fff;
   opacity: 1;
 }
-.view-front-index-block .views-row .views-row-inner:hover .views-field-name .field-content,
-.view-front-index-block .views-row .views-row-inner:active .views-field-name .field-content {
+.view-front-index-block .views-row .views-row-inner:hover .views-field-name-field-et .field-content,
+.view-front-index-block .views-row .views-row-inner:active .views-field-name-field-et .field-content {
   opacity: 1;
   color: #fff;
 }
-
-
