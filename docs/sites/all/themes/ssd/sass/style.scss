@@ -49,6 +49,9 @@ body {
   min-height: 100%;
   background-color: #fff;
 }
+body.i18n-vi {
+  font-family: "Helvetica Neue", Helvetica, Arial, sans-serif;
+}
 
 a {
   color: #a10000;
@@ -79,6 +82,12 @@ h3 {
   font-family: 'montserratbold', "Helvetica Neue", Helvetica, Arial, sans-serif;
   color: #A71010;
   font-weight: normal;
+}
+body.i18n-vi h1,
+body.i18n-vi h2,
+body.i18n-vi h3 {
+  font-family: "Helvetica Neue", Helvetica, Arial, sans-serif;
+  font-weight: bold;
 }
 h1,
 h2 {
@@ -389,6 +398,9 @@ header .search-form {
   font-size: 18px;
   color: #627a7b;
 }
+body.i18n-vi .slogan {
+  font-family: "Helvetica Neue", Helvetica, Arial, sans-serif;
+}
 .page-index h1.page-header {
   color: #ADBBBC;
   text-transform: uppercase;
@@ -477,6 +489,9 @@ header .search-form {
   font-family: "montserratregular", "Helvetica Neue", Helvetica, Arial, sans-serif;
   font-weight: normal;
   margin-top: 0;
+}
+body.i18n-vi .front .flexslider h2 {
+  font-family: "Helvetica Neue", Helvetica, Arial, sans-serif;
 }
 .front .flexslider .views-field-field-playlist-banner-bg {
   height: 100%;
