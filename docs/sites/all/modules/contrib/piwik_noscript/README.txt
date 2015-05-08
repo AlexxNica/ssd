@@ -15,3 +15,10 @@ every page.
 
 In addition, if Piwik module is not enabled, this module also adds an image tag
 with some JavaScript to track the referrer URL.
+
+To use this module you'll need to configure your Piwik settings by either
+installing and configuring the Drupal Piwik module, or by adding these lines to
+your settings.php file:
+
+$conf['piwik_site_id'] = 1;
+$conf['piwik_url_https'] = 'https://piwik.example.org/';
