@@ -6317,6 +6317,7 @@ body {
 
 body.i18n-vi {
   font-family: "Helvetica Neue", Helvetica, Arial, sans-serif;
+  letter-spacing: 0.2px;
 }
 
 a {
@@ -6357,6 +6358,7 @@ body.i18n-vi h2,
 body.i18n-vi h3 {
   font-family: "Helvetica Neue", Helvetica, Arial, sans-serif;
   font-weight: bold;
+  letter-spacing: 0.2px;
 }
 
 h1,
@@ -6720,6 +6722,7 @@ header .search-form {
 
 body.i18n-vi .slogan {
   font-family: "Helvetica Neue", Helvetica, Arial, sans-serif;
+  letter-spacing: 0.2px;
 }
 
 .page-index h1.page-header {
@@ -6829,6 +6832,7 @@ body.i18n-vi .slogan {
 }
 
 body.i18n-vi .front .flexslider h2 {
+  letter-spacing: 0.2px;
   font-family: "Helvetica Neue", Helvetica, Arial, sans-serif;
 }
 
