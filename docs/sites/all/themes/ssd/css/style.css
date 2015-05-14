@@ -6315,9 +6315,8 @@ body {
   background-color: #fff;
 }
 
-body.i18n-vi {
+body.i18n-vi, body.i18n-ru {
   font-family: "Helvetica Neue", Helvetica, Arial, sans-serif;
-  letter-spacing: 0.2px;
 }
 
 a {
@@ -6353,12 +6352,11 @@ h3 {
   font-weight: normal;
 }
 
-body.i18n-vi h1,
-body.i18n-vi h2,
-body.i18n-vi h3 {
+body.i18n-vi h1, body.i18n-ru h1,
+body.i18n-vi h2, body.i18n-ru h2,
+body.i18n-vi h3, body.i18n-ru h3 {
   font-family: "Helvetica Neue", Helvetica, Arial, sans-serif;
   font-weight: bold;
-  letter-spacing: 0.2px;
 }
 
 h1,
@@ -6720,9 +6718,8 @@ header .search-form {
   color: #627a7b;
 }
 
-body.i18n-vi .slogan {
+body.i18n-vi .slogan, body.i18n-ru .slogan {
   font-family: "Helvetica Neue", Helvetica, Arial, sans-serif;
-  letter-spacing: 0.2px;
 }
 
 .page-index h1.page-header {
@@ -6831,8 +6828,7 @@ body.i18n-vi .slogan {
   margin-top: 0;
 }
 
-body.i18n-vi .front .flexslider h2 {
-  letter-spacing: 0.2px;
+body.i18n-vi .front .flexslider h2, body.i18n-ru .front .flexslider h2 {
   font-family: "Helvetica Neue", Helvetica, Arial, sans-serif;
 }
 
