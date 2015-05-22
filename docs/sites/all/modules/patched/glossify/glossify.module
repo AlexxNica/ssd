@@ -322,13 +322,13 @@ function _glossify_to_links($text, $terms, $type, $case_sensitivity, $first_only
 
         // insert the actual term instance as a link
         $link = $html_dom->createDocumentFragment();
-        if ($first_only && in_array($case_sensitivity ? $match[0] : strtolower($match[0]), $matched)) {
+        if ($first_only && in_array($case_sensitivity ? $match[0] : drupal_strtolower($match[0]), $matched)) {
           $link->appendXML($term_txt);
         }
         else {
-          $tip = $tooltips ? check_markup($terms[strtolower($term_norm)]->tip, $terms[strtolower($term_norm)]->format) : '';
-          $link->appendXML(theme('glossify_links', array('type' => $type, 'id' => $terms[strtolower($term_norm)]->id, 'text' => $term_txt, 'tip' => $tip, 'language' => $language)));
-          $matched[] = ($case_sensitivity ? $match[0] : strtolower($match[0]));
+          $tip = $tooltips ? check_markup($terms[drupal_strtolower($term_norm)]->tip, $terms[drupal_strtolower($term_norm)]->format) : '';
+          $link->appendXML(theme('glossify_links', array('type' => $type, 'id' => $terms[drupal_strtolower($term_norm)]->id, 'text' => $term_txt, 'tip' => $tip, 'language' => $language)));
+          $matched[] = ($case_sensitivity ? $match[0] : drupal_strtolower($match[0]));
         }
         $parent->insertBefore($link, $refnode);
 
