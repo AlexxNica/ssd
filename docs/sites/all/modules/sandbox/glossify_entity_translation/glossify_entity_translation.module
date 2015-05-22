@@ -17,7 +17,7 @@ function glossify_entity_translation_glossify_terms_alter(&$terms, $context) {
     foreach($name_rs as $row) {
       // Get the translations.
       $name = trim($row->name);
-      $name_norm = strtolower($name);
+      $name_norm = drupal_strtolower($name);
       $tip = $row->tip;
       
       // Add another term to the array w/ the translation info.

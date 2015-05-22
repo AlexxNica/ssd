@@ -13,7 +13,7 @@ function glossify_synonyms_glossify_terms_alter(&$terms, $context) {
     foreach($synonym_rs as $row) {
       // Get the translations.
       $name = $row->synonym;
-      $name_norm = strtolower($name);
+      $name_norm = drupal_strtolower($name);
       
       // Add another term to the array w/ the translation info.
       $terms[$name_norm] = new stdClass();
