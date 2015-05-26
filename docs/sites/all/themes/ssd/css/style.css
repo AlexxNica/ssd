@@ -6355,7 +6355,8 @@ h3 {
 body.i18n-vi h1, body.i18n-ru h1,
 body.i18n-vi h2, body.i18n-ru h2,
 body.i18n-vi h3, body.i18n-ru h3,
-body.i18n-tr h3, body.i18n-tr h3 {
+body.i18n-tr h1, body.i18n-tr h2,
+body.i18n-tr h3 {
   font-family: "Helvetica Neue", Helvetica, Arial, sans-serif;
   font-weight: bold;
 }
