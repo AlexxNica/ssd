@@ -967,7 +967,7 @@ div.messages a {
 }
 .view-front-index-modules-block .view-content a {
   color: #fff;
-  /* @todo This doesn't push down other links - why? */
+  display: block;
   padding-bottom: 5px;
 }
 
