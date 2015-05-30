@@ -49,7 +49,7 @@ body {
   min-height: 100%;
   background-color: #fff;
 }
-body.i18n-vi, body.i18n-ru {
+body.i18n-vi, body.i18n-ru, body.i18n-tr {
   font-family: "Helvetica Neue", Helvetica, Arial, sans-serif;
 }
 
@@ -83,9 +83,9 @@ h3 {
   color: #A71010;
   font-weight: normal;
 }
-body.i18n-vi h1, body.i18n-ru h1,
-body.i18n-vi h2, body.i18n-ru h2,
-body.i18n-vi h3, body.i18n-ru h3 {
+body.i18n-vi h1, body.i18n-ru h1, body.i18n-tr h1,
+body.i18n-vi h2, body.i18n-ru h2, body.i18n-tr h2,
+body.i18n-vi h3, body.i18n-ru h3, body.i18n-tr h3 {
   font-family: "Helvetica Neue", Helvetica, Arial, sans-serif;
   font-weight: bold;
 }
@@ -398,7 +398,7 @@ header .search-form {
   font-size: 18px;
   color: #627a7b;
 }
-body.i18n-vi .slogan, body.i18n-ru .slogan {
+body.i18n-vi .slogan, body.i18n-ru .slogan, body.i18n-tr .slogan {
   font-family: "Helvetica Neue", Helvetica, Arial, sans-serif;
 }
 .page-index h1.page-header {
@@ -490,7 +490,7 @@ body.i18n-vi .slogan, body.i18n-ru .slogan {
   font-weight: normal;
   margin-top: 0;
 }
-body.i18n-vi .front .flexslider h2, body.i18n-ru .front .flexslider h2 {
+body.i18n-vi .front .flexslider h2, body.i18n-ru .front .flexslider h2, body.i18n-tr .front .flexslider h2 {
   font-family: "Helvetica Neue", Helvetica, Arial, sans-serif;
 }
 .front .flexslider .views-field-field-playlist-banner-bg {
