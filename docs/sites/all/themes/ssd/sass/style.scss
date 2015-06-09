@@ -987,3 +987,11 @@ div.messages a {
   opacity: 1;
   color: #fff;
 }
+
+/* Module Striping */
+.node-article .even {
+  background-color: #d5e0e0;
+}
+.node-article .odd {
+  background-color: #ffffff;
+}
