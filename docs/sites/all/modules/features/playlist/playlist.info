@@ -40,5 +40,4 @@ features[variable][] = node_preview_playlist
 features[variable][] = node_submitted_playlist
 features[views_view][] = front_page_playlists
 features_exclude[dependencies][ctools] = ctools
-mtime = 1415923722
 project path = sites/all/modules/features
