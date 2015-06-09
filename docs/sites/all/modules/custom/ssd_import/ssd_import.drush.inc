@@ -28,6 +28,10 @@ function ssd_import_drush_command() {
     ),
     'aliases' => array('ssdch'),
   );
+  $items['ssd_migrate_bodies'] = array(
+    'callback' => '_ssd_migrate_bodies',
+    'description' => 'Migrate bodies to new, multi-body paradigm.',
+  );
   return $items;
 }
 
@@ -204,5 +208,44 @@ function _resolve_path($path) {
   }
   else {
     return NULL;
+  }
+}
+
+function _ssd_migrate_bodies() {
+  $rs = db_query("SELECT nid, vid FROM node WHERE type = 'article'");
+  foreach ($rs as $row) {
+	$node = node_load($row->nid, $row->vid);
+	foreach ($node->body as $language=>$item) {
+	  $bodies = array();
+	  $legacy_body = $item[0]['value'];
+	  $legacy_summary = $item[0]['summary'];
+	  $last_pos = 0;
+	  $h2_pos = strpos($legacy_body, '<h2>', $last_pos);
+	  // Check if body starts with h2. If it move $h2_pos up so the
+	  // first tag is skipped.
+	  if ($last_pos == $h2_pos) {
+		$h2_pos = 1;
+	  }
+	  while ($h2_pos !== FALSE) {
+	    $h2_pos = strpos($legacy_body, '<h2>', $h2_pos);
+	    //drush_print($language . ': ' . $last_pos . ' - ' . $h2_pos);
+	    if ($h2_pos != FALSE) {
+	      $body = substr($legacy_body, $last_pos, $h2_pos - $last_pos);
+	    }
+	    else {
+		  $body = substr($legacy_body, $last_pos, strlen($legacy_body) - $last_pos);
+		}
+        // Preserve summary for body[0].
+        if ($last_pos == 0) {
+    	  $bodies[] = array('value' => $body, 'format' => 'filtered_html', 'summary' => $legacy_summary);
+		}
+		else {
+          $bodies[] = array('value' => $body, 'format' => 'filtered_html');
+        }
+        $node->body[$language] = $bodies;
+	    $last_pos = $h2_pos++;
+	  }
+	  node_save($node);
+    }
   }
 }
