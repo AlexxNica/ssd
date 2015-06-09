@@ -7410,10 +7410,10 @@ div.messages a {
 }
 
 /* Module Striping */
-.node-article .even {
+.node-article .field-name-body .even {
   background-color: #d5e0e0;
 }
 
-.node-article .odd {
+.node-article .field-name-body .odd {
   background-color: #ffffff;
 }

@@ -27,7 +27,9 @@ function ssd_preprocess_node(&$variables) {
   $variables['title'] = check_plain($node->title);
   
   if ($node->type == 'article') {
-    $variables['summary'] = field_view_field('node', $node, 'body', 'teaser');
+    // Get only the first body summary for a module.
+    $body = field_get_items('node', $node, 'body');
+    $variables['summary'] = field_view_value('node', $node, 'body', $body[0], 'teaser');
     $variables['metadata'] = field_view_field('node', $node, 'field_metadata', 'default');
   }
 }
