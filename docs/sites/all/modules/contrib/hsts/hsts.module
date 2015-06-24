@@ -23,7 +23,7 @@ function hsts_init() {
     if (variable_get('hsts_subdomains', FALSE)) {
 
       // Include subdomains
-      $hsts_header .= ';include_subdomains';
+      $hsts_header .= ';includeSubDomains';
     }
 
     // Add the header
