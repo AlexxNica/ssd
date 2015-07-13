@@ -58,3 +58,7 @@
 .flex-direction-nav a.flex-prev, .flex-direction-nav a.flex-next {
   text-align: right;
 }
+
+.connect-bar {
+  right: 45%;
+}
