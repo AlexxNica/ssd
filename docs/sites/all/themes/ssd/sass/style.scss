@@ -213,10 +213,10 @@ ul.secondary li.last {
   padding-right: 0px;
 }
 #nav-expanded ul.nav-primary {
-  width: 85px;
   float: right;
   text-align: left;
 }
+
 #nav-expanded ul.nav-primary a,
 #nav-expanded ul.nav-primary span {
   font-size: 12px;
@@ -926,6 +926,13 @@ div.messages a {
   font-weight: bold;
   opacity: .5;
 }
+.i18n-es .view-front-index-block .views-row .views-field-name-field-et .field-content {
+  font-size: 16px;
+}
+.i18n-ru .view-front-index-block .views-row .views-field-name-field-et .field-content {
+  font-size: 24px;
+}
+
 .view-front-index-block .views-row .views-field-description-field .field-content {
   font-size: 16px;
   text-align: center;

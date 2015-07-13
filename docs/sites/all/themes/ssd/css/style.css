@@ -6502,7 +6502,6 @@ ul.secondary li.last {
 }
 
 #nav-expanded ul.nav-primary {
-  width: 85px;
   float: right;
   text-align: left;
 }
@@ -7337,6 +7336,14 @@ div.messages a {
   text-transform: uppercase;
   font-weight: bold;
   opacity: .5;
+}
+
+.i18n-es .view-front-index-block .views-row .views-field-name-field-et .field-content {
+  font-size: 16px;
+}
+
+.i18n-ru .view-front-index-block .views-row .views-field-name-field-et .field-content {
+  font-size: 24px;
 }
 
 .view-front-index-block .views-row .views-field-description-field .field-content {
