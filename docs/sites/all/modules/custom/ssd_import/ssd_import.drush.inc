@@ -228,7 +228,6 @@ function _ssd_migrate_bodies() {
 	  }
 	  while ($h2_pos !== FALSE) {
 	    $h2_pos = strpos($legacy_body, '<h2>', $h2_pos);
-	    //drush_print($language . ': ' . $last_pos . ' - ' . $h2_pos);
 	    if ($h2_pos != FALSE) {
 	      $body = substr($legacy_body, $last_pos, $h2_pos - $last_pos);
 	    }
@@ -246,6 +245,7 @@ function _ssd_migrate_bodies() {
 	    $last_pos = $h2_pos++;
 	  }
 	  node_save($node);
+	  drush_print("Saved {$node->nid}.");
     }
   }
 }
