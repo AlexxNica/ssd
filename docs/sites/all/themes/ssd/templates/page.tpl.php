@@ -84,9 +84,17 @@
       </a>
     </div>
 
-    <div class="search-form-header"><?php print $search_form; ?></div><?php if (!empty($page['language_switcher'])): ?><div id="language-switcher" class=""><div class="language-switcher-label"><?php print t('Language'); ?></div>
-        <?php print render($page['language_switcher']); ?>
-      </div>
+    <div class="search-form-header">
+      <?php print $search_form; ?>
+    </div>
+    
+    <?php if (!empty($page['language_switcher'])): ?>
+    <div id="language-switcher" class="">
+      <button type="button" class="menu-hamburger" data-toggle="collapse" data-target=".language-switcher-collapse">
+        <?php print t('Language'); ?>
+      </button> 
+      <?php print render($page['language_switcher']); ?>
+     </div>
     <?php endif; ?>
 
     <!-- .btn-navbar is used as the toggle for collapsed navbar content -->

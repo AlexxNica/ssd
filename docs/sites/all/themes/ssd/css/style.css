@@ -6448,8 +6448,7 @@ ul.secondary li.last {
 #eff-footer,
 #top-eff-header div,
 #language-switcher,
-#language-switcher .language-switcher-label,
-#language-switcher .region-language-switcher div {
+#language-switcher .language-switcher-label {
   display: inline-block !important;
   width: auto;
   margin-top: 0;
@@ -6555,6 +6554,11 @@ ul.secondary li.last {
   background-color: transparent;
 }
 
+#navbar #language-switcher .menu-hamburger {
+  background-image: none;
+  padding-right: 0;
+}
+
 #top-eff-header {
   padding-right: 10px;
 }
@@ -6577,8 +6581,8 @@ ul.secondary li.last {
   text-transform: uppercase;
   font-size: 11px;
   position: relative;
-  padding-left: 10px;
-  padding-right: 10px;
+  padding-left: 0px;
+  padding-right: 11px;
 }
 
 #language-switcher .language-switcher-label {
@@ -6586,7 +6590,6 @@ ul.secondary li.last {
 }
 
 #language-switcher .region-language-switcher {
-  display: none;
   position: absolute;
   top: 30px;
   right: 0px;
@@ -6597,10 +6600,6 @@ ul.secondary li.last {
 
 #language-switcher .language-switcher-locale-url {
   width: 150px;
-}
-
-#language-switcher:hover .region-language-switcher {
-  display: block;
 }
 
 .language-switcher-locale-url {
