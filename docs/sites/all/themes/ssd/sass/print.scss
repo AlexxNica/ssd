@@ -1,3 +1,13 @@
 #block-feedback-form {
   display: none !important;
 }
+body {
+  font-family: serif;
+  line-height: normal;
+}
+a[href^="/"]:after {
+  content: " (https://ssd.eff.org" attr(href) ")";
+}
+a.logo:after {
+  content: "";
+}
