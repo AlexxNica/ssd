@@ -17,7 +17,7 @@ class TMGMTBulkSelectorBase extends TMGMTPluginBase {
    *
    * @see TMGMTBulkSelectorInterface::searchItems()
    */
-  protected function filterExistingInJobs($plugin, $item_type, $item_ids, $job_target_language) {
+  protected function filterExistingInJobs($plugin, $item_type, $item_ids, $job_target_language, $not = TRUE) {
     $query = db_select('tmgmt_job_item', 'ji')
       ->condition('ji.plugin', $plugin)
       ->condition('ji.item_type', $item_type)
@@ -30,7 +30,10 @@ class TMGMTBulkSelectorBase extends TMGMTPluginBase {
       'j.tjid = ji.tjid AND j.target_language = :language',
       array(':language' => $job_target_language)
     );
-    return array_diff($item_ids, $query->execute()->fetchCol());
+    if ($not) {
+      return array_diff($item_ids, $query->execute()->fetchCol());
+    }
+    return $query->execute()->fetchCol();
   }
 
   /**

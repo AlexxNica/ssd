@@ -13,7 +13,7 @@ class TMGMTBulkSelectorI18nString extends TMGMTBulkSelectorBase implements TMGMT
   /**
    * {@inheritdoc}
    */
-  public function searchItems($item_type, $translated_to, $not_exists_in_jobs, array $specific) {
+  public function searchItems($item_type, $translated_to, $not_exists_in_jobs, array $specific, $exists_in_jobs) {
 
     // Base query.
     $query = db_select('i18n_string', 'i18n_s')->distinct();
@@ -47,6 +47,9 @@ class TMGMTBulkSelectorI18nString extends TMGMTBulkSelectorBase implements TMGMT
     $item_ids = $query->execute()->fetchCol();
     if ($not_exists_in_jobs) {
       $item_ids = $this->filterExistingInJobs('i18n_string', $item_type, $item_ids, $not_exists_in_jobs);
+    }
+    if ($exists_in_jobs) {
+      $item_ids = $this->filterExistingInJobs('i18n_string', $item_type, $item_ids, $exists_in_jobs, FALSE);
     }
     return $item_ids;
   }

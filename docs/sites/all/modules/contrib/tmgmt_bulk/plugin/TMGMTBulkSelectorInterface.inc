@@ -27,7 +27,7 @@ interface TMGMTBulkSelectorInterface extends TMGMTPluginBaseInterface {
    * @return array
    *   An indexed array of item IDs.
    */
-  public function searchItems($item_type, $translated_to, $not_exists_in_jobs, array $specific);
+  public function searchItems($item_type, $translated_to, $not_exists_in_jobs, array $specific, $exists_in_jobs);
 
   /**
    * Returns an array of form elements that represents plugin-specific filters.

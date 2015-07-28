@@ -72,6 +72,12 @@ function tmgmt_bulk_form($form, &$form_state) {
         '#description' => t('When language is selected: the result will not include items that are already exist in jobs with the specified target language.'),
         '#options' => array('' => '') + $languages,
       ) + $label_inline;
+      $form['plugins'][$plugin_type]['filters']['exists_in_jobs'] = array(
+        '#type' => 'select',
+        '#title' => t('Exists in jobs with target language'),
+        '#description' => t('When language is selected: the result will include only items that already exist in jobs with the specified target language.'),
+        '#options' => array('' => '') + $languages,
+      ) + $label_inline;
       $form['plugins'][$plugin_type]['filters']['specific'] = array(
         '#tree' => TRUE,
       ) + $selector->getFormSpecificFilters();

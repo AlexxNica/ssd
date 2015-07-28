@@ -13,7 +13,7 @@ class TMGMTBulkSelectorLocale extends TMGMTBulkSelectorBase implements TMGMTBulk
   /**
    * {@inheritdoc}
    */
-  public function searchItems($item_type, $translated_to, $not_exists_in_jobs, array $specific) {
+  public function searchItems($item_type, $translated_to, $not_exists_in_jobs, array $specific, $exists_in_jobs) {
     $query = db_select('locales_source', 'ls')
       ->condition('ls.textgroup', $item_type)
       ->fields('ls', array('lid'));
@@ -35,6 +35,9 @@ class TMGMTBulkSelectorLocale extends TMGMTBulkSelectorBase implements TMGMTBulk
     $item_ids = $query->execute()->fetchCol();
     if ($not_exists_in_jobs) {
       $item_ids = $this->filterExistingInJobs('locale', $item_type, $item_ids, $not_exists_in_jobs);
+    }
+    if ($exists_in_jobs) {
+      $item_ids = $this->filterExistingInJobs('locale', $item_type, $item_ids, $exists_in_jobs, FALSE);
     }
     return $item_ids;
   }

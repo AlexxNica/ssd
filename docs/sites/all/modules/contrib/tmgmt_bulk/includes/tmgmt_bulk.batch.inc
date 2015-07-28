@@ -19,8 +19,9 @@
 function _tmgmt_bulk_search_and_store($plugin, $item_type, array $filters) {
   $translated_to = $filters['translated_to'];
   $not_exists_in_jobs = $filters['not_exists_in_jobs'];
+  $exists_in_jobs = $filters['exists_in_jobs'];
   $specific = isset($filters['specific']) ? $filters['specific'] : array();
-  $_SESSION['tmgmt_bulk_storage'][$plugin][$item_type] = tmgmt_bulk_selector_plugin_controller($plugin)->searchItems($item_type, $translated_to, $not_exists_in_jobs, $specific);
+  $_SESSION['tmgmt_bulk_storage'][$plugin][$item_type] = tmgmt_bulk_selector_plugin_controller($plugin)->searchItems($item_type, $translated_to, $not_exists_in_jobs, $specific, $exists_in_jobs);
 }
 
 /**
