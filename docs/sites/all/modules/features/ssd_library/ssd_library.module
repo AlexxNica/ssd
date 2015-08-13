@@ -77,7 +77,7 @@ function ssd_library_entity_presave($entity, $type) {
         foreach ($entity->{$field['field_name']} as $langcode => $items) {
           foreach ($items as $delta => $item) {
             $entity->{$field['field_name']}[$langcode][$delta]['value'] = str_replace("\r", '', $entity->{$field['field_name']}[$langcode][$delta]['value']); 
-            if ($field['type'] == 'text_with_summary') {
+            if ($field['type'] == 'text_with_summary' && isset($entity->{$field['field_name']}[$langcode][$delta]['summary'])) {
               $entity->{$field['field_name']}[$langcode][$delta]['summary'] = str_replace("\r", '', $entity->{$field['field_name']}[$langcode][$delta]['summary']); 
             }
           }
