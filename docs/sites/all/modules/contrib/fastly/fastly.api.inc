@@ -17,7 +17,6 @@ class Fastly {
     $this->service_id = $service_id;
     $this->host = 'https://api.fastly.com/';
     // $this->host = 'http://stg.fastly.com/';
-    $this->log_enabled = variable_get('fastly_log_enabled', 0);
   }
 
   /**
@@ -88,9 +87,22 @@ class Fastly {
    * Gets the settings for a version.
    */
   public function getSettings() {
-    $result = $this->query('service/' . $this->service_id . '/version/' . $this->getActiveVersion() . '/settings');
+    if ($active_version = $this->getActiveVersion()) {
+      $result = $this->query('service/' . $this->service_id . '/version/' . $active_version . '/settings');
+      return json_decode($result->data);
+    }
+    return NULL;
+  }
 
-    return json_decode($result->data);
+  /**
+   * Gets the settings for a version.
+   */
+  public function getSetting($setting_id) {
+    $settings = $this->getSettings();
+
+    if ($settings && isset($settings->{$setting_id})) {
+      return $settings->{$setting_id};
+    }
   }
 
   /**
@@ -154,11 +166,14 @@ class Fastly {
   protected function getActiveVersion() {
     $service = json_decode($this->query('service/' . $this->service_id)->data);
 
-    foreach ($service->versions as $version) {
-      if ($version->active) {
-        return $version->number;
+    if (is_object($service) && isset($service->versions)) {
+      foreach ($service->versions as $version) {
+        if ($version->active) {
+          return $version->number;
+        }
       }
     }
+    return NULL;
   }
 
   /**
@@ -188,10 +203,6 @@ class Fastly {
     }
 
     $result = drupal_http_request($url, $options);
-
-    if ($this->log_enabled && isset($result->request)) {
-      watchdog('fastly', $result->request, array(), WATCHDOG_INFO);
-    }
 
     return $result;
   }

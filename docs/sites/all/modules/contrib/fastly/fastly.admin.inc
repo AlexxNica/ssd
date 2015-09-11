@@ -46,10 +46,12 @@ function fastly_setup_form($form_state) {
     );
   }
 
+  $default_ttl = $api->getSetting('general.default_ttl');
+
   $form['fastly_ttl'] = array(
     '#type' => 'textfield',
     '#title' => t('Default TTL'),
-    '#default_value' => $service_id ? $api->getSettings()->{'general.default_ttl'} : '',
+    '#default_value' => $default_ttl ? $default_ttl : '',
     '#description' => t('The default time to live for cached content in seconds.'),
   );
 
@@ -65,13 +67,6 @@ function fastly_setup_form($form_state) {
     '#title' => t('Non-cached pages'),
     '#default_value' => variable_get('fastly_non_cached', ''),
     '#description' => $description,
-  );
-
-  $form['fastly_log_enabled'] = array(
-    '#type' => 'checkbox',
-    '#title' => t('Log API requests'),
-    '#default_value' => variable_get('fastly_log_enabled', 0),
-    '#description' => t('Go to <em>Site settings > Advanced settings > Site reports > Recent log messages</em> to view the log.'),
   );
 
   $form['#submit'][] = 'fastly_setup_form_submit';
