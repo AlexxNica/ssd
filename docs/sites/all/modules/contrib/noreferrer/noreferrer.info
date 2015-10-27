@@ -3,9 +3,9 @@ description = Adds rel="noreferrer" to all links and allows a referrer policy to
 core = 7.x
 configure = admin/config/search/noreferrer
 
-; Information added by Drupal.org packaging script on 2015-01-24
-version = "7.x-1.1"
+; Information added by Drupal.org packaging script on 2015-04-14
+version = "7.x-1.2"
 core = "7.x"
 project = "noreferrer"
-datestamp = "1422116882"
+datestamp = "1429031438"
 

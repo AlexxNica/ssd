@@ -4,9 +4,14 @@
  * Adds Piwik noscript tag to bottom of the page.
  */
 function piwik_noscript_preprocess_html(&$variables) {
+  // Return early if not configured.
+  if (!piwik_noscript_configured()) {
+    return;
+  }
   $options = piwik_noscript_options();
   // The head title needs to be un-HTML-encoded.
   $options['query']['action_name'] = decode_entities($variables['head_title']);
+  drupal_alter('piwik_noscript_options', $options);
   $variables['page']['page_bottom']['piwik_noscript'][] = array(
     '#type' => 'html_tag',
     '#tag' => 'noscript',
@@ -19,7 +24,7 @@ function piwik_noscript_preprocess_html(&$variables) {
  */
 function piwik_noscript_page_alter(&$page) {
   // Only add this image tag if piwik module is not enabled.
-  if (module_exists('piwik')) {
+  if (module_exists('piwik') || !piwik_noscript_configured()) {
     return;
   }
   $page['page_bottom']['piwik_noscript'][] = array(
@@ -29,7 +34,9 @@ function piwik_noscript_page_alter(&$page) {
     ),
   );
   $options = piwik_noscript_options();
-  $options['query']['PIWIK_NOSCRIPT_PLACEHOLDER'] = '';
+  $options['query']['action_name'] = '';
+  $options['query']['urlref'] = '';
+  drupal_alter('piwik_noscript_options', $options);
   drupal_add_js(array(
     'piwikNoscript' => array(
       'image' => piwik_noscript_image($options),
@@ -69,4 +76,11 @@ function piwik_noscript_image(array $options) {
       'style' => 'position: absolute',
     ),
   ));
+}
+
+/**
+ * Returns true if module is configured or false otherwise.
+ */
+function piwik_noscript_configured() {
+  return variable_get('piwik_url_https', '') && variable_get('piwik_site_id', 0);
 }

@@ -2,9 +2,9 @@ name = Piwik noscript
 description = Adds Piwik noscript tracking code to all your site's pages.
 core = 7.x
 
-; Information added by Drupal.org packaging script on 2015-05-08
+; Information added by Drupal.org packaging script on 2015-10-07
 version = "7.x-1.x-dev"
 core = "7.x"
 project = "piwik_noscript"
-datestamp = "1431045361"
+datestamp = "1444201973"
 
