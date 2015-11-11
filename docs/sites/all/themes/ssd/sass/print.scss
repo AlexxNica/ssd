@@ -11,3 +11,29 @@ a[href^="/"]:after {
 a.logo:after {
   content: "";
 }
+h1.page-header {
+  margin: 0;
+}
+.module-section,
+.module-section h2 {
+  margin: 0 ;
+  padding: 0;
+}
+.module-section h2 {
+  position: relative;
+  top: -10px;
+  font-size: 22px;
+  margin-top: 10px;
+}
+.header-graphic img {
+  width: 60px;
+  height: 60px;
+  display: none;
+}
+footer.footer {
+  display: none;
+}
+#top-logo img {
+  width: 280px;
+  height: auto;
+}
