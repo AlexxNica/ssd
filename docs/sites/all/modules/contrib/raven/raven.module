@@ -39,9 +39,11 @@ function raven_libraries_info() {
     ),
     'files' => array(
       'php' => array(
+        'Autoloader.php',
         'Client.php',
         'Compat.php',
         'Context.php',
+        'CurlHandler.php',
         'ErrorHandler.php',
         'Processor.php',
         'SanitizeDataProcessor.php',
@@ -294,6 +296,7 @@ function _raven_get_client() {
           'fields_re' => '/(SESS|pass|authorization|password|passwd|secret|password_confirmation|card_number|auth_pw)/i',
         ),
       ),
+      'curl_method' => 'async',
     ));
   }
 
