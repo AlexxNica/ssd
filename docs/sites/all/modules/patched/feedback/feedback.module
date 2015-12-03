@@ -384,6 +384,18 @@ function feedback_form($form, &$form_state) {
 }
 
 /**
+ * Form validation handler for feedback_form().
+ */
+function feedback_form_validate($form, &$form_state) {
+  if (!variable_get('feedback_flood', TRUE)) {
+    return;
+  }
+  if (!flood_is_allowed('feedback_form_submit', variable_get('feedback_flood_threshold', 2))) {
+    form_set_error('actions][submit', t('Please wait a few minutes before submitting more feedback.'));
+  }
+}
+
+/**
  * Form submission handler for feedback_form().
  */
 function feedback_form_submit($form, &$form_state) {
@@ -392,7 +404,9 @@ function feedback_form_submit($form, &$form_state) {
   $entry->message = $form_state['values']['message'];
   $entry->location = $form_state['values']['location'];
   feedback_save($entry);
-
+  if (variable_get('feedback_flood', TRUE)) {
+    flood_register_event('feedback_form_submit');
+  }
   drupal_set_message(t('Thanks for your feedback!'));
 }
 
