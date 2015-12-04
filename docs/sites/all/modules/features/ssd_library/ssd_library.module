@@ -96,3 +96,13 @@ function ssd_library_custom_theme() {
     return variable_get('admin_theme', 'seven');
   }
 }
+
+/**
+ * Implements hook_form_FORM_ID_alter().
+ */
+function ssd_library_form_feedback_form_alter(&$form, &$form_state, $form_id) {
+  // Add honeypot protection to the feedback form.
+  if (module_exists('honeypot')) {
+    honeypot_add_form_protection($form, $form_state, ['honeypot']);
+  }
+}
