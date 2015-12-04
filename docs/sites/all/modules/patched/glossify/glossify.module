@@ -194,20 +194,30 @@ function _glossify_content_settings($form, $form_state, $filter, $format, $defau
  * Taxonomy filter process callback for the glossify filter.
  */
 function _glossify_taxonomy_process($text, $filter, $format, $langcode, $cache, $cache_id) {
-  //get vocabularies
-  $vocabs = array_filter($filter->settings['glossify_taxonomy_vocabs']);
-  if (!$vocabs) return $text;
+  static $cache;
 
-  //get terms
-  $result = db_query("SELECT tid AS id, name, LOWER(name) AS name_norm, description AS tip, format FROM {taxonomy_term_data} WHERE vid IN (:vids)", array(':vids' => $vocabs));
-  $terms = $result->fetchAllAssoc('name_norm');
-
-  // Allow other modules to alter the glossary terms.
   $context = array(
     'langcode' => $langcode,
     'filter' => $filter,
   );
-  drupal_alter('glossify_terms', $terms, $context);
+
+  // Get vocabularies.
+  $vocabs = array_filter($filter->settings['glossify_taxonomy_vocabs']);
+  if (!$vocabs) {
+    return $text;
+  }
+
+  if (isset($cache[serialize($context)])) {
+    $terms = $cache[serialize($context)];
+  }
+  else {
+    // Get terms.
+    $result = db_query("SELECT tid AS id, name, LOWER(name) AS name_norm, description AS tip, format FROM {taxonomy_term_data} WHERE vid IN (:vids)", array(':vids' => $vocabs));
+    $terms = $result->fetchAllAssoc('name_norm');
+    // Allow other modules to alter the glossary terms.
+    drupal_alter('glossify_terms', $terms, $context);
+    $cache[serialize($context)] = $terms;
+  }
 
   if (count($terms) > 0) {
     return _glossify_to_links($text, $terms, 'taxonomy', $filter->settings['glossify_taxonomy_case_sensitivity'], $filter->settings['glossify_taxonomy_first_only'], $filter->settings['glossify_taxonomy_tooltips'], $langcode);
@@ -326,7 +336,7 @@ function _glossify_to_links($text, $terms, $type, $case_sensitivity, $first_only
           $link->appendXML($term_txt);
         }
         else {
-          $tip = $tooltips ? check_markup($terms[drupal_strtolower($term_norm)]->tip, $terms[drupal_strtolower($term_norm)]->format) : '';
+          $tip = $tooltips ? check_markup($terms[drupal_strtolower($term_norm)]->tip, $terms[drupal_strtolower($term_norm)]->format, $langcode) : '';
           $link->appendXML(theme('glossify_links', array('type' => $type, 'id' => $terms[drupal_strtolower($term_norm)]->id, 'text' => $term_txt, 'tip' => $tip, 'language' => $language)));
           $matched[] = ($case_sensitivity ? $match[0] : drupal_strtolower($match[0]));
         }

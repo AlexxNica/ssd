@@ -1,37 +1,25 @@
 <?php
-function glossify_entity_translation_glossify_terms_alter(&$terms, $context) {
-  $trans_terms = array();
-  foreach($terms as $index => $term) {
-    $name_rs = db_query("
-      SELECT field_data_name_field.name_field_value as name, field_data_description_field.description_field_value as tip
-      FROM field_data_name_field 
-      INNER JOIN field_data_description_field 
-      WHERE field_data_name_field.entity_type = 'taxonomy_term' 
-      AND field_data_description_field.entity_type = 'taxonomy_term'
-      AND field_data_name_field.entity_id = :term_id 
-      AND field_data_name_field.language = :lang
-      AND field_data_description_field.language = :lang
-      AND field_data_name_field.entity_id = field_data_description_field.entity_id", 
-    array(':term_id' => $term->id, ':lang' => $context['langcode']));
-    
-    foreach($name_rs as $row) {
-      // Get the translations.
-      $name = trim($row->name);
-      $name_norm = drupal_strtolower($name);
-      $tip = $row->tip;
-      
-      // Add another term to the array w/ the translation info.
-      $trans_terms[$name_norm] = new stdClass();
-      $trans_terms[$name_norm]->name = $name;
-      $trans_terms[$name_norm]->name_norm = $name_norm;
-      $trans_terms[$name_norm]->id = $term->id;
-      $trans_terms[$name_norm]->tip = $tip;
-      $trans_terms[$name_norm]->format = $term->format;
 
-      // Unset original language term since it won't be used for
-      // the translation.
-      unset($terms[$index]);
-    }
+/**
+ * Implements hook_glossify_terms_alter().
+ */
+function glossify_entity_translation_glossify_terms_alter(&$terms, $context) {
+  $vocabs = array_filter($context['filter']->settings['glossify_taxonomy_vocabs']);
+  if (!$vocabs) {
+    return;
   }
-  $terms = array_merge($terms, $trans_terms);
+  $rows = db_query("SELECT tid AS id, n.name_field_value AS name, LOWER(n.name_field_value) AS name_norm, description_field_value AS tip, description_field_format AS format
+    FROM {taxonomy_term_data} t
+    INNER JOIN {field_data_name_field} n ON n.entity_id = t.tid AND n.entity_type = :type
+    INNER JOIN {field_data_description_field} d ON d.entity_id = t.tid AND d.entity_type = :type
+    WHERE vid IN (:vids)
+    AND n.language = :lang
+    AND d.language = :lang
+    AND n.delta = 0
+    AND d.delta = 0
+    AND n.deleted = 0
+    AND d.deleted = 0", [':vids' => $vocabs, ':type' => 'taxonomy_term', ':lang' => $context['langcode']]);
+  foreach ($rows as $row) {
+    $terms[$row->name_norm] = $row;
+  }
 }
