@@ -390,7 +390,7 @@ function feedback_form_validate($form, &$form_state) {
   if (!variable_get('feedback_flood', TRUE)) {
     return;
   }
-  if (!flood_is_allowed('feedback_form_submit', variable_get('feedback_flood_threshold', 2))) {
+  if (!flood_is_allowed('feedback_form_submit', variable_get('feedback_flood_threshold', 2), 604800)) {
     form_set_error('actions][submit', t('Please wait a few minutes before submitting more feedback.'));
   }
 }
@@ -405,7 +405,7 @@ function feedback_form_submit($form, &$form_state) {
   $entry->location = $form_state['values']['location'];
   feedback_save($entry);
   if (variable_get('feedback_flood', TRUE)) {
-    flood_register_event('feedback_form_submit');
+    flood_register_event('feedback_form_submit', 604800);
   }
   drupal_set_message(t('Thanks for your feedback!'));
 }
