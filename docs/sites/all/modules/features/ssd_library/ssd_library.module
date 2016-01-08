@@ -106,3 +106,15 @@ function ssd_library_form_feedback_form_alter(&$form, &$form_state, $form_id) {
     honeypot_add_form_protection($form, $form_state, ['honeypot']);
   }
 }
+
+/**
+ * Implements hook_mail_alter().
+ */
+function ssd_library_mail_alter(&$message) {
+  // Spam filtering on EFF mailing lists is currently broken, so make contact
+  // form submissions look like they're coming from the site, thus we can block
+  // messages from non-subscribers.
+  if ($message['id'] == 'contact_page_mail') {
+    $message['from'] = variable_get('site_mail', ini_get('sendmail_from'));
+  }
+}
