@@ -18,6 +18,9 @@ function raven_uninstall() {
   variable_del('raven_stack');
   variable_del('raven_trace');
   variable_del('raven_trace_user');
+  variable_del('raven_watchdog_handler');
+  variable_del('raven_watchdog_levels');
+  variable_del('raven_watchdog_page_not_found');
 }
 
 /**
@@ -29,13 +32,13 @@ function raven_requirements($phase) {
   $url = 'https://github.com/getsentry/raven-php/releases';
 
   $has_curl = function_exists('curl_init');
-  $requirements['curl'] = array(
+  $requirements['raven_curl'] = array(
     'title' => $t('cURL'),
     'value' => $has_curl ? $t('Enabled') : $t('Not found'),
   );
   if (!$has_curl) {
-    $requirements['curl']['severity'] = REQUIREMENT_ERROR;
-    $requirements['curl']['description'] = $t('Raven module could not be installed because the PHP <a href="@curl_url">cURL</a> extension is not available.', array('@curl_url' => 'http://php.net/manual/en/curl.setup.php'));
+    $requirements['raven_curl']['severity'] = REQUIREMENT_ERROR;
+    $requirements['raven_curl']['description'] = $t('Raven module could not be installed because the PHP <a href="@curl_url">cURL</a> extension is not available.', array('@curl_url' => 'http://php.net/manual/en/curl.setup.php'));
   }
 
   switch ($phase) {

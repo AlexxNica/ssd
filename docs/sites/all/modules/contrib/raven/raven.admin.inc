@@ -118,8 +118,15 @@ function raven_settings_form(array $form, array &$form_state) {
   $form['raven_settings']['raven_watchdog_handler']['raven_watchdog_handler'] = array(
     '#type' => 'checkbox',
     '#title' => t('Enable watchdog handler'),
-    '#description' => t('Check to handle watchdog messages (except PHP errors).'),
+    '#description' => t('Check to handle watchdog messages (except PHP and page-not-found errors).'),
     '#default_value' => variable_get('raven_watchdog_handler', FALSE),
+  );
+
+  $form['raven_settings']['raven_watchdog_handler']['raven_watchdog_page_not_found'] = array(
+    '#type' => 'checkbox',
+    '#title' => t('Enable page-not-found watchdog handler'),
+    '#description' => t('Check to handle page-not-found watchdog messages.'),
+    '#default_value' => variable_get('raven_watchdog_page_not_found', FALSE),
   );
 
   $_watchdog_levels = watchdog_severity_levels();

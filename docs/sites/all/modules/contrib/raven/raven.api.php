@@ -110,3 +110,16 @@ function hook_raven_watchdog_filter_alter(array &$filter) {
     $filter['process'] = FALSE;
   }
 }
+
+/**
+ * Alter the array of fields that should be sanitized.
+ *
+ * The field will be used in a regular expression, so you may need to run
+ * preg_quote($field, '/') on the field name.
+ *
+ * @param array $fields
+ *   A reference to array containing the field names.
+ */
+function hook_raven_sanitize_fields_alter(array &$fields) {
+  $fields[] = 'data';
+}

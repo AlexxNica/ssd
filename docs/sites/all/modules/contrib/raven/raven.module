@@ -195,9 +195,16 @@ function raven_watchdog($log_entry) {
     'process' => TRUE,
     'log_entry' => $log_entry,
   );
+  if ($log_entry['type'] === 'page not found') {
+    $filter['process'] = (bool) variable_get('raven_watchdog_page_not_found', FALSE);
+  }
   drupal_alter('raven_watchdog_filter', $filter);
 
   if (!$filter['process']) {
+    return;
+  }
+
+  if (!raven_libraries_load()) {
     return;
   }
 
@@ -260,21 +267,10 @@ function raven_watchdog($log_entry) {
  */
 function _raven_get_client() {
   static $client;
-  static $message_sent = FALSE;
 
   if (!isset($client)) {
-    $library = libraries_load('raven');
-
-    if (!$library['loaded']) {
-      // This function can be called multiple times,
-      // so prevent multiple messages.
-      if (!$message_sent) {
-        drupal_set_message(t('Raven PHP library can not be loaded. Check <a href="@url">reports</a> for more details.', array(
-          '@url' => url('admin/reports/status'),
-        )), 'error');
-        $message_sent = TRUE;
-      }
-      return NULL;
+    if (!raven_libraries_load()) {
+      return;
     }
 
     // Prepare config.
@@ -282,6 +278,11 @@ function _raven_get_client() {
     $timeout = variable_get('raven_timeout', 2);
     $stack = variable_get('raven_stack', TRUE);
     $trace = variable_get('raven_trace', FALSE);
+
+    // Build the field sanitization regular expression.
+    $fields = array('SESS', 'key', 'token', 'pass', 'authorization', 'password', 'passwd', 'secret', 'password_confirmation', 'card_number', 'auth_pw');
+    drupal_alter('raven_sanitize_fields', $fields);
+    $fields_re = '/(' . implode('|', $fields) . ')/i';
 
     // Instantiate a new client with a compatible DSN.
     $client = new Raven_Client($dsn, array(
@@ -293,7 +294,7 @@ function _raven_get_client() {
       ),
       'processorOptions' => array(
         'Raven_SanitizeDataProcessor' => array(
-          'fields_re' => '/(SESS|pass|authorization|password|passwd|secret|password_confirmation|card_number|auth_pw)/i',
+          'fields_re' => $fields_re,
         ),
       ),
       'curl_method' => 'async',
@@ -359,4 +360,23 @@ function raven_raven_error_filter_alter(array &$error) {
       break;
     }
   }
+}
+
+/**
+ * Loads Raven library.
+ *
+ * @return boolean
+ *   Returns TRUE if library loaded or FALSE otherwise.
+ */
+function raven_libraries_load() {
+  static $message_sent = FALSE;
+  $library = libraries_load('raven');
+  // This function can be called multiple times, so prevent multiple messages.
+  if (!$library['loaded'] && !$message_sent) {
+    drupal_set_message(t('Raven PHP library can not be loaded. Check <a href="@url">reports</a> for more details.', array(
+      '@url' => url('admin/reports/status'),
+    )), 'error');
+    $message_sent = TRUE;
+  }
+  return (bool) $library['loaded'];
 }
