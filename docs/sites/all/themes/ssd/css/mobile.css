@@ -106,14 +106,24 @@
     padding: 8px;
   }
 
+  .view-front-index-block .views-row .connect-bar {
+    background: transparent !important;
+  }
+
   .view-front-index-block .views-row {
     padding: 0px;
     margin: 0px;
+    background-color: #789090;
   }
 
   .view-front-index-block .views-row .views-field-name .field-content,
   .view-front-index-block .views-row .views-field-description-field .field-content {
     display: none;
+  }
+}
+@media (max-width: 555px) {
+  .view-front-index-block .views-row .views-field-name-field-et .field-content {
+    font-size: 18px;
   }
 }
 /* Shrink navbar search input as screen gets smaller */
@@ -133,6 +143,10 @@
 
   .front .flexslider .slides > li {
     min-height: 370px;
+  }
+
+  .view-front-index-block .views-row .views-field-name-field-et .field-content {
+    font-size: 14px;
   }
 }
 @media (max-width: 320px) {
