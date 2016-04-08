@@ -48,5 +48,6 @@ footer.footer {
 }
 
 .field-name-body img, .field-name-body p img {
+  max-width: 180px !important;
   max-height: 300px !important;
 }
