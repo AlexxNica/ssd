@@ -11,7 +11,6 @@ language: php
 sudo: false
 
 php:
-  - 5.4
   - 5.5
   - 5.6
 
@@ -28,7 +27,7 @@ env:
 
     # Configuration variables.
     - DRUPAL_TI_MODULE_NAME="raven"
-    - DRUPAL_TI_SIMPLETEST_GROUP="raven"
+    - DRUPAL_TI_SIMPLETEST_GROUP="Raven"
 
     # Define runners and environment vars to include before and after the
     # main runners / environment vars.
@@ -37,6 +36,9 @@ env:
 
     # The environment to use, supported are: drupal-7, drupal-8
     - DRUPAL_TI_ENVIRONMENT="drupal-7"
+
+    # The installation profile to use:
+    #- DRUPAL_TI_INSTALL_PROFILE="testing"
 
     # Drupal specific variables.
     - DRUPAL_TI_DB="drupal_travis_db"
@@ -97,8 +99,7 @@ mysql:
 
 before_install:
   - composer self-update
-  - cd ./tests
-  - composer global require "lionsad/drupal_ti:1.*"
+  - composer global require "lionsad/drupal_ti:dev-master"
   - drupal-ti before_install
 
 install:

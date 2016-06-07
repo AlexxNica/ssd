@@ -21,6 +21,12 @@ function raven_uninstall() {
   variable_del('raven_watchdog_handler');
   variable_del('raven_watchdog_levels');
   variable_del('raven_watchdog_page_not_found');
+  variable_del('raven_ssl');
+  variable_del('raven_ca_cert');
+  variable_del('raven_js_enabled');
+  variable_del('raven_public_dsn');
+  variable_del('raven_js_source');
+  variable_del('raven_js_cdn_url');
 }
 
 /**
@@ -29,7 +35,7 @@ function raven_uninstall() {
 function raven_requirements($phase) {
   $t = get_t();
   $requirements = array();
-  $url = 'https://github.com/getsentry/raven-php/releases';
+  $url = 'https://github.com/getsentry/sentry-php/releases';
 
   $has_curl = function_exists('curl_init');
   $requirements['raven_curl'] = array(
@@ -43,13 +49,13 @@ function raven_requirements($phase) {
 
   switch ($phase) {
     case 'runtime':
-      $raven = libraries_load('raven');
+      $raven = libraries_load('sentry-php');
 
       if ($raven && $raven['loaded']) {
         $requirements['raven_version'] = array(
-          'title' => $t('Raven PHP library'),
+          'title' => $t('Sentry PHP library'),
           'value' => $raven['version'],
-          'description' => $t('To check for newer versions of Raven PHP, go to <a href="@url" target="_blank">@url</a>.', array('@url' => $url)),
+          'description' => $t('To check for newer versions of Sentry PHP, go to <a href="@url" target="_blank">@url</a>.', array('@url' => $url)),
           'severity' => REQUIREMENT_OK,
         );
 
@@ -95,10 +101,10 @@ function raven_requirements($phase) {
         }
       }
       else {
-        $requirements['raven_library'] = array(
-          'title' => $t('Raven PHP library'),
+        $requirements['sentry_library'] = array(
+          'title' => $t('Sentry PHP library'),
           'value' => $t('Not installed'),
-          'description' => $t('The Raven PHP library was not detected. Please install the <a href="@url" target="_blank">Raven PHP library</a>.', array('@url' => $url)),
+          'description' => $t('The Sentry PHP library could not be loaded. Please install <a href="@url" target="_blank">Sentry PHP library</a> and its dependencies (Monolog and PSR Log).', array('@url' => $url)),
           'severity' => REQUIREMENT_ERROR,
         );
       }
@@ -109,4 +115,14 @@ function raven_requirements($phase) {
   }
 
   return $requirements;
+}
+
+/**
+ * Implements hook_update_N().
+ */
+function raven_update_7000(&$sandbox) {
+  if (!module_enable(array('xautoload'))) {
+    throw new DrupalUpdateException(t('Please install xautoload module and run this update again.'));
+  }
+  return t('Please read the Raven module README.md for information about new library dependencies.');
 }
