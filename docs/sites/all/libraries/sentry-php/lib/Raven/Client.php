@@ -16,7 +16,8 @@
 
 class Raven_Client
 {
-    const VERSION = '0.20.0';
+    const VERSION = '0.21.2';
+
     const PROTOCOL = '6';
 
     const DEBUG = 'debug';
@@ -85,6 +86,8 @@ class Raven_Client
         $this->prefixes = Raven_Util::get($options, 'prefixes', null);
         // app path is used to determine if code is part of your application
         $this->app_path = Raven_Util::get($options, 'app_path', null);
+        $this->transport = Raven_Util::get($options, 'transport', null);
+        ;
 
         $this->processors = $this->setProcessorsFromOptions($options);
 
@@ -105,6 +108,18 @@ class Raven_Client
         if (Raven_Util::get($options, 'install_default_breadcrumb_handlers', true)) {
             $this->registerDefaultBreadcrumbHandlers();
         }
+    }
+
+    /**
+     * Installs any available automated hooks (such as error_reporting).
+     */
+    public function install()
+    {
+        $error_handler = new Raven_ErrorHandler($this);
+        $error_handler->registerExceptionHandler();
+        $error_handler->registerErrorHandler();
+        $error_handler->registerShutdownFunction();
+        return $this;
     }
 
     public function getRelease($value)
@@ -159,6 +174,36 @@ class Raven_Client
     public function setSendCallback($value)
     {
         $this->send_callback = $value;
+        return $this;
+    }
+
+    public function getTransport($value)
+    {
+        return $this->transport;
+    }
+
+    public function getServerEndpoint($value)
+    {
+        return $this->server;
+    }
+
+    public function getUserAgent()
+    {
+        return 'sentry-php/' . self::VERSION;
+    }
+
+    /**
+     * Set a custom transport to override how Sentry events are sent upstream.
+     *
+     * The bound function will be called with ``$client`` and ``$data`` arguments
+     * and is responsible for encoding the data, authenticating, and sending
+     * the data to the upstream Sentry server.
+     *
+     * @param function     $value       Function to be called
+     */
+    public function setTransport($value)
+    {
+        $this->transport = $value;
         return $this;
     }
 
@@ -268,8 +313,12 @@ class Raven_Client
 
     /**
      * Log a message to sentry
+     *
+     * @param string $message The message (primary description) for the event.
+     * @param array $params params to use when formatting the message.
+     * @param array $data Additional attributes to pass with this event (see Sentry docs).
      */
-    public function captureMessage($message, $params=array(), $level_or_options=array(),
+    public function captureMessage($message, $params=array(), $data=array(),
                             $stack=false, $vars = null)
     {
         // Gracefully handle messages which contain formatting characters, but were not
@@ -280,14 +329,13 @@ class Raven_Client
             $formatted_message = $message;
         }
 
-        if ($level_or_options === null) {
+        if ($data === null) {
             $data = array();
-        } elseif (!is_array($level_or_options)) {
+        // support legacy method of passing in a level name as the third arg
+        } elseif (!is_array($data)) {
             $data = array(
-                'level' => $level_or_options,
+                'level' => $data,
             );
-        } else {
-            $data = $level_or_options;
         }
 
         $data['message'] = $formatted_message;
@@ -301,8 +349,11 @@ class Raven_Client
 
     /**
      * Log an exception to sentry
+     *
+     * @param string $exception The Exception object.
+     * @param array $data Additional attributes to pass with this event (see Sentry docs).
      */
-    public function captureException($exception, $culprit_or_options=null, $logger=null, $vars=null)
+    public function captureException($exception, $data=null, $logger=null, $vars=null)
     {
         $has_chained_exceptions = version_compare(PHP_VERSION, '5.3.0', '>=');
 
@@ -310,13 +361,12 @@ class Raven_Client
             return null;
         }
 
-        if (!is_array($culprit_or_options)) {
+        if ($data === null) {
             $data = array();
-            if ($culprit_or_options !== null) {
-                $data['culprit'] = $culprit_or_options;
-            }
-        } else {
-            $data = $culprit_or_options;
+        } elseif (!is_array($data)) {
+            $data = array(
+                'culprit' => (string)$data,
+            );
         }
 
         // TODO(dcramer): DRY this up
@@ -543,20 +593,15 @@ class Raven_Client
 
         if (empty($data['extra'])) {
             unset($data['extra']);
-        } else {
-            $data['extra'] = $data['extra'];
         }
-
         if (empty($data['tags'])) {
             unset($data['tags']);
-        } else {
-            $data['tags'] = $data['tags'];
         }
-        if (!empty($data['user'])) {
-            $data['user'] = $data['user'];
+        if (empty($data['user'])) {
+            unset($data['user']);
         }
-        if (!empty($data['request'])) {
-            $data['request'] = $data['request'];
+        if (empty($data['request'])) {
+            unset($data['request']);
         }
 
         if (!$this->breadcrumbs->is_empty()) {
@@ -663,6 +708,10 @@ class Raven_Client
             return;
         }
 
+        if ($this->transport) {
+            return call_user_func($this->transport, $this, $data);
+        }
+
         $message = Raven_Compat::json_encode($data);
 
         if (function_exists("gzcompress")) {
@@ -670,13 +719,9 @@ class Raven_Client
         }
         $message = base64_encode($message); // PHP's builtin curl_* function are happy without this, but the exec method requires it
 
-        $client_string = 'sentry-php/' . self::VERSION;
-        $timestamp = microtime(true);
         $headers = array(
-            'User-Agent' => $client_string,
-            'X-Sentry-Auth' => $this->get_auth_header(
-                $timestamp, $client_string, $this->public_key,
-                $this->secret_key),
+            'User-Agent' => $this->getUserAgent(),
+            'X-Sentry-Auth' => $this->getAuthHeader(),
             'Content-Type' => 'application/octet-stream'
         );
 
@@ -864,6 +909,12 @@ class Raven_Client
 
 
         return sprintf('Sentry %s', implode(', ', $header));
+    }
+
+    public function getAuthHeader()
+    {
+        $timestamp = microtime(true);
+        return $this->get_auth_header($timestamp, $this->getUserAgent(), $this->public_key, $this->secret_key);
     }
 
     /**
