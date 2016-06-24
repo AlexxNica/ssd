@@ -1,5 +1,8 @@
 <?php
 
+/**
+ * Implements hook_schema().
+ */
 function librejs_schema() {
   $schema['librejs'] = array(
     'description' => 'Stores the license and source of each JavaScript file.',
@@ -40,4 +43,13 @@ function librejs_schema() {
     'unique keys' => array('data' => array('data')),
   );
   return $schema;
+}
+
+/**
+ * Migrate URL for the Modified-BSD license.
+ */
+function librejs_update_7100() {
+  // The URL for Modified-BSD at http://www.gnu.org/licenses/javascript-labels.html
+  // was changed sometime in November 2013.
+  db_update('librejs')->fields(array('license' => 'http://directory.fsf.org/wiki/License:BSD_3Clause'))->condition('license', 'http://www.xfree86.org/3.3.6/COPYRIGHT2.html#5')->execute();
 }

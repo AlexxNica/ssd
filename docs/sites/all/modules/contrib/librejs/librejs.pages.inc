@@ -9,7 +9,11 @@ function librejs_jslicense() {
   $variables['header'] = array(t('Script'), t('License'), t('Source'));
   foreach (variable_get('drupal_js_cache_files', array()) as $cache => $file) {
     $url = file_create_url($file);
-    $variables['rows'][] = array(l(basename($file), $url), l('GNU-GPL-3.0-or-later', 'http://www.gnu.org/licenses/gpl-3.0.html'), l(t('See below'), $url));
+    $variables['rows'][] = array(
+      l(basename($file), $url),
+      l('GNU-GPL-3.0-or-later', 'http://www.gnu.org/licenses/gpl-3.0.html'),
+      l(t('See below'), $url),
+    );
   }
   $javascript = db_query('SELECT data, license, source, version, type FROM {librejs} ORDER BY data');
   foreach ($javascript as $js) {
@@ -28,7 +32,11 @@ function librejs_jslicense() {
     if (!$js->source) {
       $js->source = $url;
     }
-    $variables['rows'][] = array(l(basename($js->data), $url), $js->license ? l($licenses[$js->license], $js->license) : t('Other'), l(basename(parse_url($js->source, PHP_URL_PATH)), $js->source));
+    $variables['rows'][] = array(
+      l(basename($js->data), $url),
+      $js->license ? l($licenses[$js->license], $js->license) : t('Other'),
+      l(basename(parse_url($js->source, PHP_URL_PATH)), $js->source),
+    );
   }
   return theme('table', $variables);
 }

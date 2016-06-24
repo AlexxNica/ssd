@@ -56,7 +56,7 @@ function librejs_licenses() {
     'http://www.gnu.org/licenses/lgpl-3.0.html' => 'GNU-LGPL-3.0-or-later',
     'http://www.gnu.org/licenses/agpl-3.0.html' => 'GNU-AGPL-3.0-or-later',
     'http://www.apache.org/licenses/LICENSE-2.0' => 'Apache-2.0-only',
-    'http://www.xfree86.org/3.3.6/COPYRIGHT2.html#5' => 'Modified-BSD',
+    'http://directory.fsf.org/wiki/License:BSD_3Clause' => 'Modified-BSD',
     'http://creativecommons.org/publicdomain/zero/1.0/legalcode' => 'CC0-1.0-only',
     'http://www.jclark.com/xml/copying.txt' => 'Expat',
     'http://www.mozilla.org/MPL/2.0' => 'MPL-2.0-or-later',
@@ -74,6 +74,7 @@ function librejs_menu() {
     'title' => 'JavaScript license information',
     'description' => 'License and source code of JavaScript used by the site.',
     'file' => 'librejs.pages.inc',
+    'options' => array('attributes' => array('rel' => 'jslicense')),
   );
   $items['admin/config/development/librejs'] = array(
     'access arguments' => array('administer site configuration'),
@@ -93,7 +94,7 @@ function librejs_page_build(&$page) {
   if (user_access('access jslicense')) {
     $page['page_bottom']['librejs'] = array(
       '#type' => 'markup',
-      '#markup' => l('JavaScript license information', 'librejs/jslicense', array('attributes' => array('rel' => 'jslicense', 'style' => 'display: none'))),
+      '#markup' => l(t('JavaScript license information'), 'librejs/jslicense', array('attributes' => array('rel' => 'jslicense', 'style' => 'display: none'))),
     );
   }
 }

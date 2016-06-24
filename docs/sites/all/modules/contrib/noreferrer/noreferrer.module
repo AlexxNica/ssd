@@ -5,8 +5,8 @@
  */
 function noreferrer_menu() {
   $items['admin/config/search/noreferrer'] = array(
-    'title' => 'No referrer',
-    'description' => 'Configure no referrer settings.',
+    'title' => 'Referrer policy',
+    'description' => 'Configure referrer policy settings.',
     'page callback' => 'drupal_get_form',
     'page arguments' => array('noreferrer_admin'),
     'access arguments' => array('administer site configuration'),
@@ -19,6 +19,9 @@ function noreferrer_menu() {
  * Implements hook_preprocess_link().
  */
 function noreferrer_preprocess_link(&$variables) {
+  if (!variable_get('noreferrer_link', TRUE)) {
+    return;
+  }
   if (!url_is_external($variables['path']) || noreferrer_is_whitelisted($variables['path'])) {
     return;
   }
@@ -44,15 +47,6 @@ function noreferrer_is_whitelisted($url) {
     }
   }
   return FALSE;
-}
-
-/**
- * Implements hook_ctools_plugin_api().
- */
-function noreferrer_ctools_plugin_api($owner, $api) {
-  if ($owner == 'metatag' && $api == 'metatag') {
-    return array('version' => 1);
-  }
 }
 
 /**

@@ -139,15 +139,32 @@ class Fastly {
   public function purgePath($path) {
     $this->purgeQuery($path);
   }
+
   /**
    * Performs an actual purge request for the given url.
    */
-  public function purgeQuery($url) {
-    $url = url($url, array('absolute' => TRUE, 'alias' => TRUE));
+  public function purgeQuery($original_url) {
+    $url = url($original_url, array('absolute' => TRUE, 'alias' => TRUE));
     $options = array('method' => 'PURGE');
     if (module_exists('httprl')) {
       // We just want to execute the queue but not wait.
       $options['blocking'] = FALSE;
+
+      // Support for alternative PURGE endpoint.
+      $purge_endpoint = variable_get('fastly_purge_endpoint', NULL);
+      if ($purge_endpoint) {
+        // Extract Host header from URL.
+        $parsed_url = @parse_url($url);
+        $default_port = $parsed_url['scheme'] == 'https' ? 443 : 80;
+        $port = isset($parsed_url['port']) ? $parsed_url['port'] : $default_port;
+        $options['headers']['Host'] = $parsed_url['host'] . ($port != $default_port ? ':' . $port : '');
+        // Use the purge endpoint as base URL for the PURGE request.
+        $url = url($original_url, array(
+          'absolute' => TRUE,
+          'alias' => TRUE,
+          'base_url' => $purge_endpoint
+        ));
+      }
       httprl_request(array($url), $options);
       httprl_send_request();
     }
@@ -160,7 +177,18 @@ class Fastly {
    * Purge cache by key.
    */
   public function purgeKey($key) {
-    $this->query('service/' . $this->service_id . '/purge/' . $key, array(), 'POST');
+    $this->purgeKeys(array($key));
+  }
+
+  /**
+   * Purge cache by multiple keys.
+   */
+  public function purgeKeys(array $keys) {
+    $uris = array();
+    foreach ($keys as $key) {
+      $uris[] = 'service/' . $this->service_id . '/purge/' . $key;
+    }
+    $this->queryMultiple($uris, array(), 'POST');
   }
 
   /**
@@ -208,5 +236,43 @@ class Fastly {
     $result = drupal_http_request($url, $options);
 
     return $result;
+  }
+
+  /**
+   * Performs multiple HTTP queries to Fastly API server without returning a result.
+   *
+   * @param array $uris
+   *   The URIs to use for the request, appended to the host.
+   * @param array $data
+   *   (optional) Data to send with the request.
+   * @param string $method
+   *   (optional) The method to use for the request, defaults to GET.
+   * @param array $headers
+   *   (optional) An array of headers to send with the request.
+   */
+  protected function queryMultiple(array $uris, $data = array(), $method = 'GET', $headers = array()) {
+    foreach ($uris as $uri) {
+      $urls[] = $this->host . $uri;
+    }
+
+    $options['headers'] = $headers;
+    $options['method'] = $method;
+    $options['data'] = http_build_query($data);
+
+    if ($this->api_key) {
+      $options['headers']['Fastly-Key'] = $this->api_key;
+    }
+
+    if (module_exists('httprl')) {
+      // We just want to execute the queue but not wait.
+      $options['blocking'] = FALSE;
+      httprl_request($urls, $options);
+      httprl_send_request();
+    }
+    else {
+      foreach ($urls as $url) {
+        drupal_http_request($url, $options);
+      }
+    }
   }
 }

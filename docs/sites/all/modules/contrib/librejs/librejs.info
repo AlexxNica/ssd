@@ -7,9 +7,9 @@ files[] = librejs.install
 files[] = librejs.module
 files[] = librejs.admin.inc
 
-; Information added by drupal.org packaging script on 2012-11-27
-version = "7.x-1.1"
+; Information added by Drupal.org packaging script on 2015-11-22
+version = "7.x-1.2"
 core = "7.x"
 project = "librejs"
-datestamp = "1354041826"
+datestamp = "1448208843"
 
