@@ -118,7 +118,7 @@ function raven_requirements($phase) {
 }
 
 /**
- * Implements hook_update_N().
+ * Enables X Autoload module.
  */
 function raven_update_7000(&$sandbox) {
   if (!module_enable(array('xautoload'))) {

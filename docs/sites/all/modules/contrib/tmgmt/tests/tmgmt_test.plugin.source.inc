@@ -102,7 +102,7 @@ class TMGMTTestSourcePluginController extends TMGMTDefaultSourcePluginController
    * {@inheritdoc}
    */
   public function getExistingLangCodes(TMGMTJobItem $job_item) {
-    return array();
+    return array_keys(language_list());
   }
 
   /**
