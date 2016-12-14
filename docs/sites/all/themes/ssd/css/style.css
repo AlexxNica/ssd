@@ -7140,7 +7140,7 @@ ul.secondary li a {
   padding: 15px 20px 10px;
   border-radius: 10px;
   max-width: 80%;
-  margin: 15px auto 35px auto;
+  margin: 20px auto 30px;
   font-size: 80%;
   color: #38605F;
 }
@@ -7166,6 +7166,7 @@ ul.secondary li a {
   background-repeat: no-repeat;
   background-position: 14px 14px;
   min-height: 90px;
+  margin: 20px 0;
 }
 
 .warning {
@@ -7178,6 +7179,7 @@ ul.secondary li a {
   background-repeat: no-repeat;
   background-position: 14px 14px;
   min-height: 90px;
+  margin: 20px 0;
 }
 
 footer.footer {
