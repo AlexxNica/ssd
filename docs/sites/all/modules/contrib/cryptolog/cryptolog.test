@@ -1,0 +1,41 @@
+<?php
+
+/**
+ * @file
+ * Definition of CryptologTest.
+ */
+
+/**
+ * Tests Cryptolog module.
+ *
+ * @group cryptolog
+ */
+class CryptologTest extends DrupalWebTestCase {
+  /**
+   * Implements getInfo().
+   */
+  public static function getInfo() {
+    return array(
+      'name' => t('Cryptolog'),
+      'description' => t('Tests for Cryptolog module.'),
+      'group' => t('Cryptolog'),
+    );
+  }
+
+  /**
+   * Implements setUp().
+   */
+  function setUp() {
+    parent::setUp('cryptolog');
+  }
+
+  /**
+   * Tests that cryptolog module can be installed.
+   */
+  function testCryptologRequirements() {
+    $admin_user = $this->drupalCreateUser(array('administer site configuration'));
+    $this->drupalLogin($admin_user);
+    $this->drupalGet('admin/reports/status');
+    $this->assertText('Cryptolog');
+  }
+}

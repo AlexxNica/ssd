@@ -5,7 +5,7 @@
  */
 function cryptolog_initialize() {
   // If no supported backends are found then return.
-  foreach (array('dmemcache_set' => 'dmemcache_get', 'apc_store' => 'apc_fetch', 'xcache_set' => 'xcache_get') as $set => $get) {
+  foreach (array('dmemcache_set' => 'dmemcache_get', 'apcu_store' => 'apcu_fetch', 'apc_store' => 'apc_fetch', 'xcache_set' => 'xcache_get') as $set => $get) {
     if (function_exists($set)) {
       $cryptolog = $get('cryptolog');
       $day = gmdate('zY');
