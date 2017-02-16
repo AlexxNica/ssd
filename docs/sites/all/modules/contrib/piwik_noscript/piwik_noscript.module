@@ -69,7 +69,7 @@ function piwik_noscript_options() {
  */
 function piwik_noscript_image(array $options) {
   return theme('image', array(
-    'path' => url(variable_get('piwik_url_https', '') . 'piwik.php', $options),
+    'path' => url(variable_get('piwik_url_https', '') . 'js/', $options),
     'width' => 0,
     'height' => 0,
     'attributes' => array(
